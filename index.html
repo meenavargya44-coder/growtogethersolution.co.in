@@ -294,6 +294,7 @@ footer span { color: var(--blue-light); }
     <li><a href="#faq">FAQ</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
+  <button id="themeToggle" onclick="toggleTheme()" style="background:transparent;border:1px solid rgba(255,255,255,0.2);color:#fff;width:38px;height:38px;border-radius:50%;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;transition:all 0.3s;margin-right:8px;" title="Toggle Dark/Light mode">🌙</button>
   <a href="#contact" class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'});return false;">Hire Me</a>
 </nav>
 
@@ -303,6 +304,9 @@ footer span { color: var(--blue-light); }
     <div class="hero-badge">Available for freelance work</div>
     <h1>Hi, I'm <span>Meena Vargya</span><br>Digital Content &amp; Marketing Expert</h1>
     <p class="hero-desc">I help businesses grow online with powerful content, social media management, professional presentations, and smart email strategies. 6+ years of experience, self-taught and passionate.</p>
+<div style="font-size:18px;font-weight:600;color:#74aef9;margin-bottom:28px;min-height:28px;">
+  I am a <span id="typingText" style="border-right:2px solid #74aef9;padding-right:3px;"></span>
+</div>
     <div class="hero-btns">
       <a href="#services" class="btn-primary">View My Services</a>
       <a href="https://wa.me/916354662372" target="_blank" class="btn-wa">
@@ -311,9 +315,9 @@ footer span { color: var(--blue-light); }
       </a>
     </div>
     <div class="hero-stats">
-      <div class="stat"><div class="stat-num">50+</div><div class="stat-label">Projects done</div></div>
-      <div class="stat"><div class="stat-num">30+</div><div class="stat-label">Happy clients</div></div>
-      <div class="stat"><div class="stat-num">6+</div><div class="stat-label">Years exp.</div></div>
+      <div class="stat"><div class="stat-num counter" data-target="50">0</div><div class="stat-label">Projects done</div></div>
+      <div class="stat"><div class="stat-num counter" data-target="30">0</div><div class="stat-label">Happy clients</div></div>
+      <div class="stat"><div class="stat-num counter" data-target="6">0</div><div class="stat-label">Years exp.</div></div>
     </div>
   </div>
   <div class="hero-visual">
@@ -1167,6 +1171,151 @@ function toggleFaq(el) {
 <footer>
   &copy; 2026 <span>SmartBiz Solutions</span> — All rights reserved &nbsp;·&nbsp; Rajkot, Gujarat, India
 </footer>
+
+<style>
+/* ── SCROLL ANIMATIONS ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+.reveal-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ── DARK/LIGHT THEME ── */
+body.light-mode {
+  --color-background-primary: #ffffff;
+  --color-background-secondary: #f8fafc;
+  --color-text-primary: #1a202c;
+  --color-text-secondary: #718096;
+  --color-border-tertiary: #e2e8f0;
+}
+body.light-mode nav { background: rgba(255,255,255,0.97) !important; border-bottom: 1px solid #e2e8f0 !important; }
+body.light-mode .nav-logo { color: #1a202c !important; }
+body.light-mode .nav-links a { color: #4a5568 !important; }
+body.light-mode .nav-links a:hover { color: #1a202c !important; }
+body.light-mode #themeToggle { border-color: #e2e8f0 !important; color: #1a202c !important; }
+</style>
+
+<script>
+// ── TYPING ANIMATION ──
+(function(){
+  const words = [
+    "Content Writer ✍️",
+    "Social Media Manager 📱",
+    "PPT Designer 📊",
+    "CRM Developer 💼",
+    "Data Manager 🗄️",
+    "Business Trainer 🎤",
+    "Email Specialist 📧"
+  ];
+  let wi = 0, ci = 0, deleting = false;
+  const el = document.getElementById('typingText');
+  if (!el) return;
+  function type() {
+    const word = words[wi];
+    if (!deleting) {
+      el.textContent = word.substring(0, ci + 1);
+      ci++;
+      if (ci === word.length) { deleting = true; setTimeout(type, 1800); return; }
+    } else {
+      el.textContent = word.substring(0, ci - 1);
+      ci--;
+      if (ci === 0) { deleting = false; wi = (wi + 1) % words.length; }
+    }
+    setTimeout(type, deleting ? 60 : 100);
+  }
+  setTimeout(type, 800);
+})();
+
+// ── ANIMATED COUNTER ──
+function animateCounter(el) {
+  const target = parseInt(el.getAttribute('data-target'));
+  const duration = 2000;
+  const step = target / (duration / 16);
+  let current = 0;
+  const timer = setInterval(() => {
+    current += step;
+    if (current >= target) {
+      el.textContent = target + '+';
+      clearInterval(timer);
+    } else {
+      el.textContent = Math.floor(current) + '+';
+    }
+  }, 16);
+}
+
+// ── SCROLL REVEAL ──
+function setupReveal() {
+  // Add reveal class to all sections
+  const sections = document.querySelectorAll('section');
+  sections.forEach((s, i) => {
+    if (i % 3 === 1) s.classList.add('reveal-left');
+    else if (i % 3 === 2) s.classList.add('reveal-right');
+    else s.classList.add('reveal');
+  });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        // Animate counters when hero is visible
+        if (entry.target.querySelector('.counter')) {
+          entry.target.querySelectorAll('.counter').forEach(animateCounter);
+        }
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => observer.observe(el));
+}
+
+// ── DARK / LIGHT TOGGLE ──
+function toggleTheme() {
+  const body = document.body;
+  const btn = document.getElementById('themeToggle');
+  if (body.classList.contains('light-mode')) {
+    body.classList.remove('light-mode');
+    btn.textContent = '🌙';
+    localStorage.setItem('theme', 'dark');
+  } else {
+    body.classList.add('light-mode');
+    btn.textContent = '☀️';
+    localStorage.setItem('theme', 'light');
+  }
+}
+
+// Load saved theme
+window.addEventListener('DOMContentLoaded', () => {
+  if (localStorage.getItem('theme') === 'light') {
+    document.body.classList.add('light-mode');
+    const btn = document.getElementById('themeToggle');
+    if (btn) btn.textContent = '☀️';
+  }
+  setupReveal();
+});
+</script>
 
 <script>
 function submitForm(e) {
