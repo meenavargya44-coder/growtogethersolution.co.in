@@ -3,371 +3,279 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Business Growth Services | Strategy, Marketing & Support — SmartBiz Solutions</title>
-<meta name="description" content="We help businesses grow with strategy, staff training, marketing, and complete support services. Serving clients worldwide. Get free consultation today.">
-<meta name="keywords" content="business growth services, staff training, business strategy, marketing support, CRM, content writing, PPT design, social media management India">
-<meta name="author" content="Meena Vargya - SmartBiz Solutions">
+<title>Business Growth Services | SmartBiz Solutions</title>
+<meta name="description" content="We help businesses grow with strategy, staff training, marketing, and complete support services. Serving clients worldwide.">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
 <style>
-/* ── RESET & BASE ── */
 *{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-body{font-family:'Plus Jakarta Sans',sans-serif;background:#fff;color:#1a1a2e;line-height:1.6;overflow-x:hidden;}
+html,body{height:100%;font-family:'Plus Jakarta Sans',sans-serif;color:#1a1a2e;background:#fff;overflow:hidden;}
 
-/* ── COLOR TOKENS ── */
+/* ── COLORS ── */
 :root{
-  --primary:#6C3CE1;
-  --primary-light:#8B5CF6;
-  --primary-pale:#F3EEFF;
-  --accent:#FF6B2B;
-  --accent-light:#FF8C55;
-  --accent-pale:#FFF1EB;
-  --teal:#00B4A6;
-  --teal-pale:#E6FAF9;
-  --gold:#F59E0B;
-  --green:#10B981;
-  --dark:#0F0A1E;
-  --navy:#1E1B4B;
-  --text:#1a1a2e;
-  --text-mid:#4B5563;
-  --text-light:#9CA3AF;
-  --border:#E5E7EB;
-  --bg:#FFFFFF;
-  --bg2:#F9FAFB;
-  --bg3:#F3F4F6;
-  --radius:14px;
-  --shadow:0 4px 24px rgba(108,60,225,0.08);
-  --shadow-lg:0 12px 48px rgba(108,60,225,0.15);
+  --p:#7C3AED;--pl:#8B5CF6;--pp:#F5F3FF;
+  --a:#F97316;--al:#FB923C;--ap:#FFF7ED;
+  --t:#0D9488;--tp:#F0FDFA;
+  --g:#10B981;--gold:#F59E0B;
+  --dark:#0F0A1E;--navy:#1E1B4B;
+  --text:#111827;--mid:#6B7280;--light:#9CA3AF;
+  --border:#E5E7EB;--bg:#F9FAFB;--white:#FFFFFF;
+  --sh:0 4px 24px rgba(124,58,237,0.08);
+  --shl:0 16px 48px rgba(124,58,237,0.16);
+  --r:14px;
 }
 
-/* ── NAV ── */
-nav{
-  position:sticky;top:0;z-index:1000;
-  background:rgba(255,255,255,0.95);
-  backdrop-filter:blur(16px);
-  border-bottom:1px solid var(--border);
-  padding:0 48px;
-  display:flex;align-items:center;justify-content:space-between;
-  height:68px;
-}
-.nav-logo{font-size:20px;font-weight:800;color:var(--dark);text-decoration:none;display:flex;align-items:center;gap:8px;}
-.nav-logo .logo-dot{width:10px;height:10px;border-radius:50%;background:var(--accent);}
-.nav-links{display:flex;gap:4px;list-style:none;}
-.nav-links a{padding:8px 14px;border-radius:8px;font-size:14px;font-weight:500;color:var(--text-mid);text-decoration:none;transition:all 0.2s;}
-.nav-links a:hover{background:var(--primary-pale);color:var(--primary);}
-.nav-links a.active{background:var(--primary-pale);color:var(--primary);}
-.nav-right{display:flex;align-items:center;gap:10px;}
-.btn-wa-sm{display:flex;align-items:center;gap:6px;background:#25D366;color:#fff;padding:8px 16px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;}
-.btn-cta-sm{background:var(--primary);color:#fff;padding:8px 18px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;transition:background 0.2s;}
-.btn-cta-sm:hover{background:var(--primary-light);}
-#themeToggle{background:var(--bg3);border:none;width:36px;height:36px;border-radius:8px;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;}
+/* ── LAYOUT ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:64px;background:rgba(255,255,255,0.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 48px;}
+.logo{font-size:19px;font-weight:800;color:var(--dark);text-decoration:none;display:flex;align-items:center;gap:8px;}
+.logo-dot{width:9px;height:9px;border-radius:50%;background:var(--a);}
+.nav-links{display:flex;gap:2px;list-style:none;}
+.nav-links a{padding:7px 14px;border-radius:8px;font-size:14px;font-weight:500;color:var(--mid);text-decoration:none;transition:all 0.2s;cursor:pointer;}
+.nav-links a:hover,.nav-links a.active{background:var(--pp);color:var(--p);}
+.nav-btns{display:flex;gap:8px;align-items:center;}
+.nwa{background:#25D366;color:#fff;padding:8px 16px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;display:flex;align-items:center;gap:6px;}
+.ncta{background:var(--p);color:#fff;padding:8px 18px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;transition:background 0.2s;}
+.ncta:hover{background:var(--pl);}
 
-/* ── SECTIONS BASE ── */
-section{padding:96px 48px;}
-.section-label{font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--primary);margin-bottom:10px;}
-.section-title{font-family:'Playfair Display',serif;font-size:clamp(28px,4vw,42px);color:var(--dark);line-height:1.2;margin-bottom:16px;}
-.section-sub{font-size:16px;color:var(--text-mid);max-width:560px;line-height:1.8;}
-.container{max-width:1100px;margin:0 auto;}
+/* ── PAGES ── */
+.pages{position:fixed;top:64px;left:0;right:0;bottom:0;overflow:hidden;}
+.page{position:absolute;inset:0;overflow-y:auto;opacity:0;pointer-events:none;transform:translateY(20px);transition:opacity 0.4s ease,transform 0.4s ease;}
+.page.active{opacity:1;pointer-events:all;transform:translateY(0);}
 
-/* ── HERO ── */
-.hero{
-  background:linear-gradient(135deg,#0F0A1E 0%,#1E1B4B 50%,#2D1B69 100%);
-  padding:120px 48px 96px;
-  position:relative;overflow:hidden;
-  min-height:92vh;display:flex;align-items:center;
-}
-.hero::before{content:'';position:absolute;top:-200px;right:-200px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(108,60,225,0.3) 0%,transparent 70%);}
-.hero::after{content:'';position:absolute;bottom:-100px;left:200px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(255,107,43,0.15) 0%,transparent 70%);}
-.hero-inner{display:flex;align-items:center;gap:64px;max-width:1100px;margin:0 auto;width:100%;position:relative;z-index:1;}
+/* ── HOME PAGE ── */
+#home{background:linear-gradient(135deg,#0F0A1E 0%,#1E1B4B 60%,#2D1B69 100%);}
+.home-inner{min-height:calc(100vh - 64px);display:flex;flex-direction:column;justify-content:center;padding:48px;max-width:1200px;margin:0 auto;}
+.home-hero{display:flex;align-items:center;gap:64px;margin-bottom:64px;}
 .hero-left{flex:1;}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:#fff;font-size:13px;font-weight:500;padding:8px 18px;border-radius:30px;margin-bottom:28px;}
-.hero-badge .badge-dot{width:8px;height:8px;border-radius:50%;background:#4ADE80;animation:pulse 2s infinite;}
-@keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(74,222,128,0.4);}50%{opacity:0.8;box-shadow:0 0 0 6px rgba(74,222,128,0);}}
-.hero h1{font-family:'Playfair Display',serif;font-size:clamp(38px,5vw,62px);color:#fff;line-height:1.15;margin-bottom:10px;}
-.hero h1 em{font-style:italic;background:linear-gradient(90deg,#A78BFA,#FB923C);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-.hero-sub{font-size:17px;color:rgba(255,255,255,0.7);line-height:1.8;margin-bottom:12px;max-width:520px;}
-.hero-typing{font-size:18px;font-weight:600;color:#A78BFA;margin-bottom:36px;min-height:28px;}
-.hero-typing span{border-right:2px solid #A78BFA;padding-right:3px;}
-.hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:48px;}
-.btn-primary{background:linear-gradient(135deg,var(--primary),var(--accent));color:#fff;padding:14px 28px;border-radius:12px;font-size:15px;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:8px;box-shadow:0 8px 24px rgba(108,60,225,0.4);transition:transform 0.2s,box-shadow 0.2s;}
-.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(108,60,225,0.5);}
-.btn-wa{background:#25D366;color:#fff;padding:14px 28px;border-radius:12px;font-size:15px;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:8px;box-shadow:0 8px 24px rgba(37,211,102,0.3);transition:transform 0.2s;}
-.btn-wa:hover{transform:translateY(-2px);}
-.btn-wa svg{width:18px;height:18px;fill:#fff;}
-.hero-stats{display:flex;gap:32px;}
-.hero-stat .num{font-size:32px;font-weight:800;color:#fff;line-height:1;}
-.hero-stat .lbl{font-size:12px;color:rgba(255,255,255,0.5);margin-top:4px;}
-.hero-stat-divider{width:1px;background:rgba(255,255,255,0.15);}
-.hero-right{flex-shrink:0;position:relative;}
-.hero-card{background:rgba(255,255,255,0.08);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.15);border-radius:24px;padding:28px;width:320px;}
-.hero-card .avatar{width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--accent));display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:700;color:#fff;margin:0 auto 16px;overflow:hidden;}
-.hero-card .avatar img{width:100%;height:100%;object-fit:cover;border-radius:50%;}
-.hero-card .name{font-size:18px;font-weight:700;color:#fff;text-align:center;margin-bottom:4px;}
-.hero-card .role{font-size:13px;color:rgba(255,255,255,0.6);text-align:center;margin-bottom:20px;}
-.hero-card .tags{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;}
-.hero-card .tag{background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.8);font-size:11px;font-weight:600;padding:4px 10px;border-radius:20px;}
-.floating-badge{position:absolute;background:#fff;border-radius:12px;padding:10px 14px;box-shadow:0 8px 32px rgba(0,0,0,0.15);display:flex;align-items:center;gap:8px;font-size:12px;font-weight:600;color:var(--dark);}
-.fb1{top:-20px;right:-20px;}
-.fb2{bottom:20px;left:-30px;}
-.fb-icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;}
+.badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:#fff;font-size:12px;font-weight:500;padding:7px 16px;border-radius:30px;margin-bottom:24px;}
+.badge-dot{width:7px;height:7px;border-radius:50%;background:#4ADE80;animation:blink 2s infinite;}
+@keyframes blink{0%,100%{box-shadow:0 0 0 0 rgba(74,222,128,0.5);}50%{box-shadow:0 0 0 6px rgba(74,222,128,0);}}
+.hero-h1{font-family:'Playfair Display',serif;font-size:clamp(36px,5vw,58px);color:#fff;line-height:1.12;margin-bottom:16px;}
+.hero-h1 em{font-style:italic;background:linear-gradient(90deg,#A78BFA,#FB923C);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.hero-sub{font-size:16px;color:rgba(255,255,255,0.65);line-height:1.8;margin-bottom:12px;max-width:500px;}
+.typing-line{font-size:17px;font-weight:600;color:#A78BFA;margin-bottom:32px;min-height:26px;}
+.typing-line span{border-right:2px solid #A78BFA;padding-right:3px;}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:40px;}
+.btn-p{background:linear-gradient(135deg,var(--p),var(--a));color:#fff;padding:13px 26px;border-radius:12px;font-size:14px;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:8px;box-shadow:0 8px 24px rgba(124,58,237,0.35);transition:transform 0.2s;}
+.btn-p:hover{transform:translateY(-2px);}
+.btn-w{background:#25D366;color:#fff;padding:13px 26px;border-radius:12px;font-size:14px;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:8px;box-shadow:0 8px 24px rgba(37,211,102,0.3);transition:transform 0.2s;}
+.btn-w:hover{transform:translateY(-2px);}
+.btn-w svg{width:17px;height:17px;fill:#fff;}
+.stats{display:flex;gap:28px;}
+.stat .n{font-size:30px;font-weight:800;color:#fff;line-height:1;}
+.stat .l{font-size:11px;color:rgba(255,255,255,0.45);margin-top:3px;}
+.stat-d{width:1px;background:rgba(255,255,255,0.12);}
+.hero-right{flex-shrink:0;}
+.hcard{background:rgba(255,255,255,0.09);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.15);border-radius:20px;padding:24px;width:280px;text-align:center;position:relative;}
+.hcard-av{width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,var(--p),var(--a));display:flex;align-items:center;justify-content:center;margin:0 auto 12px;overflow:hidden;font-size:24px;font-weight:700;color:#fff;}
+.hcard-av img{width:100%;height:100%;object-fit:cover;border-radius:50%;}
+.hcard-name{font-size:16px;font-weight:700;color:#fff;margin-bottom:2px;}
+.hcard-role{font-size:12px;color:rgba(255,255,255,0.5);margin-bottom:16px;}
+.hcard-tags{display:flex;flex-wrap:wrap;gap:5px;justify-content:center;}
+.hcard-tag{background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.75);font-size:11px;font-weight:500;padding:3px 9px;border-radius:20px;}
+.fb{position:absolute;background:#fff;border-radius:10px;padding:8px 12px;box-shadow:0 8px 24px rgba(0,0,0,0.15);display:flex;align-items:center;gap:7px;font-size:11px;font-weight:600;color:var(--text);white-space:nowrap;}
+.fb1{top:-14px;right:-14px;}
+.fb2{bottom:16px;left:-30px;}
+.fb-ic{width:28px;height:28px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:14px;}
 
-/* ── CORE SERVICES ── */
-.core-services{background:var(--bg);}
-.cs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;margin-top:48px;}
-.cs-card{border-radius:20px;padding:36px;position:relative;overflow:hidden;transition:transform 0.3s,box-shadow 0.3s;}
-.cs-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);}
-.cs-card.purple{background:linear-gradient(135deg,#F3EEFF,#EDE9FF);}
-.cs-card.orange{background:linear-gradient(135deg,#FFF1EB,#FFE8DD);}
-.cs-card.teal{background:linear-gradient(135deg,#E6FAF9,#D1F5F3);}
-.cs-icon{width:60px;height:60px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:20px;}
-.cs-card.purple .cs-icon{background:rgba(108,60,225,0.15);}
-.cs-card.orange .cs-icon{background:rgba(255,107,43,0.15);}
-.cs-card.teal .cs-icon{background:rgba(0,180,166,0.15);}
-.cs-card h3{font-size:20px;font-weight:700;margin-bottom:10px;}
-.cs-card.purple h3{color:var(--primary);}
-.cs-card.orange h3{color:var(--accent);}
-.cs-card.teal h3{color:var(--teal);}
-.cs-card p{font-size:14px;color:var(--text-mid);line-height:1.8;margin-bottom:20px;}
-.cs-list{display:flex;flex-direction:column;gap:8px;}
-.cs-list li{font-size:13px;color:var(--text-mid);display:flex;align-items:center;gap:8px;list-style:none;}
-.cs-list li::before{content:'✓';font-weight:700;font-size:12px;}
-.cs-card.purple .cs-list li::before{color:var(--primary);}
-.cs-card.orange .cs-list li::before{color:var(--accent);}
-.cs-card.teal .cs-list li::before{color:var(--teal);}
-.global-bar{margin-top:48px;background:linear-gradient(135deg,var(--dark),var(--navy));border-radius:16px;padding:24px 32px;display:flex;align-items:center;gap:16px;}
-.global-bar .globe{font-size:32px;}
-.global-bar p{font-size:16px;color:rgba(255,255,255,0.8);flex:1;}
-.global-bar strong{color:#fff;}
-.global-bar a{background:var(--accent);color:#fff;padding:10px 22px;border-radius:10px;font-size:14px;font-weight:700;text-decoration:none;white-space:nowrap;}
+/* HOME — Core services cards */
+.home-services{padding-bottom:48px;}
+.home-services h2{font-family:'Playfair Display',serif;font-size:clamp(24px,3vw,36px);color:#fff;margin-bottom:8px;text-align:center;}
+.home-services p{font-size:14px;color:rgba(255,255,255,0.5);text-align:center;margin-bottom:32px;}
+.cs-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;}
+.cs{border-radius:18px;padding:28px;position:relative;overflow:hidden;transition:transform 0.3s;}
+.cs:hover{transform:translateY(-4px);}
+.cs.v1{background:linear-gradient(135deg,rgba(124,58,237,0.25),rgba(124,58,237,0.1));border:1px solid rgba(124,58,237,0.3);}
+.cs.v2{background:linear-gradient(135deg,rgba(249,115,22,0.2),rgba(249,115,22,0.08));border:1px solid rgba(249,115,22,0.3);}
+.cs.v3{background:linear-gradient(135deg,rgba(13,148,136,0.2),rgba(13,148,136,0.08));border:1px solid rgba(13,148,136,0.3);}
+.cs-ic{font-size:32px;margin-bottom:14px;}
+.cs h3{font-size:17px;font-weight:700;color:#fff;margin-bottom:8px;}
+.cs p{font-size:13px;color:rgba(255,255,255,0.55);line-height:1.7;margin-bottom:14px;}
+.cs-list{list-style:none;display:flex;flex-direction:column;gap:5px;}
+.cs-list li{font-size:12px;color:rgba(255,255,255,0.65);display:flex;align-items:center;gap:7px;}
+.cs.v1 .cs-list li::before{content:'✓';color:#A78BFA;font-weight:700;}
+.cs.v2 .cs-list li::before{content:'✓';color:#FB923C;font-weight:700;}
+.cs.v3 .cs-list li::before{content:'✓';color:#2DD4BF;font-weight:700;}
+.global-line{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:18px 24px;display:flex;align-items:center;gap:14px;margin-top:20px;}
+.global-line p{font-size:14px;color:rgba(255,255,255,0.7);flex:1;}
+.global-line strong{color:#fff;}
+.global-line a{background:var(--a);color:#fff;padding:9px 18px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;white-space:nowrap;}
 
-/* ── SERVICES WHEEL ── */
-.services-section{background:var(--bg2);}
-.wheel-wrap{display:flex;align-items:center;gap:64px;flex-wrap:wrap;justify-content:center;margin-top:48px;}
-.wheel-container{position:relative;width:420px;height:420px;flex-shrink:0;}
-.wheel-ring{position:absolute;top:0;left:0;width:420px;height:420px;animation:svcSpin 22s linear infinite;}
-.wheel-ring:hover{animation-play-state:paused;}
-@keyframes svcSpin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
-@keyframes svcCounter{from{transform:rotate(0deg)}to{transform:rotate(-360deg)}}
-.sv-dot{position:absolute;display:flex;flex-direction:column;align-items:center;gap:6px;}
-.dot-circle{width:66px;height:66px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;box-shadow:0 6px 20px rgba(0,0,0,0.1);animation:svcCounter 22s linear infinite;transition:transform 0.3s;}
-.wheel-ring:hover .dot-circle{animation-play-state:paused;}
-.dot-circle:hover{transform:scale(1.18)!important;}
-.dot-label{font-size:10px;font-weight:700;text-align:center;line-height:1.3;background:#fff;border-radius:8px;padding:3px 8px;box-shadow:0 2px 10px rgba(0,0,0,0.08);white-space:nowrap;animation:svcCounter 22s linear infinite;}
-.wheel-ring:hover .dot-label{animation-play-state:paused;}
-.wheel-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:130px;height:130px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--accent));display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 8px 40px rgba(108,60,225,0.4);z-index:10;}
-.wheel-center span{font-size:13px;font-weight:700;color:#fff;letter-spacing:0.5px;}
-.wheel-center small{font-size:10px;color:rgba(255,255,255,0.7);margin-top:3px;}
-.svc-list{flex:1;min-width:300px;display:flex;flex-direction:column;gap:10px;}
-.svc-list h3{font-family:'Playfair Display',serif;font-size:26px;color:var(--dark);margin-bottom:6px;}
-.svc-list p{font-size:14px;color:var(--text-mid);margin-bottom:20px;}
-.sli{display:flex;align-items:flex-start;gap:14px;padding:14px 16px;border-radius:12px;border:1.5px solid var(--border);background:#fff;transition:all 0.2s;cursor:default;}
-.sli:hover{border-color:var(--primary);transform:translateX(5px);box-shadow:var(--shadow);}
-.sli-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
-.sli-text h4{font-size:14px;font-weight:600;color:var(--dark);margin-bottom:2px;}
-.sli-text p{font-size:12px;color:var(--text-light);line-height:1.5;margin:0;}
+/* ── INNER PAGES (white/light) ── */
+.inner-page{background:#fff;padding:56px 48px;}
+.inner-page .container{max-width:1100px;margin:0 auto;}
+.section-pill{display:inline-flex;align-items:center;gap:7px;background:var(--pp);color:var(--p);font-size:11px;font-weight:700;letter-spacing:2px;padding:6px 14px;border-radius:30px;margin-bottom:14px;}
+.section-pill::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--p);}
+.page-title{font-family:'Playfair Display',serif;font-size:clamp(28px,4vw,44px);color:var(--dark);line-height:1.2;margin-bottom:14px;}
+.page-sub{font-size:15px;color:var(--mid);line-height:1.8;max-width:580px;}
+.page-header{margin-bottom:48px;}
 
-/* ── ABOUT ── */
-.about-section{background:#fff;}
-.about-wrap{display:flex;gap:64px;align-items:flex-start;flex-wrap:wrap;}
-.about-left{flex-shrink:0;width:300px;}
-.about-photo-wrap{position:relative;width:260px;}
-.about-photo{width:260px;height:300px;border-radius:24px;background:linear-gradient(135deg,var(--primary-pale),var(--accent-pale));overflow:hidden;display:flex;align-items:center;justify-content:center;}
-.about-photo img{width:100%;height:100%;object-fit:cover;}
-.about-photo .initials{font-family:'Playfair Display',serif;font-size:72px;font-weight:700;color:var(--primary);}
-.about-badge{position:absolute;bottom:-16px;right:-16px;background:#fff;border-radius:14px;padding:12px 16px;box-shadow:0 8px 32px rgba(0,0,0,0.12);display:flex;align-items:center;gap:10px;}
-.about-badge .exp{font-size:24px;font-weight:800;color:var(--primary);}
-.about-badge .exp-lbl{font-size:11px;color:var(--text-mid);line-height:1.3;}
-.about-right{flex:1;min-width:280px;}
-.about-right h2{font-family:'Playfair Display',serif;font-size:36px;color:var(--dark);margin-bottom:6px;}
-.about-role{font-size:14px;font-weight:600;color:var(--primary);margin-bottom:20px;}
-.about-right p{font-size:15px;color:var(--text-mid);line-height:1.9;margin-bottom:14px;}
-.tools-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;}
-.tool-chip{background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:6px 12px;font-size:12px;font-weight:600;color:var(--text-mid);display:flex;align-items:center;gap:6px;}
-.skills-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;}
-.skill-tag{background:var(--primary-pale);color:var(--primary);font-size:12px;font-weight:600;padding:5px 12px;border-radius:20px;}
+/* ── ABOUT PAGE ── */
+#about-page{background:linear-gradient(180deg,#fff 0%,#FAFAFF 100%);}
+.about-grid{display:grid;grid-template-columns:300px 1fr;gap:56px;align-items:start;}
+.about-photo-box{position:relative;}
+.about-img{width:100%;aspect-ratio:3/4;border-radius:20px;background:linear-gradient(135deg,var(--pp),#EDE9FF);overflow:hidden;display:flex;align-items:center;justify-content:center;}
+.about-img img{width:100%;height:100%;object-fit:cover;}
+.about-img .mono{font-family:'Playfair Display',serif;font-size:80px;font-weight:700;color:var(--p);opacity:0.5;}
+.exp-badge{position:absolute;bottom:-14px;right:-14px;background:#fff;border-radius:14px;padding:12px 16px;box-shadow:0 8px 32px rgba(0,0,0,0.12);display:flex;align-items:center;gap:10px;}
+.exp-n{font-size:28px;font-weight:800;color:var(--p);}
+.exp-l{font-size:11px;color:var(--mid);line-height:1.4;}
+.about-content h3{font-family:'Playfair Display',serif;font-size:32px;color:var(--dark);margin-bottom:4px;}
+.about-role{font-size:13px;font-weight:600;color:var(--p);margin-bottom:20px;display:flex;align-items:center;gap:8px;}
+.about-role::before{content:'';width:24px;height:2px;background:var(--p);}
+.about-content p{font-size:14px;color:var(--mid);line-height:1.9;margin-bottom:14px;}
+.tools-grid{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;}
+.tool{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:6px 12px;font-size:12px;font-weight:600;color:var(--mid);}
+.skill-row{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px;}
+.sk{background:var(--pp);color:var(--p);font-size:12px;font-weight:600;padding:5px 12px;border-radius:20px;}
 
-/* ── TEACHING ── */
-.teaching-section{background:linear-gradient(135deg,#0F0A1E 0%,#1E1B4B 100%);position:relative;overflow:hidden;}
-.teaching-section::before{content:'';position:absolute;top:-100px;right:-100px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(108,60,225,0.2) 0%,transparent 70%);}
-.teaching-inner{display:flex;gap:64px;align-items:center;flex-wrap:wrap;position:relative;z-index:1;}
-.teaching-left{flex:1;min-width:280px;}
-.teaching-left .section-label{color:#A78BFA;}
-.teaching-left .section-title{color:#fff;}
-.teaching-left .section-sub{color:rgba(255,255,255,0.6);margin-bottom:32px;}
-.teach-card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:20px;display:flex;gap:16px;margin-bottom:14px;transition:background 0.2s;}
-.teach-card:hover{background:rgba(255,255,255,0.1);}
-.teach-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
-.teach-card h4{font-size:15px;font-weight:700;color:#fff;margin-bottom:4px;}
-.teach-card p{font-size:13px;color:rgba(255,255,255,0.6);line-height:1.6;}
-.teaching-right{flex-shrink:0;width:340px;}
-.speaker-card{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:24px;padding:28px;text-align:center;}
-.speaker-avatar{width:100px;height:100px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--accent));display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:36px;font-weight:700;color:#fff;overflow:hidden;}
-.speaker-avatar img{width:100%;height:100%;object-fit:cover;}
-.speaker-name{font-size:20px;font-weight:700;color:#fff;margin-bottom:4px;}
-.speaker-title{font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:20px;}
-.speaker-stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px;}
-.spk-stat{background:rgba(255,255,255,0.06);border-radius:12px;padding:14px;}
-.spk-stat .sv{font-size:22px;font-weight:800;color:#A78BFA;}
-.spk-stat .sl{font-size:11px;color:rgba(255,255,255,0.5);margin-top:2px;}
-.book-btn{display:block;background:linear-gradient(135deg,var(--primary),var(--accent));color:#fff;padding:13px;border-radius:12px;font-size:14px;font-weight:700;text-decoration:none;text-align:center;}
+/* ── SERVICES PAGE ── */
+#services-page{background:linear-gradient(180deg,#F8F7FF 0%,#F3F0FF 100%);}
+.svc-page-wrap{display:flex;align-items:center;gap:56px;flex-wrap:wrap;}
+.wheel-box{position:relative;width:400px;height:400px;flex-shrink:0;}
+.wring{position:absolute;top:0;left:0;width:400px;height:400px;animation:spin 22s linear infinite;}
+.wring:hover{animation-play-state:paused;}
+@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes cspin{from{transform:rotate(0deg)}to{transform:rotate(-360deg)}}
+.wdot{position:absolute;display:flex;flex-direction:column;align-items:center;gap:5px;}
+.wdc{width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:23px;box-shadow:0 4px 16px rgba(0,0,0,0.1);animation:cspin 22s linear infinite;transition:transform 0.3s;}
+.wring:hover .wdc,.wring:hover .wdl{animation-play-state:paused;}
+.wdc:hover{transform:scale(1.15)!important;}
+.wdl{font-size:10px;font-weight:700;text-align:center;background:#fff;border-radius:7px;padding:3px 7px;box-shadow:0 2px 8px rgba(0,0,0,0.08);white-space:nowrap;line-height:1.3;animation:cspin 22s linear infinite;}
+.wcenter{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:120px;height:120px;border-radius:50%;background:linear-gradient(135deg,var(--p),var(--a));display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 8px 32px rgba(124,58,237,0.35);z-index:10;}
+.wcenter span{font-size:12px;font-weight:700;color:#fff;}
+.wcenter small{font-size:9px;color:rgba(255,255,255,0.7);margin-top:2px;}
+.svc-list-box{flex:1;min-width:280px;}
+.svc-list-box h3{font-family:'Playfair Display',serif;font-size:26px;color:var(--dark);margin-bottom:8px;}
+.svc-list-box p{font-size:14px;color:var(--mid);margin-bottom:22px;}
+.sli{display:flex;align-items:flex-start;gap:12px;padding:13px 15px;border-radius:12px;border:1.5px solid var(--border);background:#fff;transition:all 0.2s;margin-bottom:9px;}
+.sli:hover{border-color:var(--p);transform:translateX(4px);box-shadow:var(--sh);}
+.sli-ic{width:38px;height:38px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0;}
+.sli-t h4{font-size:13px;font-weight:600;color:var(--dark);margin-bottom:2px;}
+.sli-t p{font-size:11px;color:var(--light);margin:0;line-height:1.5;}
 
-/* ── PORTFOLIO ── */
-.portfolio-section{background:var(--bg2);}
-.portfolio-grid{display:flex;flex-direction:column;gap:20px;margin-top:48px;}
-.port-card{background:#fff;border:1px solid var(--border);border-radius:20px;padding:28px;display:flex;align-items:center;gap:28px;flex-wrap:wrap;transition:box-shadow 0.3s,transform 0.3s;}
-.port-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-3px);}
-.port-preview{flex-shrink:0;width:220px;height:140px;border-radius:14px;overflow:hidden;display:flex;align-items:center;justify-content:center;font-size:48px;}
-.port-info{flex:1;min-width:200px;}
-.port-badge{display:inline-block;font-size:11px;font-weight:700;letter-spacing:1px;padding:4px 12px;border-radius:20px;margin-bottom:10px;}
-.port-info h3{font-size:19px;font-weight:700;color:var(--dark);margin-bottom:8px;}
-.port-info p{font-size:13px;color:var(--text-mid);line-height:1.7;margin-bottom:14px;}
-.port-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px;}
-.port-tag{background:var(--bg3);color:var(--text-mid);font-size:11px;font-weight:600;padding:4px 10px;border-radius:20px;}
-.port-link{display:inline-flex;align-items:center;gap:6px;padding:10px 20px;border-radius:10px;font-size:13px;font-weight:700;text-decoration:none;transition:all 0.2s;}
+/* ── PORTFOLIO PAGE ── */
+#portfolio-page{background:#fff;}
+.pgrid{display:flex;flex-direction:column;gap:18px;}
+.pc{background:#fff;border:1px solid var(--border);border-radius:18px;padding:24px;display:flex;gap:24px;align-items:center;flex-wrap:wrap;transition:box-shadow 0.3s,transform 0.3s;}
+.pc:hover{box-shadow:var(--shl);transform:translateY(-2px);}
+.pc-prev{flex-shrink:0;width:200px;height:130px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:44px;}
+.pc-info{flex:1;min-width:200px;}
+.pc-badge{display:inline-block;font-size:10px;font-weight:700;letter-spacing:1px;padding:3px 10px;border-radius:20px;margin-bottom:8px;}
+.pc-info h3{font-size:17px;font-weight:700;color:var(--dark);margin-bottom:6px;}
+.pc-info p{font-size:12px;color:var(--mid);line-height:1.7;margin-bottom:12px;}
+.pc-tags{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:12px;}
+.pc-tag{background:var(--bg);color:var(--mid);font-size:10px;font-weight:600;padding:3px 8px;border-radius:20px;}
+.pc-link{display:inline-flex;align-items:center;gap:6px;padding:9px 18px;border-radius:9px;font-size:13px;font-weight:700;text-decoration:none;}
 
-/* ── HOW IT WORKS ── */
-.hiw-section{background:#fff;}
-.hiw-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0;margin-top:48px;position:relative;}
-.hiw-grid::before{content:'';position:absolute;top:44px;left:12%;right:12%;height:2px;background:linear-gradient(90deg,var(--primary),var(--accent),var(--teal),var(--green));opacity:0.3;z-index:0;}
-.hiw-step{text-align:center;padding:0 20px;position:relative;z-index:1;}
-.hiw-num{width:88px;height:88px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;margin:0 auto 20px;position:relative;}
-.hiw-step:nth-child(1) .hiw-num{background:linear-gradient(135deg,var(--primary-pale),#E0D4FF);}
-.hiw-step:nth-child(2) .hiw-num{background:linear-gradient(135deg,var(--accent-pale),#FFD4C0);}
-.hiw-step:nth-child(3) .hiw-num{background:linear-gradient(135deg,var(--teal-pale),#B8F0EE);}
-.hiw-step:nth-child(4) .hiw-num{background:linear-gradient(135deg,#ECFDF5,#A7F3D0);}
-.hiw-step-label{font-size:11px;font-weight:700;letter-spacing:2px;margin-bottom:8px;}
-.hiw-step:nth-child(1) .hiw-step-label{color:var(--primary);}
-.hiw-step:nth-child(2) .hiw-step-label{color:var(--accent);}
-.hiw-step:nth-child(3) .hiw-step-label{color:var(--teal);}
-.hiw-step:nth-child(4) .hiw-step-label{color:var(--green);}
-.hiw-step h4{font-size:16px;font-weight:700;color:var(--dark);margin-bottom:8px;}
-.hiw-step p{font-size:13px;color:var(--text-mid);line-height:1.7;}
+/* ── CONTACT PAGE ── */
+#contact-page{background:linear-gradient(180deg,#fff 0%,#F8F7FF 100%);}
+.cg{display:grid;grid-template-columns:1fr 1.3fr;gap:56px;}
+.cl h2{font-family:'Playfair Display',serif;font-size:34px;color:var(--dark);margin-bottom:10px;}
+.cl p{font-size:14px;color:var(--mid);line-height:1.8;margin-bottom:28px;}
+.cchips{display:flex;flex-direction:column;gap:10px;margin-bottom:24px;}
+.cc{display:flex;align-items:center;gap:10px;padding:12px 16px;border-radius:11px;text-decoration:none;font-size:13px;font-weight:600;transition:transform 0.2s;}
+.cc:hover{transform:translateX(4px);}
+.cc.ph{background:#f0fdf4;color:#15803d;border:1px solid #bbf7d0;}
+.cc.em{background:#eff6ff;color:#1d4ed8;border:1px solid #bfdbfe;}
+.cc.wa{background:#f0fdf4;color:#15803d;border:1px solid #86efac;}
+.loc-box{background:var(--pp);border-radius:12px;padding:16px 20px;}
+.loc-box .lt{font-size:12px;font-weight:700;color:var(--p);margin-bottom:6px;}
+.loc-box p{font-size:13px;color:var(--mid);margin:0;}
+.cf{background:var(--bg);border-radius:18px;padding:28px;border:1px solid var(--border);}
+.fg{margin-bottom:14px;}
+.fg label{display:block;font-size:12px;font-weight:600;color:var(--mid);margin-bottom:5px;}
+.fg input,.fg textarea,.fg select{width:100%;padding:11px 14px;border-radius:9px;border:1.5px solid var(--border);background:#fff;color:var(--text);font-size:13px;font-family:'Plus Jakarta Sans',sans-serif;outline:none;transition:border-color 0.2s;}
+.fg input:focus,.fg textarea:focus,.fg select:focus{border-color:var(--p);}
+.fg textarea{height:90px;resize:none;}
+.fr{display:flex;gap:12px;}
+.fr .fg{flex:1;}
+.fsub{width:100%;background:linear-gradient(135deg,var(--p),var(--a));color:#fff;padding:13px;border-radius:11px;font-size:14px;font-weight:700;border:none;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;}
+.fsub:hover{opacity:0.9;}
+.smsg{display:none;margin-top:14px;padding:14px;background:#f0fdf4;border:1px solid #86efac;border-radius:10px;text-align:center;}
+.smsg h4{font-size:14px;font-weight:700;color:#15803d;margin-bottom:3px;}
+.smsg p{font-size:12px;color:#166534;}
 
-/* ── PRICING ── */
-.pricing-section{background:var(--bg2);}
-.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:48px;}
-.price-card{background:#fff;border:1.5px solid var(--border);border-radius:20px;padding:32px;transition:all 0.3s;}
-.price-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);}
-.price-card.featured{border-color:var(--primary);position:relative;transform:scale(1.03);box-shadow:0 16px 48px rgba(108,60,225,0.2);}
-.price-card.featured::before{content:'Most Popular';position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--primary);color:#fff;font-size:11px;font-weight:700;padding:5px 18px;border-radius:20px;white-space:nowrap;}
-.price-tier{font-size:12px;font-weight:700;letter-spacing:2px;margin-bottom:12px;}
-.price-amount{font-size:40px;font-weight:800;color:var(--dark);margin-bottom:4px;}
-.price-amount span{font-size:16px;font-weight:400;color:var(--text-light);}
-.price-desc{font-size:13px;color:var(--text-light);margin-bottom:20px;}
-.price-divider{height:1px;background:var(--border);margin-bottom:20px;}
-.price-features{display:flex;flex-direction:column;gap:10px;margin-bottom:24px;}
-.pf{font-size:13px;color:var(--text-mid);display:flex;gap:8px;align-items:flex-start;}
-.pf .check{color:var(--green);font-weight:700;margin-top:1px;}
-.price-btn{display:block;text-align:center;padding:13px;border-radius:12px;font-size:14px;font-weight:700;text-decoration:none;transition:all 0.2s;}
-.price-btn.default{background:var(--bg3);color:var(--dark);border:1px solid var(--border);}
-.price-btn.default:hover{background:var(--bg2);}
-.price-btn.primary{background:linear-gradient(135deg,var(--primary),var(--accent));color:#fff;box-shadow:0 4px 16px rgba(108,60,225,0.3);}
-.price-btn.primary:hover{box-shadow:0 8px 24px rgba(108,60,225,0.4);}
-.price-btn.purple{background:var(--primary-pale);color:var(--primary);}
+/* ── WHY / PROCESS / PRICING / FAQ ── (inside pages) */
+.why-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:0;}
+.wy{background:var(--bg);border:1px solid var(--border);border-radius:14px;padding:24px;text-align:center;transition:all 0.3s;}
+.wy:hover{background:#fff;box-shadow:var(--sh);transform:translateY(-3px);}
+.wy-ic{font-size:32px;margin-bottom:12px;}
+.wy h4{font-size:15px;font-weight:700;color:var(--dark);margin-bottom:7px;}
+.wy p{font-size:12px;color:var(--mid);line-height:1.7;}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0;position:relative;}
+.steps::before{content:'';position:absolute;top:40px;left:10%;right:10%;height:2px;background:linear-gradient(90deg,var(--p),var(--a),var(--t),var(--g));opacity:0.25;z-index:0;}
+.step{text-align:center;padding:0 16px;position:relative;z-index:1;}
+.step-ic{width:80px;height:80px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;margin:0 auto 16px;}
+.step:nth-child(1) .step-ic{background:linear-gradient(135deg,var(--pp),#EDE9FF);}
+.step:nth-child(2) .step-ic{background:linear-gradient(135deg,var(--ap),#FFE4CC);}
+.step:nth-child(3) .step-ic{background:linear-gradient(135deg,var(--tp),#C0F5F1);}
+.step:nth-child(4) .step-ic{background:linear-gradient(135deg,#ECFDF5,#A7F3D0);}
+.step-lbl{font-size:10px;font-weight:700;letter-spacing:2px;margin-bottom:6px;}
+.step:nth-child(1) .step-lbl{color:var(--p);}
+.step:nth-child(2) .step-lbl{color:var(--a);}
+.step:nth-child(3) .step-lbl{color:var(--t);}
+.step:nth-child(4) .step-lbl{color:var(--g);}
+.step h4{font-size:14px;font-weight:700;color:var(--dark);margin-bottom:6px;}
+.step p{font-size:12px;color:var(--mid);line-height:1.6;}
+.pgrid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;}
+.pcard{background:#fff;border:1.5px solid var(--border);border-radius:18px;padding:28px;transition:all 0.3s;}
+.pcard:hover{transform:translateY(-3px);box-shadow:var(--shl);}
+.pcard.feat{border-color:var(--p);box-shadow:0 12px 40px rgba(124,58,237,0.15);position:relative;}
+.pcard.feat::before{content:'Most Popular';position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--p);color:#fff;font-size:10px;font-weight:700;padding:4px 16px;border-radius:20px;}
+.pt{font-size:11px;font-weight:700;letter-spacing:2px;margin-bottom:10px;}
+.pa{font-size:36px;font-weight:800;color:var(--dark);margin-bottom:4px;}
+.pa span{font-size:14px;font-weight:400;color:var(--light);}
+.pd{font-size:12px;color:var(--light);margin-bottom:18px;}
+.pdiv{height:1px;background:var(--border);margin-bottom:16px;}
+.pfs{display:flex;flex-direction:column;gap:8px;margin-bottom:20px;}
+.pf{font-size:12px;color:var(--mid);display:flex;gap:7px;}
+.pf .ck{color:var(--g);font-weight:700;}
+.pbtn{display:block;text-align:center;padding:12px;border-radius:10px;font-size:13px;font-weight:700;text-decoration:none;}
+.pbtn.def{background:var(--bg);color:var(--dark);border:1px solid var(--border);}
+.pbtn.pri{background:linear-gradient(135deg,var(--p),var(--a));color:#fff;}
+.pbtn.sec{background:var(--pp);color:var(--p);}
+.faq-box{max-width:680px;margin:0 auto;}
+.fi{background:#fff;border:1px solid var(--border);border-radius:12px;margin-bottom:10px;overflow:hidden;}
+.fq{padding:17px 20px;display:flex;justify-content:space-between;cursor:pointer;font-size:14px;font-weight:600;color:var(--dark);}
+.fa{display:none;padding:0 20px 16px;font-size:13px;color:var(--mid);line-height:1.8;}
+.farr{font-size:18px;color:var(--p);}
+.test-section{background:linear-gradient(135deg,var(--dark),var(--navy));border-radius:20px;padding:40px;margin-bottom:48px;}
+.tg{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px;margin-bottom:32px;}
+.tc{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:26px;position:relative;}
+.tc::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:16px 16px 0 0;}
+.tc:first-child::before{background:linear-gradient(90deg,var(--a),var(--al));}
+.tc:last-child::before{background:linear-gradient(90deg,var(--g),#34D399);}
+.tq{font-size:44px;color:rgba(255,255,255,0.07);font-family:Georgia;line-height:1;margin-bottom:8px;}
+.ts{color:#F59E0B;font-size:16px;margin-bottom:12px;}
+.tt{font-size:13px;color:rgba(255,255,255,0.75);line-height:1.85;margin-bottom:20px;font-style:italic;}
+.ta{display:flex;align-items:center;gap:12px;}
+.tav{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;color:#fff;flex-shrink:0;}
+.tn{font-size:14px;font-weight:700;color:#fff;}
+.tco{font-size:11px;margin-top:2px;}
+.tstats{display:flex;gap:32px;justify-content:center;flex-wrap:wrap;padding-top:24px;border-top:1px solid rgba(255,255,255,0.08);}
+.tst .n{font-family:'Playfair Display',serif;font-size:36px;font-weight:700;}
+.tst .l{font-size:12px;color:rgba(255,255,255,0.45);margin-top:3px;}
+.plats{text-align:center;padding-top:32px;border-top:1px solid var(--border);}
+.plats p{font-size:14px;color:var(--mid);margin-bottom:16px;}
+.pbtns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
 
-/* ── TESTIMONIALS ── */
-.testimonials-section{background:linear-gradient(135deg,var(--dark),var(--navy));}
-.test-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:24px;max-width:900px;margin:48px auto 0;}
-.test-card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:20px;padding:32px;position:relative;}
-.test-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:20px 20px 0 0;}
-.test-card:first-child::before{background:linear-gradient(90deg,var(--accent),#FF8C55);}
-.test-card:last-child::before{background:linear-gradient(90deg,var(--green),#34D399);}
-.test-quote{font-size:48px;color:rgba(255,255,255,0.08);font-family:Georgia,serif;line-height:1;margin-bottom:10px;}
-.test-stars{color:#F59E0B;font-size:18px;margin-bottom:14px;}
-.test-text{font-size:14px;color:rgba(255,255,255,0.8);line-height:1.9;margin-bottom:24px;font-style:italic;}
-.test-author{display:flex;align-items:center;gap:14px;}
-.test-avatar{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;color:#fff;flex-shrink:0;}
-.test-name{font-size:15px;font-weight:700;color:#fff;}
-.test-co{font-size:12px;margin-top:2px;}
-.test-stats{display:flex;gap:40px;justify-content:center;flex-wrap:wrap;margin-top:48px;padding-top:40px;border-top:1px solid rgba(255,255,255,0.08);}
-.ts{text-align:center;}
-.ts-num{font-family:'Playfair Display',serif;font-size:40px;font-weight:700;}
-.ts-lbl{font-size:13px;color:rgba(255,255,255,0.5);margin-top:4px;}
+/* ── WA FLOAT ── */
+.waf{position:fixed;bottom:24px;right:24px;z-index:999;width:54px;height:54px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 18px rgba(37,211,102,0.45);text-decoration:none;transition:transform 0.2s;}
+.waf:hover{transform:scale(1.1);}
+.waf svg{width:28px;height:28px;fill:#fff;}
 
-/* ── WHY CHOOSE US ── */
-.why-section{background:var(--bg);}
-.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px;margin-top:48px;}
-.why-card{background:var(--bg2);border-radius:16px;padding:28px;text-align:center;border:1px solid var(--border);transition:all 0.3s;}
-.why-card:hover{background:#fff;box-shadow:var(--shadow-lg);transform:translateY(-4px);}
-.why-icon{font-size:36px;margin-bottom:14px;}
-.why-card h4{font-size:16px;font-weight:700;color:var(--dark);margin-bottom:8px;}
-.why-card p{font-size:13px;color:var(--text-mid);line-height:1.7;}
-
-/* ── FAQ ── */
-.faq-section{background:var(--bg2);}
-.faq-list{max-width:720px;margin:48px auto 0;display:flex;flex-direction:column;gap:12px;}
-.faq-item{background:#fff;border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:box-shadow 0.2s;}
-.faq-item:hover{box-shadow:var(--shadow);}
-.faq-q{padding:20px 24px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;font-size:15px;font-weight:600;color:var(--dark);}
-.faq-arrow{font-size:20px;color:var(--primary);font-weight:300;transition:transform 0.3s;}
-.faq-a{display:none;padding:0 24px 20px;font-size:14px;color:var(--text-mid);line-height:1.8;}
-
-/* ── CONTACT ── */
-.contact-section{background:#fff;}
-.contact-wrap{display:flex;gap:64px;flex-wrap:wrap;}
-.contact-left{flex:1;min-width:280px;}
-.contact-left h2{font-family:'Playfair Display',serif;font-size:36px;color:var(--dark);margin-bottom:10px;}
-.contact-left p{font-size:15px;color:var(--text-mid);line-height:1.8;margin-bottom:32px;}
-.contact-chips{display:flex;flex-direction:column;gap:12px;margin-bottom:32px;}
-.contact-chip{display:flex;align-items:center;gap:12px;padding:14px 18px;border-radius:12px;text-decoration:none;font-size:14px;font-weight:600;transition:transform 0.2s;}
-.contact-chip:hover{transform:translateX(4px);}
-.contact-chip.phone{background:#f0fdf4;color:#15803d;border:1px solid #bbf7d0;}
-.contact-chip.email{background:#eff6ff;color:#1d4ed8;border:1px solid #bfdbfe;}
-.contact-chip.wa{background:#f0fdf4;color:#15803d;border:1px solid #86efac;}
-.contact-chip svg{width:20px;height:20px;fill:currentColor;flex-shrink:0;}
-.contact-right{flex:1;min-width:280px;background:var(--bg2);border-radius:20px;padding:32px;border:1px solid var(--border);}
-.form-group{margin-bottom:16px;}
-.form-group label{display:block;font-size:13px;font-weight:600;color:var(--text-mid);margin-bottom:6px;}
-.form-group input,.form-group textarea,.form-group select{width:100%;padding:12px 16px;border-radius:10px;border:1.5px solid var(--border);background:#fff;color:var(--dark);font-size:14px;font-family:'Plus Jakarta Sans',sans-serif;transition:border-color 0.2s;outline:none;}
-.form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:var(--primary);}
-.form-group textarea{height:100px;resize:none;}
-.form-row{display:flex;gap:14px;}
-.form-row .form-group{flex:1;}
-.form-submit{width:100%;background:linear-gradient(135deg,var(--primary),var(--accent));color:#fff;padding:14px;border-radius:12px;font-size:15px;font-weight:700;border:none;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;transition:opacity 0.2s;}
-.form-submit:hover{opacity:0.9;}
-.success-msg{display:none;margin-top:16px;padding:16px;background:#f0fdf4;border:1px solid #86efac;border-radius:12px;text-align:center;}
-.success-msg .s-icon{font-size:28px;margin-bottom:8px;}
-.success-msg h4{font-size:15px;font-weight:700;color:#15803d;margin-bottom:4px;}
-.success-msg p{font-size:13px;color:#166534;}
-
-/* ── FOOTER ── */
-footer{background:var(--dark);color:rgba(255,255,255,0.5);padding:32px 48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;font-size:13px;}
-footer .logo{font-size:18px;font-weight:800;color:#fff;}
-footer a{color:#A78BFA;text-decoration:none;}
-footer .footer-links{display:flex;gap:20px;}
-
-/* ── WHATSAPP FLOAT ── */
-.wa-float{position:fixed;bottom:28px;right:28px;z-index:999;width:58px;height:58px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,0.5);transition:transform 0.2s,box-shadow 0.2s;text-decoration:none;}
-.wa-float:hover{transform:scale(1.1);box-shadow:0 8px 32px rgba(37,211,102,0.6);}
-.wa-float svg{width:30px;height:30px;fill:#fff;}
-
-/* ── ANIMATIONS ── */
-.reveal{opacity:0;transform:translateY(36px);transition:opacity 0.7s ease,transform 0.7s ease;}
-.reveal.visible{opacity:1;transform:none;}
-.reveal-left{opacity:0;transform:translateX(-36px);transition:opacity 0.7s ease,transform 0.7s ease;}
-.reveal-left.visible{opacity:1;transform:none;}
-.reveal-right{opacity:0;transform:translateX(36px);transition:opacity 0.7s ease,transform 0.7s ease;}
-.reveal-right.visible{opacity:1;transform:none;}
-.d1{transition-delay:0.1s!important;}.d2{transition-delay:0.2s!important;}.d3{transition-delay:0.3s!important;}.d4{transition-delay:0.4s!important;}.d5{transition-delay:0.5s!important;}.d6{transition-delay:0.6s!important;}
-
-/* ── FREELANCE PLATFORMS ── */
-.platforms-wrap{text-align:center;margin-top:48px;padding-top:40px;border-top:1px solid rgba(255,255,255,0.08);}
-.platforms-wrap p{color:rgba(255,255,255,0.6);font-size:15px;margin-bottom:20px;}
-.platform-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
-
-/* ── MOBILE ── */
-@media(max-width:768px){
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
   nav{padding:0 20px;}
   .nav-links{display:none;}
-  section{padding:64px 20px;}
-  .hero{padding:80px 20px 64px;min-height:auto;}
-  .hero-inner{flex-direction:column;gap:40px;}
+  .home-inner,.inner-page{padding:32px 20px;}
+  .home-hero{flex-direction:column;gap:32px;}
   .hero-right{display:none;}
-  footer{padding:24px 20px;flex-direction:column;text-align:center;}
-  .footer-links{flex-wrap:wrap;justify-content:center;}
-  .contact-wrap,.about-wrap,.teaching-inner{flex-direction:column;}
-  .wheel-container{width:320px;height:320px;}
-  .wheel-ring{width:320px;height:320px;}
+  .about-grid,.cg{grid-template-columns:1fr;}
+  .about-photo-box{display:none;}
+  .svc-page-wrap{flex-direction:column;}
+  .wheel-box{width:320px;height:320px;}
+  .wring{width:320px;height:320px;}
 }
 </style>
 </head>
@@ -375,465 +283,292 @@ footer .footer-links{display:flex;gap:20px;}
 
 <!-- NAV -->
 <nav>
-  <a class="nav-logo" href="#home"><div class="logo-dot"></div>SmartBiz Solutions</a>
+  <a class="logo" href="#" onclick="showPage('home')"><div class="logo-dot"></div>SmartBiz Solutions</a>
   <ul class="nav-links">
-    <li><a href="#core-services">Services</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#portfolio">Portfolio</a></li>
-    <li><a href="#pricing">Pricing</a></li>
-    <li><a href="#testimonials">Reviews</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a onclick="showPage('home')" class="active" id="nav-home">Home</a></li>
+    <li><a onclick="showPage('about')" id="nav-about">About</a></li>
+    <li><a onclick="showPage('services')" id="nav-services">Services</a></li>
+    <li><a onclick="showPage('portfolio')" id="nav-portfolio">Portfolio</a></li>
+    <li><a onclick="showPage('contact')" id="nav-contact">Contact</a></li>
   </ul>
-  <div class="nav-right">
-    <button id="themeToggle" onclick="toggleTheme()" title="Toggle theme">🌙</button>
-    <a href="https://wa.me/916354662372" target="_blank" class="btn-wa-sm">💬 WhatsApp</a>
-    <a href="#contact" class="btn-cta-sm">Get Free Consultation</a>
+  <div class="nav-btns">
+    <a href="https://wa.me/916354662372" target="_blank" class="nwa">💬 WhatsApp</a>
+    <a href="#" onclick="showPage('contact')" class="ncta">Free Consultation</a>
   </div>
 </nav>
 
-<!-- HERO -->
-<section class="hero" id="home">
-  <div class="hero-inner">
-    <div class="hero-left">
-      <div class="hero-badge"><div class="badge-dot"></div>🌍 Serving clients across India & worldwide</div>
-      <h1>Business Growth &<br><em>Support Services</em></h1>
-      <p class="hero-sub">Helping Businesses Grow with Strategy & Execution. We provide business strategy, staff training, and complete support services.</p>
-      <div class="hero-typing">We specialize in <span id="typingText"></span></div>
-      <div class="hero-btns">
-        <a href="#contact" class="btn-primary">🚀 Get Free Consultation</a>
-        <a href="https://wa.me/916354662372" target="_blank" class="btn-wa">
-          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          Contact on WhatsApp
-        </a>
-      </div>
-      <div class="hero-stats">
-        <div class="hero-stat"><div class="num counter" data-target="50">0</div><div class="lbl">Projects done</div></div>
-        <div class="hero-stat-divider"></div>
-        <div class="hero-stat"><div class="num counter" data-target="30">0</div><div class="lbl">Happy clients</div></div>
-        <div class="hero-stat-divider"></div>
-        <div class="hero-stat"><div class="num counter" data-target="6">0</div><div class="lbl">Years exp.</div></div>
-      </div>
-    </div>
-    <div class="hero-right">
-      <div class="hero-card">
-        <div class="avatar"><img src="photo.jpg.png" alt="Meena Vargya - Business Growth Consultant"></div>
-        <div class="name">Meena Vargya</div>
-        <div class="role">Business Growth Consultant</div>
-        <div class="tags">
-          <span class="tag">Strategy</span><span class="tag">Training</span><span class="tag">CRM</span><span class="tag">Marketing</span><span class="tag">PPT</span>
-        </div>
-      </div>
-      <div class="floating-badge fb1"><div class="fb-icon" style="background:#F3EEFF;">⭐</div><div><div style="font-weight:700;color:#1a1a2e;font-size:13px;">5.0 Rating</div><div style="font-size:11px;color:#9CA3AF;">All clients</div></div></div>
-      <div class="floating-badge fb2"><div class="fb-icon" style="background:#ECFDF5;">✅</div><div><div style="font-weight:700;color:#1a1a2e;font-size:13px;">Available Now</div><div style="font-size:11px;color:#9CA3AF;">For new projects</div></div></div>
-    </div>
-  </div>
-</section>
+<div class="pages">
 
-<!-- CORE SERVICES -->
-<section class="core-services reveal" id="core-services">
-  <div class="container">
-    <div class="section-label reveal d1">Our Core Expertise</div>
-    <h2 class="section-title reveal d2">What We Do Best</h2>
-    <p class="section-sub reveal d3">We bring together strategy, training, and execution to help your business grow faster and stronger.</p>
-    <div class="cs-grid">
-      <div class="cs-card purple reveal d2">
-        <div class="cs-icon">📈</div>
-        <h3>Business Strategy & Planning</h3>
-        <p>We analyze your business, identify growth opportunities, and create actionable strategies that deliver real results.</p>
-        <ul class="cs-list">
-          <li>Market analysis & positioning</li>
-          <li>Revenue growth planning</li>
-          <li>Competitor analysis</li>
-        </ul>
-      </div>
-      <div class="cs-card orange reveal d3">
-        <div class="cs-icon">🎓</div>
-        <h3>Staff Training & Motivation</h3>
-        <p>We train your team on digital tools, processes, and soft skills — from small teams to 1000+ employees.</p>
-        <ul class="cs-list">
-          <li>CRM & software training</li>
-          <li>Leadership & motivation</li>
-          <li>Team productivity workshops</li>
-        </ul>
-      </div>
-      <div class="cs-card teal reveal d4">
-        <div class="cs-icon">🚀</div>
-        <h3>Business Growth Consulting</h3>
-        <p>End-to-end business consulting — from idea to execution. We implement solutions that scale your business.</p>
-        <ul class="cs-list">
-          <li>Process optimization</li>
-          <li>Sales & marketing setup</li>
-          <li>Back-office operations</li>
-        </ul>
-      </div>
-    </div>
-    <div class="global-bar reveal d4">
-      <div class="globe">🌍</div>
-      <p>"Serving clients across <strong>India</strong> and <strong>worldwide</strong> with reliable business solutions."</p>
-      <a href="#contact">Get Free Consultation →</a>
-    </div>
-  </div>
-</section>
-
-<!-- SERVICES WHEEL -->
-<section class="services-section reveal" id="services">
-  <div class="container">
-    <div class="section-label">All Services</div>
-    <h2 class="section-title">7 Powerful Services</h2>
-    <div class="wheel-wrap">
-      <div class="wheel-container">
-        <div class="wheel-ring" id="wheelRing"></div>
-        <div class="wheel-center"><span>7 SERVICES</span><small>6+ Years Exp.</small></div>
-      </div>
-      <div class="svc-list">
-        <h3>Everything Your Business Needs</h3>
-        <p>From content to code — backed by 6+ years of real-world experience.</p>
-        <div class="sli"><div class="sli-icon" style="background:#F3EEFF;">📱</div><div class="sli-text"><h4>Social Media Marketing</h4><p>Strategy, 10 images + 2 videos/month & growth for all platforms</p></div></div>
-        <div class="sli"><div class="sli-icon" style="background:#F0FDF4;">✍️</div><div class="sli-text"><h4>Content Writing</h4><p>SEO articles & web copy in Hindi + English</p></div></div>
-        <div class="sli"><div class="sli-icon" style="background:#FFF7ED;">📖</div><div class="sli-text"><h4>Story Writing</h4><p>Brand stories & creative narratives that connect</p></div></div>
-        <div class="sli"><div class="sli-icon" style="background:#FEFCE8;">📊</div><div class="sli-text"><h4>PowerPoint / PPT Design</h4><p>Infographic & professional presentations that impress</p></div></div>
-        <div class="sli"><div class="sli-icon" style="background:#EFF6FF;">🗄️</div><div class="sli-text"><h4>Data Management</h4><p>Organize & manage your business data efficiently</p></div></div>
-        <div class="sli"><div class="sli-icon" style="background:#F5F3FF;">📧</div><div class="sli-text"><h4>Email Writing & Handling</h4><p>Newsletters, cold outreach & inbox management</p></div></div>
-        <div class="sli"><div class="sli-icon" style="background:#ECFDF5;">💼</div><div class="sli-text"><h4>CRM Software & Setup</h4><p>Custom CRM systems built for your business growth</p></div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section class="about-section reveal" id="about">
-  <div class="container">
-    <div class="about-wrap">
-      <div class="about-left reveal-left">
-        <div class="about-photo-wrap">
-          <div class="about-photo"><img src="photo.jpg.png" alt="Meena Vargya Business Consultant"><span class="initials" style="display:none">MV</span></div>
-          <div class="about-badge"><div class="exp">6+</div><div class="exp-lbl">Years of<br>Experience</div></div>
+<!-- ══ HOME PAGE ══ -->
+<div class="page active" id="home">
+  <div class="home-inner">
+    <div class="home-hero">
+      <div class="hero-left">
+        <div class="badge"><div class="badge-dot"></div>🌍 Serving clients across India & worldwide</div>
+        <h1 class="hero-h1">Business Growth &<br><em>Support Services</em></h1>
+        <p class="hero-sub">Helping Businesses Grow with Strategy & Execution — marketing, software, training, and back-office operations.</p>
+        <div class="typing-line">We specialize in <span id="typingText"></span></div>
+        <div class="hero-btns">
+          <a href="#" onclick="showPage('contact')" class="btn-p">🚀 Get Free Consultation</a>
+          <a href="https://wa.me/916354662372" target="_blank" class="btn-w">
+            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Contact on WhatsApp
+          </a>
+        </div>
+        <div class="stats">
+          <div class="stat"><div class="n counter" data-target="50">0</div><div class="l">Projects done</div></div>
+          <div class="stat-d"></div>
+          <div class="stat"><div class="n counter" data-target="30">0</div><div class="l">Happy clients</div></div>
+          <div class="stat-d"></div>
+          <div class="stat"><div class="n counter" data-target="6">0</div><div class="l">Years exp.</div></div>
         </div>
       </div>
-      <div class="about-right reveal-right">
-        <div class="section-label">About Me</div>
-        <h2 style="font-family:'Playfair Display',serif;font-size:36px;color:var(--dark);margin-bottom:6px;">Meena Vargya</h2>
-        <div class="about-role">Business Growth Consultant & Digital Services Expert — Rajkot, Gujarat</div>
-        <p>I'm Meena Vargya, a passionate business growth consultant and digital services expert from Rajkot, Gujarat. Over 6+ years, I have built my expertise through self-learning, online courses, and real-world experience.</p>
-        <p>I help businesses of all sizes — from startups to established companies — grow through strategy, training, and digital execution. My clients include pharma companies, startups, and businesses across India and globally.</p>
-        <div class="tools-row">
-          <div class="tool-chip">🎨 Canva Pro</div>
-          <div class="tool-chip">📊 MS Excel</div>
-          <div class="tool-chip">💼 CRM Systems</div>
-          <div class="tool-chip">📧 Mailchimp</div>
-          <div class="tool-chip">📝 Notion</div>
-          <div class="tool-chip">🖥️ PowerPoint</div>
-          <div class="tool-chip">🌐 Google Workspace</div>
-        </div>
-        <div class="skills-tags">
-          <span class="skill-tag">Self-taught</span>
-          <span class="skill-tag">6+ years exp.</span>
-          <span class="skill-tag">Hindi & English</span>
-          <span class="skill-tag">Rajkot, India</span>
-          <span class="skill-tag">Freelancer</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- TEACHING -->
-<section class="teaching-section" id="teaching">
-  <div class="container">
-    <div class="teaching-inner">
-      <div class="teaching-left reveal-left">
-        <div class="section-label">Special Skill</div>
-        <h2 class="section-title" style="color:#fff;">Train. Teach.<br>Transform.</h2>
-        <p class="section-sub">From startup founders to corporate teams — I turn complex business ideas into simple, actionable learning.</p>
-        <div class="teach-card">
-          <div class="teach-icon" style="background:rgba(167,139,250,0.2);">🏢</div>
-          <div><h4>Tech to Your Team</h4><p>Train your entire team on digital tools, CRM & software — from beginners to advanced.</p></div>
-        </div>
-        <div class="teach-card">
-          <div class="teach-icon" style="background:rgba(255,107,43,0.2);">🚀</div>
-          <div><h4>Startup Idea & Execution</h4><p>From idea to MVP — validate, plan and pitch your startup with clarity.</p></div>
-        </div>
-        <div class="teach-card">
-          <div class="teach-icon" style="background:rgba(16,185,129,0.2);">🎤</div>
-          <div><h4>Professional Speaker & Mentor</h4><p>Workshops, seminars & 1-on-1 mentoring. Hindi + English. Any team size.</p></div>
-        </div>
-      </div>
-      <div class="teaching-right reveal-right">
-        <div class="speaker-card">
-          <div class="speaker-avatar"><img src="photo.jpg.png" alt="Meena Vargya Speaker"></div>
-          <div class="speaker-name">Meena Vargya</div>
-          <div class="speaker-title">Business Trainer & Professional Speaker</div>
-          <div class="speaker-stats">
-            <div class="spk-stat"><div class="sv">50+</div><div class="sl">Training sessions</div></div>
-            <div class="spk-stat"><div class="sv">1000+</div><div class="sl">Professionals trained</div></div>
-            <div class="spk-stat"><div class="sv">Hindi</div><div class="sl">& English</div></div>
-            <div class="spk-stat"><div class="sv">100%</div><div class="sl">Satisfaction</div></div>
+      <div class="hero-right">
+        <div class="hcard">
+          <div class="hcard-av"><img src="photo.jpg.png" alt="Meena Vargya"></div>
+          <div class="hcard-name">Meena Vargya</div>
+          <div class="hcard-role">Business Growth Consultant</div>
+          <div class="hcard-tags">
+            <span class="hcard-tag">Strategy</span><span class="hcard-tag">Training</span><span class="hcard-tag">CRM</span><span class="hcard-tag">Marketing</span><span class="hcard-tag">PPT</span>
           </div>
-          <a href="https://wa.me/916354662372" target="_blank" class="book-btn">💬 Book a Training Session</a>
+          <div class="fb fb1"><div class="fb-ic" style="background:#F3EEFF;">⭐</div><div><div style="font-size:12px;font-weight:700;">5.0 Rating</div><div style="font-size:10px;color:#9CA3AF;">All clients</div></div></div>
+          <div class="fb fb2"><div class="fb-ic" style="background:#ECFDF5;">✅</div><div><div style="font-size:12px;font-weight:700;">Available Now</div><div style="font-size:10px;color:#9CA3AF;">For new projects</div></div></div>
         </div>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- PORTFOLIO -->
-<section class="portfolio-section reveal" id="portfolio">
+    <!-- Core Services on Home -->
+    <div class="home-services">
+      <h2>Our Core Expertise</h2>
+      <p>3 pillars of everything we do</p>
+      <div class="cs-row">
+        <div class="cs v1">
+          <div class="cs-ic">📈</div>
+          <h3>Business Strategy & Planning</h3>
+          <p>Analyze your business, identify growth opportunities, and create actionable strategies.</p>
+          <ul class="cs-list"><li>Market analysis</li><li>Revenue growth planning</li><li>Competitor analysis</li></ul>
+        </div>
+        <div class="cs v2">
+          <div class="cs-ic">🎓</div>
+          <h3>Staff Training & Motivation</h3>
+          <p>Train your team on digital tools, processes, and soft skills — small to 1000+ employees.</p>
+          <ul class="cs-list"><li>CRM & software training</li><li>Leadership workshops</li><li>Team productivity</li></ul>
+        </div>
+        <div class="cs v3">
+          <div class="cs-ic">🚀</div>
+          <h3>Business Growth Consulting</h3>
+          <p>End-to-end consulting — from idea to execution. Implement solutions that scale.</p>
+          <ul class="cs-list"><li>Process optimization</li><li>Sales & marketing setup</li><li>Back-office operations</li></ul>
+        </div>
+      </div>
+      <div class="global-line">
+        <span style="font-size:24px;">🌍</span>
+        <p>Serving clients across <strong>India</strong> and <strong>worldwide</strong> with reliable business solutions.</p>
+        <a href="#" onclick="showPage('contact')">Get Free Consultation →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ ABOUT PAGE ══ -->
+<div class="page inner-page" id="about-page">
   <div class="container">
-    <div class="section-label">Our Work</div>
-    <h2 class="section-title">Portfolio & Projects</h2>
-    <div class="portfolio-grid">
-
-      <!-- Website -->
-      <div class="port-card reveal d1">
-        <div class="port-preview" style="background:linear-gradient(135deg,#F3EEFF,#E0D4FF);">🌐</div>
-        <div class="port-info">
-          <div class="port-badge" style="background:#F3EEFF;color:var(--primary);">🌐 WEB DESIGN</div>
-          <h3>SmartBiz Solutions — Our Own Website</h3>
-          <p>Built from scratch — fully responsive professional business website with animated services, portfolio, FAQ, pricing, testimonials, dark theme, WhatsApp integration, and scroll animations.</p>
-          <div class="port-tags"><span class="port-tag">HTML/CSS</span><span class="port-tag">JavaScript</span><span class="port-tag">Animations</span><span class="port-tag">SEO Ready</span></div>
-          <a href="https://meenavargya44-coder.github.io" target="_blank" class="port-link" style="background:var(--primary);color:#fff;">🔗 View Live Website →</a>
-        </div>
-      </div>
-
-      <!-- AI Presentation -->
-      <div class="port-card reveal d2">
-        <div class="port-preview" style="background:linear-gradient(135deg,#050A14,#1a2d4e);font-size:36px;">🧠</div>
-        <div class="port-info">
-          <div class="port-badge" style="background:#EFF6FF;color:#1d4ed8;">📊 PRESENTATION DESIGN</div>
-          <h3>AI & Future of Business — Live Presentation</h3>
-          <p>5-slide animated business presentation — opens in browser, no app needed. Live charts, rotating AI ecosystem, cinematic dark theme with smooth transitions.</p>
-          <div class="port-tags"><span class="port-tag">✨ Animated</span><span class="port-tag">🌐 Browser-based</span><span class="port-tag">📈 Live Charts</span></div>
-          <a href="ai-presentation.html" target="_blank" class="port-link" style="background:linear-gradient(90deg,#6C3CE1,#FF6B2B);color:#fff;">▶ View Presentation →</a>
-        </div>
-      </div>
-
-      <!-- Pharma CRM -->
-      <div class="port-card reveal d3">
-        <div class="port-preview" style="background:linear-gradient(135deg,#FFF1EB,#FFD4C0);font-size:36px;">💊</div>
-        <div class="port-info">
-          <div class="port-badge" style="background:#FFF1EB;color:var(--accent);">💼 CRM DEVELOPMENT</div>
-          <h3>Pharma In All — Custom CRM System</h3>
-          <p>Complete pharma business CRM with order pipeline, employee management, attendance, leave management, finance tracking, reports — for Ronak Relia's pharma business.</p>
-          <div class="port-tags"><span class="port-tag">Order Pipeline</span><span class="port-tag">Multi-zone</span><span class="port-tag">Reports</span><span class="port-tag">Live System</span></div>
-          <a href="https://pharma-crm-kappa.vercel.app/" target="_blank" class="port-link" style="background:var(--accent);color:#fff;">🔗 View Live CRM →</a>
-        </div>
-      </div>
-
-      <!-- Enervia CRM -->
-      <div class="port-card reveal d4">
-        <div class="port-preview" style="background:linear-gradient(135deg,#ECFDF5,#A7F3D0);font-size:36px;">⚡</div>
-        <div class="port-info">
-          <div class="port-badge" style="background:#ECFDF5;color:var(--green);">💼 CRM DEVELOPMENT</div>
-          <h3>Enervia — Custom Business CRM</h3>
-          <p>Full CRM system for Enervia — order management, team tasks, attendance tracking, announcements, billing & accounts module, all in one platform for Sachin Thakkar.</p>
-          <div class="port-tags"><span class="port-tag">Task Management</span><span class="port-tag">Billing</span><span class="port-tag">Attendance</span><span class="port-tag">Live System</span></div>
-          <a href="https://enervia-crm-sandy.vercel.app/" target="_blank" class="port-link" style="background:var(--green);color:#fff;">🔗 View Live CRM →</a>
-        </div>
-      </div>
-
-      <!-- PPT Sample -->
-      <div class="port-card reveal d5">
-        <div class="port-preview" style="background:linear-gradient(135deg,#FEFCE8,#FDE68A);font-size:36px;">📊</div>
-        <div class="port-info">
-          <div class="port-badge" style="background:#FEFCE8;color:#92400E;">📊 PPT DESIGN</div>
-          <h3>Corporate PPT Sample — Lumina Corp</h3>
-          <p>5-slide premium corporate presentation with dark gold theme, industry data, charts, team sections, and strategic recommendations. World-class design quality.</p>
-          <div class="port-tags"><span class="port-tag">5 Slides</span><span class="port-tag">Dark Gold Theme</span><span class="port-tag">Charts & Data</span></div>
-          <a href="#contact" class="port-link" style="background:#F59E0B;color:#fff;">💬 Request Similar PPT →</a>
-        </div>
-      </div>
-
+    <div class="page-header">
+      <div class="section-pill">About Us</div>
+      <h1 class="page-title">Meet Meena Vargya</h1>
+      <p class="page-sub">Business Growth Consultant & Digital Services Expert from Rajkot, Gujarat, India.</p>
     </div>
-  </div>
-</section>
-
-<!-- HOW IT WORKS -->
-<section class="hiw-section reveal" id="process">
-  <div class="container" style="text-align:center;">
-    <div class="section-label">How It Works</div>
-    <h2 class="section-title">4 Simple Steps to Results</h2>
-    <p class="section-sub" style="margin:0 auto 48px;">We make the process simple, transparent, and stress-free for every client.</p>
-    <div class="hiw-grid">
-      <div class="hiw-step reveal d1">
-        <div class="hiw-num">💬</div>
-        <div class="hiw-step-label">STEP 01</div>
-        <h4>You Contact Us</h4>
-        <p>Reach us via WhatsApp, email, or contact form — we respond within 2 hours.</p>
+    <div class="about-grid">
+      <div class="about-photo-box">
+        <div class="about-img"><img src="photo.jpg.png" alt="Meena Vargya"><span class="mono" style="display:none">MV</span></div>
+        <div class="exp-badge"><div class="exp-n">6+</div><div class="exp-l">Years of<br>Experience</div></div>
       </div>
-      <div class="hiw-step reveal d2">
-        <div class="hiw-num">📋</div>
-        <div class="hiw-step-label">STEP 02</div>
-        <h4>We Understand Your Requirement</h4>
-        <p>We listen carefully and send a clear proposal within 24 hours.</p>
-      </div>
-      <div class="hiw-step reveal d3">
-        <div class="hiw-num">⚡</div>
-        <div class="hiw-step-label">STEP 03</div>
-        <h4>We Plan & Execute</h4>
-        <p>We start executing with regular updates. Revisions included at every stage.</p>
-      </div>
-      <div class="hiw-step reveal d4">
-        <div class="hiw-num">🏆</div>
-        <div class="hiw-step-label">STEP 04</div>
-        <h4>You Get Results</h4>
-        <p>Final delivery with measurable results. 7-day post-delivery support included.</p>
+      <div class="about-content">
+        <h3>Meena Vargya</h3>
+        <div class="about-role">Business Growth Consultant & Digital Services Expert — Rajkot, Gujarat</div>
+        <p>I'm Meena Vargya, a passionate business growth consultant from Rajkot, Gujarat. Over 6+ years, I have built deep expertise through self-learning, online courses, and real-world projects across multiple industries.</p>
+        <p>I help businesses of all sizes — from startups to established companies — grow through strategy, training, and digital execution. My clients include pharma companies, startups, and businesses across India and globally.</p>
+        <p>What makes me different: I don't just deliver a service — I become a part of your team and genuinely care about your success. Every project gets 100% dedication.</p>
+        <div class="tools-grid">
+          <div class="tool">🎨 Canva Pro</div><div class="tool">📊 MS Excel</div>
+          <div class="tool">💼 CRM Systems</div><div class="tool">📧 Mailchimp</div>
+          <div class="tool">📝 Notion</div><div class="tool">🖥️ PowerPoint</div>
+          <div class="tool">🌐 Google Workspace</div>
+        </div>
+        <div class="skill-row">
+          <span class="sk">Self-taught</span><span class="sk">6+ years exp.</span>
+          <span class="sk">Hindi & English</span><span class="sk">Rajkot, India</span><span class="sk">Freelancer</span>
+        </div>
+        <div style="margin-top:24px;">
+          <a href="#" onclick="showPage('contact')" class="btn-p" style="display:inline-flex;">🚀 Work With Me</a>
+        </div>
       </div>
     </div>
   </div>
-</section>
+</div>
 
-<!-- PRICING -->
-<section class="pricing-section reveal" id="pricing">
-  <div class="container" style="text-align:center;">
-    <div class="section-label">Transparent Pricing</div>
-    <h2 class="section-title">Simple, Honest Pricing</h2>
-    <p class="section-sub" style="margin:0 auto;">No hidden charges. Custom quotes for bulk or long-term projects.</p>
-    <div class="pricing-grid">
-      <div class="price-card reveal d1">
-        <div class="price-tier" style="color:var(--text-light);">STARTER</div>
-        <div class="price-amount">$50<span> /project</span></div>
-        <div class="price-desc">Perfect for small tasks & one-time needs</div>
-        <div class="price-divider"></div>
-        <div class="price-features">
-          <div class="pf"><span class="check">✓</span>1 Article / PPT / Email</div>
-          <div class="pf"><span class="check">✓</span>2 Revisions</div>
-          <div class="pf"><span class="check">✓</span>3-day delivery</div>
-        </div>
-        <a href="#contact" class="price-btn default">Get Started</a>
+<!-- ══ SERVICES PAGE ══ -->
+<div class="page inner-page" id="services-page" style="background:linear-gradient(180deg,#F8F7FF,#F3F0FF);">
+  <div class="container">
+    <div class="page-header">
+      <div class="section-pill">Our Services</div>
+      <h1 class="page-title">7 Powerful Services</h1>
+      <p class="page-sub">From content creation to custom CRM — backed by 6+ years of real experience.</p>
+    </div>
+
+    <!-- Wheel + List -->
+    <div class="svc-page-wrap" style="margin-bottom:56px;">
+      <div class="wheel-box">
+        <div class="wring" id="wheelRing"></div>
+        <div class="wcenter"><span>7 SERVICES</span><small>6+ Yrs Exp.</small></div>
       </div>
-      <div class="price-card featured reveal d2">
-        <div class="price-tier" style="color:var(--primary);">GROWTH</div>
-        <div class="price-amount">$150<span> /month</span></div>
-        <div class="price-desc">Best for growing businesses & startups</div>
-        <div class="price-divider"></div>
-        <div class="price-features">
-          <div class="pf"><span class="check">✓</span>10 Images + 2 Videos/month</div>
-          <div class="pf"><span class="check">✓</span>4 SEO Articles/month</div>
-          <div class="pf"><span class="check">✓</span>Email management</div>
-          <div class="pf"><span class="check">✓</span>10 Revisions included</div>
-          <div class="pf"><span class="check">✓</span>Weekly progress report</div>
-        </div>
-        <a href="https://wa.me/916354662372" target="_blank" class="price-btn primary">Get Free Consultation</a>
-      </div>
-      <div class="price-card reveal d3">
-        <div class="price-tier" style="color:var(--primary);">ENTERPRISE</div>
-        <div class="price-amount" style="font-size:28px;">Custom<span> pricing</span></div>
-        <div class="price-desc">For teams, corporates & large projects</div>
-        <div class="price-divider"></div>
-        <div class="price-features">
-          <div class="pf"><span class="check">✓</span>All Growth features</div>
-          <div class="pf"><span class="check">✓</span>CRM Setup & Training</div>
-          <div class="pf"><span class="check">✓</span>Team training sessions</div>
-          <div class="pf"><span class="check">✓</span>Priority 24/7 support</div>
-        </div>
-        <a href="https://wa.me/916354662372" target="_blank" class="price-btn purple">Contact for Quote</a>
+      <div class="svc-list-box">
+        <h3>Everything Your Business Needs</h3>
+        <p>Tap any service to learn more — or contact us for a free consultation.</p>
+        <div class="sli"><div class="sli-ic" style="background:#F3EEFF;">📱</div><div class="sli-t"><h4>Social Media Marketing</h4><p>10 images + 2 videos/month, strategy & growth for all platforms</p></div></div>
+        <div class="sli"><div class="sli-ic" style="background:#F0FDF4;">✍️</div><div class="sli-t"><h4>Content Writing</h4><p>SEO articles & web copy in Hindi + English</p></div></div>
+        <div class="sli"><div class="sli-ic" style="background:#FFF7ED;">📖</div><div class="sli-t"><h4>Story Writing</h4><p>Brand stories & creative narratives that connect</p></div></div>
+        <div class="sli"><div class="sli-ic" style="background:#FEFCE8;">📊</div><div class="sli-t"><h4>PowerPoint / PPT Design</h4><p>Infographic & professional presentations that impress</p></div></div>
+        <div class="sli"><div class="sli-ic" style="background:#EFF6FF;">🗄️</div><div class="sli-t"><h4>Data Management</h4><p>Organize & manage your business data efficiently</p></div></div>
+        <div class="sli"><div class="sli-ic" style="background:#F5F3FF;">📧</div><div class="sli-t"><h4>Email Writing & Handling</h4><p>Newsletters, cold outreach & inbox management</p></div></div>
+        <div class="sli"><div class="sli-ic" style="background:#ECFDF5;">💼</div><div class="sli-t"><h4>CRM Software & Setup</h4><p>Custom CRM systems built for your business growth</p></div></div>
       </div>
     </div>
-    <p style="font-size:13px;color:var(--text-light);margin-top:20px;">💡 INR pricing available. <a href="https://wa.me/916354662372" style="color:var(--primary);font-weight:600;">Chat with us</a> for custom quotes.</p>
+
+    <!-- How it works -->
+    <div style="margin-bottom:56px;">
+      <div class="section-pill">How It Works</div>
+      <h2 class="page-title" style="font-size:32px;">4 Simple Steps</h2>
+      <div class="steps" style="margin-top:40px;">
+        <div class="step"><div class="step-ic">💬</div><div class="step-lbl">STEP 01</div><h4>You Contact Us</h4><p>WhatsApp, email or form — we reply in 2 hours.</p></div>
+        <div class="step"><div class="step-ic">📋</div><div class="step-lbl">STEP 02</div><h4>We Understand</h4><p>We listen and send a clear proposal in 24 hours.</p></div>
+        <div class="step"><div class="step-ic">⚡</div><div class="step-lbl">STEP 03</div><h4>We Execute</h4><p>Work starts with regular updates. Revisions included.</p></div>
+        <div class="step"><div class="step-ic">🏆</div><div class="step-lbl">STEP 04</div><h4>You Get Results</h4><p>Final delivery + 7-day support at no extra charge.</p></div>
+      </div>
+    </div>
+
+    <!-- Pricing -->
+    <div style="margin-bottom:56px;">
+      <div class="section-pill">Pricing</div>
+      <h2 class="page-title" style="font-size:32px;">Simple, Honest Pricing</h2>
+      <p style="font-size:14px;color:var(--mid);margin-bottom:32px;">No hidden charges. INR pricing available on request.</p>
+      <div class="pgrid3">
+        <div class="pcard"><div class="pt" style="color:var(--light);">STARTER</div><div class="pa">$50<span> /project</span></div><div class="pd">Perfect for small tasks</div><div class="pdiv"></div><div class="pfs"><div class="pf"><span class="ck">✓</span>1 Article / PPT / Email</div><div class="pf"><span class="ck">✓</span>2 Revisions</div><div class="pf"><span class="ck">✓</span>3-day delivery</div></div><a href="#" onclick="showPage('contact')" class="pbtn def">Get Started</a></div>
+        <div class="pcard feat"><div class="pt" style="color:var(--p);">GROWTH</div><div class="pa">$150<span> /month</span></div><div class="pd">Best for growing businesses</div><div class="pdiv"></div><div class="pfs"><div class="pf"><span class="ck">✓</span>10 Images + 2 Videos/month</div><div class="pf"><span class="ck">✓</span>4 SEO Articles/month</div><div class="pf"><span class="ck">✓</span>Email management</div><div class="pf"><span class="ck">✓</span>10 Revisions included</div><div class="pf"><span class="ck">✓</span>Weekly progress report</div></div><a href="https://wa.me/916354662372" target="_blank" class="pbtn pri">Get Free Consultation</a></div>
+        <div class="pcard"><div class="pt" style="color:var(--p);">ENTERPRISE</div><div class="pa" style="font-size:26px;">Custom<span> pricing</span></div><div class="pd">For teams & corporates</div><div class="pdiv"></div><div class="pfs"><div class="pf"><span class="ck">✓</span>All Growth features</div><div class="pf"><span class="ck">✓</span>CRM Setup & Training</div><div class="pf"><span class="ck">✓</span>Team training sessions</div><div class="pf"><span class="ck">✓</span>Priority 24/7 support</div></div><a href="https://wa.me/916354662372" target="_blank" class="pbtn sec">Contact for Quote</a></div>
+      </div>
+    </div>
+
+    <!-- Why Choose Us -->
+    <div>
+      <div class="section-pill">Why Choose Us</div>
+      <h2 class="page-title" style="font-size:32px;">4 Reasons Clients Love Us</h2>
+      <div class="why-row" style="margin-top:32px;">
+        <div class="wy"><div class="wy-ic">🎯</div><h4>Personalized Solutions</h4><p>Custom plan for every client — no one-size-fits-all.</p></div>
+        <div class="wy"><div class="wy-ic">💰</div><h4>Affordable Pricing</h4><p>Premium quality at budget-friendly pricing. Transparent.</p></div>
+        <div class="wy"><div class="wy-ic">⚡</div><h4>Fast Execution</h4><p>Projects start within 24 hours, always delivered on time.</p></div>
+        <div class="wy"><div class="wy-ic">🤝</div><h4>End-to-End Support</h4><p>Planning to delivery — we support you at every step.</p></div>
+      </div>
+    </div>
   </div>
-</section>
+</div>
 
-<!-- TESTIMONIALS -->
-<section class="testimonials-section reveal" id="testimonials">
-  <div class="container" style="text-align:center;">
-    <div class="section-label" style="color:#A78BFA;">Client Reviews</div>
-    <h2 class="section-title" style="color:#fff;">What Clients Say</h2>
-    <div class="test-grid">
-      <div class="test-card reveal d1">
-        <div class="test-quote">"</div>
-        <div class="test-stars">★★★★★</div>
-        <div class="test-text">Meena handles our entire business operations at Pharma In All — social media, content, data management and day-to-day coordination. Her understanding of our pharma business is exceptional. She is not just a freelancer, she is part of our core team.</div>
-        <div class="test-author">
-          <div class="test-avatar" style="background:linear-gradient(135deg,#FF6B2B,#FF8C55);">R</div>
-          <div><div class="test-name">Ronak Relia</div><div class="test-co" style="color:#FF8C55;">Owner — Pharma In All · Rajkot, Gujarat</div></div>
+<!-- ══ PORTFOLIO PAGE ══ -->
+<div class="page inner-page" id="portfolio-page">
+  <div class="container">
+    <div class="page-header">
+      <div class="section-pill">Our Work</div>
+      <h1 class="page-title">Portfolio & Projects</h1>
+      <p class="page-sub">Real projects. Real results. See what we have built for our clients.</p>
+    </div>
+
+    <!-- Testimonials -->
+    <div class="test-section">
+      <div class="tg">
+        <div class="tc">
+          <div class="tq">"</div><div class="ts">★★★★★</div>
+          <div class="tt">Meena handles our entire business operations at Pharma In All — social media, content, data management and coordination. She is not just a freelancer, she is part of our core team.</div>
+          <div class="ta"><div class="tav" style="background:linear-gradient(135deg,#F97316,#FB923C);">R</div><div><div class="tn">Ronak Relia</div><div class="tco" style="color:#FB923C;">Owner — Pharma In All · Rajkot</div></div></div>
+        </div>
+        <div class="tc">
+          <div class="tq">"</div><div class="ts">★★★★★</div>
+          <div class="tt">Meena built a complete custom CRM for Enervia from scratch — orders, tasks, attendance, reporting all in one place. Her technical understanding of our business was beyond expectations.</div>
+          <div class="ta"><div class="tav" style="background:linear-gradient(135deg,#10B981,#34D399);">S</div><div><div class="tn">Sachin Thakkar</div><div class="tco" style="color:#34D399;">Owner — Enervia · Gujarat</div></div></div>
         </div>
       </div>
-      <div class="test-card reveal d2">
-        <div class="test-quote">"</div>
-        <div class="test-stars">★★★★★</div>
-        <div class="test-text">Meena built a complete custom CRM for Enervia from scratch. The system handles our orders, team tasks, attendance and reporting — all in one place. The quality of work and her technical understanding of our business needs was beyond our expectations.</div>
-        <div class="test-author">
-          <div class="test-avatar" style="background:linear-gradient(135deg,#10B981,#34D399);">S</div>
-          <div><div class="test-name">Sachin Thakkar</div><div class="test-co" style="color:#34D399;">Owner — Enervia · Gujarat, India</div></div>
-        </div>
+      <div class="tstats">
+        <div class="tst"><div class="n" style="color:#A78BFA;">50+</div><div class="l">Projects</div></div>
+        <div class="tst"><div class="n" style="color:#FB923C;">30+</div><div class="l">Happy Clients</div></div>
+        <div class="tst"><div class="n" style="color:#34D399;">100%</div><div class="l">On-time</div></div>
+        <div class="tst"><div class="n" style="color:#F59E0B;">6+</div><div class="l">Years Exp.</div></div>
       </div>
     </div>
-    <div class="test-stats">
-      <div class="ts"><div class="ts-num" style="color:#A78BFA;">50+</div><div class="ts-lbl">Projects Completed</div></div>
-      <div class="ts"><div class="ts-num" style="color:#FB923C;">30+</div><div class="ts-lbl">Happy Clients</div></div>
-      <div class="ts"><div class="ts-num" style="color:#34D399;">100%</div><div class="ts-lbl">On-time Delivery</div></div>
-      <div class="ts"><div class="ts-num" style="color:#F59E0B;">6+</div><div class="ts-lbl">Years Experience</div></div>
+
+    <div class="pgrid">
+      <div class="pc"><div class="pc-prev" style="background:linear-gradient(135deg,#F3EEFF,#E0D4FF);">🌐</div><div class="pc-info"><div class="pc-badge" style="background:#F3EEFF;color:#7C3AED;">🌐 WEB DESIGN</div><h3>SmartBiz Solutions — Our Own Website</h3><p>Built from scratch — responsive business website with animated services, portfolio, FAQ, pricing, testimonials, WhatsApp integration, and scroll animations.</p><div class="pc-tags"><span class="pc-tag">HTML/CSS</span><span class="pc-tag">JavaScript</span><span class="pc-tag">Animations</span><span class="pc-tag">SEO Ready</span></div><a href="https://meenavargya44-coder.github.io" target="_blank" class="pc-link" style="background:#7C3AED;color:#fff;">🔗 View Live →</a></div></div>
+
+      <div class="pc"><div class="pc-prev" style="background:linear-gradient(135deg,#050A14,#1a2d4e);">🧠</div><div class="pc-info"><div class="pc-badge" style="background:#EFF6FF;color:#1d4ed8;">📊 PRESENTATION</div><h3>AI & Future of Business — Live Presentation</h3><p>5-slide animated business presentation — opens in browser, no app needed. Live charts, rotating AI ecosystem, cinematic dark theme.</p><div class="pc-tags"><span class="pc-tag">✨ Animated</span><span class="pc-tag">Browser-based</span><span class="pc-tag">Live Charts</span></div><a href="ai-presentation.html" target="_blank" class="pc-link" style="background:linear-gradient(90deg,#7C3AED,#F97316);color:#fff;">▶ View Presentation →</a></div></div>
+
+      <div class="pc"><div class="pc-prev" style="background:linear-gradient(135deg,#FFF1EB,#FFD4C0);">💊</div><div class="pc-info"><div class="pc-badge" style="background:#FFF1EB;color:#F97316;">💼 CRM DEVELOPMENT</div><h3>Pharma In All — Custom CRM System</h3><p>Complete pharma CRM with order pipeline, employee management, attendance, leave, finance tracking and reports — for Ronak Relia's pharma business.</p><div class="pc-tags"><span class="pc-tag">Order Pipeline</span><span class="pc-tag">Multi-zone</span><span class="pc-tag">Live System</span></div><a href="https://pharma-crm-kappa.vercel.app/" target="_blank" class="pc-link" style="background:#F97316;color:#fff;">🔗 View Live CRM →</a></div></div>
+
+      <div class="pc"><div class="pc-prev" style="background:linear-gradient(135deg,#ECFDF5,#A7F3D0);">⚡</div><div class="pc-info"><div class="pc-badge" style="background:#ECFDF5;color:#10B981;">💼 CRM DEVELOPMENT</div><h3>Enervia — Custom Business CRM</h3><p>Full CRM for Enervia — order management, team tasks, attendance tracking, billing & accounts — built for Sachin Thakkar.</p><div class="pc-tags"><span class="pc-tag">Task Management</span><span class="pc-tag">Billing</span><span class="pc-tag">Attendance</span></div><a href="https://enervia-crm-sandy.vercel.app/" target="_blank" class="pc-link" style="background:#10B981;color:#fff;">🔗 View Live CRM →</a></div></div>
+
+      <div class="pc"><div class="pc-prev" style="background:linear-gradient(135deg,#FEFCE8,#FDE68A);">📊</div><div class="pc-info"><div class="pc-badge" style="background:#FEFCE8;color:#92400E;">📊 PPT DESIGN</div><h3>Corporate PPT Sample — Lumina Corp</h3><p>5-slide premium corporate presentation with dark gold theme, charts, team sections, and strategic recommendations.</p><div class="pc-tags"><span class="pc-tag">5 Slides</span><span class="pc-tag">Dark Gold</span><span class="pc-tag">Charts</span></div><a href="#" onclick="showPage('contact')" class="pc-link" style="background:#F59E0B;color:#fff;">💬 Request Similar →</a></div></div>
     </div>
-    <div class="platforms-wrap">
+
+    <!-- Freelancing platforms -->
+    <div class="plats" style="margin-top:40px;">
       <p>Available for hire on your preferred platform</p>
-      <div class="platform-btns">
-        <a href="https://fiverr.com" target="_blank" style="display:inline-flex;align-items:center;gap:10px;background:#1DBF73;color:#fff;padding:13px 24px;border-radius:10px;font-size:14px;font-weight:700;text-decoration:none;">🟢 Hire on Fiverr</a>
-        <a href="https://upwork.com" target="_blank" style="display:inline-flex;align-items:center;gap:10px;background:#14a800;color:#fff;padding:13px 24px;border-radius:10px;font-size:14px;font-weight:700;text-decoration:none;">✅ Hire on Upwork</a>
-        <a href="https://linkedin.com" target="_blank" style="display:inline-flex;align-items:center;gap:10px;background:#0A66C2;color:#fff;padding:13px 24px;border-radius:10px;font-size:14px;font-weight:700;text-decoration:none;">💼 Connect on LinkedIn</a>
+      <div class="pbtns">
+        <a href="https://fiverr.com" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#1DBF73;color:#fff;padding:11px 20px;border-radius:9px;font-size:13px;font-weight:700;text-decoration:none;">🟢 Hire on Fiverr</a>
+        <a href="https://upwork.com" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#14a800;color:#fff;padding:11px 20px;border-radius:9px;font-size:13px;font-weight:700;text-decoration:none;">✅ Hire on Upwork</a>
+        <a href="https://linkedin.com" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#0A66C2;color:#fff;padding:11px 20px;border-radius:9px;font-size:13px;font-weight:700;text-decoration:none;">💼 LinkedIn</a>
       </div>
     </div>
   </div>
-</section>
+</div>
 
-<!-- WHY CHOOSE US -->
-<section class="why-section reveal" id="why">
-  <div class="container" style="text-align:center;">
-    <div class="section-label">Why Choose Us</div>
-    <h2 class="section-title">4 Reasons Clients Love Working With Us</h2>
-    <div class="why-grid">
-      <div class="why-card reveal d1"><div class="why-icon">🎯</div><h4>Personalized Solutions</h4><p>Every client gets a custom plan built specifically for their business — no one-size-fits-all.</p></div>
-      <div class="why-card reveal d2"><div class="why-icon">💰</div><h4>Affordable Pricing</h4><p>Premium quality at pricing that fits your budget — transparent, no hidden charges.</p></div>
-      <div class="why-card reveal d3"><div class="why-icon">⚡</div><h4>Fast Execution</h4><p>Projects start within 24 hours and delivered before deadlines — always.</p></div>
-      <div class="why-card reveal d4"><div class="why-icon">🤝</div><h4>End-to-End Support</h4><p>From planning to execution to post-delivery — we support you at every step.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section class="faq-section reveal" id="faq">
-  <div class="container" style="text-align:center;">
-    <div class="section-label">FAQ</div>
-    <h2 class="section-title">Common Questions</h2>
-    <div class="faq-list">
-      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>How quickly do you start after I hire you?</span><span class="faq-arrow">+</span></div><div class="faq-a">I typically start within 24 hours of project confirmation. For urgent projects, I can start the same day.</div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>Do you work with international clients?</span><span class="faq-arrow">+</span></div><div class="faq-a">Yes! I work with clients from USA, UK, UAE, Australia and more. I accept PayPal, Payoneer, Wise, and bank transfer.</div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>How many revisions are included?</span><span class="faq-arrow">+</span></div><div class="faq-a">Starter plan includes 2 revisions. Growth plan includes 10 revisions. Enterprise includes unlimited revisions.</div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>What payment methods do you accept?</span><span class="faq-arrow">+</span></div><div class="faq-a">UPI, bank transfer (India), PayPal, Payoneer, and Wise (international). 50% advance for new clients.</div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>Can you handle multiple services at once?</span><span class="faq-arrow">+</span></div><div class="faq-a">Absolutely! Most clients hire me for 3–4 services together. This saves cost and ensures consistent brand voice.</div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>Do you offer a free consultation?</span><span class="faq-arrow">+</span></div><div class="faq-a">Yes! First consultation is completely free. Just WhatsApp me and we will discuss your needs.</div></div>
-    </div>
-    <div style="margin-top:40px;padding:32px;background:linear-gradient(135deg,var(--dark),var(--navy));border-radius:16px;text-align:center;">
-      <h3 style="font-family:'Playfair Display',serif;font-size:24px;color:#fff;margin-bottom:8px;">Still have questions?</h3>
-      <p style="font-size:14px;color:rgba(255,255,255,0.6);margin-bottom:20px;">I reply within 2 hours on WhatsApp.</p>
-      <a href="https://wa.me/916354662372" target="_blank" style="display:inline-flex;align-items:center;gap:10px;background:#25D366;color:#fff;padding:14px 28px;border-radius:10px;font-size:15px;font-weight:700;text-decoration:none;">💬 Get Free Consultation on WhatsApp</a>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section class="contact-section reveal" id="contact">
+<!-- ══ CONTACT PAGE ══ -->
+<div class="page inner-page" id="contact-page">
   <div class="container">
-    <div class="contact-wrap">
-      <div class="contact-left">
-        <div class="section-label">Get In Touch</div>
-        <h2>Let's Grow Your<br>Business Together</h2>
-        <p>Ready to take your business to the next level? Contact us today for a free consultation — no commitment needed.</p>
-        <div class="contact-chips">
-          <a href="tel:+916354662372" class="contact-chip phone">📞 +91 63546 62372</a>
-          <a href="mailto:meenavargya44@gmail.com" class="contact-chip email">✉️ meenavargya44@gmail.com</a>
-          <a href="https://wa.me/916354662372" target="_blank" class="contact-chip wa">💬 WhatsApp — Quick Reply in 2 hrs</a>
+    <div class="page-header">
+      <div class="section-pill">Get In Touch</div>
+      <h1 class="page-title">Let's Grow Your Business Together</h1>
+      <p class="page-sub">Ready to take your business to the next level? Contact us for a free consultation — no commitment needed.</p>
+    </div>
+    <div class="cg">
+      <div class="cl">
+        <h2>Contact Details</h2>
+        <p>We reply within 2 hours on WhatsApp and 24 hours on email. First consultation is always free.</p>
+        <div class="cchips">
+          <a href="tel:+916354662372" class="cc ph">📞 +91 63546 62372</a>
+          <a href="mailto:meenavargya44@gmail.com" class="cc em">✉️ meenavargya44@gmail.com</a>
+          <a href="https://wa.me/916354662372" target="_blank" class="cc wa">💬 WhatsApp — Quick Reply in 2 hrs</a>
         </div>
-        <div style="background:var(--primary-pale);border-radius:14px;padding:20px;">
-          <div style="font-size:13px;font-weight:700;color:var(--primary);margin-bottom:8px;">📍 Location</div>
-          <div style="font-size:14px;color:var(--text-mid);">Rajkot, Gujarat, India<br>Serving clients worldwide 🌍</div>
+        <div class="loc-box">
+          <div class="lt">📍 Location</div>
+          <p>Rajkot, Gujarat, India<br>Serving clients worldwide 🌍</p>
+        </div>
+
+        <!-- FAQ -->
+        <div style="margin-top:32px;">
+          <h3 style="font-family:'Playfair Display',serif;font-size:22px;color:var(--dark);margin-bottom:16px;">Quick FAQs</h3>
+          <div class="faq-box">
+            <div class="fi"><div class="fq" onclick="toggleFaq(this)"><span>How quickly do you start?</span><span class="farr">+</span></div><div class="fa">I start within 24 hours of confirmation. Urgent projects — same day.</div></div>
+            <div class="fi"><div class="fq" onclick="toggleFaq(this)"><span>Do you work with international clients?</span><span class="farr">+</span></div><div class="fa">Yes! USA, UK, UAE, Australia and more. PayPal, Payoneer, Wise accepted.</div></div>
+            <div class="fi"><div class="fq" onclick="toggleFaq(this)"><span>Is the first consultation really free?</span><span class="farr">+</span></div><div class="fa">Yes, 100% free. We discuss your needs, no commitment required.</div></div>
+            <div class="fi"><div class="fq" onclick="toggleFaq(this)"><span>What payment methods do you accept?</span><span class="farr">+</span></div><div class="fa">UPI, bank transfer (India), PayPal, Payoneer, Wise. 50% advance for new clients.</div></div>
+          </div>
         </div>
       </div>
-      <div class="contact-right">
-        <div class="form-row">
-          <div class="form-group"><label>Your name *</label><input type="text" placeholder="Your full name" required></div>
-          <div class="form-group"><label>Phone number *</label><input type="tel" placeholder="+91 or international" required></div>
+
+      <div class="cf">
+        <h3 style="font-size:18px;font-weight:700;color:var(--dark);margin-bottom:20px;">Send Us a Message</h3>
+        <div class="fr">
+          <div class="fg"><label>Your name *</label><input type="text" placeholder="Your full name" required></div>
+          <div class="fg"><label>Phone *</label><input type="tel" placeholder="+91 or international" required></div>
         </div>
-        <div class="form-group"><label>Your requirement *</label>
+        <div class="fg"><label>Your requirement *</label>
           <select required>
             <option value="">What do you need help with?</option>
             <option>Business Strategy & Planning</option>
@@ -848,60 +583,69 @@ footer .footer-links{display:flex;gap:20px;}
             <option>Multiple Services</option>
           </select>
         </div>
-        <div class="form-group"><label>Tell us more</label><textarea placeholder="Describe your business, goals and timeline..."></textarea></div>
-        <button class="form-submit" onclick="submitForm(event)">🚀 Send Message & Get Free Consultation</button>
-        <div class="success-msg" id="formSuccess">
-          <div class="s-icon">✅</div>
-          <h4>Message Sent Successfully!</h4>
+        <div class="fg"><label>Tell us more</label><textarea placeholder="Describe your business, goals and timeline..."></textarea></div>
+        <button class="fsub" onclick="submitForm(event)">🚀 Send Message & Get Free Consultation</button>
+        <div class="smsg" id="formSuccess">
+          <h4>✅ Message Sent!</h4>
           <p>Thank you! I will reply within 24 hours.</p>
-          <a href="https://wa.me/916354662372" target="_blank" style="display:inline-flex;align-items:center;gap:8px;margin-top:12px;background:#25D366;color:#fff;padding:10px 20px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;">💬 WhatsApp Me Now</a>
+          <a href="https://wa.me/916354662372" target="_blank" style="display:inline-flex;align-items:center;gap:7px;margin-top:10px;background:#25D366;color:#fff;padding:9px 18px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;">💬 WhatsApp Me Now</a>
         </div>
       </div>
     </div>
   </div>
-</section>
+</div>
 
-<!-- FOOTER -->
-<footer>
-  <div class="logo">SmartBiz Solutions</div>
-  <div style="font-size:13px;">© 2026 SmartBiz Solutions · Rajkot, Gujarat, India</div>
-  <div class="footer-links">
-    <a href="mailto:meenavargya44@gmail.com">meenavargya44@gmail.com</a>
-    <a href="tel:+916354662372">+91 63546 62372</a>
-    <a href="ai-presentation.html" target="_blank">AI Presentation</a>
-  </div>
-</footer>
+</div><!-- end pages -->
 
-<!-- WHATSAPP FLOAT -->
-<a href="https://wa.me/916354662372" target="_blank" class="wa-float" title="Chat on WhatsApp">
+<!-- WA FLOAT -->
+<a href="https://wa.me/916354662372" target="_blank" class="waf">
   <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
 
 <script>
+// ── PAGE NAVIGATION ──
+function showPage(name){
+  // Hide all pages
+  document.querySelectorAll('.page').forEach(p=>{ p.classList.remove('active'); p.scrollTop=0; });
+  // Remove all nav active
+  document.querySelectorAll('.nav-links a').forEach(a=>a.classList.remove('active'));
+  // Show target page
+  const pageMap = { home:'home', about:'about-page', services:'services-page', portfolio:'portfolio-page', contact:'contact-page' };
+  document.getElementById(pageMap[name]).classList.add('active');
+  document.getElementById('nav-'+name).classList.add('active');
+  // Init wheel when services page shown
+  if(name==='services') initWheel();
+  // Run counters on home
+  if(name==='home') setTimeout(()=>{ document.querySelectorAll('.counter').forEach(animateCounter); }, 400);
+}
+
 // ── WHEEL ──
-(function(){
+let wheelInited = false;
+function initWheel(){
+  if(wheelInited) return;
+  wheelInited = true;
   const svcs=[
-    {emoji:"📱",label:"Social Media",color:"#6C3CE1",bg:"#F3EEFF"},
-    {emoji:"✍️",label:"Content Writing",color:"#10B981",bg:"#ECFDF5"},
-    {emoji:"📖",label:"Story Writing",color:"#FF6B2B",bg:"#FFF1EB"},
-    {emoji:"📊",label:"PPT Design",color:"#F59E0B",bg:"#FEFCE8"},
-    {emoji:"🗄️",label:"Data Mgmt",color:"#3B82F6",bg:"#EFF6FF"},
-    {emoji:"📧",label:"Email Mgmt",color:"#8B5CF6",bg:"#F5F3FF"},
-    {emoji:"💼",label:"CRM Setup",color:"#EC4899",bg:"#FDF2F8"},
+    {e:"📱",l:"Social Media",c:"#7C3AED",b:"#F3EEFF"},
+    {e:"✍️",l:"Content Writing",c:"#10B981",b:"#ECFDF5"},
+    {e:"📖",l:"Story Writing",c:"#F97316",b:"#FFF7ED"},
+    {e:"📊",l:"PPT Design",c:"#F59E0B",b:"#FEFCE8"},
+    {e:"🗄️",l:"Data Mgmt",c:"#3B82F6",b:"#EFF6FF"},
+    {e:"📧",l:"Email Mgmt",c:"#8B5CF6",b:"#F5F3FF"},
+    {e:"💼",l:"CRM Setup",c:"#EC4899",b:"#FDF2F8"},
   ];
   const ring=document.getElementById('wheelRing');
-  const cx=210,cy=210,r=160;
+  const cx=200,cy=200,r=152;
   svcs.forEach((sv,i)=>{
     const angle=(i/svcs.length)*2*Math.PI-Math.PI/2;
-    const x=cx+r*Math.cos(angle)-33;
-    const y=cy+r*Math.sin(angle)-33;
-    const dot=document.createElement('div');
-    dot.className='sv-dot';
-    dot.style.cssText=`left:${x}px;top:${y}px;`;
-    dot.innerHTML=`<div class="dot-circle" style="background:${sv.bg};border:2.5px solid ${sv.color}30;">${sv.emoji}</div><div class="dot-label" style="color:${sv.color};">${sv.label}</div>`;
-    ring.appendChild(dot);
+    const x=cx+r*Math.cos(angle)-32;
+    const y=cy+r*Math.sin(angle)-32;
+    const d=document.createElement('div');
+    d.className='wdot';
+    d.style.cssText=`left:${x}px;top:${y}px;`;
+    d.innerHTML=`<div class="wdc" style="background:${sv.b};border:2px solid ${sv.c}25;">${sv.e}</div><div class="wdl" style="color:${sv.c};">${sv.l}</div>`;
+    ring.appendChild(d);
   });
-})();
+}
 
 // ── TYPING ──
 (function(){
@@ -915,53 +659,34 @@ footer .footer-links{display:flex;gap:20px;}
     else{el.textContent=w.substring(0,ci-1);ci--;if(ci===0){del=false;wi=(wi+1)%words.length;}}
     setTimeout(type,del?60:100);
   }
-  setTimeout(type,800);
+  setTimeout(type,600);
 })();
 
 // ── COUNTER ──
 function animateCounter(el){
+  if(el.dataset.done)return;
+  el.dataset.done='1';
   const target=parseInt(el.getAttribute('data-target'));
-  const step=target/120;let cur=0;
-  const t=setInterval(()=>{cur+=step;if(cur>=target){el.textContent=target+'+';clearInterval(t);}else{el.textContent=Math.floor(cur)+'+';} },16);
+  let cur=0; const step=target/80;
+  const t=setInterval(()=>{ cur+=step; if(cur>=target){el.textContent=target+'+';clearInterval(t);}else{el.textContent=Math.floor(cur)+'+';} },20);
 }
-
-// ── SCROLL REVEAL ──
-const obs=new IntersectionObserver((entries)=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){
-      e.target.classList.add('visible');
-      e.target.querySelectorAll('.counter').forEach(animateCounter);
-      obs.unobserve(e.target);
-    }
-  });
-},{threshold:0.1});
-document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el=>obs.observe(el));
+setTimeout(()=>{ document.querySelectorAll('.counter').forEach(animateCounter); }, 500);
 
 // ── FAQ ──
 function toggleFaq(el){
-  const ans=el.nextElementSibling;
-  const arrow=el.querySelector('.faq-arrow');
-  const isOpen=ans.style.display==='block';
-  document.querySelectorAll('.faq-a').forEach(a=>a.style.display='none');
-  document.querySelectorAll('.faq-arrow').forEach(a=>{a.textContent='+';a.style.transform='';});
-  if(!isOpen){ans.style.display='block';arrow.textContent='×';arrow.style.transform='rotate(45deg)';}
+  const a=el.nextElementSibling, arr=el.querySelector('.farr');
+  const open=a.style.display==='block';
+  document.querySelectorAll('.fa').forEach(x=>x.style.display='none');
+  document.querySelectorAll('.farr').forEach(x=>{x.textContent='+';x.style.transform='';});
+  if(!open){a.style.display='block';arr.textContent='×';arr.style.transform='rotate(45deg)';}
 }
 
 // ── FORM ──
 function submitForm(e){
   e.preventDefault();
-  const btn=e.target;
-  btn.textContent='Sending...';btn.style.opacity='0.7';
-  setTimeout(()=>{btn.style.display='none';const s=document.getElementById('formSuccess');s.style.display='block';s.scrollIntoView({behavior:'smooth',block:'center'});},1200);
+  const b=e.target; b.textContent='Sending...'; b.style.opacity='0.7';
+  setTimeout(()=>{ b.style.display='none'; const s=document.getElementById('formSuccess'); s.style.display='block'; s.scrollIntoView({behavior:'smooth',block:'center'}); },1200);
 }
-
-// ── DARK MODE ──
-function toggleTheme(){
-  document.body.classList.toggle('dark-mode');
-  document.getElementById('themeToggle').textContent=document.body.classList.contains('dark-mode')?'☀️':'🌙';
-  localStorage.setItem('theme',document.body.classList.contains('dark-mode')?'dark':'light');
-}
-if(localStorage.getItem('theme')==='dark'){document.body.classList.add('dark-mode');document.getElementById('themeToggle').textContent='☀️';}
 </script>
 </body>
 </html>
