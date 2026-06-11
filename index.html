@@ -56,8 +56,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:64px;background:rgba
 .stat .n{font-size:30px;font-weight:800;color:#fff;line-height:1;}
 .stat .l{font-size:11px;color:rgba(255,255,255,0.45);margin-top:3px;}
 .stat-d{width:1px;background:rgba(255,255,255,0.12);}
-.hero-right{flex-shrink:0;position:relative;width:300px;}
-.hcard{background:rgba(255,255,255,0.07);backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,0.12);border-radius:24px;padding:28px 24px 24px;width:300px;text-align:center;position:relative;animation:cardFloat 4s ease-in-out infinite;box-shadow:0 20px 60px rgba(0,0,0,0.3);}
+.hero-right{flex-shrink:0;position:relative;width:340px;padding:22px;animation:heroPopIn 0.7s cubic-bezier(.34,1.56,.64,1) both 0.2s;}
+@keyframes heroPopIn{from{opacity:0;transform:scale(0.85) translateY(24px);}to{opacity:1;transform:scale(1) translateY(0);}}
+.hcard{background:rgba(255,255,255,0.07);backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,0.12);border-radius:24px;padding:28px 24px 24px;width:300px;margin:0 auto;text-align:center;position:relative;animation:cardFloat 4s ease-in-out infinite;box-shadow:0 20px 60px rgba(0,0,0,0.3);}
 @keyframes cardFloat{0%,100%{transform:translateY(0px);}50%{transform:translateY(-10px);}}
 .hcard::before{content:'';position:absolute;inset:-2px;border-radius:26px;background:linear-gradient(135deg,rgba(20,184,166,0.4),rgba(244,63,94,0.4),rgba(20,184,166,0.1));z-index:-1;animation:glowPulse 3s ease-in-out infinite;}
 @keyframes glowPulse{0%,100%{opacity:0.5;}50%{opacity:1;}}
@@ -69,16 +70,24 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:64px;background:rgba
 .hcard-role{font-size:11px;color:rgba(255,255,255,0.5);margin-bottom:16px;letter-spacing:0.5px;}
 .hcard-divider{height:1px;background:rgba(255,255,255,0.08);margin:0 0 16px;}
 .hcard-skills{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:16px;}
-.hcard-skill{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:10px;padding:7px 8px;display:flex;align-items:center;gap:6px;font-size:11px;font-weight:500;color:rgba(255,255,255,0.8);transition:background 0.2s;}
-.hcard-skill:hover{background:rgba(255,255,255,0.12);}
+.hcard-skill{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:10px;padding:7px 8px;display:flex;align-items:center;gap:6px;font-size:11px;font-weight:500;color:rgba(255,255,255,0.8);transition:background 0.2s;animation:skillPop 0.5s cubic-bezier(.34,1.56,.64,1) both;}
+.hcard-skill:nth-child(1){animation-delay:0.55s;}
+.hcard-skill:nth-child(2){animation-delay:0.65s;}
+.hcard-skill:nth-child(3){animation-delay:0.75s;}
+.hcard-skill:nth-child(4){animation-delay:0.85s;}
+.hcard-skill:nth-child(5){animation-delay:0.95s;}
+.hcard-skill:nth-child(6){animation-delay:1.05s;}
+@keyframes skillPop{from{opacity:0;transform:scale(0.6) translateY(10px);}to{opacity:1;transform:scale(1) translateY(0);}}
+.hcard-skill:hover{background:rgba(255,255,255,0.12);transform:scale(1.04);}
 .hcard-skill-ic{font-size:14px;}
-.hcard-cta{display:flex;align-items:center;justify-content:center;gap:6px;background:linear-gradient(135deg,#0F766E,#E11D48);color:#fff;padding:10px 16px;border-radius:12px;font-size:12px;font-weight:700;text-decoration:none;transition:opacity 0.2s,transform 0.2s;}
+.hcard-cta{display:flex;align-items:center;justify-content:center;gap:6px;background:linear-gradient(135deg,#0F766E,#E11D48);color:#fff;padding:10px 16px;border-radius:12px;font-size:12px;font-weight:700;text-decoration:none;transition:opacity 0.2s,transform 0.2s;animation:skillPop 0.5s cubic-bezier(.34,1.56,.64,1) both 1.15s;}
 .hcard-cta:hover{opacity:0.9;transform:scale(1.02);}
 .fb{position:absolute;background:#fff;border-radius:12px;padding:9px 13px;box-shadow:0 8px 32px rgba(0,0,0,0.18);display:flex;align-items:center;gap:8px;font-size:11px;font-weight:600;color:#0F172A;white-space:nowrap;z-index:10;}
-.fb1{top:-18px;right:-18px;animation:fb1Float 3.5s ease-in-out infinite;}
-.fb2{bottom:-18px;left:-18px;animation:fb2Float 4s ease-in-out infinite;}
-@keyframes fb1Float{0%,100%{transform:translateY(0) rotate(-2deg);}50%{transform:translateY(-6px) rotate(2deg);}}
-@keyframes fb2Float{0%,100%{transform:translateY(0) rotate(1deg);}50%{transform:translateY(-8px) rotate(-1deg);}}
+.fb1{top:-12px;right:-12px;animation:fbPopIn 0.5s cubic-bezier(.34,1.56,.64,1) both 1.3s,fb1Float 3.5s ease-in-out infinite 1.8s;}
+.fb2{bottom:-12px;left:-12px;animation:fbPopIn 0.5s cubic-bezier(.34,1.56,.64,1) both 1.5s,fb2Float 4s ease-in-out infinite 2s;}
+@keyframes fbPopIn{from{opacity:0;transform:scale(0.4) rotate(-10deg);}to{opacity:1;transform:scale(1) rotate(0deg);}}
+@keyframes fb1Float{0%,100%{transform:translateY(0) scale(1) rotate(-2deg);}50%{transform:translateY(-6px) scale(1.07) rotate(2deg);}}
+@keyframes fb2Float{0%,100%{transform:translateY(0) scale(1) rotate(1deg);}50%{transform:translateY(-8px) scale(1.07) rotate(-1deg);}}
 .fb-ic{width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;}
 .fb-text .fb-val{font-size:12px;font-weight:700;color:#0F172A;line-height:1.2;}
 .fb-text .fb-lbl{font-size:10px;color:#9CA3AF;line-height:1.2;}
@@ -351,6 +360,28 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:64px;background:rgba
 .bsuccess .bsi{font-size:36px;margin-bottom:10px;}
 .bsuccess h4{color:#6EE7B7;font-size:16px;font-weight:700;margin-bottom:6px;}
 .bsuccess p{color:rgba(255,255,255,0.6);font-size:13px;line-height:1.6;}
+
+/* ── SERVICE DETAIL MODAL ── */
+.svc-modal-overlay{position:fixed;inset:0;background:rgba(15,10,30,0.65);backdrop-filter:blur(5px);z-index:3000;display:none;align-items:center;justify-content:center;padding:20px;}
+.svc-modal-overlay.open{display:flex;animation:overlayFade 0.25s ease both;}
+@keyframes overlayFade{from{opacity:0;}to{opacity:1;}}
+.svc-modal{background:#fff;border-radius:24px;max-width:540px;width:100%;max-height:85vh;overflow-y:auto;padding:36px;position:relative;animation:modalPop 0.35s cubic-bezier(.34,1.56,.64,1) both;}
+@keyframes modalPop{from{opacity:0;transform:scale(0.85) translateY(30px);}to{opacity:1;transform:scale(1) translateY(0);}}
+.svc-modal-close{position:absolute;top:18px;right:18px;width:34px;height:34px;border-radius:50%;background:var(--bg);border:1px solid var(--border);color:var(--mid);font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s;}
+.svc-modal-close:hover{background:var(--pp);color:var(--p);}
+.svc-modal-icon{width:64px;height:64px;border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:30px;margin-bottom:18px;animation:modalIconPop 0.5s cubic-bezier(.34,1.56,.64,1) both 0.1s;}
+@keyframes modalIconPop{from{opacity:0;transform:scale(0.4) rotate(-15deg);}to{opacity:1;transform:scale(1) rotate(0);}}
+.svc-modal h3{font-family:'Playfair Display',serif;font-size:24px;color:var(--dark);margin-bottom:6px;}
+.svc-modal .svc-modal-tag{font-size:12px;font-weight:700;color:var(--p);letter-spacing:1px;text-transform:uppercase;margin-bottom:16px;}
+.svc-modal .svc-modal-desc{font-size:14px;color:var(--mid);line-height:1.85;margin-bottom:20px;}
+.svc-modal .svc-modal-list-title{font-size:11px;font-weight:700;color:var(--p);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px;}
+.svc-modal-list{display:flex;flex-direction:column;gap:9px;margin-bottom:22px;}
+.svc-modal-item{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--mid);line-height:1.6;}
+.svc-modal-item .svc-ck{color:var(--g);font-weight:700;flex-shrink:0;}
+.svc-modal-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:24px;}
+.svc-modal-cta{display:flex;align-items:center;justify-content:center;gap:8px;background:#25D366;color:#fff;padding:13px;border-radius:12px;font-size:14px;font-weight:700;text-decoration:none;box-shadow:0 8px 24px rgba(37,211,102,0.3);transition:transform 0.2s;}
+.svc-modal-cta:hover{transform:translateY(-2px);}
+.sli{cursor:pointer;}
 
 @media(max-width:900px){
   nav{padding:0 20px;}
@@ -665,13 +696,13 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:64px;background:rgba
       <div class="svc-list-box">
         <h3>Everything Your Business Needs</h3>
         <p>Tap any service to learn more — or contact us for a free consultation.</p>
-        <div class="sli"><div class="sli-ic" style="background:#F3EEFF;">📱</div><div class="sli-t"><h4>Social Media Marketing</h4><p>10 images + 2 videos/month, strategy & growth for all platforms</p></div></div>
-        <div class="sli"><div class="sli-ic" style="background:#F0FDF4;">✍️</div><div class="sli-t"><h4>Content Writing</h4><p>SEO articles & web copy in Hindi + English</p></div></div>
-        <div class="sli"><div class="sli-ic" style="background:#FFF7ED;">📖</div><div class="sli-t"><h4>Story Writing</h4><p>Brand stories & creative narratives that connect</p></div></div>
-        <div class="sli"><div class="sli-ic" style="background:#FEFCE8;">📊</div><div class="sli-t"><h4>PowerPoint / PPT Design</h4><p>Infographic & professional presentations that impress</p></div></div>
-        <div class="sli"><div class="sli-ic" style="background:#EFF6FF;">🗄️</div><div class="sli-t"><h4>Data Management</h4><p>Organize & manage your business data efficiently</p></div></div>
-        <div class="sli"><div class="sli-ic" style="background:#F5F3FF;">📧</div><div class="sli-t"><h4>Email Writing & Handling</h4><p>Newsletters, cold outreach & inbox management</p></div></div>
-        <div class="sli"><div class="sli-ic" style="background:#ECFDF5;">💼</div><div class="sli-t"><h4>CRM Software & Setup</h4><p>Custom CRM systems built for your business growth</p></div></div>
+        <div class="sli" onclick="openServiceModal(0)"><div class="sli-ic" style="background:#F3EEFF;">📱</div><div class="sli-t"><h4>Social Media Marketing</h4><p>10 images + 2 videos/month, strategy & growth for all platforms</p></div></div>
+        <div class="sli" onclick="openServiceModal(1)"><div class="sli-ic" style="background:#F0FDF4;">✍️</div><div class="sli-t"><h4>Content Writing</h4><p>SEO articles & web copy in Hindi + English</p></div></div>
+        <div class="sli" onclick="openServiceModal(2)"><div class="sli-ic" style="background:#FFF7ED;">📖</div><div class="sli-t"><h4>Story Writing</h4><p>Brand stories & creative narratives that connect</p></div></div>
+        <div class="sli" onclick="openServiceModal(3)"><div class="sli-ic" style="background:#FEFCE8;">📊</div><div class="sli-t"><h4>PowerPoint / PPT Design</h4><p>Infographic & professional presentations that impress</p></div></div>
+        <div class="sli" onclick="openServiceModal(4)"><div class="sli-ic" style="background:#EFF6FF;">🗄️</div><div class="sli-t"><h4>Data Management</h4><p>Organize & manage your business data efficiently</p></div></div>
+        <div class="sli" onclick="openServiceModal(5)"><div class="sli-ic" style="background:#F5F3FF;">📧</div><div class="sli-t"><h4>Email Writing & Handling</h4><p>Newsletters, cold outreach & inbox management</p></div></div>
+        <div class="sli" onclick="openServiceModal(6)"><div class="sli-ic" style="background:#ECFDF5;">💼</div><div class="sli-t"><h4>CRM Software & Setup</h4><p>Custom CRM systems built for your business growth</p></div></div>
       </div>
     </div>
     <div style="margin-bottom:56px;">
@@ -819,6 +850,23 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:64px;background:rgba
 
 </div><!-- end pages -->
 
+<!-- SERVICE DETAIL MODAL -->
+<div class="svc-modal-overlay" id="svcModalOverlay" onclick="if(event.target===this)closeServiceModal()">
+  <div class="svc-modal">
+    <button class="svc-modal-close" onclick="closeServiceModal()">✕</button>
+    <div class="svc-modal-icon" id="svcModalIcon"></div>
+    <div class="svc-modal-tag" id="svcModalTag"></div>
+    <h3 id="svcModalTitle"></h3>
+    <p class="svc-modal-desc" id="svcModalDesc"></p>
+    <div class="svc-modal-list-title">What's Included</div>
+    <div class="svc-modal-list" id="svcModalList"></div>
+    <div class="svc-modal-tags" id="svcModalTags"></div>
+    <a href="https://wa.me/916354662372" target="_blank" class="svc-modal-cta" id="svcModalCta">
+      💬 Get a Quote on WhatsApp
+    </a>
+  </div>
+</div>
+
 <a href="https://wa.me/916354662372" target="_blank" class="waf">
   <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
@@ -958,10 +1006,139 @@ function initWheel(){
   svcs.forEach((sv,i)=>{
     const angle=(i/svcs.length)*2*Math.PI-Math.PI/2;
     const x=cx+r*Math.cos(angle)-32,y=cy+r*Math.sin(angle)-32;
-    const d=document.createElement('div');d.className='wdot';d.style.cssText='left:'+x+'px;top:'+y+'px;';
+    const d=document.createElement('div');d.className='wdot';d.style.cssText='left:'+x+'px;top:'+y+'px;cursor:pointer;';
     d.innerHTML='<div class="wdc" style="background:'+sv.b+';border:2px solid '+sv.c+'25;">'+sv.e+'</div><div class="wdl" style="color:'+sv.c+';">'+sv.l+'</div>';
+    d.onclick=()=>openServiceModal(i);
     ring.appendChild(d);
   });
+}
+
+// ── SERVICE DETAIL MODAL ──
+const SERVICE_DETAILS=[
+  {
+    icon:"📱", bg:"#F3EEFF", tag:"Social Media Marketing",
+    title:"Grow Your Brand on Social Media",
+    desc:"I manage your social media presence end-to-end — from content planning to posting and growth tracking. Whether it's Instagram, Facebook, LinkedIn or others, I create a consistent, professional presence that builds trust and brings in new customers.",
+    items:[
+      "10 custom-designed images + 2 short videos every month",
+      "Monthly content calendar planned around your goals",
+      "Hashtag research & caption writing (Hindi + English)",
+      "Profile optimization & branding consistency",
+      "Monthly performance summary with growth insights"
+    ],
+    tags:["Instagram","Facebook","LinkedIn","Reels & Posts"]
+  },
+  {
+    icon:"✍️", bg:"#F0FDF4", tag:"Content Writing",
+    title:"SEO Articles & Web Copy",
+    desc:"Clear, engaging, and search-optimized writing for your website, blog, or marketing materials. I write in both Hindi and English, tailored to your brand's tone and your audience's needs — helping you rank better and connect with readers.",
+    items:[
+      "SEO-optimized blog articles & website pages",
+      "Product descriptions & landing page copy",
+      "Hindi and English content as per your audience",
+      "Keyword-friendly writing without sounding robotic",
+      "Proofreading & editing of existing content"
+    ],
+    tags:["SEO Articles","Web Copy","Bilingual","Editing"]
+  },
+  {
+    icon:"📖", bg:"#FFF7ED", tag:"Story Writing",
+    title:"Brand Stories That Connect",
+    desc:"Every business has a story worth telling. I craft compelling brand narratives, founder stories, and creative content that builds an emotional connection with your audience — turning casual visitors into loyal customers.",
+    items:[
+      "Founder & brand origin stories",
+      "Customer success story write-ups",
+      "Creative narratives for marketing campaigns",
+      "About Us page storytelling",
+      "Scriptwriting for short videos & reels"
+    ],
+    tags:["Brand Story","Storytelling","Scripts","Creative Writing"]
+  },
+  {
+    icon:"📊", bg:"#FEFCE8", tag:"PowerPoint / PPT Design",
+    title:"Presentations That Impress",
+    desc:"I design professional, infographic-style presentations for pitches, training sessions, business proposals, and reports. Clean layouts, smart visuals, and a structure that keeps your audience engaged from start to finish.",
+    items:[
+      "Investor pitch decks & business proposals",
+      "Corporate training & workshop presentations",
+      "Infographic-style slides with charts & icons",
+      "Custom branding — colors, fonts, and logo placement",
+      "Editable source file delivered with final design"
+    ],
+    tags:["Pitch Decks","Training Slides","Infographics","Branding"]
+  },
+  {
+    icon:"🗄️", bg:"#EFF6FF", tag:"Data Management",
+    title:"Organized, Reliable Business Data",
+    desc:"Messy spreadsheets and scattered records slow your business down. I organize, clean, and structure your business data — from customer lists to sales records — making it easy to access, analyze, and use for decisions.",
+    items:[
+      "Data entry, cleaning & formatting",
+      "Excel/Google Sheets dashboards & reports",
+      "Customer & lead database organization",
+      "Inventory & sales tracking sheets",
+      "Regular updates & data backup management"
+    ],
+    tags:["Excel","Google Sheets","Dashboards","Data Entry"]
+  },
+  {
+    icon:"📧", bg:"#F5F3FF", tag:"Email Writing & Handling",
+    title:"Professional Email Management",
+    desc:"From newsletters to client follow-ups, I handle your email communication so you can focus on running your business. Professional, well-written emails that represent your brand the right way.",
+    items:[
+      "Newsletter writing & design",
+      "Cold outreach & follow-up email sequences",
+      "Daily inbox management & response drafting",
+      "Email templates for common business scenarios",
+      "Mailchimp / email tool setup & automation"
+    ],
+    tags:["Newsletters","Inbox Mgmt","Mailchimp","Automation"]
+  },
+  {
+    icon:"💼", bg:"#ECFDF5", tag:"CRM Software & Setup",
+    title:"Custom CRM Built for Your Business",
+    desc:"I design and set up CRM systems tailored to how your business actually works — order tracking, employee management, attendance, billing, and reporting, all in one place. Built from real experience creating live CRMs for pharma and other businesses.",
+    items:[
+      "Custom CRM design — order/lead pipeline",
+      "Employee & attendance management modules",
+      "Billing, accounts & finance tracking",
+      "Reports & dashboards for business insights",
+      "Team training to use the CRM effectively"
+    ],
+    tags:["Custom CRM","Order Pipeline","Reports","Team Training"]
+  }
+];
+
+function openServiceModal(idx){
+  const s=SERVICE_DETAILS[idx];
+  const icon=document.getElementById('svcModalIcon');
+  icon.textContent=s.icon;
+  icon.style.background=s.bg;
+  document.getElementById('svcModalTag').textContent=s.tag;
+  document.getElementById('svcModalTitle').textContent=s.title;
+  document.getElementById('svcModalDesc').textContent=s.desc;
+  const list=document.getElementById('svcModalList');
+  list.innerHTML='';
+  s.items.forEach(it=>{
+    const row=document.createElement('div');
+    row.className='svc-modal-item';
+    row.innerHTML='<span class="svc-ck">✓</span><span>'+it+'</span>';
+    list.appendChild(row);
+  });
+  const tagsWrap=document.getElementById('svcModalTags');
+  tagsWrap.innerHTML='';
+  s.tags.forEach(t=>{
+    const tg=document.createElement('span');
+    tg.className='pc-tag';
+    tg.textContent=t;
+    tagsWrap.appendChild(tg);
+  });
+  const cta=document.getElementById('svcModalCta');
+  cta.href='https://wa.me/916354662372?text='+encodeURIComponent('Hello Meena, I am interested in '+s.tag+'. Can you share more details?');
+  document.getElementById('svcModalOverlay').classList.add('open');
+}
+
+function closeServiceModal(){
+  document.getElementById('svcModalOverlay').classList.remove('open');
 }
 
 // ── TYPING ──
