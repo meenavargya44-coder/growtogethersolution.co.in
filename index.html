@@ -1,14 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
+"<!DOCTYPE html>
+<html lang=\"en\">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset=\"UTF-8\">
+<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
 <title>GrowTogether Solutions | Business Growth & Training Services</title>
-<meta name="description" content="Business growth consulting, staff training, marketing, and digital services. Serving clients across India and worldwide.">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<meta name=\"description\" content=\"Business growth consulting, staff training, marketing, and digital services. Serving clients across India and worldwide.\">
+<link href=\"https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=DM+Serif+Display:ital@0;1&display=swap\" rel=\"stylesheet\">
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
-html,body{height:100%;font-family:'Inter',sans-serif;color:#0f172a;background:#fff;overflow:hidden;}
+html,body{height:100%;font-family:'Inter',sans-serif;color:#0f172a;background:#fff;overflow:hidden;-webkit-font-smoothing:antialiased;}
 :root{
   --ink:#0f172a; --ink2:#1e293b; --mute:#475569; --faint:#94a3b8;
   --line:#bae6fd; --bg:#f0f9ff; --bg2:#e0f2fe;
@@ -21,661 +21,786 @@ html,body{height:100%;font-family:'Inter',sans-serif;color:#0f172a;background:#f
   --wa:#25D366;
   --sh:0 2px 8px rgba(14,165,233,.10),0 8px 24px rgba(14,165,233,.07);
   --shl:0 8px 40px rgba(14,165,233,.18),0 2px 8px rgba(14,165,233,.08);
-  --shv:0 8px 32px rgba(14,165,233,.28);
+  --shv:0 20px 60px rgba(14,165,233,.28);
+  --ease-out: cubic-bezier(.22,1,.36,1);
+  --ease-spring: cubic-bezier(.34,1.56,.64,1);
 }
-::-webkit-scrollbar{width:5px;}
-::-webkit-scrollbar-thumb{background:#7dd3fc;border-radius:99px;}
+::-webkit-scrollbar{width:6px;}
+::-webkit-scrollbar-track{background:transparent;}
+::-webkit-scrollbar-thumb{background:linear-gradient(180deg,#7dd3fc,#0284c7);border-radius:99px;}
+::selection{background:#0ea5e9;color:#fff;}
+
+/* Cursor follow glow */
+.cursor-glow{position:fixed;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(14,165,233,.15) 0%,rgba(56,189,248,.05) 40%,transparent 70%);pointer-events:none;z-index:1;transform:translate(-50%,-50%);transition:opacity .5s;mix-blend-mode:screen;will-change:transform;}
 
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:2000;height:62px;
-  background:rgba(255,255,255,.97);backdrop-filter:blur(20px);
-  border-bottom:1px solid #bae6fd;
-  display:flex;align-items:center;justify-content:space-between;padding:0 44px;}
+nav{position:fixed;top:0;left:0;right:0;z-index:2000;height:64px;
+  background:rgba(255,255,255,.78);backdrop-filter:blur(24px) saturate(180%);-webkit-backdrop-filter:blur(24px) saturate(180%);
+  border-bottom:1px solid rgba(186,230,253,.6);
+  display:flex;align-items:center;justify-content:space-between;padding:0 44px;
+  transition:background .3s ease, box-shadow .3s ease;}
+nav.scrolled{background:rgba(255,255,255,.92);box-shadow:0 4px 24px rgba(14,165,233,.08);}
 
-/* LOGO with diamond SVG */
-.logo{font-size:17px;font-weight:900;color:#0369a1;text-decoration:none;display:flex;align-items:center;gap:10px;letter-spacing:-.5px;}
-.logo-svg{width:38px;height:38px;flex-shrink:0;filter:drop-shadow(0 4px 10px rgba(14,165,233,.38));}
+.logo{font-size:17px;font-weight:900;color:#0369a1;text-decoration:none;display:flex;align-items:center;gap:11px;letter-spacing:-.5px;transition:transform .25s var(--ease-spring);}
+.logo:hover{transform:scale(1.03);}
+.logo-svg{width:40px;height:40px;flex-shrink:0;filter:drop-shadow(0 6px 14px rgba(14,165,233,.42));animation:logoFloat 6s ease-in-out infinite;}
+@keyframes logoFloat{0%,100%{transform:translateY(0) rotate(0deg);}50%{transform:translateY(-3px) rotate(2deg);}}
 .logo-text-wrap{display:flex;flex-direction:column;line-height:1;}
-.logo-grow{font-size:15px;font-weight:900;color:#1a1a2e;letter-spacing:.5px;}
-.logo-together{font-size:15px;font-weight:900;color:#0ea5e9;letter-spacing:.5px;}
+.logo-grow{font-size:15px;font-weight:900;color:#0c2d4a;letter-spacing:.5px;}
+.logo-together{font-size:15px;font-weight:900;background:linear-gradient(90deg,#0ea5e9,#0369a1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:.5px;}
 .logo-solutions{font-size:8.5px;font-weight:600;color:#64748b;letter-spacing:2.5px;text-transform:uppercase;margin-top:1px;}
 
-.nav-links{display:flex;gap:2px;list-style:none;}
-.nav-links a{padding:6px 14px;border-radius:8px;font-size:13.5px;font-weight:500;color:var(--mute);text-decoration:none;transition:all .2s;cursor:pointer;}
-.nav-links a:hover,.nav-links a.active{background:#e0f2fe;color:#0369a1;font-weight:600;}
-.nav-btns{display:flex;gap:8px;align-items:center;}
-.n-wa{background:var(--wa);color:#fff;padding:8px 16px;border-radius:9px;font-size:12.5px;font-weight:700;text-decoration:none;display:flex;align-items:center;gap:6px;transition:filter .2s;}
-.n-wa:hover{filter:brightness(1.08);}
-.n-cta{background:linear-gradient(135deg,#0ea5e9,#0369a1);color:#fff;padding:8px 18px;border-radius:9px;font-size:12.5px;font-weight:700;text-decoration:none;box-shadow:0 4px 14px rgba(14,165,233,.38);transition:opacity .2s;}
-.n-cta:hover{opacity:.9;}
+.nav-links{display:flex;gap:4px;list-style:none;}
+.nav-links a{position:relative;padding:8px 16px;border-radius:10px;font-size:13.5px;font-weight:500;color:var(--mute);text-decoration:none;transition:color .25s;cursor:pointer;}
+.nav-links a::before{content:'';position:absolute;inset:0;border-radius:10px;background:linear-gradient(135deg,#e0f2fe,#bae6fd);opacity:0;transform:scale(.85);transition:opacity .3s var(--ease-out), transform .3s var(--ease-spring);z-index:-1;}
+.nav-links a:hover,.nav-links a.active{color:#0369a1;font-weight:600;}
+.nav-links a:hover::before,.nav-links a.active::before{opacity:1;transform:scale(1);}
+.nav-btns{display:flex;gap:10px;align-items:center;}
+.n-wa{background:var(--wa);color:#fff;padding:9px 18px;border-radius:10px;font-size:12.5px;font-weight:700;text-decoration:none;display:flex;align-items:center;gap:6px;transition:all .25s var(--ease-out);box-shadow:0 4px 14px rgba(37,211,102,.32);position:relative;overflow:hidden;}
+.n-wa::before{content:'';position:absolute;inset:0;background:linear-gradient(120deg,transparent,rgba(255,255,255,.3),transparent);transform:translateX(-100%);transition:transform .6s;}
+.n-wa:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(37,211,102,.5);}
+.n-wa:hover::before{transform:translateX(100%);}
+.n-cta{background:linear-gradient(135deg,#0ea5e9,#0369a1);color:#fff;padding:9px 20px;border-radius:10px;font-size:12.5px;font-weight:700;text-decoration:none;box-shadow:0 6px 18px rgba(14,165,233,.42);transition:all .25s var(--ease-out);position:relative;overflow:hidden;}
+.n-cta::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,#38bdf8,#0ea5e9);opacity:0;transition:opacity .3s;}
+.n-cta span{position:relative;z-index:1;}
+.n-cta:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(14,165,233,.55);}
+.n-cta:hover::before{opacity:1;}
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;background:none;border:none;}
-.hamburger span{display:block;width:22px;height:2px;background:#0369a1;border-radius:2px;transition:all .3s;}
+.hamburger span{display:block;width:22px;height:2px;background:#0369a1;border-radius:2px;transition:all .3s var(--ease-out);}
 .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
 .hamburger.open span:nth-child(2){opacity:0;}
 .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
-.mobile-menu{display:none;position:fixed;top:62px;left:0;right:0;background:#fff;border-bottom:2px solid #bae6fd;z-index:1999;padding:16px 20px;flex-direction:column;gap:4px;box-shadow:0 8px 32px rgba(14,165,233,.12);}
-.mobile-menu.open{display:flex;}
-.mobile-menu a{padding:11px 16px;border-radius:10px;font-size:14px;font-weight:600;color:var(--mute);text-decoration:none;cursor:pointer;transition:all .2s;}
-.mobile-menu a:hover,.mobile-menu a.active{background:#e0f2fe;color:#0369a1;}
+.mobile-menu{display:none;position:fixed;top:64px;left:0;right:0;background:rgba(255,255,255,.97);backdrop-filter:blur(20px);border-bottom:2px solid #bae6fd;z-index:1999;padding:16px 20px;flex-direction:column;gap:4px;box-shadow:0 8px 32px rgba(14,165,233,.12);}
+.mobile-menu.open{display:flex;animation:slideDown .35s var(--ease-out);}
+@keyframes slideDown{from{opacity:0;transform:translateY(-12px);}to{opacity:1;transform:translateY(0);}}
+.mobile-menu a{padding:12px 16px;border-radius:10px;font-size:14px;font-weight:600;color:var(--mute);text-decoration:none;cursor:pointer;transition:all .2s;}
+.mobile-menu a:hover,.mobile-menu a.active{background:#e0f2fe;color:#0369a1;transform:translateX(4px);}
 .mob-wa{background:var(--wa)!important;color:#fff!important;margin-top:6px;text-align:center;}
 .mob-cta{background:linear-gradient(135deg,#0ea5e9,#0369a1)!important;color:#fff!important;text-align:center;}
 
 /* PAGE SYSTEM */
-.pages{position:fixed;top:62px;left:0;right:0;bottom:0;overflow:hidden;}
-.page{position:absolute;inset:0;overflow-y:auto;opacity:0;pointer-events:none;transform:translateY(18px);transition:opacity .38s ease,transform .38s ease;}
-.page.active{opacity:1;pointer-events:all;transform:translateY(0);}
+.pages{position:fixed;top:64px;left:0;right:0;bottom:0;overflow:hidden;}
+.page{position:absolute;inset:0;overflow-y:auto;opacity:0;pointer-events:none;transform:translateY(24px) scale(.985);transition:opacity .55s var(--ease-out),transform .55s var(--ease-out);}
+.page.active{opacity:1;pointer-events:all;transform:translateY(0) scale(1);}
 
 /* SCROLL ANIMATIONS */
-.reveal{opacity:0;transform:translateY(30px);transition:opacity .65s cubic-bezier(.22,1,.36,1),transform .65s cubic-bezier(.22,1,.36,1);}
+.reveal{opacity:0;transform:translateY(36px);transition:opacity .8s var(--ease-out),transform .8s var(--ease-out);}
 .reveal.visible{opacity:1;transform:translateY(0);}
-.reveal-l{opacity:0;transform:translateX(-30px);transition:opacity .65s cubic-bezier(.22,1,.36,1),transform .65s cubic-bezier(.22,1,.36,1);}
+.reveal-l{opacity:0;transform:translateX(-36px);transition:opacity .8s var(--ease-out),transform .8s var(--ease-out);}
 .reveal-l.visible{opacity:1;transform:translateX(0);}
-.reveal-r{opacity:0;transform:translateX(30px);transition:opacity .65s cubic-bezier(.22,1,.36,1),transform .38s cubic-bezier(.22,1,.36,1);}
+.reveal-r{opacity:0;transform:translateX(36px);transition:opacity .8s var(--ease-out),transform .8s var(--ease-out);}
 .reveal-r.visible{opacity:1;transform:translateX(0);}
+.reveal-scale{opacity:0;transform:scale(.9);transition:opacity .8s var(--ease-out),transform .8s var(--ease-spring);}
+.reveal-scale.visible{opacity:1;transform:scale(1);}
 
 /* HOME PAGE */
-#home{background:linear-gradient(160deg,#0c2d4a 0%,#0a4a7a 45%,#0369a1 100%);}
-.home-wrap{max-width:1180px;margin:0 auto;padding:72px 44px 80px;}
+#home{background:linear-gradient(160deg,#081d33 0%,#0a4a7a 45%,#0369a1 100%);position:relative;}
+#home::before,#home::after{content:'';position:absolute;border-radius:50%;filter:blur(80px);opacity:.45;pointer-events:none;animation:orbMove 14s ease-in-out infinite;}
+#home::before{width:520px;height:520px;background:radial-gradient(circle,#0ea5e9,transparent 70%);top:-120px;right:-120px;}
+#home::after{width:440px;height:440px;background:radial-gradient(circle,#38bdf8,transparent 70%);bottom:-100px;left:-100px;animation-delay:-7s;}
+@keyframes orbMove{0%,100%{transform:translate(0,0) scale(1);}33%{transform:translate(40px,-30px) scale(1.08);}66%{transform:translate(-30px,40px) scale(.94);}}
+
+/* Animated grid overlay on home */
+.grid-overlay{position:absolute;inset:0;background-image:linear-gradient(rgba(125,211,252,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(125,211,252,.06) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;mask-image:radial-gradient(ellipse at center top,#000 30%,transparent 75%);-webkit-mask-image:radial-gradient(ellipse at center top,#000 30%,transparent 75%);}
+
+.home-wrap{max-width:1180px;margin:0 auto;padding:72px 44px 80px;position:relative;z-index:2;}
 
 /* Hero */
 .hero{display:flex;gap:72px;align-items:center;margin-bottom:72px;}
 .hero-l{flex:1;}
-.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#7dd3fc;font-size:11.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:7px 16px;border-radius:99px;margin-bottom:26px;}
-.hero-eyebrow::before{content:'';width:7px;height:7px;border-radius:50%;background:#38bdf8;box-shadow:0 0 0 3px rgba(56,189,248,.3);animation:blink 2s infinite;}
-@keyframes blink{0%,100%{box-shadow:0 0 0 3px rgba(56,189,248,.3);}50%{box-shadow:0 0 0 8px rgba(56,189,248,0);}}
-.hero-h1{font-family:'DM Serif Display',serif;font-size:clamp(38px,4.8vw,64px);line-height:1.06;color:#fff;margin-bottom:18px;letter-spacing:-.5px;}
-.hero-h1 em{font-style:italic;background:linear-gradient(90deg,#7dd3fc,#bae6fd);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-.typing-wrap{font-size:16px;font-weight:500;color:rgba(255,255,255,.55);margin-bottom:22px;min-height:26px;}
-.typing-wrap span{color:#7dd3fc;font-weight:700;border-right:2px solid #7dd3fc;padding-right:3px;}
-.hero-sub{font-size:15px;color:rgba(255,255,255,.65);line-height:1.85;margin-bottom:36px;max-width:510px;}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.08);border:1px solid rgba(125,211,252,.25);color:#7dd3fc;font-size:11.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:8px 18px;border-radius:99px;margin-bottom:28px;backdrop-filter:blur(10px);}
+.hero-eyebrow::before{content:'';width:8px;height:8px;border-radius:50%;background:#38bdf8;box-shadow:0 0 0 4px rgba(56,189,248,.3),0 0 12px #38bdf8;animation:blink 2s infinite;}
+@keyframes blink{0%,100%{box-shadow:0 0 0 4px rgba(56,189,248,.3),0 0 12px #38bdf8;}50%{box-shadow:0 0 0 10px rgba(56,189,248,0),0 0 8px #38bdf8;}}
+.hero-h1{font-family:'DM Serif Display',serif;font-size:clamp(38px,4.8vw,68px);line-height:1.04;color:#fff;margin-bottom:20px;letter-spacing:-1px;}
+.hero-h1 em{font-style:italic;background:linear-gradient(90deg,#7dd3fc,#bae6fd 50%,#fff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;background-size:200% 100%;animation:shimmer 6s ease-in-out infinite;}
+@keyframes shimmer{0%,100%{background-position:0% 50%;}50%{background-position:100% 50%;}}
+.typing-wrap{font-size:16px;font-weight:500;color:rgba(255,255,255,.55);margin-bottom:24px;min-height:26px;}
+.typing-wrap span{color:#7dd3fc;font-weight:700;border-right:2px solid #7dd3fc;padding-right:3px;animation:caret 1s steps(1) infinite;}
+@keyframes caret{50%{border-color:transparent;}}
+.hero-sub{font-size:15px;color:rgba(255,255,255,.7);line-height:1.85;margin-bottom:38px;max-width:520px;}
 .hero-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:48px;}
-.btn-primary{background:linear-gradient(135deg,#0ea5e9,#0369a1);color:#fff;padding:13px 26px;border-radius:11px;font-size:14px;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:8px;box-shadow:0 8px 24px rgba(14,165,233,.42);transition:transform .2s,box-shadow .2s;}
-.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(14,165,233,.55);}
-.btn-wa{background:var(--wa);color:#fff;padding:13px 26px;border-radius:11px;font-size:14px;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:8px;box-shadow:0 8px 24px rgba(37,211,102,.35);transition:transform .2s;}
-.btn-wa:hover{transform:translateY(-2px);}
+.btn-primary{background:linear-gradient(135deg,#0ea5e9,#0369a1);color:#fff;padding:14px 28px;border-radius:12px;font-size:14px;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:8px;box-shadow:0 12px 28px rgba(14,165,233,.45),inset 0 1px 0 rgba(255,255,255,.18);transition:transform .25s var(--ease-out),box-shadow .25s;position:relative;overflow:hidden;}
+.btn-primary::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(120deg,transparent,rgba(255,255,255,.4),transparent);transition:left .7s;}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 18px 36px rgba(14,165,233,.6),inset 0 1px 0 rgba(255,255,255,.25);}
+.btn-primary:hover::before{left:100%;}
+.btn-wa{background:var(--wa);color:#fff;padding:14px 28px;border-radius:12px;font-size:14px;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:8px;box-shadow:0 12px 28px rgba(37,211,102,.4);transition:transform .25s var(--ease-out),box-shadow .25s;position:relative;overflow:hidden;}
+.btn-wa::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(120deg,transparent,rgba(255,255,255,.4),transparent);transition:left .7s;}
+.btn-wa:hover{transform:translateY(-3px);box-shadow:0 18px 36px rgba(37,211,102,.55);}
+.btn-wa:hover::before{left:100%;}
 .btn-wa svg,.waf svg{width:17px;height:17px;fill:#fff;}
-.hero-stats{display:flex;gap:0;padding-top:32px;border-top:1px solid rgba(255,255,255,.12);}
-.hs{flex:1;text-align:center;}
+.hero-stats{display:flex;gap:0;padding-top:34px;border-top:1px solid rgba(255,255,255,.14);}
+.hs{flex:1;text-align:center;transition:transform .3s;}
+.hs:hover{transform:translateY(-3px);}
 .hs:not(:last-child){border-right:1px solid rgba(255,255,255,.12);}
-.hs .n{font-size:28px;font-weight:900;color:#fff;letter-spacing:-1px;line-height:1;}
-.hs .l{font-size:10.5px;color:rgba(255,255,255,.42);font-weight:500;margin-top:4px;text-transform:uppercase;letter-spacing:.5px;}
+.hs .n{font-size:30px;font-weight:900;color:#fff;letter-spacing:-1.5px;line-height:1;background:linear-gradient(180deg,#fff,#7dd3fc);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.hs .l{font-size:10.5px;color:rgba(255,255,255,.5);font-weight:500;margin-top:5px;text-transform:uppercase;letter-spacing:1px;}
 
 /* Hero right */
-.hero-r{flex-shrink:0;width:340px;}
-.metrics-card{background:rgba(255,255,255,.09);backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,.18);border-radius:22px;padding:28px;color:#fff;position:relative;overflow:hidden;animation:cardFloat 4s ease-in-out infinite;}
-@keyframes cardFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
-.metrics-card::before{content:'';position:absolute;top:-60px;right:-60px;width:180px;height:180px;border-radius:50%;background:radial-gradient(circle,rgba(14,165,233,.35),transparent);}
-.mc-label{font-size:10px;font-weight:700;letter-spacing:2px;color:rgba(255,255,255,.38);text-transform:uppercase;margin-bottom:18px;}
+.hero-r{flex-shrink:0;width:350px;perspective:1200px;}
+.metrics-card{background:rgba(255,255,255,.08);backdrop-filter:blur(28px) saturate(180%);-webkit-backdrop-filter:blur(28px) saturate(180%);border:1px solid rgba(255,255,255,.18);border-radius:24px;padding:30px;color:#fff;position:relative;overflow:hidden;animation:cardFloat 6s ease-in-out infinite;transition:transform .4s var(--ease-out);transform-style:preserve-3d;}
+@keyframes cardFloat{0%,100%{transform:translateY(0) rotateX(0) rotateY(0);}50%{transform:translateY(-10px) rotateX(2deg) rotateY(-2deg);}}
+.metrics-card::before{content:'';position:absolute;top:-80px;right:-80px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(56,189,248,.4),transparent 70%);}
+.metrics-card::after{content:'';position:absolute;bottom:-60px;left:-60px;width:180px;height:180px;border-radius:50%;background:radial-gradient(circle,rgba(125,211,252,.25),transparent 70%);}
+.mc-label{font-size:10px;font-weight:700;letter-spacing:2px;color:rgba(255,255,255,.45);text-transform:uppercase;margin-bottom:20px;position:relative;z-index:1;}
 .mc-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:18px;position:relative;z-index:1;}
-.mc-item{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:14px;transition:background .2s;}
-.mc-item:hover{background:rgba(255,255,255,.17);}
-.mc-n{font-size:26px;font-weight:900;color:#fff;letter-spacing:-1px;line-height:1;}
-.mc-sub{font-size:10px;color:rgba(255,255,255,.42);margin-top:4px;font-weight:500;}
-.mc-divider{height:1px;background:rgba(255,255,255,.1);margin-bottom:16px;}
+.mc-item{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.14);border-radius:13px;padding:15px;transition:all .3s var(--ease-out);position:relative;overflow:hidden;}
+.mc-item::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(56,189,248,.15),transparent);opacity:0;transition:opacity .3s;}
+.mc-item:hover{background:rgba(255,255,255,.18);transform:translateY(-2px);}
+.mc-item:hover::before{opacity:1;}
+.mc-n{font-size:28px;font-weight:900;color:#fff;letter-spacing:-1px;line-height:1;background:linear-gradient(135deg,#fff,#7dd3fc);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.mc-sub{font-size:10px;color:rgba(255,255,255,.5);margin-top:5px;font-weight:500;}
+.mc-divider{height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.18),transparent);margin-bottom:16px;}
 .mc-services{display:flex;flex-direction:column;gap:8px;position:relative;z-index:1;}
-.mc-svc{display:flex;align-items:center;justify-content:space-between;padding:8px 12px;background:rgba(255,255,255,.07);border-radius:9px;}
-.mc-svc-name{font-size:12px;color:rgba(255,255,255,.75);font-weight:500;}
-.mc-svc-tag{font-size:10px;font-weight:700;padding:2px 9px;border-radius:99px;}
-.mc-svc-tag.green{background:rgba(56,189,248,.2);color:#7dd3fc;}
-.mc-svc-tag.amber{background:rgba(251,191,36,.18);color:#fbbf24;}
-.mc-cta{display:flex;align-items:center;justify-content:center;gap:6px;background:var(--wa);color:#fff;padding:11px;border-radius:11px;font-size:12.5px;font-weight:700;text-decoration:none;margin-top:16px;position:relative;z-index:1;transition:filter .2s;}
-.mc-cta:hover{filter:brightness(1.08);}
+.mc-svc{display:flex;align-items:center;justify-content:space-between;padding:9px 13px;background:rgba(255,255,255,.07);border-radius:10px;transition:background .2s;}
+.mc-svc:hover{background:rgba(255,255,255,.12);}
+.mc-svc-name{font-size:12px;color:rgba(255,255,255,.8);font-weight:500;}
+.mc-svc-tag{font-size:10px;font-weight:700;padding:3px 10px;border-radius:99px;}
+.mc-svc-tag.green{background:rgba(56,189,248,.22);color:#7dd3fc;}
+.mc-svc-tag.amber{background:rgba(251,191,36,.2);color:#fbbf24;}
+.mc-cta{display:flex;align-items:center;justify-content:center;gap:7px;background:var(--wa);color:#fff;padding:12px;border-radius:12px;font-size:12.5px;font-weight:700;text-decoration:none;margin-top:18px;position:relative;z-index:1;transition:all .25s;box-shadow:0 6px 18px rgba(37,211,102,.32);overflow:hidden;}
+.mc-cta::before{content:'';position:absolute;inset:0;background:linear-gradient(120deg,transparent,rgba(255,255,255,.3),transparent);transform:translateX(-100%);transition:transform .6s;}
+.mc-cta:hover{filter:brightness(1.08);box-shadow:0 10px 22px rgba(37,211,102,.5);}
+.mc-cta:hover::before{transform:translateX(100%);}
 
 /* Tagline banner */
-.tagline-banner{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.18);border-radius:14px;padding:18px 28px;text-align:center;margin-bottom:40px;}
-.tagline-banner .tg-main{font-family:'DM Serif Display',serif;font-size:22px;color:#fff;font-style:italic;margin-bottom:6px;}
-.tagline-banner .tg-sub{font-size:12px;color:rgba(255,255,255,.42);letter-spacing:2px;text-transform:uppercase;}
+.tagline-banner{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:16px;padding:20px 28px;text-align:center;margin-bottom:42px;backdrop-filter:blur(10px);position:relative;overflow:hidden;}
+.tagline-banner::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(125,211,252,.1),transparent);animation:slideShine 5s ease-in-out infinite;}
+@keyframes slideShine{0%,100%{left:-100%;}50%{left:100%;}}
+.tagline-banner .tg-main{font-family:'DM Serif Display',serif;font-size:24px;color:#fff;font-style:italic;margin-bottom:6px;}
+.tagline-banner .tg-sub{font-size:11.5px;color:rgba(125,211,252,.7);letter-spacing:3px;text-transform:uppercase;font-weight:600;}
 
 /* Pillars */
-.section-label{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#7dd3fc;margin-bottom:10px;}
-.section-title{font-family:'DM Serif Display',serif;font-size:clamp(26px,3vw,40px);color:#fff;margin-bottom:8px;letter-spacing:-.3px;}
-.section-sub{font-size:14px;color:rgba(255,255,255,.48);margin-bottom:36px;}
-.pillars-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:24px;}
-.pillar{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.13);border-radius:18px;padding:28px;transition:all .3s;position:relative;overflow:hidden;}
-.pillar::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:18px 18px 0 0;}
+.section-label{font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:#7dd3fc;margin-bottom:12px;display:inline-flex;align-items:center;gap:10px;}
+.section-label::before{content:'';width:24px;height:2px;background:linear-gradient(90deg,#7dd3fc,transparent);border-radius:2px;}
+.section-title{font-family:'DM Serif Display',serif;font-size:clamp(28px,3vw,42px);color:#fff;margin-bottom:10px;letter-spacing:-.5px;}
+.section-sub{font-size:14.5px;color:rgba(255,255,255,.55);margin-bottom:38px;}
+.pillars-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:28px;}
+.pillar{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:30px;transition:all .4s var(--ease-out);position:relative;overflow:hidden;backdrop-filter:blur(10px);cursor:default;}
+.pillar::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:20px 20px 0 0;transition:height .3s;}
+.pillar::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 0%,rgba(56,189,248,.15),transparent 60%);opacity:0;transition:opacity .4s;pointer-events:none;}
 .pillar.p1::before{background:linear-gradient(90deg,#0ea5e9,#38bdf8);}
 .pillar.p2::before{background:linear-gradient(90deg,#0369a1,#0ea5e9);}
 .pillar.p3::before{background:linear-gradient(90deg,#0284c7,#7dd3fc);}
-.pillar:hover{background:rgba(255,255,255,.13);transform:translateY(-4px);box-shadow:0 16px 48px rgba(0,0,0,.25);}
-.pillar-ic{font-size:30px;margin-bottom:14px;}
-.pillar h3{font-size:16px;font-weight:700;color:#fff;margin-bottom:8px;}
-.pillar p{font-size:13px;color:rgba(255,255,255,.58);line-height:1.75;margin-bottom:14px;}
-.pillar-list{list-style:none;display:flex;flex-direction:column;gap:6px;}
-.pillar-list li{font-size:12.5px;color:rgba(255,255,255,.68);display:flex;align-items:center;gap:8px;}
+.pillar:hover{background:rgba(255,255,255,.1);transform:translateY(-8px);box-shadow:0 24px 60px rgba(0,0,0,.35);border-color:rgba(125,211,252,.35);}
+.pillar:hover::before{height:5px;}
+.pillar:hover::after{opacity:1;}
+.pillar-ic{font-size:32px;margin-bottom:16px;display:inline-flex;width:60px;height:60px;align-items:center;justify-content:center;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:16px;transition:transform .4s var(--ease-spring);}
+.pillar:hover .pillar-ic{transform:scale(1.1) rotate(-6deg);}
+.pillar h3{font-size:17px;font-weight:700;color:#fff;margin-bottom:10px;}
+.pillar p{font-size:13px;color:rgba(255,255,255,.62);line-height:1.78;margin-bottom:16px;}
+.pillar-list{list-style:none;display:flex;flex-direction:column;gap:8px;position:relative;z-index:1;}
+.pillar-list li{font-size:12.5px;color:rgba(255,255,255,.72);display:flex;align-items:center;gap:9px;transition:transform .25s;}
+.pillar-list li:hover{transform:translateX(3px);color:#fff;}
 .pillar.p1 .pillar-list li::before{content:'→';color:#38bdf8;font-weight:700;}
 .pillar.p2 .pillar-list li::before{content:'→';color:#7dd3fc;font-weight:700;}
 .pillar.p3 .pillar-list li::before{content:'→';color:#bae6fd;font-weight:700;}
-.global-banner{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.15);border-radius:16px;padding:20px 28px;display:flex;align-items:center;gap:16px;}
-.global-banner p{font-size:14px;color:rgba(255,255,255,.68);flex:1;line-height:1.6;}
+.global-banner{background:rgba(255,255,255,.07);border:1px solid rgba(125,211,252,.2);border-radius:18px;padding:22px 30px;display:flex;align-items:center;gap:18px;backdrop-filter:blur(12px);}
+.global-banner span:first-child{font-size:28px;animation:globePulse 3s ease-in-out infinite;}
+@keyframes globePulse{0%,100%{transform:scale(1) rotate(0);}50%{transform:scale(1.12) rotate(10deg);}}
+.global-banner p{font-size:14px;color:rgba(255,255,255,.72);flex:1;line-height:1.65;}
 .global-banner strong{color:#fff;}
-.global-banner a{background:linear-gradient(135deg,#0ea5e9,#0369a1);color:#fff;padding:10px 20px;border-radius:9px;font-size:13px;font-weight:700;text-decoration:none;white-space:nowrap;box-shadow:0 4px 14px rgba(14,165,233,.38);transition:opacity .2s;}
-.global-banner a:hover{opacity:.9;}
+.global-banner a{background:linear-gradient(135deg,#0ea5e9,#0369a1);color:#fff;padding:11px 22px;border-radius:10px;font-size:13px;font-weight:700;text-decoration:none;white-space:nowrap;box-shadow:0 6px 18px rgba(14,165,233,.42);transition:all .25s;}
+.global-banner a:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(14,165,233,.55);}
 
 /* INNER PAGE BASE */
-.inner-wrap{max-width:1100px;margin:0 auto;padding:56px 44px 80px;}
-.page-eyebrow{display:inline-flex;align-items:center;gap:7px;background:#e0f2fe;color:#0369a1;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:5px 14px;border-radius:99px;margin-bottom:14px;}
-.page-h1{font-family:'DM Serif Display',serif;font-size:clamp(30px,4vw,50px);line-height:1.12;margin-bottom:12px;letter-spacing:-.3px;}
-.page-sub{font-size:15px;color:var(--mute);line-height:1.85;max-width:620px;margin-bottom:0;}
-.page-header{margin-bottom:48px;}
+.inner-wrap{max-width:1100px;margin:0 auto;padding:60px 44px 80px;position:relative;}
+.page-eyebrow{display:inline-flex;align-items:center;gap:8px;background:#fff;color:#0369a1;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:6px 16px;border-radius:99px;margin-bottom:16px;border:1px solid #bae6fd;box-shadow:0 4px 14px rgba(14,165,233,.1);}
+.page-eyebrow::before{content:'';width:6px;height:6px;border-radius:50%;background:#0ea5e9;box-shadow:0 0 0 3px rgba(14,165,233,.22);}
+.page-h1{font-family:'DM Serif Display',serif;font-size:clamp(32px,4vw,54px);line-height:1.1;margin-bottom:14px;letter-spacing:-.5px;}
+.page-sub{font-size:15.5px;color:var(--mute);line-height:1.85;max-width:640px;margin-bottom:0;}
+.page-header{margin-bottom:52px;}
 
 /* ABOUT + TRAINING PAGE */
-#about-page{background:linear-gradient(180deg,#f0f9ff 0%,#e0f2fe 100%);}
+#about-page{background:linear-gradient(180deg,#f0f9ff 0%,#e0f2fe 100%);position:relative;}
+#about-page::before{content:'';position:absolute;top:0;right:0;width:600px;height:600px;background:radial-gradient(circle,rgba(56,189,248,.12),transparent 70%);border-radius:50%;filter:blur(60px);pointer-events:none;}
 .page-h1-dark{color:#0c2d4a;}
 
 /* KPI row */
-.about-kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:44px;}
-.kpi{background:#fff;border:1.5px solid #bae6fd;border-radius:16px;padding:22px;text-align:center;transition:all .3s;position:relative;overflow:hidden;}
-.kpi::before{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;}
+.about-kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:48px;}
+.kpi{background:#fff;border:1.5px solid #bae6fd;border-radius:18px;padding:24px;text-align:center;transition:all .35s var(--ease-out);position:relative;overflow:hidden;cursor:default;}
+.kpi::before{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;transition:height .3s;}
+.kpi::after{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(120deg,transparent,rgba(14,165,233,.06),transparent);transition:left .8s;}
 .kpi:nth-child(1)::before{background:linear-gradient(90deg,#0ea5e9,#38bdf8);}
 .kpi:nth-child(2)::before{background:linear-gradient(90deg,var(--amber),#fbbf24);}
 .kpi:nth-child(3)::before{background:linear-gradient(90deg,#0284c7,#0ea5e9);}
 .kpi:nth-child(4)::before{background:linear-gradient(90deg,#0369a1,#38bdf8);}
-.kpi:hover{transform:translateY(-3px);box-shadow:var(--sh);}
-.kpi-n{font-size:34px;font-weight:900;color:#0369a1;letter-spacing:-1px;line-height:1;}
-.kpi-l{font-size:11px;font-weight:600;color:var(--faint);text-transform:uppercase;letter-spacing:.5px;margin-top:5px;}
+.kpi:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(14,165,233,.18);border-color:#7dd3fc;}
+.kpi:hover::before{height:5px;}
+.kpi:hover::after{left:100%;}
+.kpi-n{font-size:38px;font-weight:900;letter-spacing:-1.5px;line-height:1;background:linear-gradient(135deg,#0c2d4a,#0369a1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.kpi-l{font-size:11px;font-weight:600;color:var(--faint);text-transform:uppercase;letter-spacing:1px;margin-top:6px;}
 
 /* Founder card */
-.founder-card{background:#fff;border-radius:22px;padding:36px;display:flex;gap:36px;align-items:flex-start;margin-bottom:40px;box-shadow:var(--shl);border:1.5px solid #bae6fd;position:relative;overflow:hidden;}
-.founder-card::before{content:'';position:absolute;top:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(14,165,233,.07),transparent);}
-.founder-photo-col{flex-shrink:0;width:180px;display:flex;flex-direction:column;align-items:center;gap:14px;}
-.founder-photo{width:150px;height:150px;border-radius:50%;background:linear-gradient(135deg,#e0f2fe,#bae6fd);display:flex;align-items:center;justify-content:center;overflow:hidden;border:4px solid #fff;box-shadow:0 0 0 4px #bae6fd,0 8px 32px rgba(14,165,233,.28);position:relative;}
+.founder-card{background:#fff;border-radius:24px;padding:40px;display:flex;gap:40px;align-items:flex-start;margin-bottom:44px;box-shadow:0 24px 64px rgba(14,165,233,.14),0 4px 12px rgba(14,165,233,.06);border:1.5px solid #bae6fd;position:relative;overflow:hidden;transition:transform .4s var(--ease-out);}
+.founder-card::before{content:'';position:absolute;top:-60px;right:-60px;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,rgba(14,165,233,.1),transparent);}
+.founder-card::after{content:'';position:absolute;bottom:-40px;left:-40px;width:160px;height:160px;border-radius:50%;background:radial-gradient(circle,rgba(125,211,252,.12),transparent);}
+.founder-photo-col{flex-shrink:0;width:185px;display:flex;flex-direction:column;align-items:center;gap:14px;position:relative;z-index:1;}
+.founder-photo{width:155px;height:155px;border-radius:50%;background:linear-gradient(135deg,#e0f2fe,#bae6fd);display:flex;align-items:center;justify-content:center;overflow:hidden;border:4px solid #fff;box-shadow:0 0 0 4px #bae6fd,0 12px 40px rgba(14,165,233,.32);position:relative;animation:photoBob 5s ease-in-out infinite;}
+@keyframes photoBob{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
 .founder-photo img{width:100%;height:100%;object-fit:cover;}
-.founder-photo .mono{font-family:'DM Serif Display',serif;font-size:52px;color:#0369a1;font-weight:700;}
-.online-dot{display:flex;align-items:center;gap:6px;font-size:11.5px;font-weight:600;color:#0284c7;}
-.online-dot::before{content:'';width:8px;height:8px;border-radius:50%;background:#0ea5e9;box-shadow:0 0 0 3px rgba(14,165,233,.22);animation:blink 2s infinite;}
-.founder-chips{display:flex;flex-direction:column;gap:6px;width:100%;}
-.f-chip{background:#f0f9ff;border:1px solid #bae6fd;border-radius:8px;padding:6px 10px;font-size:11px;font-weight:600;color:#0369a1;display:flex;align-items:center;gap:5px;justify-content:center;}
-.founder-info{flex:1;}
-.founder-info h3{font-family:'DM Serif Display',serif;font-size:30px;color:#0c2d4a;margin-bottom:4px;}
-.founder-role-tag{font-size:12.5px;font-weight:700;color:#0284c7;margin-bottom:20px;display:flex;align-items:center;gap:8px;}
-.founder-role-tag::before{content:'';width:28px;height:2.5px;background:linear-gradient(90deg,#0ea5e9,#0369a1);border-radius:2px;}
-.founder-info p{font-size:13.5px;color:var(--mute);line-height:1.9;margin-bottom:12px;}
-.tools-row{display:flex;flex-wrap:wrap;gap:7px;margin-top:18px;}
-.tool-tag{background:#f0f9ff;border:1px solid #bae6fd;border-radius:7px;padding:5px 12px;font-size:11.5px;font-weight:600;color:#0369a1;}
+.founder-photo .mono{font-family:'DM Serif Display',serif;font-size:56px;color:#0369a1;font-weight:700;}
+.online-dot{display:flex;align-items:center;gap:7px;font-size:11.5px;font-weight:600;color:#0284c7;background:#f0f9ff;padding:6px 14px;border-radius:99px;border:1px solid #bae6fd;}
+.online-dot::before{content:'';width:8px;height:8px;border-radius:50%;background:#10b981;box-shadow:0 0 0 3px rgba(16,185,129,.25);animation:blink 2s infinite;}
+.founder-chips{display:flex;flex-direction:column;gap:7px;width:100%;}
+.f-chip{background:linear-gradient(135deg,#f0f9ff,#e0f2fe);border:1px solid #bae6fd;border-radius:9px;padding:7px 11px;font-size:11px;font-weight:600;color:#0369a1;display:flex;align-items:center;gap:5px;justify-content:center;transition:transform .25s;}
+.f-chip:hover{transform:translateX(2px);}
+.founder-info{flex:1;position:relative;z-index:1;}
+.founder-info h3{font-family:'DM Serif Display',serif;font-size:34px;color:#0c2d4a;margin-bottom:4px;letter-spacing:-.5px;}
+.founder-role-tag{font-size:12.5px;font-weight:700;color:#0284c7;margin-bottom:22px;display:flex;align-items:center;gap:10px;}
+.founder-role-tag::before{content:'';width:32px;height:2.5px;background:linear-gradient(90deg,#0ea5e9,#0369a1);border-radius:2px;}
+.founder-info p{font-size:13.5px;color:var(--mute);line-height:1.95;margin-bottom:14px;}
+.tools-row{display:flex;flex-wrap:wrap;gap:7px;margin-top:20px;}
+.tool-tag{background:#fff;border:1px solid #bae6fd;border-radius:8px;padding:6px 13px;font-size:11.5px;font-weight:600;color:#0369a1;transition:all .25s;box-shadow:0 2px 6px rgba(14,165,233,.06);}
+.tool-tag:hover{transform:translateY(-2px);background:linear-gradient(135deg,#e0f2fe,#bae6fd);box-shadow:0 6px 16px rgba(14,165,233,.18);}
 
 /* Email card */
-.email-card{background:linear-gradient(135deg,#f0f9ff,#e0f2fe);border:1.5px solid #bae6fd;border-radius:16px;padding:20px 24px;margin-bottom:32px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
-.email-card .ec-icon{font-size:28px;}
-.email-card .ec-info{flex:1;}
+.email-card{background:linear-gradient(135deg,#fff,#f0f9ff);border:1.5px solid #bae6fd;border-radius:18px;padding:22px 26px;margin-bottom:36px;display:flex;align-items:center;gap:18px;flex-wrap:wrap;box-shadow:0 8px 24px rgba(14,165,233,.08);position:relative;overflow:hidden;}
+.email-card::before{content:'';position:absolute;top:-40px;right:-40px;width:160px;height:160px;background:radial-gradient(circle,rgba(14,165,233,.08),transparent);border-radius:50%;}
+.email-card .ec-icon{font-size:32px;width:54px;height:54px;background:linear-gradient(135deg,#0ea5e9,#0369a1);border-radius:14px;display:flex;align-items:center;justify-content:center;color:#fff;box-shadow:0 8px 20px rgba(14,165,233,.35);}
+.email-card .ec-info{flex:1;position:relative;z-index:1;}
 .email-card .ec-label{font-size:10px;font-weight:700;color:#0284c7;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:4px;}
-.email-card .ec-email{font-size:15px;font-weight:700;color:#0c2d4a;}
-.email-card .ec-sub{font-size:12px;color:var(--mute);margin-top:2px;}
+.email-card .ec-email{font-size:16px;font-weight:700;color:#0c2d4a;}
+.email-card a.ec-btn{background:linear-gradient(135deg,#0ea5e9,#0369a1);color:#fff;padding:11px 22px;border-radius:10px;font-size:13px;font-weight:700;text-decoration:none;white-space:nowrap;box-shadow:0 6px 18px rgba(14,165,233,.4);transition:all .25s;position:relative;z-index:1;}
+.email-card a.ec-btn:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(14,165,233,.55);}
 
 /* Training stats */
-.training-stats{background:linear-gradient(135deg,#0c2d4a,#0a4a7a);border-radius:18px;padding:28px 36px;display:flex;align-items:center;gap:0;margin-bottom:36px;box-shadow:var(--shl);}
-.ts-item{flex:1;text-align:center;padding:0 16px;border-right:1px solid rgba(255,255,255,.12);}
+.training-stats{background:linear-gradient(135deg,#0c2d4a,#0a4a7a);border-radius:20px;padding:32px 40px;display:flex;align-items:center;gap:0;margin-bottom:40px;box-shadow:0 20px 50px rgba(12,45,74,.32);position:relative;overflow:hidden;}
+.training-stats::before{content:'';position:absolute;top:-80px;right:-80px;width:240px;height:240px;background:radial-gradient(circle,rgba(56,189,248,.22),transparent 70%);border-radius:50%;}
+.training-stats::after{content:'';position:absolute;bottom:-60px;left:-60px;width:200px;height:200px;background:radial-gradient(circle,rgba(14,165,233,.18),transparent 70%);border-radius:50%;}
+.ts-item{flex:1;text-align:center;padding:0 16px;border-right:1px solid rgba(255,255,255,.13);position:relative;z-index:1;transition:transform .3s;}
+.ts-item:hover{transform:translateY(-3px);}
 .ts-item:last-child{border-right:none;}
-.ts-n{font-size:30px;font-weight:900;color:#fff;letter-spacing:-1px;line-height:1;}
-.ts-l{font-size:10.5px;color:rgba(255,255,255,.38);margin-top:4px;font-weight:500;text-transform:uppercase;letter-spacing:.5px;}
-.ts-accent{color:#7dd3fc!important;}
+.ts-n{font-size:34px;font-weight:900;color:#fff;letter-spacing:-1.5px;line-height:1;background:linear-gradient(180deg,#fff,#bae6fd);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.ts-l{font-size:10.5px;color:rgba(255,255,255,.5);margin-top:5px;font-weight:600;text-transform:uppercase;letter-spacing:1px;}
+.ts-accent{background:linear-gradient(180deg,#7dd3fc,#0ea5e9)!important;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
 
 /* Section divider */
-.divider-line{display:flex;align-items:center;gap:14px;margin:40px 0 32px;}
+.divider-line{display:flex;align-items:center;gap:14px;margin:44px 0 36px;}
 .divider-line::before,.divider-line::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,transparent,#bae6fd,transparent);}
-.divider-inner{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#0284c7;background:#e0f2fe;padding:6px 16px;border-radius:99px;}
+.divider-inner{font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:#0284c7;background:#fff;padding:8px 20px;border-radius:99px;border:1px solid #bae6fd;box-shadow:0 4px 14px rgba(14,165,233,.1);}
 
 /* Speciality cards */
-.spec-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-bottom:36px;}
-.spec-card{background:#fff;border:1.5px solid #bae6fd;border-radius:18px;padding:26px;transition:all .3s;position:relative;overflow:hidden;}
-.spec-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;}
+.spec-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-bottom:40px;}
+.spec-card{background:#fff;border:1.5px solid #bae6fd;border-radius:20px;padding:28px;transition:all .4s var(--ease-out);position:relative;overflow:hidden;cursor:default;}
+.spec-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;transition:height .3s;}
+.spec-card::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 100% 0%,rgba(14,165,233,.06),transparent 60%);opacity:0;transition:opacity .4s;pointer-events:none;}
 .sc-mot::after{background:linear-gradient(90deg,#e11d48,#fb7185);}
 .sc-str::after{background:linear-gradient(90deg,#0ea5e9,#38bdf8);}
 .sc-lif::after{background:linear-gradient(90deg,var(--amber),#fbbf24);}
 .sc-bus::after{background:linear-gradient(90deg,#0369a1,#0ea5e9);}
-.spec-card:hover{border-color:transparent;box-shadow:var(--shl);transform:translateY(-4px);}
-.sc-head{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:12px;}
-.sc-icon{width:50px;height:50px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;}
-.sc-card-type{font-size:10px;font-weight:700;padding:3px 11px;border-radius:99px;}
-.sc-mot .sc-icon{background:#fff1f2;} .sc-mot .sc-card-type{background:#fff1f2;color:#e11d48;}
-.sc-str .sc-icon{background:#e0f2fe;} .sc-str .sc-card-type{background:#e0f2fe;color:#0284c7;}
-.sc-lif .sc-icon{background:var(--apale);} .sc-lif .sc-card-type{background:var(--apale);color:var(--amber);}
-.sc-bus .sc-icon{background:#e0f2fe;} .sc-bus .sc-card-type{background:#e0f2fe;color:#0369a1;}
-.sc-title{font-size:15.5px;font-weight:700;color:#0c2d4a;margin-bottom:8px;}
-.sc-desc{font-size:13px;color:var(--mute);line-height:1.75;margin-bottom:14px;}
-.sc-tags{display:flex;flex-wrap:wrap;gap:5px;}
-.sc-tag{background:#f0f9ff;border:1px solid #bae6fd;border-radius:99px;padding:3px 10px;font-size:11px;font-weight:600;color:#0369a1;}
+.spec-card:hover{border-color:transparent;box-shadow:0 24px 56px rgba(14,165,233,.18);transform:translateY(-6px);}
+.spec-card:hover::after{height:5px;}
+.spec-card:hover::before{opacity:1;}
+.sc-head{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:14px;position:relative;z-index:1;}
+.sc-icon{width:54px;height:54px;border-radius:15px;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0;transition:transform .35s var(--ease-spring);}
+.spec-card:hover .sc-icon{transform:scale(1.1) rotate(-5deg);}
+.sc-card-type{font-size:10px;font-weight:700;padding:4px 12px;border-radius:99px;}
+.sc-mot .sc-icon{background:linear-gradient(135deg,#fff1f2,#ffe4e6);} .sc-mot .sc-card-type{background:#fff1f2;color:#e11d48;}
+.sc-str .sc-icon{background:linear-gradient(135deg,#e0f2fe,#bae6fd);} .sc-str .sc-card-type{background:#e0f2fe;color:#0284c7;}
+.sc-lif .sc-icon{background:linear-gradient(135deg,#fef3c7,#fde68a);} .sc-lif .sc-card-type{background:var(--apale);color:var(--amber);}
+.sc-bus .sc-icon{background:linear-gradient(135deg,#e0f2fe,#bae6fd);} .sc-bus .sc-card-type{background:#e0f2fe;color:#0369a1;}
+.sc-title{font-size:16px;font-weight:700;color:#0c2d4a;margin-bottom:10px;position:relative;z-index:1;}
+.sc-desc{font-size:13px;color:var(--mute);line-height:1.8;margin-bottom:16px;position:relative;z-index:1;}
+.sc-tags{display:flex;flex-wrap:wrap;gap:6px;position:relative;z-index:1;}
+.sc-tag{background:#f0f9ff;border:1px solid #bae6fd;border-radius:99px;padding:4px 11px;font-size:11px;font-weight:600;color:#0369a1;transition:all .2s;}
+.sc-tag:hover{background:#bae6fd;transform:translateY(-1px);}
 
 /* Booking */
-.booking-box{background:#fff;border:1.5px solid #bae6fd;border-radius:22px;padding:36px;box-shadow:var(--sh);}
-.booking-box h3{font-family:'DM Serif Display',serif;font-size:28px;color:#0c2d4a;margin-bottom:6px;}
-.booking-box>p{font-size:13.5px;color:var(--mute);margin-bottom:32px;}
-.booking-layout{display:grid;grid-template-columns:1fr 1fr;gap:40px;}
-.cal-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;}
-.cal-title-txt{font-size:15px;font-weight:700;color:#0c2d4a;}
-.cal-nav-btn{background:#e0f2fe;border:none;border-radius:8px;width:32px;height:32px;color:#0284c7;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;}
-.cal-nav-btn:hover{background:#bae6fd;}
+.booking-box{background:#fff;border:1.5px solid #bae6fd;border-radius:24px;padding:40px;box-shadow:0 16px 48px rgba(14,165,233,.12);position:relative;overflow:hidden;}
+.booking-box::before{content:'';position:absolute;top:-100px;right:-100px;width:300px;height:300px;background:radial-gradient(circle,rgba(14,165,233,.07),transparent 70%);border-radius:50%;}
+.booking-box h3{font-family:'DM Serif Display',serif;font-size:30px;color:#0c2d4a;margin-bottom:6px;position:relative;z-index:1;}
+.booking-box>p{font-size:13.5px;color:var(--mute);margin-bottom:34px;position:relative;z-index:1;}
+.booking-layout{display:grid;grid-template-columns:1fr 1fr;gap:44px;position:relative;z-index:1;}
+.cal-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;}
+.cal-title-txt{font-size:16px;font-weight:700;color:#0c2d4a;}
+.cal-nav-btn{background:linear-gradient(135deg,#e0f2fe,#bae6fd);border:none;border-radius:10px;width:34px;height:34px;color:#0284c7;font-size:19px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .25s;}
+.cal-nav-btn:hover{background:linear-gradient(135deg,#0ea5e9,#0369a1);color:#fff;transform:scale(1.08);}
 .cal-days-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;}
-.cal-dh{font-size:10px;color:var(--faint);text-align:center;padding:4px 0;font-weight:600;}
-.cal-d{aspect-ratio:1;border-radius:8px;border:none;background:transparent;color:var(--mute);font-size:13px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s;font-family:'Inter',sans-serif;font-weight:500;}
-.cal-d:hover:not(.cal-dis):not(.cal-empty){background:#e0f2fe;color:#0284c7;}
-.cal-d.cal-sel{background:#0284c7;color:#fff;font-weight:700;}
-.cal-d.cal-today{border:1.5px solid #0ea5e9;color:#0284c7;}
+.cal-dh{font-size:10px;color:var(--faint);text-align:center;padding:5px 0;font-weight:700;text-transform:uppercase;letter-spacing:.5px;}
+.cal-d{aspect-ratio:1;border-radius:9px;border:none;background:transparent;color:var(--mute);font-size:13px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s var(--ease-out);font-family:'Inter',sans-serif;font-weight:500;}
+.cal-d:hover:not(.cal-dis):not(.cal-empty){background:#e0f2fe;color:#0284c7;transform:scale(1.1);}
+.cal-d.cal-sel{background:linear-gradient(135deg,#0ea5e9,#0369a1);color:#fff;font-weight:700;box-shadow:0 6px 16px rgba(14,165,233,.4);transform:scale(1.05);}
+.cal-d.cal-today{border:1.5px solid #0ea5e9;color:#0284c7;font-weight:700;}
 .cal-d.cal-dis{color:var(--line);cursor:default;}
 .cal-d.cal-empty{cursor:default;}
-.slots-wrap{margin-top:18px;}
-.slots-lbl{font-size:11px;color:var(--faint);text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;font-weight:600;}
-.slots-g{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;}
-.slot-b{background:#f0f9ff;border:1px solid #bae6fd;border-radius:8px;padding:8px 4px;color:var(--mute);font-size:11px;cursor:pointer;text-align:center;transition:all .15s;font-family:'Inter',sans-serif;font-weight:500;}
-.slot-b:hover{background:#e0f2fe;border-color:#0284c7;color:#0284c7;}
-.slot-b.slot-sel{background:#0284c7;border-color:#0284c7;color:#fff;font-weight:700;}
-.slot-b.slot-taken{background:#f0f9ff;border-color:#bae6fd;color:#bae6fd;cursor:default;text-decoration:line-through;}
-.bform-wrap h4{font-size:15px;font-weight:700;color:#0c2d4a;margin-bottom:16px;}
-.bf-selected{background:#f0f9ff;border:1px solid #bae6fd;border-radius:8px;padding:10px 14px;font-size:12px;color:#0284c7;margin-bottom:16px;display:none;font-weight:600;}
-.bfg{margin-bottom:12px;}
-.bfg label{display:block;font-size:11px;font-weight:600;color:var(--mute);margin-bottom:4px;text-transform:uppercase;letter-spacing:.5px;}
-.bfg input,.bfg textarea{width:100%;background:#f0f9ff;border:1.5px solid #bae6fd;border-radius:9px;padding:10px 13px;color:#0c2d4a;font-size:13px;font-family:'Inter',sans-serif;outline:none;transition:border-color .2s;}
-.bfg input:focus,.bfg textarea:focus{border-color:#0ea5e9;background:#fff;}
-.bfg textarea{height:70px;resize:none;}
-.binfo-note{background:#f0f9ff;border:1px solid #bae6fd;border-radius:9px;padding:10px 13px;font-size:11px;color:#0284c7;margin-bottom:14px;line-height:1.6;font-weight:500;}
-.bsub-btn{width:100%;background:linear-gradient(135deg,#0ea5e9,#0369a1);border:none;border-radius:11px;padding:13px;color:#fff;font-size:14px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:8px;box-shadow:0 8px 24px rgba(14,165,233,.38);}
-.bsub-btn:hover{filter:brightness(1.08);transform:translateY(-1px);}
+.slots-wrap{margin-top:20px;animation:slotsIn .4s var(--ease-out);}
+@keyframes slotsIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+.slots-lbl{font-size:11px;color:var(--faint);text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;font-weight:700;}
+.slots-g{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;}
+.slot-b{background:#f0f9ff;border:1.5px solid #bae6fd;border-radius:9px;padding:9px 4px;color:var(--mute);font-size:11.5px;cursor:pointer;text-align:center;transition:all .2s var(--ease-out);font-family:'Inter',sans-serif;font-weight:600;}
+.slot-b:hover{background:#e0f2fe;border-color:#0284c7;color:#0284c7;transform:translateY(-2px);box-shadow:0 4px 12px rgba(14,165,233,.18);}
+.slot-b.slot-sel{background:linear-gradient(135deg,#0ea5e9,#0369a1);border-color:#0369a1;color:#fff;font-weight:700;box-shadow:0 6px 16px rgba(14,165,233,.4);}
+.slot-b.slot-taken{background:#f0f9ff;border-color:#e0f2fe;color:#bae6fd;cursor:default;text-decoration:line-through;}
+.slot-b.slot-taken:hover{transform:none;box-shadow:none;background:#f0f9ff;color:#bae6fd;}
+.bform-wrap h4{font-size:16px;font-weight:700;color:#0c2d4a;margin-bottom:18px;}
+.bf-selected{background:linear-gradient(135deg,#e0f2fe,#bae6fd);border:1px solid #7dd3fc;border-radius:10px;padding:11px 15px;font-size:12.5px;color:#0369a1;margin-bottom:16px;display:none;font-weight:700;}
+.bfg{margin-bottom:13px;}
+.bfg label{display:block;font-size:11px;font-weight:700;color:var(--mute);margin-bottom:5px;text-transform:uppercase;letter-spacing:.5px;}
+.bfg input,.bfg textarea{width:100%;background:#f0f9ff;border:1.5px solid #bae6fd;border-radius:10px;padding:11px 14px;color:#0c2d4a;font-size:13.5px;font-family:'Inter',sans-serif;outline:none;transition:all .25s;}
+.bfg input:focus,.bfg textarea:focus{border-color:#0ea5e9;background:#fff;box-shadow:0 0 0 4px rgba(14,165,233,.12);}
+.bfg textarea{height:72px;resize:none;}
+.binfo-note{background:linear-gradient(135deg,#f0f9ff,#e0f2fe);border:1px solid #bae6fd;border-radius:10px;padding:11px 14px;font-size:11.5px;color:#0284c7;margin-bottom:14px;line-height:1.65;font-weight:500;}
+.bsub-btn{width:100%;background:linear-gradient(135deg,#0ea5e9,#0369a1);border:none;border-radius:12px;padding:14px;color:#fff;font-size:14px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;transition:all .25s var(--ease-out);display:flex;align-items:center;justify-content:center;gap:8px;box-shadow:0 10px 28px rgba(14,165,233,.42);position:relative;overflow:hidden;}
+.bsub-btn::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(120deg,transparent,rgba(255,255,255,.3),transparent);transition:left .7s;}
+.bsub-btn:hover:not(:disabled){filter:brightness(1.05);transform:translateY(-2px);box-shadow:0 16px 36px rgba(14,165,233,.55);}
+.bsub-btn:hover:not(:disabled)::before{left:100%;}
 .bsub-btn:disabled{opacity:.35;cursor:default;transform:none;}
-.bsuccess{display:none;background:#f0f9ff;border:1px solid #7dd3fc;border-radius:14px;padding:24px;text-align:center;margin-top:16px;}
-.bsuccess .bsi{font-size:32px;margin-bottom:8px;}
-.bsuccess h4{color:#0369a1;font-size:15px;font-weight:700;margin-bottom:6px;}
-.bsuccess p{color:#0284c7;font-size:13px;line-height:1.6;}
+.bsuccess{display:none;background:linear-gradient(135deg,#f0f9ff,#e0f2fe);border:1px solid #7dd3fc;border-radius:16px;padding:26px;text-align:center;margin-top:18px;animation:slotsIn .4s var(--ease-out);}
+.bsuccess .bsi{font-size:38px;margin-bottom:8px;animation:popCheck .5s var(--ease-spring);}
+@keyframes popCheck{from{transform:scale(0) rotate(-180deg);}to{transform:scale(1) rotate(0);}}
+.bsuccess h4{color:#0369a1;font-size:16px;font-weight:700;margin-bottom:7px;}
+.bsuccess p{color:#0284c7;font-size:13px;line-height:1.65;}
 
 /* SERVICES PAGE */
-#services-page{background:linear-gradient(180deg,#f0f9ff 0%,#e0f2fe 100%);}
+#services-page{background:linear-gradient(180deg,#f0f9ff 0%,#e0f2fe 100%);position:relative;}
+#services-page::before{content:'';position:absolute;top:0;left:0;width:500px;height:500px;background:radial-gradient(circle,rgba(56,189,248,.15),transparent 70%);border-radius:50%;filter:blur(60px);pointer-events:none;}
 .page-h1-v{color:#0c2d4a;}
 
 /* SPIN WHEEL */
-.svc-page-wrap{display:flex;align-items:center;gap:56px;flex-wrap:wrap;margin-bottom:56px;}
-.wheel-box{position:relative;width:400px;height:400px;flex-shrink:0;}
-.wring{position:absolute;top:0;left:0;width:400px;height:400px;animation:spin 22s linear infinite;}
+.svc-page-wrap{display:flex;align-items:center;gap:60px;flex-wrap:wrap;margin-bottom:60px;}
+.wheel-box{position:relative;width:420px;height:420px;flex-shrink:0;filter:drop-shadow(0 20px 50px rgba(14,165,233,.22));}
+.wring{position:absolute;top:0;left:0;width:420px;height:420px;animation:spin 28s linear infinite;}
 .wring:hover{animation-play-state:paused;}
 @keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
 @keyframes cspin{from{transform:rotate(0deg)}to{transform:rotate(-360deg)}}
-.wdot{position:absolute;display:flex;flex-direction:column;align-items:center;gap:5px;cursor:pointer;}
-.wdc{width:62px;height:62px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;box-shadow:0 4px 16px rgba(14,165,233,.18);animation:cspin 22s linear infinite;transition:transform .3s;}
+.wdot{position:absolute;display:flex;flex-direction:column;align-items:center;gap:6px;cursor:pointer;}
+.wdc{width:66px;height:66px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;box-shadow:0 8px 24px rgba(14,165,233,.2);animation:cspin 28s linear infinite;transition:transform .3s var(--ease-spring);}
 .wring:hover .wdc,.wring:hover .wdl{animation-play-state:paused;}
-.wdc:hover{transform:scale(1.15)!important;}
-.wdl{font-size:10px;font-weight:700;text-align:center;background:#fff;border-radius:7px;padding:3px 8px;box-shadow:0 2px 8px rgba(14,165,233,.14);white-space:nowrap;line-height:1.3;animation:cspin 22s linear infinite;}
-.wcenter{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:120px;height:120px;border-radius:50%;background:linear-gradient(135deg,#0ea5e9,#0369a1);display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 8px 32px rgba(14,165,233,.42);z-index:10;}
-.wcenter span{font-size:12px;font-weight:800;color:#fff;}
-.wcenter small{font-size:9px;color:rgba(255,255,255,.7);margin-top:2px;}
+.wdc:hover{transform:scale(1.2)!important;box-shadow:0 12px 32px rgba(14,165,233,.4);}
+.wdl{font-size:10.5px;font-weight:700;text-align:center;background:#fff;border-radius:8px;padding:4px 10px;box-shadow:0 4px 14px rgba(14,165,233,.18);white-space:nowrap;line-height:1.3;animation:cspin 28s linear infinite;border:1px solid #bae6fd;}
+.wcenter{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:130px;height:130px;border-radius:50%;background:linear-gradient(135deg,#0ea5e9,#0369a1);display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 12px 40px rgba(14,165,233,.5),inset 0 1px 0 rgba(255,255,255,.25);z-index:10;animation:centerPulse 4s ease-in-out infinite;}
+@keyframes centerPulse{0%,100%{box-shadow:0 12px 40px rgba(14,165,233,.5),inset 0 1px 0 rgba(255,255,255,.25),0 0 0 0 rgba(14,165,233,.5);}50%{box-shadow:0 12px 40px rgba(14,165,233,.5),inset 0 1px 0 rgba(255,255,255,.25),0 0 0 20px rgba(14,165,233,0);}}
+.wcenter span{font-size:13px;font-weight:800;color:#fff;letter-spacing:.5px;}
+.wcenter small{font-size:9px;color:rgba(255,255,255,.75);margin-top:3px;letter-spacing:.5px;}
 .svc-list-box{flex:1;min-width:280px;}
-.svc-list-box h3{font-family:'DM Serif Display',serif;font-size:28px;color:#0c2d4a;margin-bottom:8px;}
-.svc-list-box p{font-size:14px;color:var(--mute);margin-bottom:22px;}
-.sli{display:flex;align-items:flex-start;gap:12px;padding:13px 16px;border-radius:13px;border:1.5px solid #bae6fd;background:#fff;transition:all .25s;margin-bottom:9px;cursor:pointer;}
-.sli:hover{border-color:#0ea5e9;transform:translateX(5px);box-shadow:0 8px 24px rgba(14,165,233,.17);}
-.sli-ic{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
-.sli-t h4{font-size:13.5px;font-weight:700;color:#0c2d4a;margin-bottom:2px;}
+.svc-list-box h3{font-family:'DM Serif Display',serif;font-size:30px;color:#0c2d4a;margin-bottom:10px;letter-spacing:-.5px;}
+.svc-list-box p{font-size:14px;color:var(--mute);margin-bottom:24px;}
+.sli{display:flex;align-items:flex-start;gap:13px;padding:14px 18px;border-radius:14px;border:1.5px solid #bae6fd;background:#fff;transition:all .3s var(--ease-out);margin-bottom:10px;cursor:pointer;position:relative;overflow:hidden;}
+.sli::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,#0ea5e9,#0369a1);transform:scaleY(0);transition:transform .3s;transform-origin:top;}
+.sli:hover{border-color:#0ea5e9;transform:translateX(6px);box-shadow:0 12px 28px rgba(14,165,233,.18);}
+.sli:hover::before{transform:scaleY(1);}
+.sli-ic{width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:19px;flex-shrink:0;transition:transform .3s var(--ease-spring);}
+.sli:hover .sli-ic{transform:scale(1.1) rotate(-6deg);}
+.sli-t h4{font-size:14px;font-weight:700;color:#0c2d4a;margin-bottom:3px;}
 .sli-t p{font-size:11.5px;color:var(--faint);margin:0;line-height:1.5;}
 
 /* Steps */
-.steps-row{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;margin-bottom:48px;}
-.steps-row::before{content:'';position:absolute;top:32px;left:12.5%;right:12.5%;height:2px;background:linear-gradient(90deg,#0ea5e9,#0369a1,#0284c7,#38bdf8);opacity:.28;z-index:0;}
+.steps-row{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;margin-bottom:52px;}
+.steps-row::before{content:'';position:absolute;top:32px;left:12.5%;right:12.5%;height:2px;background:linear-gradient(90deg,#0ea5e9,#0369a1,#0284c7,#38bdf8);opacity:.3;z-index:0;}
 .step{text-align:center;padding:0 14px;position:relative;z-index:1;}
-.step-num{width:64px;height:64px;border-radius:50%;background:#fff;border:2px solid #bae6fd;display:flex;align-items:center;justify-content:center;font-size:22px;margin:0 auto 16px;box-shadow:var(--sh);}
-.step-badge{font-size:9.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:6px;}
+.step-num{width:68px;height:68px;border-radius:50%;background:#fff;border:2px solid #bae6fd;display:flex;align-items:center;justify-content:center;font-size:24px;margin:0 auto 18px;box-shadow:0 8px 24px rgba(14,165,233,.15);transition:all .35s var(--ease-spring);}
+.step:hover .step-num{transform:translateY(-4px) scale(1.05);border-color:#0ea5e9;box-shadow:0 14px 32px rgba(14,165,233,.28);}
+.step-badge{font-size:9.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:7px;}
 .step:nth-child(1) .step-badge{color:#0ea5e9;}
 .step:nth-child(2) .step-badge{color:var(--amber);}
 .step:nth-child(3) .step-badge{color:#0284c7;}
 .step:nth-child(4) .step-badge{color:#0369a1;}
-.step h4{font-size:13.5px;font-weight:700;color:#0c2d4a;margin-bottom:5px;}
-.step p{font-size:11.5px;color:var(--mute);line-height:1.65;}
+.step h4{font-size:14px;font-weight:700;color:#0c2d4a;margin-bottom:6px;}
+.step p{font-size:11.5px;color:var(--mute);line-height:1.7;}
 
 /* Pricing */
-.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:48px;}
-.price-card{background:#fff;border:1.5px solid #bae6fd;border-radius:18px;padding:28px;transition:all .3s;position:relative;}
-.price-card.featured{border-color:#0ea5e9;box-shadow:0 0 0 4px rgba(14,165,233,.12),var(--shl);}
-.price-card.featured::before{content:'Most Popular';position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#0ea5e9,#0369a1);color:#fff;font-size:10px;font-weight:700;padding:3px 16px;border-radius:99px;}
-.price-card:hover{transform:translateY(-3px);box-shadow:var(--shl);}
-.pt{font-size:10.5px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--faint);margin-bottom:12px;}
-.pa{font-size:38px;font-weight:900;color:#0c2d4a;letter-spacing:-1.5px;line-height:1;}
-.pa span{font-size:14px;font-weight:400;color:var(--faint);}
-.pd{font-size:12px;color:var(--mute);margin-bottom:18px;margin-top:4px;}
-.price-div{height:1px;background:#bae6fd;margin-bottom:16px;}
-.price-features{display:flex;flex-direction:column;gap:9px;margin-bottom:20px;}
-.pf{font-size:12.5px;color:#1e293b;display:flex;gap:8px;align-items:flex-start;}
-.pf .ck{color:#0ea5e9;font-weight:700;flex-shrink:0;}
-.pbtn{display:block;text-align:center;padding:12px;border-radius:10px;font-size:13px;font-weight:700;text-decoration:none;transition:all .2s;}
-.pbtn.def{background:#f0f9ff;color:#0c2d4a;border:1px solid #bae6fd;}
-.pbtn.def:hover{background:#e0f2fe;}
-.pbtn.pri{background:linear-gradient(135deg,#0ea5e9,#0369a1);color:#fff;box-shadow:0 8px 24px rgba(14,165,233,.38);}
-.pbtn.pri:hover{opacity:.9;}
-.pbtn.sec{background:#e0f2fe;color:#0284c7;}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:52px;}
+.price-card{background:#fff;border:1.5px solid #bae6fd;border-radius:20px;padding:30px;transition:all .4s var(--ease-out);position:relative;}
+.price-card.featured{border-color:#0ea5e9;box-shadow:0 0 0 4px rgba(14,165,233,.12),0 24px 56px rgba(14,165,233,.22);transform:scale(1.02);}
+.price-card.featured::before{content:'Most Popular';position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#0ea5e9,#0369a1);color:#fff;font-size:10px;font-weight:700;padding:4px 18px;border-radius:99px;box-shadow:0 6px 16px rgba(14,165,233,.4);letter-spacing:.5px;}
+.price-card:hover{transform:translateY(-6px);box-shadow:0 24px 56px rgba(14,165,233,.22);}
+.price-card.featured:hover{transform:translateY(-6px) scale(1.02);}
+.pt{font-size:10.5px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--faint);margin-bottom:14px;}
+.pa{font-size:42px;font-weight:900;color:#0c2d4a;letter-spacing:-2px;line-height:1;background:linear-gradient(135deg,#0c2d4a,#0369a1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.pa span{font-size:14px;font-weight:400;color:var(--faint);-webkit-text-fill-color:var(--faint);}
+.pd{font-size:12.5px;color:var(--mute);margin-bottom:20px;margin-top:5px;}
+.price-div{height:1px;background:linear-gradient(90deg,transparent,#bae6fd,transparent);margin-bottom:18px;}
+.price-features{display:flex;flex-direction:column;gap:10px;margin-bottom:22px;}
+.pf{font-size:12.5px;color:#1e293b;display:flex;gap:9px;align-items:flex-start;}
+.pf .ck{color:#0ea5e9;font-weight:700;flex-shrink:0;background:#e0f2fe;width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;}
+.pbtn{display:block;text-align:center;padding:13px;border-radius:11px;font-size:13px;font-weight:700;text-decoration:none;transition:all .25s;}
+.pbtn.def{background:#f0f9ff;color:#0c2d4a;border:1.5px solid #bae6fd;}
+.pbtn.def:hover{background:#e0f2fe;border-color:#0ea5e9;transform:translateY(-2px);}
+.pbtn.pri{background:linear-gradient(135deg,#0ea5e9,#0369a1);color:#fff;box-shadow:0 10px 26px rgba(14,165,233,.4);}
+.pbtn.pri:hover{transform:translateY(-2px);box-shadow:0 16px 34px rgba(14,165,233,.55);}
+.pbtn.sec{background:linear-gradient(135deg,#e0f2fe,#bae6fd);color:#0284c7;}
+.pbtn.sec:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(14,165,233,.2);}
 
 /* Why us */
-.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
-.wy{background:#fff;border:1.5px solid #bae6fd;border-radius:16px;padding:24px;text-align:center;transition:all .3s;}
-.wy:hover{border-color:#0ea5e9;box-shadow:0 8px 24px rgba(14,165,233,.17);transform:translateY(-3px);}
-.wy-ic{font-size:30px;margin-bottom:10px;}
-.wy h4{font-size:14px;font-weight:700;color:#0c2d4a;margin-bottom:6px;}
-.wy p{font-size:12px;color:var(--mute);line-height:1.65;}
+.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+.wy{background:#fff;border:1.5px solid #bae6fd;border-radius:18px;padding:26px;text-align:center;transition:all .35s var(--ease-out);position:relative;overflow:hidden;}
+.wy::before{content:'';position:absolute;top:0;left:50%;width:0;height:3px;background:linear-gradient(90deg,#0ea5e9,#0369a1);transition:all .35s var(--ease-out);transform:translateX(-50%);}
+.wy:hover{border-color:#7dd3fc;box-shadow:0 18px 40px rgba(14,165,233,.18);transform:translateY(-6px);}
+.wy:hover::before{width:60%;}
+.wy-ic{font-size:34px;margin-bottom:12px;display:inline-flex;width:62px;height:62px;align-items:center;justify-content:center;background:linear-gradient(135deg,#e0f2fe,#bae6fd);border-radius:16px;transition:transform .35s var(--ease-spring);}
+.wy:hover .wy-ic{transform:scale(1.1) rotate(-8deg);}
+.wy h4{font-size:14.5px;font-weight:700;color:#0c2d4a;margin-bottom:7px;}
+.wy p{font-size:12px;color:var(--mute);line-height:1.7;}
 
 /* PORTFOLIO PAGE */
-#portfolio-page{background:linear-gradient(180deg,#fff 0%,#f0f9ff 100%);}
-.testi-section{background:linear-gradient(135deg,#0c2d4a,#0a4a7a);border-radius:22px;padding:36px;margin-bottom:36px;}
-.testi-header .s-lbl{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.38);margin-bottom:8px;}
-.testi-header .s-title{font-family:'DM Serif Display',serif;font-size:32px;color:#fff;margin-bottom:24px;}
-.testi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-bottom:28px;}
-.tc{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.13);border-radius:16px;padding:24px;position:relative;overflow:hidden;transition:all .3s;}
-.tc:hover{background:rgba(255,255,255,.13);}
-.tc::before{content:'';position:absolute;top:0;left:0;right:0;height:2.5px;}
+#portfolio-page{background:linear-gradient(180deg,#fff 0%,#f0f9ff 100%);position:relative;}
+.testi-section{background:linear-gradient(135deg,#0c2d4a,#0a4a7a);border-radius:24px;padding:40px;margin-bottom:40px;position:relative;overflow:hidden;box-shadow:0 24px 60px rgba(12,45,74,.32);}
+.testi-section::before{content:'';position:absolute;top:-100px;right:-100px;width:300px;height:300px;background:radial-gradient(circle,rgba(56,189,248,.25),transparent 70%);border-radius:50%;}
+.testi-section::after{content:'';position:absolute;bottom:-80px;left:-80px;width:240px;height:240px;background:radial-gradient(circle,rgba(14,165,233,.2),transparent 70%);border-radius:50%;}
+.testi-header{position:relative;z-index:1;}
+.testi-header .s-lbl{font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:#7dd3fc;margin-bottom:10px;display:inline-flex;align-items:center;gap:10px;}
+.testi-header .s-lbl::before{content:'';width:24px;height:2px;background:linear-gradient(90deg,#7dd3fc,transparent);}
+.testi-header .s-title{font-family:'DM Serif Display',serif;font-size:34px;color:#fff;margin-bottom:26px;letter-spacing:-.5px;}
+.testi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-bottom:30px;position:relative;z-index:1;}
+.tc{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:18px;padding:26px;position:relative;overflow:hidden;transition:all .35s var(--ease-out);backdrop-filter:blur(10px);}
+.tc:hover{background:rgba(255,255,255,.13);transform:translateY(-4px);}
+.tc::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;}
 .tc:first-child::before{background:linear-gradient(90deg,#7dd3fc,#38bdf8);}
 .tc:last-child::before{background:linear-gradient(90deg,#38bdf8,#bae6fd);}
-.tc-stars{color:#f59e0b;font-size:13px;margin-bottom:10px;}
-.tc-text{font-size:13px;color:rgba(255,255,255,.75);line-height:1.85;margin-bottom:18px;font-style:italic;}
-.tc-author{display:flex;align-items:center;gap:10px;}
-.tc-av{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;color:#fff;flex-shrink:0;}
-.tc-name{font-size:13.5px;font-weight:700;color:#fff;}
+.tc::after{content:'\"';position:absolute;top:14px;right:22px;font-family:'DM Serif Display',serif;font-size:80px;color:rgba(255,255,255,.06);line-height:1;}
+.tc-stars{color:#fbbf24;font-size:14px;margin-bottom:12px;letter-spacing:2px;}
+.tc-text{font-size:13.5px;color:rgba(255,255,255,.82);line-height:1.85;margin-bottom:20px;font-style:italic;position:relative;z-index:1;}
+.tc-author{display:flex;align-items:center;gap:11px;position:relative;z-index:1;}
+.tc-av{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;color:#fff;flex-shrink:0;box-shadow:0 6px 16px rgba(0,0,0,.2);}
+.tc-name{font-size:14px;font-weight:700;color:#fff;}
 .tc-co{font-size:11px;margin-top:2px;}
-.testi-stats{display:flex;gap:0;padding-top:24px;border-top:1px solid rgba(255,255,255,.08);}
-.tst{flex:1;text-align:center;border-right:1px solid rgba(255,255,255,.08);}
+.testi-stats{display:flex;gap:0;padding-top:26px;border-top:1px solid rgba(255,255,255,.1);position:relative;z-index:1;}
+.tst{flex:1;text-align:center;border-right:1px solid rgba(255,255,255,.08);transition:transform .25s;}
+.tst:hover{transform:translateY(-3px);}
 .tst:last-child{border-right:none;}
-.tst .n{font-family:'DM Serif Display',serif;font-size:32px;color:#fff;}
-.tst .l{font-size:11px;color:rgba(255,255,255,.32);margin-top:3px;text-transform:uppercase;letter-spacing:.5px;}
-.pgrid{display:flex;flex-direction:column;gap:14px;margin-bottom:36px;}
-.pc{background:#fff;border:1.5px solid #bae6fd;border-radius:18px;padding:22px;display:flex;gap:22px;align-items:center;flex-wrap:wrap;transition:all .28s;}
-.pc:hover{box-shadow:var(--shl);transform:translateY(-3px);border-color:#7dd3fc;}
-.pc-prev{flex-shrink:0;width:180px;height:120px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:42px;}
+.tst .n{font-family:'DM Serif Display',serif;font-size:34px;}
+.tst .l{font-size:11px;color:rgba(255,255,255,.4);margin-top:4px;text-transform:uppercase;letter-spacing:1px;font-weight:600;}
+.pgrid{display:flex;flex-direction:column;gap:16px;margin-bottom:40px;}
+.pc{background:#fff;border:1.5px solid #bae6fd;border-radius:20px;padding:24px;display:flex;gap:24px;align-items:center;flex-wrap:wrap;transition:all .35s var(--ease-out);position:relative;overflow:hidden;}
+.pc::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(180deg,#0ea5e9,#0369a1);transform:scaleY(0);transition:transform .35s;transform-origin:top;}
+.pc:hover{box-shadow:0 24px 50px rgba(14,165,233,.18);transform:translateY(-4px);border-color:#7dd3fc;}
+.pc:hover::before{transform:scaleY(1);}
+.pc-prev{flex-shrink:0;width:190px;height:130px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:48px;transition:transform .35s var(--ease-spring);}
+.pc:hover .pc-prev{transform:scale(1.04);}
 .pc-info{flex:1;min-width:200px;}
-.pc-badge{display:inline-block;font-size:10px;font-weight:700;letter-spacing:1px;padding:3px 10px;border-radius:99px;margin-bottom:8px;}
-.pc-info h3{font-size:16px;font-weight:700;color:#0c2d4a;margin-bottom:6px;}
-.pc-info p{font-size:12.5px;color:var(--mute);line-height:1.7;margin-bottom:12px;}
-.pc-tags{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:12px;}
-.pc-tag{background:#f0f9ff;color:#0369a1;font-size:10.5px;font-weight:600;padding:3px 9px;border-radius:99px;border:1px solid #bae6fd;}
-.pc-link{display:inline-flex;align-items:center;gap:6px;padding:9px 18px;border-radius:9px;font-size:12.5px;font-weight:700;text-decoration:none;}
-.platforms-row{background:linear-gradient(135deg,#e0f2fe,#bae6fd);border:1.5px solid #7dd3fc;border-radius:18px;padding:26px;text-align:center;}
-.platforms-row p{font-size:14px;color:#0369a1;font-weight:600;margin-bottom:16px;}
-.plat-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
+.pc-badge{display:inline-block;font-size:10px;font-weight:700;letter-spacing:1.5px;padding:4px 12px;border-radius:99px;margin-bottom:9px;}
+.pc-info h3{font-size:17px;font-weight:700;color:#0c2d4a;margin-bottom:7px;}
+.pc-info p{font-size:13px;color:var(--mute);line-height:1.7;margin-bottom:13px;}
+.pc-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px;}
+.pc-tag{background:#f0f9ff;color:#0369a1;font-size:10.5px;font-weight:600;padding:4px 10px;border-radius:99px;border:1px solid #bae6fd;}
+.pc-link{display:inline-flex;align-items:center;gap:7px;padding:10px 20px;border-radius:10px;font-size:12.5px;font-weight:700;text-decoration:none;transition:all .25s;box-shadow:0 4px 14px rgba(0,0,0,.1);}
+.pc-link:hover{transform:translateY(-2px);filter:brightness(1.05);box-shadow:0 8px 20px rgba(0,0,0,.18);}
+.platforms-row{background:linear-gradient(135deg,#e0f2fe,#bae6fd);border:1.5px solid #7dd3fc;border-radius:20px;padding:30px;text-align:center;position:relative;overflow:hidden;}
+.platforms-row::before{content:'';position:absolute;top:-60px;right:-60px;width:180px;height:180px;background:radial-gradient(circle,rgba(255,255,255,.4),transparent);border-radius:50%;}
+.platforms-row p{font-size:14.5px;color:#0369a1;font-weight:700;margin-bottom:18px;position:relative;z-index:1;}
+.plat-btns{display:flex;gap:11px;justify-content:center;flex-wrap:wrap;position:relative;z-index:1;}
+.plat-btn-base{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:10px;font-size:13px;font-weight:700;text-decoration:none;color:#fff;transition:all .25s;box-shadow:0 6px 16px rgba(0,0,0,.12);}
+.plat-btn-base:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(0,0,0,.22);}
 
 /* CONTACT PAGE */
-#contact-page{background:linear-gradient(180deg,#f0f9ff 0%,#e0f2fe 100%);}
-.cg{display:grid;grid-template-columns:1fr 1.4fr;gap:48px;}
-.contact-info h2{font-family:'DM Serif Display',serif;font-size:30px;color:#0c2d4a;margin-bottom:8px;}
-.contact-info>p{font-size:14px;color:var(--mute);line-height:1.8;margin-bottom:24px;}
-.contact-chips{display:flex;flex-direction:column;gap:8px;margin-bottom:24px;}
-.cc{display:flex;align-items:center;gap:10px;padding:12px 16px;border-radius:12px;text-decoration:none;font-size:13px;font-weight:600;transition:transform .2s;}
-.cc:hover{transform:translateX(5px);}
-.cc.ph{background:#f0f9ff;color:#0369a1;border:1px solid #bae6fd;}
-.cc.em{background:#eff6ff;color:#1d4ed8;border:1px solid #bfdbfe;}
-.cc.wa{background:#f0fdf4;color:#15803d;border:1px solid #86efac;}
-.loc-box{background:linear-gradient(135deg,#f0f9ff,#e0f2fe);border-radius:12px;padding:16px 20px;margin-bottom:28px;}
-.loc-box .lt{font-size:11px;font-weight:700;color:#0284c7;letter-spacing:1px;text-transform:uppercase;margin-bottom:5px;}
-.loc-box p{font-size:13px;color:#1e293b;line-height:1.6;}
-.faq-title{font-family:'DM Serif Display',serif;font-size:22px;color:#0c2d4a;margin-bottom:14px;}
-.fi{background:#fff;border:1.5px solid #bae6fd;border-radius:12px;margin-bottom:8px;overflow:hidden;transition:border-color .2s;}
-.fi:hover{border-color:#7dd3fc;}
-.fq{padding:16px 18px;display:flex;justify-content:space-between;cursor:pointer;font-size:13.5px;font-weight:600;color:#0c2d4a;}
-.fa{display:none;padding:0 18px 14px;font-size:13px;color:var(--mute);line-height:1.8;}
-.farr{font-size:16px;color:#0ea5e9;}
-.cf{background:#fff;border:1.5px solid #bae6fd;border-radius:20px;padding:30px;box-shadow:var(--sh);}
-.cf h3{font-size:18px;font-weight:700;color:#0c2d4a;margin-bottom:20px;}
-.fg{margin-bottom:14px;}
-.fg label{display:block;font-size:11px;font-weight:600;color:var(--mute);margin-bottom:5px;text-transform:uppercase;letter-spacing:.5px;}
-.fg input,.fg textarea,.fg select{width:100%;padding:11px 14px;border-radius:9px;border:1.5px solid #bae6fd;background:#f0f9ff;color:#0c2d4a;font-size:13px;font-family:'Inter',sans-serif;outline:none;transition:border-color .2s;}
-.fg input:focus,.fg textarea:focus,.fg select:focus{border-color:#0ea5e9;background:#fff;}
-.fg textarea{height:90px;resize:none;}
-.fr{display:flex;gap:12px;}
+#contact-page{background:linear-gradient(180deg,#f0f9ff 0%,#e0f2fe 100%);position:relative;}
+#contact-page::before{content:'';position:absolute;top:0;left:0;width:500px;height:500px;background:radial-gradient(circle,rgba(56,189,248,.12),transparent 70%);border-radius:50%;filter:blur(60px);pointer-events:none;}
+.cg{display:grid;grid-template-columns:1fr 1.4fr;gap:52px;position:relative;}
+.contact-info h2{font-family:'DM Serif Display',serif;font-size:32px;color:#0c2d4a;margin-bottom:10px;letter-spacing:-.5px;}
+.contact-info>p{font-size:14.5px;color:var(--mute);line-height:1.85;margin-bottom:26px;}
+.contact-chips{display:flex;flex-direction:column;gap:10px;margin-bottom:26px;}
+.cc{display:flex;align-items:center;gap:11px;padding:14px 18px;border-radius:13px;text-decoration:none;font-size:13.5px;font-weight:600;transition:all .25s var(--ease-out);position:relative;overflow:hidden;}
+.cc::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;transform:scaleY(0);transition:transform .25s;transform-origin:center;}
+.cc:hover{transform:translateX(6px);box-shadow:0 8px 24px rgba(0,0,0,.08);}
+.cc:hover::before{transform:scaleY(1);}
+.cc.ph{background:#fff;color:#0369a1;border:1px solid #bae6fd;}
+.cc.ph::before{background:#0ea5e9;}
+.cc.em{background:#fff;color:#1d4ed8;border:1px solid #bfdbfe;}
+.cc.em::before{background:#1d4ed8;}
+.cc.wa{background:#fff;color:#15803d;border:1px solid #86efac;}
+.cc.wa::before{background:#25D366;}
+.loc-box{background:linear-gradient(135deg,#fff,#f0f9ff);border:1.5px solid #bae6fd;border-radius:14px;padding:18px 22px;margin-bottom:32px;box-shadow:0 6px 18px rgba(14,165,233,.08);}
+.loc-box .lt{font-size:11px;font-weight:700;color:#0284c7;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:6px;}
+.loc-box p{font-size:13px;color:#1e293b;line-height:1.7;}
+.faq-title{font-family:'DM Serif Display',serif;font-size:24px;color:#0c2d4a;margin-bottom:16px;letter-spacing:-.3px;}
+.fi{background:#fff;border:1.5px solid #bae6fd;border-radius:13px;margin-bottom:9px;overflow:hidden;transition:all .25s;}
+.fi:hover{border-color:#7dd3fc;box-shadow:0 6px 18px rgba(14,165,233,.1);}
+.fq{padding:17px 20px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;font-size:13.5px;font-weight:700;color:#0c2d4a;transition:color .2s;}
+.fq:hover{color:#0369a1;}
+.fa{display:none;padding:0 20px 16px;font-size:13px;color:var(--mute);line-height:1.85;}
+.farr{font-size:18px;color:#0ea5e9;width:24px;height:24px;border-radius:50%;background:#e0f2fe;display:flex;align-items:center;justify-content:center;transition:all .3s var(--ease-spring);font-weight:700;}
+.fi.open .farr{transform:rotate(135deg);background:#0ea5e9;color:#fff;}
+.cf{background:#fff;border:1.5px solid #bae6fd;border-radius:22px;padding:34px;box-shadow:0 16px 48px rgba(14,165,233,.12);position:relative;overflow:hidden;}
+.cf::before{content:'';position:absolute;top:-80px;right:-80px;width:240px;height:240px;background:radial-gradient(circle,rgba(14,165,233,.07),transparent 70%);border-radius:50%;}
+.cf h3{font-size:20px;font-weight:700;color:#0c2d4a;margin-bottom:22px;position:relative;z-index:1;}
+.fg{margin-bottom:15px;position:relative;z-index:1;}
+.fg label{display:block;font-size:11px;font-weight:700;color:var(--mute);margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px;}
+.fg input,.fg textarea,.fg select{width:100%;padding:12px 15px;border-radius:10px;border:1.5px solid #bae6fd;background:#f0f9ff;color:#0c2d4a;font-size:13.5px;font-family:'Inter',sans-serif;outline:none;transition:all .25s;}
+.fg input:focus,.fg textarea:focus,.fg select:focus{border-color:#0ea5e9;background:#fff;box-shadow:0 0 0 4px rgba(14,165,233,.12);}
+.fg textarea{height:96px;resize:none;}
+.fr{display:flex;gap:13px;}
 .fr .fg{flex:1;}
-.fsub{width:100%;background:linear-gradient(135deg,#0ea5e9,#0369a1);color:#fff;padding:13px;border-radius:11px;font-size:14px;font-weight:700;border:none;cursor:pointer;font-family:'Inter',sans-serif;box-shadow:0 8px 24px rgba(14,165,233,.38);transition:opacity .2s;}
-.fsub:hover{opacity:.9;}
-.smsg{display:none;margin-top:14px;padding:14px;background:#f0f9ff;border:1px solid #7dd3fc;border-radius:10px;text-align:center;}
-.smsg h4{font-size:14px;font-weight:700;color:#0369a1;margin-bottom:3px;}
-.smsg p{font-size:12px;color:#0284c7;}
+.fsub{width:100%;background:linear-gradient(135deg,#0ea5e9,#0369a1);color:#fff;padding:14px;border-radius:12px;font-size:14px;font-weight:700;border:none;cursor:pointer;font-family:'Inter',sans-serif;box-shadow:0 10px 28px rgba(14,165,233,.42);transition:all .25s var(--ease-out);position:relative;overflow:hidden;}
+.fsub::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(120deg,transparent,rgba(255,255,255,.3),transparent);transition:left .7s;}
+.fsub:hover{transform:translateY(-2px);box-shadow:0 16px 36px rgba(14,165,233,.55);}
+.fsub:hover::before{left:100%;}
+.smsg{display:none;margin-top:16px;padding:18px;background:linear-gradient(135deg,#f0f9ff,#e0f2fe);border:1px solid #7dd3fc;border-radius:12px;text-align:center;animation:slotsIn .4s var(--ease-out);position:relative;z-index:1;}
+.smsg h4{font-size:15px;font-weight:700;color:#0369a1;margin-bottom:4px;}
+.smsg p{font-size:12.5px;color:#0284c7;}
 
 /* SERVICE MODAL */
-.svc-modal-overlay{position:fixed;inset:0;background:rgba(12,45,74,.72);backdrop-filter:blur(8px);z-index:3000;display:none;align-items:center;justify-content:center;padding:20px;}
-.svc-modal-overlay.open{display:flex;animation:fadeIn .2s ease both;}
+.svc-modal-overlay{position:fixed;inset:0;background:rgba(12,45,74,.75);backdrop-filter:blur(10px);z-index:3000;display:none;align-items:center;justify-content:center;padding:20px;}
+.svc-modal-overlay.open{display:flex;animation:fadeIn .25s ease both;}
 @keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
-.svc-modal{background:#fff;border-radius:22px;max-width:540px;width:100%;max-height:88vh;overflow-y:auto;padding:36px;position:relative;animation:popIn .32s cubic-bezier(.34,1.4,.64,1) both;}
-@keyframes popIn{from{opacity:0;transform:scale(.88) translateY(24px);}to{opacity:1;transform:scale(1) translateY(0);}}
-.svc-modal-close{position:absolute;top:16px;right:16px;width:34px;height:34px;border-radius:50%;background:#f0f9ff;border:1.5px solid #bae6fd;color:var(--mute);font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;}
-.svc-modal-close:hover{background:#e0f2fe;color:#0284c7;}
-.svc-modal-icon{width:62px;height:62px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:28px;margin-bottom:16px;}
-.svc-modal-tag{font-size:11px;font-weight:700;color:#0284c7;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px;}
-.svc-modal h3{font-family:'DM Serif Display',serif;font-size:24px;color:#0c2d4a;margin-bottom:12px;}
-.svc-modal-desc{font-size:13.5px;color:var(--mute);line-height:1.85;margin-bottom:20px;}
-.svc-modal-list-title{font-size:10.5px;font-weight:700;color:#0284c7;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px;}
-.svc-modal-list{display:flex;flex-direction:column;gap:9px;margin-bottom:22px;}
-.svc-modal-item{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:#1e293b;line-height:1.6;}
-.svc-ck{color:#0ea5e9;font-weight:700;flex-shrink:0;}
-.svc-modal-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:22px;}
-.svc-modal-cta{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--wa);color:#fff;padding:13px;border-radius:12px;font-size:14px;font-weight:700;text-decoration:none;transition:filter .2s;}
-.svc-modal-cta:hover{filter:brightness(1.06);}
+.svc-modal{background:#fff;border-radius:24px;max-width:560px;width:100%;max-height:88vh;overflow-y:auto;padding:38px;position:relative;animation:popIn .4s var(--ease-spring) both;box-shadow:0 40px 80px rgba(0,0,0,.4);}
+@keyframes popIn{from{opacity:0;transform:scale(.85) translateY(28px);}to{opacity:1;transform:scale(1) translateY(0);}}
+.svc-modal-close{position:absolute;top:18px;right:18px;width:36px;height:36px;border-radius:50%;background:#f0f9ff;border:1.5px solid #bae6fd;color:var(--mute);font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .25s;}
+.svc-modal-close:hover{background:#0ea5e9;color:#fff;transform:rotate(90deg);border-color:#0ea5e9;}
+.svc-modal-icon{width:68px;height:68px;border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:30px;margin-bottom:18px;box-shadow:0 8px 20px rgba(14,165,233,.18);}
+.svc-modal-tag{font-size:11px;font-weight:700;color:#0284c7;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;}
+.svc-modal h3{font-family:'DM Serif Display',serif;font-size:26px;color:#0c2d4a;margin-bottom:14px;letter-spacing:-.3px;}
+.svc-modal-desc{font-size:14px;color:var(--mute);line-height:1.85;margin-bottom:22px;}
+.svc-modal-list-title{font-size:11px;font-weight:700;color:#0284c7;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px;}
+.svc-modal-list{display:flex;flex-direction:column;gap:10px;margin-bottom:24px;}
+.svc-modal-item{display:flex;align-items:flex-start;gap:11px;font-size:13.5px;color:#1e293b;line-height:1.65;}
+.svc-ck{color:#0ea5e9;font-weight:700;flex-shrink:0;background:#e0f2fe;width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;}
+.svc-modal-tags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:24px;}
+.svc-modal-cta{display:flex;align-items:center;justify-content:center;gap:9px;background:var(--wa);color:#fff;padding:14px;border-radius:13px;font-size:14.5px;font-weight:700;text-decoration:none;transition:all .25s;box-shadow:0 10px 24px rgba(37,211,102,.4);position:relative;overflow:hidden;}
+.svc-modal-cta::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(120deg,transparent,rgba(255,255,255,.3),transparent);transition:left .7s;}
+.svc-modal-cta:hover{transform:translateY(-2px);box-shadow:0 16px 32px rgba(37,211,102,.55);}
+.svc-modal-cta:hover::before{left:100%;}
 
 /* WhatsApp FAB */
-.waf{position:fixed;bottom:24px;right:24px;z-index:999;width:54px;height:54px;border-radius:50%;background:var(--wa);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.45);text-decoration:none;transition:transform .2s;}
-.waf:hover{transform:scale(1.1);}
+.waf{position:fixed;bottom:26px;right:26px;z-index:999;width:58px;height:58px;border-radius:50%;background:var(--wa);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 28px rgba(37,211,102,.5);text-decoration:none;transition:transform .3s var(--ease-spring);}
+.waf::before{content:'';position:absolute;inset:-6px;border-radius:50%;background:var(--wa);opacity:.35;animation:wafPulse 2s ease-in-out infinite;z-index:-1;}
+@keyframes wafPulse{0%,100%{transform:scale(1);opacity:.35;}50%{transform:scale(1.3);opacity:0;}}
+.waf:hover{transform:scale(1.12) rotate(8deg);}
+.waf svg{width:26px;height:26px;}
 
 /* RESPONSIVE */
 @media(max-width:960px){
   nav{padding:0 20px;}
   .nav-links,.nav-btns{display:none;}
   .hamburger{display:flex;}
-  .home-wrap,.inner-wrap{padding:36px 20px 60px;}
-  .hero{flex-direction:column;gap:36px;}
+  .home-wrap,.inner-wrap{padding:40px 20px 60px;}
+  .hero{flex-direction:column;gap:40px;}
   .hero-r{width:100%;max-width:360px;margin:0 auto;}
   .metrics-card{animation:none;}
   .pillars-grid{grid-template-columns:1fr;}
   .about-kpi-row{grid-template-columns:repeat(2,1fr);}
-  .founder-card{flex-direction:column;align-items:center;text-align:center;}
+  .founder-card{flex-direction:column;align-items:center;text-align:center;padding:30px;}
   .founder-photo-col{width:auto;}
   .founder-role-tag{justify-content:center;}
   .spec-grid{grid-template-columns:1fr;}
   .booking-layout{grid-template-columns:1fr;}
+  .booking-box{padding:28px;}
   .training-stats{flex-wrap:wrap;gap:16px;padding:24px;}
-  .ts-item{border-right:none;padding:8px 0;}
+  .ts-item{border-right:none;padding:8px 0;flex:0 0 45%;}
   .svc-page-wrap{flex-direction:column;}
-  .wheel-box{width:320px;height:320px;}
-  .wring{width:320px;height:320px;}
-  .steps-row{grid-template-columns:repeat(2,1fr);gap:24px;}
+  .wheel-box{width:340px;height:340px;}
+  .wring{width:340px;height:340px;}
+  .steps-row{grid-template-columns:repeat(2,1fr);gap:28px;}
   .steps-row::before{display:none;}
   .pricing-grid{grid-template-columns:1fr;}
+  .price-card.featured{transform:none;}
+  .price-card.featured:hover{transform:translateY(-4px);}
   .why-grid{grid-template-columns:repeat(2,1fr);}
   .testi-grid{grid-template-columns:1fr;}
-  .cg{grid-template-columns:1fr;}
+  .testi-section{padding:28px;}
+  .cg{grid-template-columns:1fr;gap:36px;}
   .testi-stats{flex-wrap:wrap;}
-  .tst{padding:8px 0;border-right:none;}
+  .tst{padding:10px 0;border-right:none;flex:0 0 50%;}
   .email-card{flex-direction:column;text-align:center;}
+  .cursor-glow{display:none;}
+  .pc{flex-direction:column;align-items:flex-start;}
+  .pc-prev{width:100%;}
 }
 </style>
 </head>
 <body>
 
-<nav>
-  <a class="logo" href="#" onclick="showPage('home')">
-    <!-- Diamond "G" Logo SVG — exact match to Concept 4 Bold Wordmark -->
-    <svg class="logo-svg" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="5" y="5" width="28" height="28" rx="6" transform="rotate(45 19 19)" fill="url(#logoGrad)"/>
-      <text x="19" y="24" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-weight="900" font-size="16" fill="white">G</text>
+<div class=\"cursor-glow\" id=\"cursorGlow\"></div>
+
+<nav id=\"mainNav\">
+  <a class=\"logo\" href=\"#\" onclick=\"showPage('home');return false;\">
+    <svg class=\"logo-svg\" viewBox=\"0 0 38 38\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">
+      <rect x=\"5\" y=\"5\" width=\"28\" height=\"28\" rx=\"6\" transform=\"rotate(45 19 19)\" fill=\"url(#logoGrad)\"/>
+      <text x=\"19\" y=\"24\" text-anchor=\"middle\" font-family=\"Inter, Arial, sans-serif\" font-weight=\"900\" font-size=\"16\" fill=\"white\">G</text>
       <defs>
-        <linearGradient id="logoGrad" x1="5" y1="5" x2="33" y2="33" gradientUnits="userSpaceOnUse">
-          <stop offset="0%" stop-color="#38bdf8"/>
-          <stop offset="100%" stop-color="#0369a1"/>
+        <linearGradient id=\"logoGrad\" x1=\"5\" y1=\"5\" x2=\"33\" y2=\"33\" gradientUnits=\"userSpaceOnUse\">
+          <stop offset=\"0%\" stop-color=\"#38bdf8\"/>
+          <stop offset=\"100%\" stop-color=\"#0369a1\"/>
         </linearGradient>
       </defs>
     </svg>
-    <div class="logo-text-wrap">
-      <span class="logo-grow">GROW</span>
-      <span class="logo-together">TOGETHER</span>
-      <span class="logo-solutions">SOLUTIONS</span>
+    <div class=\"logo-text-wrap\">
+      <span class=\"logo-grow\">GROW</span>
+      <span class=\"logo-together\">TOGETHER</span>
+      <span class=\"logo-solutions\">SOLUTIONS</span>
     </div>
   </a>
-  <ul class="nav-links">
-    <li><a onclick="showPage('home')" class="active" id="nav-home">Home</a></li>
-    <li><a onclick="showPage('about')" id="nav-about">About & Training</a></li>
-    <li><a onclick="showPage('services')" id="nav-services">Services</a></li>
-    <li><a onclick="showPage('portfolio')" id="nav-portfolio">Portfolio</a></li>
-    <li><a onclick="showPage('contact')" id="nav-contact">Contact</a></li>
+  <ul class=\"nav-links\">
+    <li><a onclick=\"showPage('home')\" class=\"active\" id=\"nav-home\">Home</a></li>
+    <li><a onclick=\"showPage('about')\" id=\"nav-about\">About & Training</a></li>
+    <li><a onclick=\"showPage('services')\" id=\"nav-services\">Services</a></li>
+    <li><a onclick=\"showPage('portfolio')\" id=\"nav-portfolio\">Portfolio</a></li>
+    <li><a onclick=\"showPage('contact')\" id=\"nav-contact\">Contact</a></li>
   </ul>
-  <div class="nav-btns">
-    <a href="https://wa.me/916354662372" target="_blank" class="n-wa">💬 WhatsApp</a>
-    <a href="#" onclick="showPage('contact')" class="n-cta">Free Consultation</a>
+  <div class=\"nav-btns\">
+    <a href=\"https://wa.me/916354662372\" target=\"_blank\" class=\"n-wa\">💬 WhatsApp</a>
+    <a href=\"#\" onclick=\"showPage('contact');return false;\" class=\"n-cta\"><span>Free Consultation</span></a>
   </div>
-  <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()">
+  <button class=\"hamburger\" id=\"hamburger\" onclick=\"toggleMobileMenu()\">
     <span></span><span></span><span></span>
   </button>
 </nav>
 
-<div class="mobile-menu" id="mobileMenu">
-  <a onclick="showPage('home');closeMobileMenu()" id="mnav-home">🏠 Home</a>
-  <a onclick="showPage('about');closeMobileMenu()" id="mnav-about">👤 About & Training</a>
-  <a onclick="showPage('services');closeMobileMenu()" id="mnav-services">⚙️ Services</a>
-  <a onclick="showPage('portfolio');closeMobileMenu()" id="mnav-portfolio">📁 Portfolio</a>
-  <a onclick="showPage('contact');closeMobileMenu()" id="mnav-contact">✉️ Contact</a>
-  <a href="https://wa.me/916354662372" target="_blank" class="mob-wa">💬 WhatsApp Us</a>
-  <a onclick="showPage('contact');closeMobileMenu()" class="mob-cta">🚀 Free Consultation</a>
+<div class=\"mobile-menu\" id=\"mobileMenu\">
+  <a onclick=\"showPage('home');closeMobileMenu()\" id=\"mnav-home\">🏠 Home</a>
+  <a onclick=\"showPage('about');closeMobileMenu()\" id=\"mnav-about\">👤 About & Training</a>
+  <a onclick=\"showPage('services');closeMobileMenu()\" id=\"mnav-services\">⚙️ Services</a>
+  <a onclick=\"showPage('portfolio');closeMobileMenu()\" id=\"mnav-portfolio\">📁 Portfolio</a>
+  <a onclick=\"showPage('contact');closeMobileMenu()\" id=\"mnav-contact\">✉️ Contact</a>
+  <a href=\"https://wa.me/916354662372\" target=\"_blank\" class=\"mob-wa\">💬 WhatsApp Us</a>
+  <a onclick=\"showPage('contact');closeMobileMenu()\" class=\"mob-cta\">🚀 Free Consultation</a>
 </div>
 
-<div class="pages">
+<div class=\"pages\">
 
 <!-- HOME -->
-<div class="page active" id="home">
-<div class="home-wrap">
-  <div class="hero">
-    <div class="hero-l reveal-l">
-      <div class="hero-eyebrow">🌍 Serving clients across India & worldwide</div>
-      <h1 class="hero-h1">Business Growth &<br><em>Support Services</em></h1>
-      <div class="typing-wrap">We specialize in <span id="typingText"></span></div>
-      <p class="hero-sub">Helping businesses grow with strategy, digital execution, staff training, and complete back-office operations — from idea to result.</p>
-      <div class="hero-btns">
-        <a href="#" onclick="showPage('contact')" class="btn-primary">🚀 Get Free Consultation</a>
-        <a href="https://wa.me/916354662372" target="_blank" class="btn-wa">
-          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+<div class=\"page active\" id=\"home\">
+<div class=\"grid-overlay\"></div>
+<div class=\"home-wrap\">
+  <div class=\"hero\">
+    <div class=\"hero-l reveal-l\">
+      <div class=\"hero-eyebrow\">Serving clients across India & worldwide</div>
+      <h1 class=\"hero-h1\">Business Growth &<br><em>Support Services</em></h1>
+      <div class=\"typing-wrap\">We specialize in <span id=\"typingText\"></span></div>
+      <p class=\"hero-sub\">Helping businesses grow with strategy, digital execution, staff training, and complete back-office operations — from idea to result.</p>
+      <div class=\"hero-btns\">
+        <a href=\"#\" onclick=\"showPage('contact');return false;\" class=\"btn-primary magnetic\">🚀 Get Free Consultation</a>
+        <a href=\"https://wa.me/916354662372\" target=\"_blank\" class=\"btn-wa magnetic\">
+          <svg viewBox=\"0 0 24 24\"><path d=\"M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z\"/></svg>
           Chat on WhatsApp
         </a>
       </div>
-      <div class="tagline-banner reveal">
-        <div class="tg-main">"Growing Together, Winning Together"</div>
-        <div class="tg-sub">Your Growth. Our Mission.</div>
+      <div class=\"tagline-banner reveal\">
+        <div class=\"tg-main\">\"Growing Together, Winning Together\"</div>
+        <div class=\"tg-sub\">Your Growth · Our Mission</div>
       </div>
-      <div class="hero-stats">
-        <div class="hs"><div class="n counter" data-target="50">0</div><div class="l">Projects</div></div>
-        <div class="hs"><div class="n counter" data-target="30">0</div><div class="l">Clients</div></div>
-        <div class="hs"><div class="n counter" data-target="6">0</div><div class="l">Years Exp.</div></div>
-        <div class="hs"><div class="n">100%</div><div class="l">On-Time</div></div>
+      <div class=\"hero-stats\">
+        <div class=\"hs\"><div class=\"n counter\" data-target=\"50\">0</div><div class=\"l\">Projects</div></div>
+        <div class=\"hs\"><div class=\"n counter\" data-target=\"30\">0</div><div class=\"l\">Clients</div></div>
+        <div class=\"hs\"><div class=\"n counter\" data-target=\"6\">0</div><div class=\"l\">Years Exp.</div></div>
+        <div class=\"hs\"><div class=\"n\">100%</div><div class=\"l\">On-Time</div></div>
       </div>
     </div>
-    <div class="hero-r reveal-r">
-      <div class="metrics-card">
-        <div class="mc-label">📊 Business Performance Dashboard</div>
-        <div class="mc-grid">
-          <div class="mc-item"><div class="mc-n">50+</div><div class="mc-sub">Projects Done</div></div>
-          <div class="mc-item"><div class="mc-n">30+</div><div class="mc-sub">Happy Clients</div></div>
-          <div class="mc-item"><div class="mc-n">6+</div><div class="mc-sub">Years Exp.</div></div>
-          <div class="mc-item"><div class="mc-n">5★</div><div class="mc-sub">Rating</div></div>
+    <div class=\"hero-r reveal-r\">
+      <div class=\"metrics-card tilt\">
+        <div class=\"mc-label\">📊 Business Performance Dashboard</div>
+        <div class=\"mc-grid\">
+          <div class=\"mc-item\"><div class=\"mc-n\">50+</div><div class=\"mc-sub\">Projects Done</div></div>
+          <div class=\"mc-item\"><div class=\"mc-n\">30+</div><div class=\"mc-sub\">Happy Clients</div></div>
+          <div class=\"mc-item\"><div class=\"mc-n\">6+</div><div class=\"mc-sub\">Years Exp.</div></div>
+          <div class=\"mc-item\"><div class=\"mc-n\">5★</div><div class=\"mc-sub\">Rating</div></div>
         </div>
-        <div class="mc-divider"></div>
-        <div class="mc-services">
-          <div class="mc-svc"><span class="mc-svc-name">🎯 Business Strategy</span><span class="mc-svc-tag green">Active</span></div>
-          <div class="mc-svc"><span class="mc-svc-name">🎓 Staff Training</span><span class="mc-svc-tag green">Active</span></div>
-          <div class="mc-svc"><span class="mc-svc-name">💼 CRM Development</span><span class="mc-svc-tag green">Active</span></div>
-          <div class="mc-svc"><span class="mc-svc-name">📱 Social Media</span><span class="mc-svc-tag amber">New Slots</span></div>
+        <div class=\"mc-divider\"></div>
+        <div class=\"mc-services\">
+          <div class=\"mc-svc\"><span class=\"mc-svc-name\">🎯 Business Strategy</span><span class=\"mc-svc-tag green\">Active</span></div>
+          <div class=\"mc-svc\"><span class=\"mc-svc-name\">🎓 Staff Training</span><span class=\"mc-svc-tag green\">Active</span></div>
+          <div class=\"mc-svc\"><span class=\"mc-svc-name\">💼 CRM Development</span><span class=\"mc-svc-tag green\">Active</span></div>
+          <div class=\"mc-svc\"><span class=\"mc-svc-name\">📱 Social Media</span><span class=\"mc-svc-tag amber\">New Slots</span></div>
         </div>
-        <a href="https://wa.me/916354662372" target="_blank" class="mc-cta">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        <a href=\"https://wa.me/916354662372\" target=\"_blank\" class=\"mc-cta\">
+          <svg width=\"15\" height=\"15\" viewBox=\"0 0 24 24\" fill=\"white\"><path d=\"M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z\"/></svg>
           Available Now — Message Us
         </a>
       </div>
     </div>
   </div>
   <div>
-    <div class="section-label reveal">Core Expertise</div>
-    <div class="section-title reveal">3 Pillars of Everything We Do</div>
-    <div class="section-sub reveal">End-to-end business solutions — from strategy to execution.</div>
-    <div class="pillars-grid">
-      <div class="pillar p1 reveal"><div class="pillar-ic">📈</div><h3>Business Strategy & Planning</h3><p>Analyze your business, identify growth opportunities, and create actionable strategies that deliver results.</p><ul class="pillar-list"><li>Market & competitor analysis</li><li>Revenue growth planning</li><li>Actionable roadmaps</li></ul></div>
-      <div class="pillar p2 reveal" style="transition-delay:.1s"><div class="pillar-ic">🎓</div><h3>Staff Training & Motivation</h3><p>Train your team on digital tools, processes, and soft skills — for groups of 5 to 1000+ employees.</p><ul class="pillar-list"><li>CRM & software training</li><li>Leadership workshops</li><li>Team productivity programs</li></ul></div>
-      <div class="pillar p3 reveal" style="transition-delay:.2s"><div class="pillar-ic">🚀</div><h3>Business Growth Consulting</h3><p>End-to-end consulting — from idea to execution. Implement solutions that scale with your business.</p><ul class="pillar-list"><li>Process optimization</li><li>Sales & marketing setup</li><li>Back-office operations</li></ul></div>
+    <div class=\"section-label reveal\">Core Expertise</div>
+    <div class=\"section-title reveal\">3 Pillars of Everything We Do</div>
+    <div class=\"section-sub reveal\">End-to-end business solutions — from strategy to execution.</div>
+    <div class=\"pillars-grid\">
+      <div class=\"pillar p1 reveal-scale\"><div class=\"pillar-ic\">📈</div><h3>Business Strategy & Planning</h3><p>Analyze your business, identify growth opportunities, and create actionable strategies that deliver results.</p><ul class=\"pillar-list\"><li>Market & competitor analysis</li><li>Revenue growth planning</li><li>Actionable roadmaps</li></ul></div>
+      <div class=\"pillar p2 reveal-scale\" style=\"transition-delay:.12s\"><div class=\"pillar-ic\">🎓</div><h3>Staff Training & Motivation</h3><p>Train your team on digital tools, processes, and soft skills — for groups of 5 to 1000+ employees.</p><ul class=\"pillar-list\"><li>CRM & software training</li><li>Leadership workshops</li><li>Team productivity programs</li></ul></div>
+      <div class=\"pillar p3 reveal-scale\" style=\"transition-delay:.24s\"><div class=\"pillar-ic\">🚀</div><h3>Business Growth Consulting</h3><p>End-to-end consulting — from idea to execution. Implement solutions that scale with your business.</p><ul class=\"pillar-list\"><li>Process optimization</li><li>Sales & marketing setup</li><li>Back-office operations</li></ul></div>
     </div>
-    <div class="global-banner reveal"><span style="font-size:24px">🌍</span><p>Serving clients across <strong>India</strong> and <strong>worldwide</strong> — USA, UK, UAE, Australia and more.</p><a href="#" onclick="showPage('contact')">Get Free Consultation →</a></div>
+    <div class=\"global-banner reveal\"><span>🌍</span><p>Serving clients across <strong>India</strong> and <strong>worldwide</strong> — USA, UK, UAE, Australia and more.</p><a href=\"#\" onclick=\"showPage('contact');return false;\">Get Free Consultation →</a></div>
   </div>
 </div>
 </div>
 
 <!-- ABOUT + TRAINING -->
-<div class="page" id="about-page">
-<div class="inner-wrap">
-  <div class="page-header">
-    <div class="page-eyebrow">About GrowTogether Solutions</div>
-    <h1 class="page-h1 page-h1-dark">Who We Are &<br>What We Teach</h1>
-    <p class="page-sub">6+ years of hands-on experience helping businesses grow — and training the people inside them to perform at their best.</p>
+<div class=\"page\" id=\"about-page\">
+<div class=\"inner-wrap\">
+  <div class=\"page-header\">
+    <div class=\"page-eyebrow reveal\">About GrowTogether Solutions</div>
+    <h1 class=\"page-h1 page-h1-dark reveal\">Who We Are &<br>What We Teach</h1>
+    <p class=\"page-sub reveal\">6+ years of hands-on experience helping businesses grow — and training the people inside them to perform at their best.</p>
   </div>
-  <div class="email-card reveal">
-    <div class="ec-icon">📧</div>
-    <div class="ec-info">
-      <div class="ec-label">Official Email</div>
-      <div class="ec-email">meenavargya44@gmail.com</div>
+  <div class=\"email-card reveal\">
+    <div class=\"ec-icon\">✉</div>
+    <div class=\"ec-info\">
+      <div class=\"ec-label\">Official Email</div>
+      <div class=\"ec-email\">meenavargya44@gmail.com</div>
     </div>
-    <a href="mailto:meenavargya44@gmail.com" style="background:linear-gradient(135deg,#0ea5e9,#0369a1);color:#fff;padding:10px 20px;border-radius:9px;font-size:13px;font-weight:700;text-decoration:none;white-space:nowrap;">✉️ Email Us</a>
+    <a href=\"mailto:meenavargya44@gmail.com\" class=\"ec-btn\">✉️ Email Us</a>
   </div>
-  <div class="about-kpi-row">
-    <div class="kpi reveal"><div class="kpi-n">6+</div><div class="kpi-l">Years Experience</div></div>
-    <div class="kpi reveal" style="transition-delay:.08s"><div class="kpi-n">50+</div><div class="kpi-l">Projects Done</div></div>
-    <div class="kpi reveal" style="transition-delay:.16s"><div class="kpi-n">1000+</div><div class="kpi-l">Trained</div></div>
-    <div class="kpi reveal" style="transition-delay:.24s"><div class="kpi-n">100%</div><div class="kpi-l">Satisfaction</div></div>
+  <div class=\"about-kpi-row\">
+    <div class=\"kpi reveal-scale\"><div class=\"kpi-n\">6+</div><div class=\"kpi-l\">Years Experience</div></div>
+    <div class=\"kpi reveal-scale\" style=\"transition-delay:.1s\"><div class=\"kpi-n\">50+</div><div class=\"kpi-l\">Projects Done</div></div>
+    <div class=\"kpi reveal-scale\" style=\"transition-delay:.2s\"><div class=\"kpi-n\">1000+</div><div class=\"kpi-l\">Trained</div></div>
+    <div class=\"kpi reveal-scale\" style=\"transition-delay:.3s\"><div class=\"kpi-n\">100%</div><div class=\"kpi-l\">Satisfaction</div></div>
   </div>
-  <div class="founder-card reveal">
-    <div class="founder-photo-col">
-      <div class="founder-photo">
-        <img src="photo.jpg.png" alt="Meena Vargya" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-        <span class="mono" style="display:none">MV</span>
+  <div class=\"founder-card reveal\">
+    <div class=\"founder-photo-col\">
+      <div class=\"founder-photo\">
+        <img src=\"photo.jpg.png\" alt=\"Meena Vargya\" onerror=\"this.style.display='none';this.nextElementSibling.style.display='flex'\">
+        <span class=\"mono\" style=\"display:none\">MV</span>
       </div>
-      <div class="online-dot">Available Now</div>
-      <div class="founder-chips">
-        <div class="f-chip">📍 Rajkot, Gujarat</div>
-        <div class="f-chip">🌐 Hindi & English</div>
-        <div class="f-chip">⭐ 5.0 Rating</div>
-        <div class="f-chip">🎓 6+ Years Exp.</div>
+      <div class=\"online-dot\">Available Now</div>
+      <div class=\"founder-chips\">
+        <div class=\"f-chip\">📍 Rajkot, Gujarat</div>
+        <div class=\"f-chip\">🌐 Hindi & English</div>
+        <div class=\"f-chip\">⭐ 5.0 Rating</div>
+        <div class=\"f-chip\">🎓 6+ Years Exp.</div>
       </div>
     </div>
-    <div class="founder-info">
+    <div class=\"founder-info\">
       <h3>Meena Vargya</h3>
-      <div class="founder-role-tag">Business Growth Consultant & Digital Services Expert — Rajkot, Gujarat</div>
+      <div class=\"founder-role-tag\">Business Growth Consultant & Digital Services Expert — Rajkot, Gujarat</div>
       <p>Over 6+ years of self-built expertise — through real-world projects, online courses, and deep industry immersion across pharma, tech, startups, and services businesses. Every skill has been earned in the field, not just the classroom.</p>
       <p>Clients include pharma companies, startups, and established businesses across India and globally. The approach is simple: become a part of your team, understand your goals completely, and deliver results that actually move the needle.</p>
       <p>What makes GrowTogether Solutions different is commitment to outcomes — not just deliverables. Every project runs with full dedication, clear communication, and zero surprises.</p>
-      <div class="tools-row">
-        <span class="tool-tag">🎨 Canva Pro</span><span class="tool-tag">📊 MS Excel</span><span class="tool-tag">💼 CRM Systems</span><span class="tool-tag">📧 Mailchimp</span><span class="tool-tag">📝 Notion</span><span class="tool-tag">🖥️ PowerPoint</span><span class="tool-tag">🌐 Google Workspace</span>
+      <div class=\"tools-row\">
+        <span class=\"tool-tag\">🎨 Canva Pro</span><span class=\"tool-tag\">📊 MS Excel</span><span class=\"tool-tag\">💼 CRM Systems</span><span class=\"tool-tag\">📧 Mailchimp</span><span class=\"tool-tag\">📝 Notion</span><span class=\"tool-tag\">🖥️ PowerPoint</span><span class=\"tool-tag\">🌐 Google Workspace</span>
       </div>
     </div>
   </div>
-  <div class="training-stats reveal">
-    <div class="ts-item"><div class="ts-n ts-accent">50+</div><div class="ts-l">Sessions Done</div></div>
-    <div class="ts-item"><div class="ts-n">1000+</div><div class="ts-l">Professionals</div></div>
-    <div class="ts-item"><div class="ts-n ts-accent">5★</div><div class="ts-l">Feedback</div></div>
-    <div class="ts-item"><div class="ts-n">Hindi</div><div class="ts-l">& English</div></div>
-    <div class="ts-item"><div class="ts-n ts-accent">Any</div><div class="ts-l">Team Size</div></div>
+  <div class=\"training-stats reveal\">
+    <div class=\"ts-item\"><div class=\"ts-n ts-accent\">50+</div><div class=\"ts-l\">Sessions Done</div></div>
+    <div class=\"ts-item\"><div class=\"ts-n\">1000+</div><div class=\"ts-l\">Professionals</div></div>
+    <div class=\"ts-item\"><div class=\"ts-n ts-accent\">5★</div><div class=\"ts-l\">Feedback</div></div>
+    <div class=\"ts-item\"><div class=\"ts-n\">Hindi</div><div class=\"ts-l\">& English</div></div>
+    <div class=\"ts-item\"><div class=\"ts-n ts-accent\">Any</div><div class=\"ts-l\">Team Size</div></div>
   </div>
-  <div class="divider-line"><div class="divider-inner">Training Specialities</div></div>
-  <div class="spec-grid">
-    <div class="spec-card sc-mot reveal"><div class="sc-head"><div class="sc-icon">🔥</div><span class="sc-card-type">Motivation</span></div><div class="sc-title">Staff Motivation Sessions</div><div class="sc-desc">Powerful sessions that energize teams, boost morale, and build a winning mindset. Real stories, proven exercises, techniques that create lasting motivation.</div><div class="sc-tags"><span class="sc-tag">Team Morale</span><span class="sc-tag">Winning Mindset</span><span class="sc-tag">Goal Setting</span><span class="sc-tag">Energy Sessions</span></div></div>
-    <div class="spec-card sc-str reveal" style="transition-delay:.1s"><div class="sc-head"><div class="sc-icon">🎓</div><span class="sc-card-type">Staff Training</span></div><div class="sc-title">Staff & Team Training</div><div class="sc-desc">Hands-on training for teams of any size — 5 to 1000+ employees. Complex topics into clear lessons covering digital tools, communication, and operational skills.</div><div class="sc-tags"><span class="sc-tag">Digital Skills</span><span class="sc-tag">Communication</span><span class="sc-tag">Productivity</span><span class="sc-tag">Any Team Size</span></div></div>
-    <div class="spec-card sc-lif reveal" style="transition-delay:.15s"><div class="sc-head"><div class="sc-icon">💡</div><span class="sc-card-type">Personal Growth</span></div><div class="sc-title">Life Lessons & Growth</div><div class="sc-desc">Sessions on discipline, resilience, and habits for success. Real experiences that help individuals grow professionally and personally.</div><div class="sc-tags"><span class="sc-tag">Discipline</span><span class="sc-tag">Resilience</span><span class="sc-tag">Success Habits</span><span class="sc-tag">Personal Growth</span></div></div>
-    <div class="spec-card sc-bus reveal" style="transition-delay:.2s"><div class="sc-head"><div class="sc-icon">🚀</div><span class="sc-card-type">Business Dev</span></div><div class="sc-title">Business Development Training</div><div class="sc-desc">Strategic sessions on sales, client acquisition, marketing, and operations. Training entrepreneurs and teams to think like business leaders.</div><div class="sc-tags"><span class="sc-tag">Sales Strategy</span><span class="sc-tag">Leadership</span><span class="sc-tag">Entrepreneur Mindset</span><span class="sc-tag">Execution</span></div></div>
+  <div class=\"divider-line\"><div class=\"divider-inner\">Training Specialities</div></div>
+  <div class=\"spec-grid\">
+    <div class=\"spec-card sc-mot reveal\"><div class=\"sc-head\"><div class=\"sc-icon\">🔥</div><span class=\"sc-card-type\">Motivation</span></div><div class=\"sc-title\">Staff Motivation Sessions</div><div class=\"sc-desc\">Powerful sessions that energize teams, boost morale, and build a winning mindset. Real stories, proven exercises, techniques that create lasting motivation.</div><div class=\"sc-tags\"><span class=\"sc-tag\">Team Morale</span><span class=\"sc-tag\">Winning Mindset</span><span class=\"sc-tag\">Goal Setting</span><span class=\"sc-tag\">Energy Sessions</span></div></div>
+    <div class=\"spec-card sc-str reveal\" style=\"transition-delay:.12s\"><div class=\"sc-head\"><div class=\"sc-icon\">🎓</div><span class=\"sc-card-type\">Staff Training</span></div><div class=\"sc-title\">Staff & Team Training</div><div class=\"sc-desc\">Hands-on training for teams of any size — 5 to 1000+ employees. Complex topics into clear lessons covering digital tools, communication, and operational skills.</div><div class=\"sc-tags\"><span class=\"sc-tag\">Digital Skills</span><span class=\"sc-tag\">Communication</span><span class=\"sc-tag\">Productivity</span><span class=\"sc-tag\">Any Team Size</span></div></div>
+    <div class=\"spec-card sc-lif reveal\" style=\"transition-delay:.18s\"><div class=\"sc-head\"><div class=\"sc-icon\">💡</div><span class=\"sc-card-type\">Personal Growth</span></div><div class=\"sc-title\">Life Lessons & Growth</div><div class=\"sc-desc\">Sessions on discipline, resilience, and habits for success. Real experiences that help individuals grow professionally and personally.</div><div class=\"sc-tags\"><span class=\"sc-tag\">Discipline</span><span class=\"sc-tag\">Resilience</span><span class=\"sc-tag\">Success Habits</span><span class=\"sc-tag\">Personal Growth</span></div></div>
+    <div class=\"spec-card sc-bus reveal\" style=\"transition-delay:.24s\"><div class=\"sc-head\"><div class=\"sc-icon\">🚀</div><span class=\"sc-card-type\">Business Dev</span></div><div class=\"sc-title\">Business Development Training</div><div class=\"sc-desc\">Strategic sessions on sales, client acquisition, marketing, and operations. Training entrepreneurs and teams to think like business leaders.</div><div class=\"sc-tags\"><span class=\"sc-tag\">Sales Strategy</span><span class=\"sc-tag\">Leadership</span><span class=\"sc-tag\">Entrepreneur Mindset</span><span class=\"sc-tag\">Execution</span></div></div>
   </div>
-  <div id="booking-section">
-    <div class="divider-line"><div class="divider-inner">Book a Session</div></div>
-    <div class="booking-box reveal">
+  <div id=\"booking-section\">
+    <div class=\"divider-line\"><div class=\"divider-inner\">Book a Session</div></div>
+    <div class=\"booking-box reveal\">
       <h3>📅 Book a Training Session</h3>
       <p>Select a date and time slot. Mon–Sat, 11 AM – 5 PM. Final confirmation via email.</p>
-      <div class="booking-layout">
-        <div class="cal-wrap">
-          <div class="cal-header">
-            <button class="cal-nav-btn" onclick="bChangeMonth(-1)">‹</button>
-            <span class="cal-title-txt" id="bCalTitle"></span>
-            <button class="cal-nav-btn" onclick="bChangeMonth(1)">›</button>
+      <div class=\"booking-layout\">
+        <div class=\"cal-wrap\">
+          <div class=\"cal-header\">
+            <button class=\"cal-nav-btn\" onclick=\"bChangeMonth(-1)\">‹</button>
+            <span class=\"cal-title-txt\" id=\"bCalTitle\"></span>
+            <button class=\"cal-nav-btn\" onclick=\"bChangeMonth(1)\">›</button>
           </div>
-          <div class="cal-days-grid" id="bCalGrid"></div>
-          <div class="slots-wrap" id="bSlotsWrap" style="display:none">
-            <div class="slots-lbl">Available Slots</div>
-            <div class="slots-g" id="bSlotsGrid"></div>
+          <div class=\"cal-days-grid\" id=\"bCalGrid\"></div>
+          <div class=\"slots-wrap\" id=\"bSlotsWrap\" style=\"display:none\">
+            <div class=\"slots-lbl\">Available Slots</div>
+            <div class=\"slots-g\" id=\"bSlotsGrid\"></div>
           </div>
         </div>
-        <div class="bform-wrap">
+        <div class=\"bform-wrap\">
           <h4>Your Details</h4>
-          <div class="bf-selected" id="bSelectedInfo"></div>
-          <div class="bfg"><label>Full Name *</label><input type="text" id="bName" placeholder="Your full name"></div>
-          <div class="bfg"><label>Email *</label><input type="email" id="bEmail" placeholder="your@email.com"></div>
-          <div class="bfg"><label>WhatsApp *</label><input type="tel" id="bPhone" placeholder="+91 63546 62372"></div>
-          <div class="bfg"><label>Topic / Message</label><textarea id="bTopic" placeholder="What would you like to learn?"></textarea></div>
-          <div class="binfo-note">📋 Booking summary sent to your email. Final confirmation via email from Meena.</div>
-          <button class="bsub-btn" id="bSubmitBtn" onclick="bSubmit()" disabled>📩 Send Booking Request</button>
-          <div class="bsuccess" id="bSuccess"><div class="bsi">✅</div><h4>Booking Request Sent!</h4><p id="bSuccessMsg"></p></div>
+          <div class=\"bf-selected\" id=\"bSelectedInfo\"></div>
+          <div class=\"bfg\"><label>Full Name *</label><input type=\"text\" id=\"bName\" placeholder=\"Your full name\"></div>
+          <div class=\"bfg\"><label>Email *</label><input type=\"email\" id=\"bEmail\" placeholder=\"your@email.com\"></div>
+          <div class=\"bfg\"><label>WhatsApp *</label><input type=\"tel\" id=\"bPhone\" placeholder=\"+91 63546 62372\"></div>
+          <div class=\"bfg\"><label>Topic / Message</label><textarea id=\"bTopic\" placeholder=\"What would you like to learn?\"></textarea></div>
+          <div class=\"binfo-note\">📋 Booking summary sent to your email. Final confirmation via email from Meena.</div>
+          <button class=\"bsub-btn\" id=\"bSubmitBtn\" onclick=\"bSubmit()\" disabled>📩 Send Booking Request</button>
+          <div class=\"bsuccess\" id=\"bSuccess\"><div class=\"bsi\">✅</div><h4>Booking Request Sent!</h4><p id=\"bSuccessMsg\"></p></div>
         </div>
       </div>
     </div>
@@ -684,141 +809,141 @@ nav{position:fixed;top:0;left:0;right:0;z-index:2000;height:62px;
 </div>
 
 <!-- SERVICES -->
-<div class="page" id="services-page">
-<div class="inner-wrap">
-  <div class="page-header">
-    <div class="page-eyebrow">Our Services</div>
-    <h1 class="page-h1 page-h1-v">7 Powerful Services</h1>
-    <p class="page-sub">From content creation to custom CRM development — backed by 6+ years of real project experience.</p>
+<div class=\"page\" id=\"services-page\">
+<div class=\"inner-wrap\">
+  <div class=\"page-header\">
+    <div class=\"page-eyebrow reveal\">Our Services</div>
+    <h1 class=\"page-h1 page-h1-v reveal\">7 Powerful Services</h1>
+    <p class=\"page-sub reveal\">From content creation to custom CRM development — backed by 6+ years of real project experience.</p>
   </div>
-  <div class="svc-page-wrap">
-    <div class="wheel-box reveal-l">
-      <div class="wring" id="wheelRing"></div>
-      <div class="wcenter"><span>7 SERVICES</span><small>6+ Yrs Exp.</small></div>
+  <div class=\"svc-page-wrap\">
+    <div class=\"wheel-box reveal-l\">
+      <div class=\"wring\" id=\"wheelRing\"></div>
+      <div class=\"wcenter\"><span>7 SERVICES</span><small>6+ YRS EXP.</small></div>
     </div>
-    <div class="svc-list-box reveal-r">
+    <div class=\"svc-list-box reveal-r\">
       <h3>Everything Your Business Needs</h3>
       <p>Tap any service to learn more — or contact us for a free consultation.</p>
-      <div class="sli" onclick="openServiceModal(0)"><div class="sli-ic" style="background:#e0f2fe">📱</div><div class="sli-t"><h4>Social Media Marketing</h4><p>10 images + 2 videos/month, strategy & growth for all platforms</p></div></div>
-      <div class="sli" onclick="openServiceModal(1)"><div class="sli-ic" style="background:#f0f9ff">✍️</div><div class="sli-t"><h4>Content Writing</h4><p>SEO articles & web copy in Hindi + English</p></div></div>
-      <div class="sli" onclick="openServiceModal(2)"><div class="sli-ic" style="background:#fff7ed">📖</div><div class="sli-t"><h4>Story Writing</h4><p>Brand stories & creative narratives that connect</p></div></div>
-      <div class="sli" onclick="openServiceModal(3)"><div class="sli-ic" style="background:#fefce8">📊</div><div class="sli-t"><h4>PowerPoint / PPT Design</h4><p>Infographic & professional presentations that impress</p></div></div>
-      <div class="sli" onclick="openServiceModal(4)"><div class="sli-ic" style="background:#eff6ff">🗄️</div><div class="sli-t"><h4>Data Management</h4><p>Organize & manage your business data efficiently</p></div></div>
-      <div class="sli" onclick="openServiceModal(5)"><div class="sli-ic" style="background:#e0f2fe">📧</div><div class="sli-t"><h4>Email Writing & Handling</h4><p>Newsletters, cold outreach & inbox management</p></div></div>
-      <div class="sli" onclick="openServiceModal(6)"><div class="sli-ic" style="background:#e0f2fe">💼</div><div class="sli-t"><h4>CRM Software & Setup</h4><p>Custom CRM systems built for your business growth</p></div></div>
+      <div class=\"sli\" onclick=\"openServiceModal(0)\"><div class=\"sli-ic\" style=\"background:linear-gradient(135deg,#e0f2fe,#bae6fd)\">📱</div><div class=\"sli-t\"><h4>Social Media Marketing</h4><p>10 images + 2 videos/month, strategy & growth for all platforms</p></div></div>
+      <div class=\"sli\" onclick=\"openServiceModal(1)\"><div class=\"sli-ic\" style=\"background:linear-gradient(135deg,#f0f9ff,#e0f2fe)\">✍️</div><div class=\"sli-t\"><h4>Content Writing</h4><p>SEO articles & web copy in Hindi + English</p></div></div>
+      <div class=\"sli\" onclick=\"openServiceModal(2)\"><div class=\"sli-ic\" style=\"background:linear-gradient(135deg,#fff7ed,#fed7aa)\">📖</div><div class=\"sli-t\"><h4>Story Writing</h4><p>Brand stories & creative narratives that connect</p></div></div>
+      <div class=\"sli\" onclick=\"openServiceModal(3)\"><div class=\"sli-ic\" style=\"background:linear-gradient(135deg,#fefce8,#fde68a)\">📊</div><div class=\"sli-t\"><h4>PowerPoint / PPT Design</h4><p>Infographic & professional presentations that impress</p></div></div>
+      <div class=\"sli\" onclick=\"openServiceModal(4)\"><div class=\"sli-ic\" style=\"background:linear-gradient(135deg,#eff6ff,#bfdbfe)\">🗄️</div><div class=\"sli-t\"><h4>Data Management</h4><p>Organize & manage your business data efficiently</p></div></div>
+      <div class=\"sli\" onclick=\"openServiceModal(5)\"><div class=\"sli-ic\" style=\"background:linear-gradient(135deg,#e0f2fe,#bae6fd)\">📧</div><div class=\"sli-t\"><h4>Email Writing & Handling</h4><p>Newsletters, cold outreach & inbox management</p></div></div>
+      <div class=\"sli\" onclick=\"openServiceModal(6)\"><div class=\"sli-ic\" style=\"background:linear-gradient(135deg,#e0f2fe,#7dd3fc)\">💼</div><div class=\"sli-t\"><h4>CRM Software & Setup</h4><p>Custom CRM systems built for your business growth</p></div></div>
     </div>
   </div>
-  <div style="margin-bottom:48px;">
-    <div class="section-label" style="color:#0284c7">How It Works</div>
-    <div class="section-title" style="color:#0c2d4a;margin-bottom:8px">4 Simple Steps</div>
-    <p style="font-size:14px;color:var(--mute);margin-bottom:36px">From first contact to final delivery — transparent process.</p>
-    <div class="steps-row">
-      <div class="step reveal"><div class="step-num">💬</div><div class="step-badge">Step 01</div><h4>You Contact Us</h4><p>WhatsApp, email, or form — we reply within 2 hours.</p></div>
-      <div class="step reveal" style="transition-delay:.1s"><div class="step-num">📋</div><div class="step-badge">Step 02</div><h4>We Understand</h4><p>We listen and send a clear proposal within 24 hours.</p></div>
-      <div class="step reveal" style="transition-delay:.2s"><div class="step-num">⚡</div><div class="step-badge">Step 03</div><h4>We Execute</h4><p>Work starts with regular updates. Revisions included.</p></div>
-      <div class="step reveal" style="transition-delay:.3s"><div class="step-num">🏆</div><div class="step-badge">Step 04</div><h4>You Get Results</h4><p>Final delivery + 7-day support at no extra charge.</p></div>
+  <div style=\"margin-bottom:52px;\">
+    <div class=\"section-label reveal\" style=\"color:#0284c7\">How It Works</div>
+    <div class=\"section-title reveal\" style=\"color:#0c2d4a;margin-bottom:10px\">4 Simple Steps</div>
+    <p class=\"reveal\" style=\"font-size:14.5px;color:var(--mute);margin-bottom:40px\">From first contact to final delivery — transparent process.</p>
+    <div class=\"steps-row\">
+      <div class=\"step reveal-scale\"><div class=\"step-num\">💬</div><div class=\"step-badge\">Step 01</div><h4>You Contact Us</h4><p>WhatsApp, email, or form — we reply within 2 hours.</p></div>
+      <div class=\"step reveal-scale\" style=\"transition-delay:.12s\"><div class=\"step-num\">📋</div><div class=\"step-badge\">Step 02</div><h4>We Understand</h4><p>We listen and send a clear proposal within 24 hours.</p></div>
+      <div class=\"step reveal-scale\" style=\"transition-delay:.24s\"><div class=\"step-num\">⚡</div><div class=\"step-badge\">Step 03</div><h4>We Execute</h4><p>Work starts with regular updates. Revisions included.</p></div>
+      <div class=\"step reveal-scale\" style=\"transition-delay:.36s\"><div class=\"step-num\">🏆</div><div class=\"step-badge\">Step 04</div><h4>You Get Results</h4><p>Final delivery + 7-day support at no extra charge.</p></div>
     </div>
   </div>
-  <div style="margin-bottom:48px;">
-    <div class="section-label" style="color:#0284c7">Pricing</div>
-    <div class="section-title" style="color:#0c2d4a;margin-bottom:6px">Simple, Honest Pricing</div>
-    <p style="font-size:14px;color:var(--mute);margin-bottom:28px">No hidden charges. INR pricing available on request.</p>
-    <div class="pricing-grid">
-      <div class="price-card reveal"><div class="pt">Starter</div><div class="pa">$50<span> /project</span></div><div class="pd">Perfect for small tasks</div><div class="price-div"></div><div class="price-features"><div class="pf"><span class="ck">✓</span>1 Article / PPT / Email</div><div class="pf"><span class="ck">✓</span>2 Revisions</div><div class="pf"><span class="ck">✓</span>3-day delivery</div></div><a href="#" onclick="showPage('contact')" class="pbtn def">Get Started</a></div>
-      <div class="price-card featured reveal" style="transition-delay:.1s"><div class="pt" style="color:#0284c7">Growth</div><div class="pa">$150<span> /month</span></div><div class="pd">Best for growing businesses</div><div class="price-div"></div><div class="price-features"><div class="pf"><span class="ck">✓</span>10 Images + 2 Videos/month</div><div class="pf"><span class="ck">✓</span>4 SEO Articles/month</div><div class="pf"><span class="ck">✓</span>Email management</div><div class="pf"><span class="ck">✓</span>10 Revisions included</div><div class="pf"><span class="ck">✓</span>Weekly progress report</div></div><a href="https://wa.me/916354662372" target="_blank" class="pbtn pri">Get Free Consultation</a></div>
-      <div class="price-card reveal" style="transition-delay:.2s"><div class="pt">Enterprise</div><div class="pa" style="font-size:28px">Custom<span> pricing</span></div><div class="pd">For teams & corporates</div><div class="price-div"></div><div class="price-features"><div class="pf"><span class="ck">✓</span>All Growth features</div><div class="pf"><span class="ck">✓</span>CRM Setup & Training</div><div class="pf"><span class="ck">✓</span>Team training sessions</div><div class="pf"><span class="ck">✓</span>Priority 24/7 support</div></div><a href="https://wa.me/916354662372" target="_blank" class="pbtn sec">Contact for Quote</a></div>
+  <div style=\"margin-bottom:52px;\">
+    <div class=\"section-label reveal\" style=\"color:#0284c7\">Pricing</div>
+    <div class=\"section-title reveal\" style=\"color:#0c2d4a;margin-bottom:8px\">Simple, Honest Pricing</div>
+    <p class=\"reveal\" style=\"font-size:14.5px;color:var(--mute);margin-bottom:32px\">No hidden charges. INR pricing available on request.</p>
+    <div class=\"pricing-grid\">
+      <div class=\"price-card reveal\"><div class=\"pt\">Starter</div><div class=\"pa\">$50<span> /project</span></div><div class=\"pd\">Perfect for small tasks</div><div class=\"price-div\"></div><div class=\"price-features\"><div class=\"pf\"><span class=\"ck\">✓</span>1 Article / PPT / Email</div><div class=\"pf\"><span class=\"ck\">✓</span>2 Revisions</div><div class=\"pf\"><span class=\"ck\">✓</span>3-day delivery</div></div><a href=\"#\" onclick=\"showPage('contact');return false;\" class=\"pbtn def\">Get Started</a></div>
+      <div class=\"price-card featured reveal\" style=\"transition-delay:.12s\"><div class=\"pt\" style=\"color:#0284c7\">Growth</div><div class=\"pa\">$150<span> /month</span></div><div class=\"pd\">Best for growing businesses</div><div class=\"price-div\"></div><div class=\"price-features\"><div class=\"pf\"><span class=\"ck\">✓</span>10 Images + 2 Videos/month</div><div class=\"pf\"><span class=\"ck\">✓</span>4 SEO Articles/month</div><div class=\"pf\"><span class=\"ck\">✓</span>Email management</div><div class=\"pf\"><span class=\"ck\">✓</span>10 Revisions included</div><div class=\"pf\"><span class=\"ck\">✓</span>Weekly progress report</div></div><a href=\"https://wa.me/916354662372\" target=\"_blank\" class=\"pbtn pri\">Get Free Consultation</a></div>
+      <div class=\"price-card reveal\" style=\"transition-delay:.24s\"><div class=\"pt\">Enterprise</div><div class=\"pa\" style=\"font-size:32px\">Custom<span> pricing</span></div><div class=\"pd\">For teams & corporates</div><div class=\"price-div\"></div><div class=\"price-features\"><div class=\"pf\"><span class=\"ck\">✓</span>All Growth features</div><div class=\"pf\"><span class=\"ck\">✓</span>CRM Setup & Training</div><div class=\"pf\"><span class=\"ck\">✓</span>Team training sessions</div><div class=\"pf\"><span class=\"ck\">✓</span>Priority 24/7 support</div></div><a href=\"https://wa.me/916354662372\" target=\"_blank\" class=\"pbtn sec\">Contact for Quote</a></div>
     </div>
   </div>
   <div>
-    <div class="section-label" style="color:#0284c7">Why Choose Us</div>
-    <div class="section-title" style="color:#0c2d4a;margin-bottom:28px">4 Reasons Clients Stay</div>
-    <div class="why-grid">
-      <div class="wy reveal"><div class="wy-ic">🎯</div><h4>Personalized Solutions</h4><p>Custom plan for every client — no templates, no shortcuts.</p></div>
-      <div class="wy reveal" style="transition-delay:.08s"><div class="wy-ic">💰</div><h4>Transparent Pricing</h4><p>Premium quality at budget-friendly rates. Zero hidden costs.</p></div>
-      <div class="wy reveal" style="transition-delay:.16s"><div class="wy-ic">⚡</div><h4>Fast Execution</h4><p>Projects start within 24 hours, always delivered on time.</p></div>
-      <div class="wy reveal" style="transition-delay:.24s"><div class="wy-ic">🤝</div><h4>End-to-End Support</h4><p>Planning to delivery — every step, we're with you.</p></div>
+    <div class=\"section-label reveal\" style=\"color:#0284c7\">Why Choose Us</div>
+    <div class=\"section-title reveal\" style=\"color:#0c2d4a;margin-bottom:32px\">4 Reasons Clients Stay</div>
+    <div class=\"why-grid\">
+      <div class=\"wy reveal-scale\"><div class=\"wy-ic\">🎯</div><h4>Personalized Solutions</h4><p>Custom plan for every client — no templates, no shortcuts.</p></div>
+      <div class=\"wy reveal-scale\" style=\"transition-delay:.1s\"><div class=\"wy-ic\">💰</div><h4>Transparent Pricing</h4><p>Premium quality at budget-friendly rates. Zero hidden costs.</p></div>
+      <div class=\"wy reveal-scale\" style=\"transition-delay:.2s\"><div class=\"wy-ic\">⚡</div><h4>Fast Execution</h4><p>Projects start within 24 hours, always delivered on time.</p></div>
+      <div class=\"wy reveal-scale\" style=\"transition-delay:.3s\"><div class=\"wy-ic\">🤝</div><h4>End-to-End Support</h4><p>Planning to delivery — every step, we're with you.</p></div>
     </div>
   </div>
 </div>
 </div>
 
 <!-- PORTFOLIO -->
-<div class="page" id="portfolio-page">
-<div class="inner-wrap">
-  <div class="page-header">
-    <div class="page-eyebrow">Our Work</div>
-    <h1 class="page-h1 page-h1-dark">Portfolio & Projects</h1>
-    <p class="page-sub">Real projects. Real results. Here's what we've built for our clients.</p>
+<div class=\"page\" id=\"portfolio-page\">
+<div class=\"inner-wrap\">
+  <div class=\"page-header\">
+    <div class=\"page-eyebrow reveal\">Our Work</div>
+    <h1 class=\"page-h1 page-h1-dark reveal\">Portfolio & Projects</h1>
+    <p class=\"page-sub reveal\">Real projects. Real results. Here's what we've built for our clients.</p>
   </div>
-  <div class="testi-section reveal">
-    <div class="testi-header"><div class="s-lbl">Client Testimonials</div><div class="s-title">What Our Clients Say</div></div>
-    <div class="testi-grid">
-      <div class="tc"><div class="tc-stars">★★★★★</div><div class="tc-text">"Meena handles our entire business operations at Pharma In All — social media, content, data management and coordination. She is not just a freelancer, she is part of our core team."</div><div class="tc-author"><div class="tc-av" style="background:linear-gradient(135deg,#f97316,#fb923c)">R</div><div><div class="tc-name">Ronak Relia</div><div class="tc-co" style="color:#fb923c">Owner — Pharma In All · Rajkot</div></div></div></div>
-      <div class="tc"><div class="tc-stars">★★★★★</div><div class="tc-text">"Meena built a complete custom CRM for Enervia from scratch — orders, tasks, attendance, reporting all in one place. Her technical understanding of our business was beyond expectations."</div><div class="tc-author"><div class="tc-av" style="background:linear-gradient(135deg,#0ea5e9,#38bdf8)">S</div><div><div class="tc-name">Sachin Thakkar</div><div class="tc-co" style="color:#38bdf8">Owner — Enervia · Gujarat</div></div></div></div>
+  <div class=\"testi-section reveal\">
+    <div class=\"testi-header\"><div class=\"s-lbl\">Client Testimonials</div><div class=\"s-title\">What Our Clients Say</div></div>
+    <div class=\"testi-grid\">
+      <div class=\"tc\"><div class=\"tc-stars\">★★★★★</div><div class=\"tc-text\">\"Meena handles our entire business operations at Pharma In All — social media, content, data management and coordination. She is not just a freelancer, she is part of our core team.\"</div><div class=\"tc-author\"><div class=\"tc-av\" style=\"background:linear-gradient(135deg,#f97316,#fb923c)\">R</div><div><div class=\"tc-name\">Ronak Relia</div><div class=\"tc-co\" style=\"color:#fb923c\">Owner — Pharma In All · Rajkot</div></div></div></div>
+      <div class=\"tc\"><div class=\"tc-stars\">★★★★★</div><div class=\"tc-text\">\"Meena built a complete custom CRM for Enervia from scratch — orders, tasks, attendance, reporting all in one place. Her technical understanding of our business was beyond expectations.\"</div><div class=\"tc-author\"><div class=\"tc-av\" style=\"background:linear-gradient(135deg,#0ea5e9,#38bdf8)\">S</div><div><div class=\"tc-name\">Sachin Thakkar</div><div class=\"tc-co\" style=\"color:#38bdf8\">Owner — Enervia · Gujarat</div></div></div></div>
     </div>
-    <div class="testi-stats">
-      <div class="tst"><div class="n" style="color:#7dd3fc">50+</div><div class="l">Projects</div></div>
-      <div class="tst"><div class="n" style="color:#fb923c">30+</div><div class="l">Clients</div></div>
-      <div class="tst"><div class="n" style="color:#38bdf8">100%</div><div class="l">On-Time</div></div>
-      <div class="tst"><div class="n" style="color:#fbbf24">5★</div><div class="l">Rating</div></div>
+    <div class=\"testi-stats\">
+      <div class=\"tst\"><div class=\"n\" style=\"color:#7dd3fc\">50+</div><div class=\"l\">Projects</div></div>
+      <div class=\"tst\"><div class=\"n\" style=\"color:#fb923c\">30+</div><div class=\"l\">Clients</div></div>
+      <div class=\"tst\"><div class=\"n\" style=\"color:#38bdf8\">100%</div><div class=\"l\">On-Time</div></div>
+      <div class=\"tst\"><div class=\"n\" style=\"color:#fbbf24\">5★</div><div class=\"l\">Rating</div></div>
     </div>
   </div>
-  <div class="pgrid">
-    <div class="pc reveal"><div class="pc-prev" style="background:linear-gradient(135deg,#e0f2fe,#bae6fd)">🌐</div><div class="pc-info"><div class="pc-badge" style="background:#e0f2fe;color:#0369a1">WEB DESIGN</div><h3>GrowTogether Solutions — Our Own Website</h3><p>Responsive business website with animated services, portfolio, FAQ, pricing, testimonials, and WhatsApp integration.</p><div class="pc-tags"><span class="pc-tag">HTML/CSS</span><span class="pc-tag">JavaScript</span><span class="pc-tag">Animations</span><span class="pc-tag">SEO Ready</span></div><a href="https://meenavargya44-coder.github.io" target="_blank" class="pc-link" style="background:#0284c7;color:#fff">🔗 View Live →</a></div></div>
-    <div class="pc reveal"><div class="pc-prev" style="background:linear-gradient(135deg,#0f172a,#1e293b)">🧠</div><div class="pc-info"><div class="pc-badge" style="background:#eff6ff;color:#1d4ed8">PRESENTATION</div><h3>AI & Future of Business — Live Presentation</h3><p>5-slide animated business presentation — opens in browser, no app needed. Live charts, rotating AI ecosystem, cinematic dark theme.</p><div class="pc-tags"><span class="pc-tag">Animated</span><span class="pc-tag">Browser-based</span><span class="pc-tag">Live Charts</span></div><a href="ai-presentation.html" target="_blank" class="pc-link" style="background:linear-gradient(90deg,#0369a1,#0ea5e9);color:#fff">▶ View Presentation →</a></div></div>
-    <div class="pc reveal"><div class="pc-prev" style="background:linear-gradient(135deg,#fff1eb,#ffd4c0)">💊</div><div class="pc-info"><div class="pc-badge" style="background:#fff1eb;color:#f97316">CRM DEVELOPMENT</div><h3>Pharma In All — Custom CRM System</h3><p>Complete pharma CRM with order pipeline, employee management, attendance, leave, finance tracking and reports.</p><div class="pc-tags"><span class="pc-tag">Order Pipeline</span><span class="pc-tag">Multi-zone</span><span class="pc-tag">Live System</span></div><a href="https://pharma-crm-kappa.vercel.app/" target="_blank" class="pc-link" style="background:#f97316;color:#fff">🔗 View Live CRM →</a></div></div>
-    <div class="pc reveal"><div class="pc-prev" style="background:linear-gradient(135deg,#e0f2fe,#bae6fd)">⚡</div><div class="pc-info"><div class="pc-badge" style="background:#e0f2fe;color:#0284c7">CRM DEVELOPMENT</div><h3>Enervia — Custom Business CRM</h3><p>Full CRM — order management, team tasks, attendance tracking, billing & accounts — built for Sachin Thakkar.</p><div class="pc-tags"><span class="pc-tag">Task Management</span><span class="pc-tag">Billing</span><span class="pc-tag">Attendance</span></div><a href="https://enervia-crm-sandy.vercel.app/" target="_blank" class="pc-link" style="background:#0284c7;color:#fff">🔗 View Live CRM →</a></div></div>
-    <div class="pc reveal"><div class="pc-prev" style="background:linear-gradient(135deg,#fefce8,#fde68a)">📊</div><div class="pc-info"><div class="pc-badge" style="background:#fefce8;color:#92400e">PPT DESIGN</div><h3>Corporate PPT Sample — Lumina Corp</h3><p>5-slide premium corporate presentation with dark gold theme, charts, team sections, and strategic recommendations.</p><div class="pc-tags"><span class="pc-tag">5 Slides</span><span class="pc-tag">Dark Gold</span><span class="pc-tag">Charts</span></div><a href="#" onclick="showPage('contact')" class="pc-link" style="background:#f59e0b;color:#fff">💬 Request Similar →</a></div></div>
+  <div class=\"pgrid\">
+    <div class=\"pc reveal\"><div class=\"pc-prev\" style=\"background:linear-gradient(135deg,#e0f2fe,#bae6fd)\">🌐</div><div class=\"pc-info\"><div class=\"pc-badge\" style=\"background:#e0f2fe;color:#0369a1\">WEB DESIGN</div><h3>GrowTogether Solutions — Our Own Website</h3><p>Responsive business website with animated services, portfolio, FAQ, pricing, testimonials, and WhatsApp integration.</p><div class=\"pc-tags\"><span class=\"pc-tag\">HTML/CSS</span><span class=\"pc-tag\">JavaScript</span><span class=\"pc-tag\">Animations</span><span class=\"pc-tag\">SEO Ready</span></div><a href=\"https://meenavargya44-coder.github.io\" target=\"_blank\" class=\"pc-link\" style=\"background:linear-gradient(135deg,#0ea5e9,#0369a1);color:#fff\">🔗 View Live →</a></div></div>
+    <div class=\"pc reveal\" style=\"transition-delay:.1s\"><div class=\"pc-prev\" style=\"background:linear-gradient(135deg,#0f172a,#1e293b);color:#7dd3fc\">🧠</div><div class=\"pc-info\"><div class=\"pc-badge\" style=\"background:#eff6ff;color:#1d4ed8\">PRESENTATION</div><h3>AI & Future of Business — Live Presentation</h3><p>5-slide animated business presentation — opens in browser, no app needed. Live charts, rotating AI ecosystem, cinematic dark theme.</p><div class=\"pc-tags\"><span class=\"pc-tag\">Animated</span><span class=\"pc-tag\">Browser-based</span><span class=\"pc-tag\">Live Charts</span></div><a href=\"ai-presentation.html\" target=\"_blank\" class=\"pc-link\" style=\"background:linear-gradient(90deg,#0369a1,#0ea5e9);color:#fff\">▶ View Presentation →</a></div></div>
+    <div class=\"pc reveal\" style=\"transition-delay:.18s\"><div class=\"pc-prev\" style=\"background:linear-gradient(135deg,#fff1eb,#ffd4c0)\">💊</div><div class=\"pc-info\"><div class=\"pc-badge\" style=\"background:#fff1eb;color:#f97316\">CRM DEVELOPMENT</div><h3>Pharma In All — Custom CRM System</h3><p>Complete pharma CRM with order pipeline, employee management, attendance, leave, finance tracking and reports.</p><div class=\"pc-tags\"><span class=\"pc-tag\">Order Pipeline</span><span class=\"pc-tag\">Multi-zone</span><span class=\"pc-tag\">Live System</span></div><a href=\"https://pharma-crm-kappa.vercel.app/\" target=\"_blank\" class=\"pc-link\" style=\"background:linear-gradient(135deg,#f97316,#ea580c);color:#fff\">🔗 View Live CRM →</a></div></div>
+    <div class=\"pc reveal\" style=\"transition-delay:.24s\"><div class=\"pc-prev\" style=\"background:linear-gradient(135deg,#e0f2fe,#7dd3fc)\">⚡</div><div class=\"pc-info\"><div class=\"pc-badge\" style=\"background:#e0f2fe;color:#0284c7\">CRM DEVELOPMENT</div><h3>Enervia — Custom Business CRM</h3><p>Full CRM — order management, team tasks, attendance tracking, billing & accounts — built for Sachin Thakkar.</p><div class=\"pc-tags\"><span class=\"pc-tag\">Task Management</span><span class=\"pc-tag\">Billing</span><span class=\"pc-tag\">Attendance</span></div><a href=\"https://enervia-crm-sandy.vercel.app/\" target=\"_blank\" class=\"pc-link\" style=\"background:linear-gradient(135deg,#0284c7,#0369a1);color:#fff\">🔗 View Live CRM →</a></div></div>
+    <div class=\"pc reveal\" style=\"transition-delay:.32s\"><div class=\"pc-prev\" style=\"background:linear-gradient(135deg,#fefce8,#fde68a)\">📊</div><div class=\"pc-info\"><div class=\"pc-badge\" style=\"background:#fefce8;color:#92400e\">PPT DESIGN</div><h3>Corporate PPT Sample — Lumina Corp</h3><p>5-slide premium corporate presentation with dark gold theme, charts, team sections, and strategic recommendations.</p><div class=\"pc-tags\"><span class=\"pc-tag\">5 Slides</span><span class=\"pc-tag\">Dark Gold</span><span class=\"pc-tag\">Charts</span></div><a href=\"#\" onclick=\"showPage('contact');return false;\" class=\"pc-link\" style=\"background:linear-gradient(135deg,#f59e0b,#d97706);color:#fff\">💬 Request Similar →</a></div></div>
   </div>
-  <div class="platforms-row reveal">
+  <div class=\"platforms-row reveal\">
     <p>Available for hire on your preferred platform</p>
-    <div class="plat-btns">
-      <a href="https://fiverr.com" target="_blank" style="display:inline-flex;align-items:center;gap:7px;background:#1dbf73;color:#fff;padding:11px 22px;border-radius:9px;font-size:13px;font-weight:700;text-decoration:none">🟢 Hire on Fiverr</a>
-      <a href="https://upwork.com" target="_blank" style="display:inline-flex;align-items:center;gap:7px;background:#14a800;color:#fff;padding:11px 22px;border-radius:9px;font-size:13px;font-weight:700;text-decoration:none">✅ Hire on Upwork</a>
-      <a href="https://linkedin.com" target="_blank" style="display:inline-flex;align-items:center;gap:7px;background:#0a66c2;color:#fff;padding:11px 22px;border-radius:9px;font-size:13px;font-weight:700;text-decoration:none">💼 LinkedIn</a>
+    <div class=\"plat-btns\">
+      <a href=\"https://fiverr.com\" target=\"_blank\" class=\"plat-btn-base\" style=\"background:linear-gradient(135deg,#1dbf73,#16a263)\">🟢 Hire on Fiverr</a>
+      <a href=\"https://upwork.com\" target=\"_blank\" class=\"plat-btn-base\" style=\"background:linear-gradient(135deg,#14a800,#108c00)\">✅ Hire on Upwork</a>
+      <a href=\"https://linkedin.com\" target=\"_blank\" class=\"plat-btn-base\" style=\"background:linear-gradient(135deg,#0a66c2,#084c91)\">💼 LinkedIn</a>
     </div>
   </div>
 </div>
 </div>
 
 <!-- CONTACT -->
-<div class="page" id="contact-page">
-<div class="inner-wrap">
-  <div class="page-header">
-    <div class="page-eyebrow">Get In Touch</div>
-    <h1 class="page-h1 page-h1-dark">Let's Grow Your<br>Business Together</h1>
-    <p class="page-sub">Ready to take your business to the next level? First consultation is always free — no commitment needed.</p>
+<div class=\"page\" id=\"contact-page\">
+<div class=\"inner-wrap\">
+  <div class=\"page-header\">
+    <div class=\"page-eyebrow reveal\">Get In Touch</div>
+    <h1 class=\"page-h1 page-h1-dark reveal\">Let's Grow Your<br>Business Together</h1>
+    <p class=\"page-sub reveal\">Ready to take your business to the next level? First consultation is always free — no commitment needed.</p>
   </div>
-  <div class="cg">
-    <div class="contact-info reveal-l">
+  <div class=\"cg\">
+    <div class=\"contact-info reveal-l\">
       <h2>Contact Details</h2>
       <p>We reply within 2 hours on WhatsApp and 24 hours on email. First consultation is always 100% free.</p>
-      <div class="contact-chips">
-        <a href="tel:+916354662372" class="cc ph">📞 +91 63546 62372</a>
-        <a href="mailto:meenavargya44@gmail.com" class="cc em">✉️ meenavargya44@gmail.com</a>
-        <a href="https://wa.me/916354662372" target="_blank" class="cc wa">💬 WhatsApp — Reply in 2 hrs</a>
+      <div class=\"contact-chips\">
+        <a href=\"tel:+916354662372\" class=\"cc ph\">📞 +91 63546 62372</a>
+        <a href=\"mailto:meenavargya44@gmail.com\" class=\"cc em\">✉️ meenavargya44@gmail.com</a>
+        <a href=\"https://wa.me/916354662372\" target=\"_blank\" class=\"cc wa\">💬 WhatsApp — Reply in 2 hrs</a>
       </div>
-      <div class="loc-box">
-        <div class="lt">📍 Location</div>
+      <div class=\"loc-box\">
+        <div class=\"lt\">📍 Location</div>
         <p>Rajkot, Gujarat, India<br>Serving clients worldwide 🌍</p>
       </div>
-      <div class="faq-title">Quick FAQs</div>
-      <div class="faq-box">
-        <div class="fi"><div class="fq" onclick="toggleFaq(this)"><span>How quickly do you start?</span><span class="farr">+</span></div><div class="fa">I start within 24 hours of confirmation. Urgent projects — same day.</div></div>
-        <div class="fi"><div class="fq" onclick="toggleFaq(this)"><span>Do you work with international clients?</span><span class="farr">+</span></div><div class="fa">Yes! USA, UK, UAE, Australia and more. PayPal, Payoneer, Wise accepted.</div></div>
-        <div class="fi"><div class="fq" onclick="toggleFaq(this)"><span>Is the first consultation really free?</span><span class="farr">+</span></div><div class="fa">Yes, 100% free. We discuss your needs, no commitment required.</div></div>
-        <div class="fi"><div class="fq" onclick="toggleFaq(this)"><span>What payment methods do you accept?</span><span class="farr">+</span></div><div class="fa">UPI, bank transfer (India), PayPal, Payoneer, Wise. 50% advance for new clients.</div></div>
+      <div class=\"faq-title\">Quick FAQs</div>
+      <div class=\"faq-box\">
+        <div class=\"fi\"><div class=\"fq\" onclick=\"toggleFaq(this)\"><span>How quickly do you start?</span><span class=\"farr\">+</span></div><div class=\"fa\">I start within 24 hours of confirmation. Urgent projects — same day.</div></div>
+        <div class=\"fi\"><div class=\"fq\" onclick=\"toggleFaq(this)\"><span>Do you work with international clients?</span><span class=\"farr\">+</span></div><div class=\"fa\">Yes! USA, UK, UAE, Australia and more. PayPal, Payoneer, Wise accepted.</div></div>
+        <div class=\"fi\"><div class=\"fq\" onclick=\"toggleFaq(this)\"><span>Is the first consultation really free?</span><span class=\"farr\">+</span></div><div class=\"fa\">Yes, 100% free. We discuss your needs, no commitment required.</div></div>
+        <div class=\"fi\"><div class=\"fq\" onclick=\"toggleFaq(this)\"><span>What payment methods do you accept?</span><span class=\"farr\">+</span></div><div class=\"fa\">UPI, bank transfer (India), PayPal, Payoneer, Wise. 50% advance for new clients.</div></div>
       </div>
     </div>
-    <div class="cf reveal-r">
+    <div class=\"cf reveal-r\">
       <h3>Send Us a Message</h3>
-      <div class="fr">
-        <div class="fg"><label>Your name *</label><input type="text" placeholder="Your full name" required></div>
-        <div class="fg"><label>Phone *</label><input type="tel" placeholder="+91 or international" required></div>
+      <div class=\"fr\">
+        <div class=\"fg\"><label>Your name *</label><input type=\"text\" placeholder=\"Your full name\" required></div>
+        <div class=\"fg\"><label>Phone *</label><input type=\"tel\" placeholder=\"+91 or international\" required></div>
       </div>
-      <div class="fg"><label>Requirement *</label>
+      <div class=\"fg\"><label>Requirement *</label>
         <select required>
-          <option value="">What do you need help with?</option>
+          <option value=\"\">What do you need help with?</option>
           <option>Business Strategy & Planning</option>
           <option>Staff Training & Motivation</option>
           <option>Business Growth Consulting</option>
@@ -831,12 +956,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:2000;height:62px;
           <option>Multiple Services</option>
         </select>
       </div>
-      <div class="fg"><label>Tell us more</label><textarea placeholder="Describe your business, goals and timeline..."></textarea></div>
-      <button class="fsub" onclick="submitForm(event)">🚀 Send Message & Get Free Consultation</button>
-      <div class="smsg" id="formSuccess">
+      <div class=\"fg\"><label>Tell us more</label><textarea placeholder=\"Describe your business, goals and timeline...\"></textarea></div>
+      <button class=\"fsub\" onclick=\"submitForm(event)\">🚀 Send Message & Get Free Consultation</button>
+      <div class=\"smsg\" id=\"formSuccess\">
         <h4>✅ Message Sent!</h4>
         <p>Thank you! We will reply within 24 hours.</p>
-        <a href="https://wa.me/916354662372" target="_blank" style="display:inline-flex;align-items:center;gap:7px;margin-top:10px;background:#25D366;color:#fff;padding:9px 18px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none">💬 WhatsApp Me Now</a>
+        <a href=\"https://wa.me/916354662372\" target=\"_blank\" style=\"display:inline-flex;align-items:center;gap:7px;margin-top:12px;background:#25D366;color:#fff;padding:10px 20px;border-radius:9px;font-size:13px;font-weight:700;text-decoration:none;box-shadow:0 6px 16px rgba(37,211,102,.4)\">💬 WhatsApp Me Now</a>
       </div>
     </div>
   </div>
@@ -846,26 +971,26 @@ nav{position:fixed;top:0;left:0;right:0;z-index:2000;height:62px;
 </div>
 
 <!-- SERVICE MODAL -->
-<div class="svc-modal-overlay" id="svcModalOverlay" onclick="if(event.target===this)closeServiceModal()">
-  <div class="svc-modal">
-    <button class="svc-modal-close" onclick="closeServiceModal()">✕</button>
-    <div class="svc-modal-icon" id="svcModalIcon"></div>
-    <div class="svc-modal-tag" id="svcModalTag"></div>
-    <h3 id="svcModalTitle"></h3>
-    <p class="svc-modal-desc" id="svcModalDesc"></p>
-    <div class="svc-modal-list-title">What's Included</div>
-    <div class="svc-modal-list" id="svcModalList"></div>
-    <div class="svc-modal-tags" id="svcModalTags"></div>
-    <a href="#" target="_blank" class="svc-modal-cta" id="svcModalCta">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+<div class=\"svc-modal-overlay\" id=\"svcModalOverlay\" onclick=\"if(event.target===this)closeServiceModal()\">
+  <div class=\"svc-modal\">
+    <button class=\"svc-modal-close\" onclick=\"closeServiceModal()\">✕</button>
+    <div class=\"svc-modal-icon\" id=\"svcModalIcon\"></div>
+    <div class=\"svc-modal-tag\" id=\"svcModalTag\"></div>
+    <h3 id=\"svcModalTitle\"></h3>
+    <p class=\"svc-modal-desc\" id=\"svcModalDesc\"></p>
+    <div class=\"svc-modal-list-title\">What's Included</div>
+    <div class=\"svc-modal-list\" id=\"svcModalList\"></div>
+    <div class=\"svc-modal-tags\" id=\"svcModalTags\"></div>
+    <a href=\"#\" target=\"_blank\" class=\"svc-modal-cta\" id=\"svcModalCta\">
+      <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"white\"><path d=\"M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z\"/></svg>
       Get a Quote on WhatsApp
     </a>
   </div>
 </div>
 
 <!-- WhatsApp FAB -->
-<a href="https://wa.me/916354662372" target="_blank" class="waf">
-  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+<a href=\"https://wa.me/916354662372\" target=\"_blank\" class=\"waf\">
+  <svg viewBox=\"0 0 24 24\" fill=\"white\"><path d=\"M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z\"/></svg>
 </a>
 
 <script>
@@ -873,42 +998,113 @@ const pageMap={home:'home',about:'about-page',services:'services-page',portfolio
 function showPage(name){
   document.querySelectorAll('.page').forEach(p=>{p.classList.remove('active');p.scrollTop=0;});
   document.querySelectorAll('.nav-links a,.mobile-menu a').forEach(a=>a.classList.remove('active'));
-  document.getElementById(pageMap[name]).classList.add('active');
+  const targetPage=document.getElementById(pageMap[name]);
+  targetPage.classList.add('active');
+  // reset reveals so they trigger again
+  targetPage.querySelectorAll('.reveal,.reveal-l,.reveal-r,.reveal-scale').forEach(el=>el.classList.remove('visible'));
   const nav=document.getElementById('nav-'+name);if(nav)nav.classList.add('active');
   const mnav=document.getElementById('mnav-'+name);if(mnav)mnav.classList.add('active');
-  if(name==='home')setTimeout(()=>{document.querySelectorAll('.counter').forEach(animateCounter);},400);
+  if(name==='home'){setTimeout(()=>{document.querySelectorAll('#home .counter').forEach(el=>{el.dataset.done='';animateCounter(el);});},500);}
   if(name==='about')setTimeout(bInitCalendar,100);
   if(name==='services')setTimeout(initWheel,100);
-  setTimeout(triggerReveal,200);
+  setTimeout(()=>triggerReveal(true),60);
 }
 function toggleMobileMenu(){document.getElementById('hamburger').classList.toggle('open');document.getElementById('mobileMenu').classList.toggle('open');}
 function closeMobileMenu(){document.getElementById('hamburger').classList.remove('open');document.getElementById('mobileMenu').classList.remove('open');}
-function triggerReveal(){
-  const page=document.querySelector('.page.active');if(!page)return;
-  page.querySelectorAll('.reveal,.reveal-l,.reveal-r').forEach((el,i)=>{setTimeout(()=>{el.classList.add('visible');},i*60);});
-  page.addEventListener('scroll',onScroll,{passive:true});
+
+// Reveal with IntersectionObserver
+let io;
+function setupObserver(){
+  io=new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});
+  },{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
 }
-function onScroll(){
+function triggerReveal(staggerInitial){
   const page=document.querySelector('.page.active');if(!page)return;
-  page.querySelectorAll('.reveal:not(.visible),.reveal-l:not(.visible),.reveal-r:not(.visible)').forEach(el=>{
-    const er=el.getBoundingClientRect();if(er.top<window.innerHeight-60)el.classList.add('visible');
+  if(!io)setupObserver();
+  const els=page.querySelectorAll('.reveal:not(.visible),.reveal-l:not(.visible),.reveal-r:not(.visible),.reveal-scale:not(.visible)');
+  if(staggerInitial){
+    // stagger visible items already in viewport
+    const visible=[];
+    els.forEach(el=>{
+      const r=el.getBoundingClientRect();
+      if(r.top<window.innerHeight-40)visible.push(el);
+      else io.observe(el);
+    });
+    visible.forEach((el,i)=>setTimeout(()=>el.classList.add('visible'),i*70));
+  }else{
+    els.forEach(el=>io.observe(el));
+  }
+}
+setTimeout(()=>triggerReveal(true),250);
+
+// Re-observe on scroll within page (for newly entered elements)
+document.querySelectorAll('.page').forEach(p=>{
+  p.addEventListener('scroll',()=>{
+    if(!io)setupObserver();
+    p.querySelectorAll('.reveal:not(.visible),.reveal-l:not(.visible),.reveal-r:not(.visible),.reveal-scale:not(.visible)').forEach(el=>io.observe(el));
+  },{passive:true});
+});
+
+// Nav scrolled state
+document.querySelectorAll('.page').forEach(p=>{
+  p.addEventListener('scroll',()=>{
+    document.getElementById('mainNav').classList.toggle('scrolled',p.scrollTop>30);
+  },{passive:true});
+});
+
+// Cursor glow follow
+const cursor=document.getElementById('cursorGlow');
+let cx=window.innerWidth/2,cy=window.innerHeight/2,tx=cx,ty=cy;
+document.addEventListener('mousemove',(e)=>{tx=e.clientX;ty=e.clientY;});
+function animateCursor(){cx+=(tx-cx)*0.12;cy+=(ty-cy)*0.12;if(cursor)cursor.style.transform=`translate(${cx}px,${cy}px) translate(-50%,-50%)`;requestAnimationFrame(animateCursor);}
+animateCursor();
+
+// 3D tilt on metrics card
+function setupTilt(){
+  document.querySelectorAll('.tilt').forEach(el=>{
+    el.addEventListener('mousemove',e=>{
+      const r=el.getBoundingClientRect();
+      const x=(e.clientX-r.left)/r.width-0.5;
+      const y=(e.clientY-r.top)/r.height-0.5;
+      el.style.transform=`perspective(1000px) rotateY(${x*8}deg) rotateX(${-y*8}deg) translateZ(0)`;
+      el.style.animation='none';
+    });
+    el.addEventListener('mouseleave',()=>{
+      el.style.transform='';
+      el.style.animation='';
+    });
   });
 }
-setTimeout(triggerReveal,300);
+setupTilt();
+
+// Magnetic buttons
+document.querySelectorAll('.magnetic').forEach(btn=>{
+  btn.addEventListener('mousemove',e=>{
+    const r=btn.getBoundingClientRect();
+    const x=e.clientX-r.left-r.width/2;
+    const y=e.clientY-r.top-r.height/2;
+    btn.style.transform=`translate(${x*0.18}px,${y*0.25}px)`;
+  });
+  btn.addEventListener('mouseleave',()=>{btn.style.transform='';});
+});
+
 let wheelInited=false;
 function initWheel(){
   if(wheelInited)return;wheelInited=true;
-  const svcs=[{e:"📱",l:"Social Media",c:"#0369a1",b:"#e0f2fe"},{e:"✍️",l:"Content",c:"#0369a1",b:"#f0f9ff"},{e:"📖",l:"Stories",c:"#d97706",b:"#fff7ed"},{e:"📊",l:"PPT Design",c:"#d97706",b:"#fefce8"},{e:"🗄️",l:"Data Mgmt",c:"#2563eb",b:"#eff6ff"},{e:"📧",l:"Email Mgmt",c:"#0284c7",b:"#e0f2fe"},{e:"💼",l:"CRM Setup",c:"#0369a1",b:"#e0f2fe"}];
+  const svcs=[{e:\"📱\",l:\"Social Media\",c:\"#0369a1\",b:\"linear-gradient(135deg,#e0f2fe,#bae6fd)\"},{e:\"✍️\",l:\"Content\",c:\"#0369a1\",b:\"linear-gradient(135deg,#f0f9ff,#e0f2fe)\"},{e:\"📖\",l:\"Stories\",c:\"#d97706\",b:\"linear-gradient(135deg,#fff7ed,#fed7aa)\"},{e:\"📊\",l:\"PPT Design\",c:\"#d97706\",b:\"linear-gradient(135deg,#fefce8,#fde68a)\"},{e:\"🗄️\",l:\"Data Mgmt\",c:\"#2563eb\",b:\"linear-gradient(135deg,#eff6ff,#bfdbfe)\"},{e:\"📧\",l:\"Email Mgmt\",c:\"#0284c7\",b:\"linear-gradient(135deg,#e0f2fe,#bae6fd)\"},{e:\"💼\",l:\"CRM Setup\",c:\"#0369a1\",b:\"linear-gradient(135deg,#e0f2fe,#7dd3fc)\"}];
   const ring=document.getElementById('wheelRing');
-  const cx=200,cy=200,r=150;
+  const ringSize=ring.getBoundingClientRect().width||420;
+  const cx2=ringSize/2,cy2=ringSize/2,r=ringSize/2-50;
   svcs.forEach((sv,i)=>{
     const angle=(i/svcs.length)*2*Math.PI-Math.PI/2;
-    const x=cx+r*Math.cos(angle)-31,y=cy+r*Math.sin(angle)-31;
+    const x=cx2+r*Math.cos(angle)-33,y=cy2+r*Math.sin(angle)-33;
     const d=document.createElement('div');d.className='wdot';d.style.cssText='left:'+x+'px;top:'+y+'px;';
-    d.innerHTML='<div class="wdc" style="background:'+sv.b+';border:2px solid '+sv.c+'40;">'+sv.e+'</div><div class="wdl" style="color:'+sv.c+';">'+sv.l+'</div>';
+    d.innerHTML='<div class=\"wdc\" style=\"background:'+sv.b+';border:2px solid '+sv.c+'40;\">'+sv.e+'</div><div class=\"wdl\" style=\"color:'+sv.c+';\">'+sv.l+'</div>';
     d.onclick=()=>openServiceModal(i);ring.appendChild(d);
   });
 }
+
 const WA='916354662372';
 let bYear,bMonth,bSelDate=null,bSelSlot=null,bInited=false;
 const B_SLOTS=['11:00 AM','11:30 AM','12:00 PM','12:30 PM','1:00 PM','1:30 PM','2:00 PM','2:30 PM','3:00 PM','3:30 PM','4:00 PM','4:30 PM','5:00 PM'];
@@ -953,30 +1149,44 @@ function bSubmit(){
   if(!name||!email||!phone){alert('Please fill in Name, Email and WhatsApp number.');return;}
   const MN=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
   const dateStr=bSelDate+' '+MN[bMonth]+' '+bYear;
-  const msg='Hello Meena,\n\nTraining Session Booking:\n📅 Date: '+dateStr+'\n⏰ Time: '+bSelSlot+'\n👤 Name: '+name+'\n📧 Email: '+email+'\n📱 WhatsApp: '+phone+'\n📝 Topic: '+(topic||'Training session');
+  const msg='Hello Meena,
+
+Training Session Booking:
+📅 Date: '+dateStr+'
+⏰ Time: '+bSelSlot+'
+👤 Name: '+name+'
+📧 Email: '+email+'
+📱 WhatsApp: '+phone+'
+📝 Topic: '+(topic||'Training session');
   window.open('https://wa.me/'+WA+'?text='+encodeURIComponent(msg),'_blank');
   document.getElementById('bSuccess').style.display='block';document.getElementById('bSubmitBtn').style.display='none';
   document.getElementById('bSuccessMsg').innerHTML='Session booked for <strong>'+dateStr+' at '+bSelSlot+'</strong>.<br>Meena will confirm via <strong>email</strong>. Please check your inbox!';
 }
 (function(){
-  const words=["Business Strategy 📈","Staff Training 🎓","Business Growth 🚀","Social Media Marketing 📱","CRM Development 💼","PPT Design 📊","Content Writing ✍️"];
+  const words=[\"Business Strategy 📈\",\"Staff Training 🎓\",\"Business Growth 🚀\",\"Social Media Marketing 📱\",\"CRM Development 💼\",\"PPT Design 📊\",\"Content Writing ✍️\"];
   let wi=0,ci=0,del=false;
   const el=document.getElementById('typingText');if(!el)return;
-  function type(){const w=words[wi];if(!del){el.textContent=w.substring(0,ci+1);ci++;if(ci===w.length){del=true;setTimeout(type,1800);return;}}else{el.textContent=w.substring(0,ci-1);ci--;if(ci===0){del=false;wi=(wi+1)%words.length;}}setTimeout(type,del?60:100);}
+  function type(){const w=words[wi];if(!del){el.textContent=w.substring(0,ci+1);ci++;if(ci===w.length){del=true;setTimeout(type,1800);return;}}else{el.textContent=w.substring(0,ci-1);ci--;if(ci===0){del=false;wi=(wi+1)%words.length;}}setTimeout(type,del?50:90);}
   setTimeout(type,600);
 })();
-function animateCounter(el){if(el.dataset.done)return;el.dataset.done='1';const target=parseInt(el.getAttribute('data-target'));let cur=0;const step=target/80;const t=setInterval(()=>{cur+=step;if(cur>=target){el.textContent=target+'+';clearInterval(t);}else{el.textContent=Math.floor(cur)+'+';} },20);}
-setTimeout(()=>{document.querySelectorAll('.counter').forEach(animateCounter);},500);
-function toggleFaq(el){const a=el.nextElementSibling,arr=el.querySelector('.farr');const open=a.style.display==='block';document.querySelectorAll('.fa').forEach(x=>x.style.display='none');document.querySelectorAll('.farr').forEach(x=>{x.textContent='+';});if(!open){a.style.display='block';arr.textContent='×';}}
+function animateCounter(el){if(el.dataset.done==='1')return;el.dataset.done='1';const target=parseInt(el.getAttribute('data-target'));let cur=0;const dur=1400,start=performance.now();function frame(t){const p=Math.min((t-start)/dur,1);const eased=1-Math.pow(1-p,3);cur=eased*target;if(p<1){el.textContent=Math.floor(cur)+'+';requestAnimationFrame(frame);}else{el.textContent=target+'+';}}requestAnimationFrame(frame);}
+setTimeout(()=>{document.querySelectorAll('.counter').forEach(animateCounter);},700);
+function toggleFaq(el){
+  const item=el.parentElement;
+  const a=el.nextElementSibling;
+  const isOpen=item.classList.contains('open');
+  document.querySelectorAll('.fi.open').forEach(x=>{x.classList.remove('open');x.querySelector('.fa').style.display='none';});
+  if(!isOpen){item.classList.add('open');a.style.display='block';}
+}
 function submitForm(e){e.preventDefault();const b=e.target;b.textContent='Sending...';b.style.opacity='.7';setTimeout(()=>{b.style.display='none';const s=document.getElementById('formSuccess');s.style.display='block';s.scrollIntoView({behavior:'smooth',block:'center'});},1200);}
 const SD=[
-  {icon:"📱",bg:"#e0f2fe",tag:"Social Media Marketing",title:"Grow Your Brand on Social Media",desc:"End-to-end social media management — content planning, posting and growth tracking.",items:["10 custom images + 2 videos/month","Monthly content calendar","Hashtag research & captions (Hindi + English)","Profile optimization & branding","Monthly performance report"],tags:["Instagram","Facebook","LinkedIn","Reels"]},
-  {icon:"✍️",bg:"#f0f9ff",tag:"Content Writing",title:"SEO Articles & Web Copy",desc:"Clear, engaging, search-optimized writing for your website, blog, or marketing.",items:["SEO-optimized blog articles & pages","Product descriptions & landing copy","Hindi and English content","Keyword-friendly writing","Proofreading & editing"],tags:["SEO","Web Copy","Bilingual","Editing"]},
-  {icon:"📖",bg:"#fff7ed",tag:"Story Writing",title:"Brand Stories That Connect",desc:"Compelling brand narratives, founder stories, and creative content that builds emotional connection.",items:["Founder & brand origin stories","Customer success write-ups","Creative marketing narratives","About Us page storytelling","Scripts for videos & reels"],tags:["Brand Story","Storytelling","Scripts","Creative"]},
-  {icon:"📊",bg:"#fefce8",tag:"PPT Design",title:"Presentations That Impress",desc:"Professional, infographic-style presentations for pitches, training, proposals, and reports.",items:["Investor pitch decks","Corporate training presentations","Infographic slides with charts","Custom branding throughout","Editable source file delivered"],tags:["Pitch Decks","Training","Infographics","Branding"]},
-  {icon:"🗄️",bg:"#eff6ff",tag:"Data Management",title:"Organized, Reliable Business Data",desc:"Clean and structure your business data — from customer lists to sales records.",items:["Data entry, cleaning & formatting","Excel/Google Sheets dashboards","Customer & lead database setup","Inventory & sales tracking","Regular updates & backup"],tags:["Excel","Google Sheets","Dashboards","Data Entry"]},
-  {icon:"📧",bg:"#e0f2fe",tag:"Email Management",title:"Professional Email Management",desc:"From newsletters to client follow-ups — professional email communication.",items:["Newsletter writing & design","Cold outreach sequences","Daily inbox management","Email templates","Mailchimp setup & automation"],tags:["Newsletters","Inbox Mgmt","Mailchimp","Automation"]},
-  {icon:"💼",bg:"#e0f2fe",tag:"CRM Software & Setup",title:"Custom CRM Built for Your Business",desc:"CRM systems designed for how your business actually works.",items:["Custom order/lead pipeline","Employee & attendance modules","Billing & finance tracking","Reports & dashboards","Team training on the CRM"],tags:["Custom CRM","Pipeline","Reports","Training"]}
+  {icon:\"📱\",bg:\"linear-gradient(135deg,#e0f2fe,#bae6fd)\",tag:\"Social Media Marketing\",title:\"Grow Your Brand on Social Media\",desc:\"End-to-end social media management — content planning, posting and growth tracking.\",items:[\"10 custom images + 2 videos/month\",\"Monthly content calendar\",\"Hashtag research & captions (Hindi + English)\",\"Profile optimization & branding\",\"Monthly performance report\"],tags:[\"Instagram\",\"Facebook\",\"LinkedIn\",\"Reels\"]},
+  {icon:\"✍️\",bg:\"linear-gradient(135deg,#f0f9ff,#e0f2fe)\",tag:\"Content Writing\",title:\"SEO Articles & Web Copy\",desc:\"Clear, engaging, search-optimized writing for your website, blog, or marketing.\",items:[\"SEO-optimized blog articles & pages\",\"Product descriptions & landing copy\",\"Hindi and English content\",\"Keyword-friendly writing\",\"Proofreading & editing\"],tags:[\"SEO\",\"Web Copy\",\"Bilingual\",\"Editing\"]},
+  {icon:\"📖\",bg:\"linear-gradient(135deg,#fff7ed,#fed7aa)\",tag:\"Story Writing\",title:\"Brand Stories That Connect\",desc:\"Compelling brand narratives, founder stories, and creative content that builds emotional connection.\",items:[\"Founder & brand origin stories\",\"Customer success write-ups\",\"Creative marketing narratives\",\"About Us page storytelling\",\"Scripts for videos & reels\"],tags:[\"Brand Story\",\"Storytelling\",\"Scripts\",\"Creative\"]},
+  {icon:\"📊\",bg:\"linear-gradient(135deg,#fefce8,#fde68a)\",tag:\"PPT Design\",title:\"Presentations That Impress\",desc:\"Professional, infographic-style presentations for pitches, training, proposals, and reports.\",items:[\"Investor pitch decks\",\"Corporate training presentations\",\"Infographic slides with charts\",\"Custom branding throughout\",\"Editable source file delivered\"],tags:[\"Pitch Decks\",\"Training\",\"Infographics\",\"Branding\"]},
+  {icon:\"🗄️\",bg:\"linear-gradient(135deg,#eff6ff,#bfdbfe)\",tag:\"Data Management\",title:\"Organized, Reliable Business Data\",desc:\"Clean and structure your business data — from customer lists to sales records.\",items:[\"Data entry, cleaning & formatting\",\"Excel/Google Sheets dashboards\",\"Customer & lead database setup\",\"Inventory & sales tracking\",\"Regular updates & backup\"],tags:[\"Excel\",\"Google Sheets\",\"Dashboards\",\"Data Entry\"]},
+  {icon:\"📧\",bg:\"linear-gradient(135deg,#e0f2fe,#bae6fd)\",tag:\"Email Management\",title:\"Professional Email Management\",desc:\"From newsletters to client follow-ups — professional email communication.\",items:[\"Newsletter writing & design\",\"Cold outreach sequences\",\"Daily inbox management\",\"Email templates\",\"Mailchimp setup & automation\"],tags:[\"Newsletters\",\"Inbox Mgmt\",\"Mailchimp\",\"Automation\"]},
+  {icon:\"💼\",bg:\"linear-gradient(135deg,#e0f2fe,#7dd3fc)\",tag:\"CRM Software & Setup\",title:\"Custom CRM Built for Your Business\",desc:\"CRM systems designed for how your business actually works.\",items:[\"Custom order/lead pipeline\",\"Employee & attendance modules\",\"Billing & finance tracking\",\"Reports & dashboards\",\"Team training on the CRM\"],tags:[\"Custom CRM\",\"Pipeline\",\"Reports\",\"Training\"]}
 ];
 function openServiceModal(idx){
   const s=SD[idx];
@@ -985,13 +1195,16 @@ function openServiceModal(idx){
   document.getElementById('svcModalTitle').textContent=s.title;
   document.getElementById('svcModalDesc').textContent=s.desc;
   const list=document.getElementById('svcModalList');list.innerHTML='';
-  s.items.forEach(it=>{const r=document.createElement('div');r.className='svc-modal-item';r.innerHTML='<span class="svc-ck">✓</span><span>'+it+'</span>';list.appendChild(r);});
+  s.items.forEach(it=>{const r=document.createElement('div');r.className='svc-modal-item';r.innerHTML='<span class=\"svc-ck\">✓</span><span>'+it+'</span>';list.appendChild(r);});
   const tw=document.getElementById('svcModalTags');tw.innerHTML='';
   s.tags.forEach(t=>{const tg=document.createElement('span');tg.className='pc-tag';tg.textContent=t;tw.appendChild(tg);});
   document.getElementById('svcModalCta').href='https://wa.me/'+WA+'?text='+encodeURIComponent('Hello Meena, I am interested in '+s.tag+'. Can you share more details?');
   document.getElementById('svcModalOverlay').classList.add('open');
 }
 function closeServiceModal(){document.getElementById('svcModalOverlay').classList.remove('open');}
+// ESC to close modal
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeServiceModal();});
 </script>
 </body>
 </html>
+"
