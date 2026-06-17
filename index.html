@@ -209,6 +209,15 @@ nav{position:fixed;top:0;left:0;right:0;z-index:2000;height:62px;
 .ts-l{font-size:10.5px;color:rgba(255,255,255,.38);margin-top:4px;font-weight:500;text-transform:uppercase;letter-spacing:.5px;}
 .ts-accent{color:#7dd3fc!important;}
 
+/* Mission & Story */
+.mission-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:36px;}
+.mission-card{background:#fff;border:1.5px solid #bae6fd;border-radius:18px;padding:26px;transition:all .3s;position:relative;overflow:hidden;}
+.mission-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#0ea5e9,#0369a1);}
+.mission-card:hover{transform:translateY(-4px);box-shadow:var(--shl);border-color:#7dd3fc;}
+.mission-ic{font-size:28px;margin-bottom:12px;}
+.mission-card h4{font-size:15.5px;font-weight:700;color:#0c2d4a;margin-bottom:10px;}
+.mission-card p{font-size:13px;color:var(--mute);line-height:1.8;}
+
 /* Section divider */
 .divider-line{display:flex;align-items:center;gap:14px;margin:40px 0 32px;}
 .divider-line::before,.divider-line::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,transparent,#bae6fd,transparent);}
@@ -456,6 +465,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:2000;height:62px;
   .founder-photo-col{width:auto;}
   .founder-role-tag{justify-content:center;}
   .spec-grid{grid-template-columns:1fr;}
+  .mission-grid{grid-template-columns:1fr;}
   .booking-layout{grid-template-columns:1fr;}
   .training-stats{flex-wrap:wrap;gap:16px;padding:24px;}
   .ts-item{border-right:none;padding:8px 0;}
@@ -638,6 +648,24 @@ nav{position:fixed;top:0;left:0;right:0;z-index:2000;height:62px;
       <div class="tools-row">
         <span class="tool-tag">🎨 Canva Pro</span><span class="tool-tag">📊 MS Excel</span><span class="tool-tag">💼 CRM Systems</span><span class="tool-tag">📧 Mailchimp</span><span class="tool-tag">📝 Notion</span><span class="tool-tag">🖥️ PowerPoint</span><span class="tool-tag">🌐 Google Workspace</span>
       </div>
+    </div>
+  </div>
+  <div class="divider-line"><div class="divider-inner">Our Story & Mission</div></div>
+  <div class="mission-grid">
+    <div class="mission-card reveal">
+      <div class="mission-ic">🌱</div>
+      <h4>How It Started</h4>
+      <p>GrowTogether Solutions began with a simple belief — small and growing businesses deserve the same level of strategic support that big companies take for granted. What started as freelance project work turned into long-term partnerships, as clients kept coming back not for one-off tasks, but for someone who understood their business as their own.</p>
+    </div>
+    <div class="mission-card reveal" style="transition-delay:.1s">
+      <div class="mission-ic">🎯</div>
+      <h4>Our Mission</h4>
+      <p>To help businesses — whether a 5-person startup or a growing pharma company — get the strategy, systems, and skilled team they need to scale, without the cost or complexity of building an in-house department from scratch.</p>
+    </div>
+    <div class="mission-card reveal" style="transition-delay:.2s">
+      <div class="mission-ic">🤝</div>
+      <h4>How We Work</h4>
+      <p>No templates, no one-size-fits-all packages. Every engagement starts with understanding your specific goals, then building a plan around it — whether that's a CRM, a training session, or a complete growth strategy.</p>
     </div>
   </div>
   <div class="divider-line"><div class="divider-inner">Why Clients Trust Us</div></div>
