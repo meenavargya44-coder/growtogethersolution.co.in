@@ -75,16 +75,35 @@ nav{position:fixed;top:0;left:0;right:0;z-index:2000;height:62px;
 .page.active{opacity:1;pointer-events:all;transform:translateY(0);}
 
 /* SCROLL ANIMATIONS */
-.reveal{opacity:0;transform:translateY(30px);transition:opacity .65s cubic-bezier(.22,1,.36,1),transform .65s cubic-bezier(.22,1,.36,1);}
-.reveal.visible{opacity:1;transform:translateY(0);}
-.reveal-l{opacity:0;transform:translateX(-30px);transition:opacity .65s cubic-bezier(.22,1,.36,1),transform .65s cubic-bezier(.22,1,.36,1);}
-.reveal-l.visible{opacity:1;transform:translateX(0);}
-.reveal-r{opacity:0;transform:translateX(30px);transition:opacity .65s cubic-bezier(.22,1,.36,1),transform .38s cubic-bezier(.22,1,.36,1);}
-.reveal-r.visible{opacity:1;transform:translateX(0);}
+.reveal{opacity:0;transform:translateY(30px) scale(.98);transition:opacity .65s cubic-bezier(.22,1,.36,1),transform .65s cubic-bezier(.22,1,.36,1);}
+.reveal.visible{opacity:1;transform:translateY(0) scale(1);}
+.reveal-l{opacity:0;transform:translateX(-30px) scale(.98);transition:opacity .65s cubic-bezier(.22,1,.36,1),transform .65s cubic-bezier(.22,1,.36,1);}
+.reveal-l.visible{opacity:1;transform:translateX(0) scale(1);}
+.reveal-r{opacity:0;transform:translateX(30px) scale(.98);transition:opacity .65s cubic-bezier(.22,1,.36,1),transform .38s cubic-bezier(.22,1,.36,1);}
+.reveal-r.visible{opacity:1;transform:translateX(0) scale(1);}
 
 /* HOME PAGE */
-#home{background:linear-gradient(160deg,#0c2d4a 0%,#0a4a7a 45%,#0369a1 100%);}
-.home-wrap{max-width:1180px;margin:0 auto;padding:72px 44px 80px;}
+#home{background:linear-gradient(160deg,#0c2d4a 0%,#0a4a7a 45%,#0369a1 100%);position:relative;overflow:hidden;}
+.particles{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0;}
+.ptcl{position:absolute;border-radius:50%;background:radial-gradient(circle,rgba(125,211,252,.55),rgba(125,211,252,0));animation:floatUp linear infinite;}
+@keyframes floatUp{0%{transform:translateY(0) translateX(0);opacity:0;}10%{opacity:.7;}90%{opacity:.4;}100%{transform:translateY(-110vh) translateX(20px);opacity:0;}}
+.p1{width:6px;height:6px;left:6%;bottom:-5%;animation-duration:18s;animation-delay:0s;}
+.p2{width:4px;height:4px;left:14%;bottom:-8%;animation-duration:22s;animation-delay:2s;}
+.p3{width:8px;height:8px;left:24%;bottom:-3%;animation-duration:26s;animation-delay:5s;}
+.p4{width:5px;height:5px;left:35%;bottom:-10%;animation-duration:20s;animation-delay:1s;}
+.p5{width:3px;height:3px;left:46%;bottom:-6%;animation-duration:24s;animation-delay:7s;}
+.p6{width:7px;height:7px;left:55%;bottom:-9%;animation-duration:19s;animation-delay:3s;}
+.p7{width:4px;height:4px;left:64%;bottom:-4%;animation-duration:27s;animation-delay:6s;}
+.p8{width:6px;height:6px;left:73%;bottom:-7%;animation-duration:21s;animation-delay:4s;}
+.p9{width:5px;height:5px;left:81%;bottom:-5%;animation-duration:25s;animation-delay:8s;}
+.p10{width:3px;height:3px;left:90%;bottom:-9%;animation-duration:23s;animation-delay:1.5s;}
+.p11{width:8px;height:8px;left:97%;bottom:-3%;animation-duration:29s;animation-delay:9s;}
+.p12{width:4px;height:4px;left:50%;bottom:-12%;animation-duration:17s;animation-delay:10s;}
+.home-wrap{position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:72px 44px 80px;}
+
+/* Ambient blob background for inner pages */
+.ambient-blob{position:absolute;border-radius:50%;filter:blur(50px);pointer-events:none;z-index:0;opacity:.5;animation:blobDrift 16s ease-in-out infinite;}
+@keyframes blobDrift{0%,100%{transform:translate(0,0) scale(1);}50%{transform:translate(24px,-18px) scale(1.08);}}
 
 /* Hero */
 .hero{display:flex;gap:72px;align-items:center;margin-bottom:72px;}
@@ -161,14 +180,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:2000;height:62px;
 .global-banner a:hover{opacity:.9;}
 
 /* INNER PAGE BASE */
-.inner-wrap{max-width:1100px;margin:0 auto;padding:56px 44px 80px;}
+.inner-wrap{max-width:1100px;margin:0 auto;padding:56px 44px 80px;position:relative;z-index:1;}
 .page-eyebrow{display:inline-flex;align-items:center;gap:7px;background:#e0f2fe;color:#0369a1;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:5px 14px;border-radius:99px;margin-bottom:14px;}
 .page-h1{font-family:'DM Serif Display',serif;font-size:clamp(30px,4vw,50px);line-height:1.12;margin-bottom:12px;letter-spacing:-.3px;}
 .page-sub{font-size:15px;color:var(--mute);line-height:1.85;max-width:620px;margin-bottom:0;}
 .page-header{margin-bottom:48px;}
 
 /* ABOUT + TRAINING PAGE */
-#about-page{background:linear-gradient(180deg,#f0f9ff 0%,#e0f2fe 100%);}
+#about-page{background:linear-gradient(180deg,#f0f9ff 0%,#e0f2fe 100%);position:relative;overflow:hidden;}
 .page-h1-dark{color:#0c2d4a;}
 
 /* KPI row */
@@ -300,7 +319,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:2000;height:62px;
 .bsuccess p{color:#0284c7;font-size:13px;line-height:1.6;}
 
 /* SERVICES PAGE */
-#services-page{background:linear-gradient(180deg,#f0f9ff 0%,#e0f2fe 100%);}
+#services-page{background:linear-gradient(180deg,#f0f9ff 0%,#e0f2fe 100%);position:relative;overflow:hidden;}
 .page-h1-v{color:#0c2d4a;}
 
 /* SPIN WHEEL */
@@ -370,7 +389,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:2000;height:62px;
 .wy p{font-size:12px;color:var(--mute);line-height:1.65;}
 
 /* PORTFOLIO PAGE */
-#portfolio-page{background:linear-gradient(180deg,#fff 0%,#f0f9ff 100%);}
+#portfolio-page{background:linear-gradient(180deg,#fff 0%,#f0f9ff 100%);position:relative;overflow:hidden;}
 .testi-section{background:linear-gradient(135deg,#0c2d4a,#0a4a7a);border-radius:22px;padding:36px;margin-bottom:36px;}
 .testi-header .s-lbl{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.38);margin-bottom:8px;}
 .testi-header .s-title{font-family:'DM Serif Display',serif;font-size:32px;color:#fff;margin-bottom:24px;}
@@ -407,7 +426,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:2000;height:62px;
 .plat-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
 
 /* CONTACT PAGE */
-#contact-page{background:linear-gradient(180deg,#f0f9ff 0%,#e0f2fe 100%);}
+#contact-page{background:linear-gradient(180deg,#f0f9ff 0%,#e0f2fe 100%);position:relative;overflow:hidden;}
 .cg{display:grid;grid-template-columns:1fr 1.4fr;gap:48px;}
 .contact-info h2{font-family:'DM Serif Display',serif;font-size:30px;color:#0c2d4a;margin-bottom:8px;}
 .contact-info>p{font-size:14px;color:var(--mute);line-height:1.8;margin-bottom:24px;}
@@ -462,7 +481,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:2000;height:62px;
 .svc-modal-cta:hover{filter:brightness(1.06);}
 
 /* WhatsApp FAB */
-.waf{position:fixed;bottom:24px;right:24px;z-index:999;width:54px;height:54px;border-radius:50%;background:var(--wa);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.45);text-decoration:none;transition:transform .2s;}
+.waf{position:fixed;bottom:24px;right:24px;z-index:999;width:54px;height:54px;border-radius:50%;background:var(--wa);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.45);text-decoration:none;transition:transform .2s;animation:wafPulse 2.8s ease-in-out infinite;}
+@keyframes wafPulse{0%,100%{box-shadow:0 4px 20px rgba(37,211,102,.45);}50%{box-shadow:0 4px 20px rgba(37,211,102,.45),0 0 0 10px rgba(37,211,102,.18);}}
 .waf:hover{transform:scale(1.1);}
 
 /* RESPONSIVE */
@@ -471,6 +491,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:2000;height:62px;
   .nav-links,.nav-btns{display:none;}
   .hamburger{display:flex;}
   .home-wrap,.inner-wrap{padding:36px 20px 60px;}
+  .ambient-blob{transform:scale(.7);opacity:.35;}
+  .p7,.p8,.p9,.p10,.p11,.p12{display:none;}
   .hero{flex-direction:column;gap:36px;}
   .hero-r{width:100%;max-width:360px;margin:0 auto;}
   .metrics-card{animation:none;}
@@ -566,6 +588,12 @@ document.addEventListener('keydown',e=>{
 
 <!-- HOME -->
 <div class="page active" id="home">
+<div class="particles" aria-hidden="true">
+  <span class="ptcl p1"></span><span class="ptcl p2"></span><span class="ptcl p3"></span>
+  <span class="ptcl p4"></span><span class="ptcl p5"></span><span class="ptcl p6"></span>
+  <span class="ptcl p7"></span><span class="ptcl p8"></span><span class="ptcl p9"></span>
+  <span class="ptcl p10"></span><span class="ptcl p11"></span><span class="ptcl p12"></span>
+</div>
 <div class="home-wrap">
   <div class="hero">
     <div class="hero-l reveal-l">
@@ -630,6 +658,8 @@ document.addEventListener('keydown',e=>{
 
 <!-- ABOUT -->
 <div class="page" id="about-page">
+<span class="ambient-blob" style="width:340px;height:340px;top:-60px;right:-80px;background:radial-gradient(circle,#7dd3fc,transparent 70%);"></span>
+<span class="ambient-blob" style="width:280px;height:280px;bottom:10%;left:-100px;background:radial-gradient(circle,#bae6fd,transparent 70%);animation-delay:-6s;"></span>
 <div class="inner-wrap">
   <div class="page-header">
     <div class="page-eyebrow">About GrowTogether Solutions</div>
@@ -714,6 +744,8 @@ document.addEventListener('keydown',e=>{
 
 <!-- SERVICES (now includes Training & Booking) -->
 <div class="page" id="services-page">
+<span class="ambient-blob" style="width:320px;height:320px;top:-50px;left:-90px;background:radial-gradient(circle,#7dd3fc,transparent 70%);"></span>
+<span class="ambient-blob" style="width:260px;height:260px;bottom:8%;right:-80px;background:radial-gradient(circle,#bae6fd,transparent 70%);animation-delay:-8s;"></span>
 <div class="inner-wrap">
   <div class="page-header">
     <div class="page-eyebrow">Our Services & Training</div>
@@ -821,6 +853,7 @@ document.addEventListener('keydown',e=>{
 
 <!-- PORTFOLIO -->
 <div class="page" id="portfolio-page">
+<span class="ambient-blob" style="width:300px;height:300px;top:-40px;right:-70px;background:radial-gradient(circle,#bae6fd,transparent 70%);"></span>
 <div class="inner-wrap">
   <div class="page-header">
     <div class="page-eyebrow">Our Work</div>
@@ -860,6 +893,7 @@ document.addEventListener('keydown',e=>{
 
 <!-- CONTACT -->
 <div class="page" id="contact-page">
+<span class="ambient-blob" style="width:300px;height:300px;top:-50px;left:-80px;background:radial-gradient(circle,#7dd3fc,transparent 70%);"></span>
 <div class="inner-wrap">
   <div class="page-header">
     <div class="page-eyebrow">Get In Touch</div>
