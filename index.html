@@ -717,13 +717,13 @@ document.addEventListener('keydown',e=>{
 <div class="inner-wrap">
   <div class="page-header">
     <div class="page-eyebrow">Our Services & Training</div>
-    <h1 class="page-h1 page-h1-v">7 Powerful Services</h1>
+    <h1 class="page-h1 page-h1-v">8 Powerful Services</h1>
     <p class="page-sub">From content creation to custom CRM development, plus staff training & motivation sessions — backed by 6+ years of real project experience.</p>
   </div>
   <div class="svc-page-wrap">
     <div class="wheel-box reveal-l">
       <div class="wring" id="wheelRing"></div>
-      <div class="wcenter"><span>7 SERVICES</span><small>6+ Yrs Exp.</small></div>
+      <div class="wcenter"><span>8 SERVICES</span><small>6+ Yrs Exp.</small></div>
     </div>
     <div class="svc-list-box reveal-r">
       <h3>Everything Your Business Needs</h3>
@@ -735,6 +735,7 @@ document.addEventListener('keydown',e=>{
       <div class="sli" onclick="openServiceModal(4)"><div class="sli-ic" style="background:#eff6ff">🗄️</div><div class="sli-t"><h4>Data Management</h4><p>Organize & manage your business data efficiently</p></div></div>
       <div class="sli" onclick="openServiceModal(5)"><div class="sli-ic" style="background:#e0f2fe">📧</div><div class="sli-t"><h4>Email Writing & Handling</h4><p>Newsletters, cold outreach & inbox management</p></div></div>
       <div class="sli" onclick="openServiceModal(6)"><div class="sli-ic" style="background:#e0f2fe">💼</div><div class="sli-t"><h4>CRM Software & Setup</h4><p>Custom CRM systems built for your business growth</p></div></div>
+      <div class="sli" onclick="openServiceModal(7)"><div class="sli-ic" style="background:#f0fdfa">🌐</div><div class="sli-t"><h4>Website Development</h4><p>As per your requirement, we'll build the website you need</p></div></div>
     </div>
   </div>
   <div class="divider-line"><div class="divider-inner">Staff Training</div></div>
@@ -840,7 +841,7 @@ document.addEventListener('keydown',e=>{
     </div>
   </div>
   <div class="pgrid">
-    <div class="pc reveal"><div class="pc-prev" style="background:linear-gradient(135deg,#e0f2fe,#bae6fd)">🌐</div><div class="pc-info"><div class="pc-badge" style="background:#e0f2fe;color:#0369a1">WEB DESIGN</div><h3>GrowTogether Solutions — Our Own Website</h3><p>Responsive business website with animated services, portfolio, FAQ, pricing, testimonials, and WhatsApp integration.</p><div class="pc-tags"><span class="pc-tag">HTML/CSS</span><span class="pc-tag">JavaScript</span><span class="pc-tag">Animations</span><span class="pc-tag">SEO Ready</span></div><a href="https://meenavargya44-coder.github.io" target="_blank" class="pc-link" style="background:#0284c7;color:#fff">🔗 View Live →</a></div></div>
+    <div class="pc reveal"><div class="pc-prev" style="background:linear-gradient(135deg,#e0f2fe,#bae6fd)">🌐</div><div class="pc-info"><div class="pc-badge" style="background:#e0f2fe;color:#0369a1">WEB DESIGN</div><h3>GrowTogether Solutions — Our Own Website</h3><p>Responsive business website with animated services, portfolio, FAQ, pricing, testimonials, and WhatsApp integration.</p><div class="pc-tags"><span class="pc-tag">HTML/CSS</span><span class="pc-tag">JavaScript</span><span class="pc-tag">Animations</span><span class="pc-tag">SEO Ready</span></div><a href="https://growtogethersolution.co.in" target="_blank" class="pc-link" style="background:#0284c7;color:#fff">🔗 View Live →</a></div></div>
     <div class="pc reveal"><div class="pc-prev" style="background:linear-gradient(135deg,#0f172a,#1e293b)">🧠</div><div class="pc-info"><div class="pc-badge" style="background:#eff6ff;color:#1d4ed8">PRESENTATION</div><h3>AI & Future of Business — Live Presentation</h3><p>5-slide animated business presentation — opens in browser, no app needed. Live charts, rotating AI ecosystem, cinematic dark theme.</p><div class="pc-tags"><span class="pc-tag">Animated</span><span class="pc-tag">Browser-based</span><span class="pc-tag">Live Charts</span></div><a href="ai-presentation.html" target="_blank" class="pc-link" style="background:linear-gradient(90deg,#0369a1,#0ea5e9);color:#fff">▶ View Presentation →</a></div></div>
     <div class="pc reveal"><div class="pc-prev" style="background:linear-gradient(135deg,#fff1eb,#ffd4c0)">💊</div><div class="pc-info"><div class="pc-badge" style="background:#fff1eb;color:#f97316">CRM DEVELOPMENT</div><h3>Pharma In All — Custom CRM System</h3><p>Complete pharma CRM with order pipeline, employee management, attendance, leave, finance tracking and reports.</p><div class="pc-tags"><span class="pc-tag">Order Pipeline</span><span class="pc-tag">Multi-zone</span><span class="pc-tag">Live System</span></div><a href="https://pharma-crm-kappa.vercel.app/" target="_blank" class="pc-link" style="background:#f97316;color:#fff">🔗 View Live CRM →</a></div></div>
     <div class="pc reveal"><div class="pc-prev" style="background:linear-gradient(135deg,#e0f2fe,#bae6fd)">⚡</div><div class="pc-info"><div class="pc-badge" style="background:#e0f2fe;color:#0284c7">CRM DEVELOPMENT</div><h3>Enervia — Custom Business CRM</h3><p>Full CRM — order management, team tasks, attendance tracking, billing & accounts — built for Sachin Thakkar.</p><div class="pc-tags"><span class="pc-tag">Task Management</span><span class="pc-tag">Billing</span><span class="pc-tag">Attendance</span></div><a href="https://enervia-crm-sandy.vercel.app/" target="_blank" class="pc-link" style="background:#0284c7;color:#fff">🔗 View Live CRM →</a></div></div>
@@ -973,7 +974,7 @@ setTimeout(triggerReveal,300);
 let wheelInited=false;
 function initWheel(){
   if(wheelInited)return;wheelInited=true;
-  const svcs=[{e:"📱",l:"Social Media",c:"#0369a1",b:"#e0f2fe"},{e:"✍️",l:"Content",c:"#0369a1",b:"#f0f9ff"},{e:"📖",l:"Stories",c:"#d97706",b:"#fff7ed"},{e:"📊",l:"PPT Design",c:"#d97706",b:"#fefce8"},{e:"🗄️",l:"Data Mgmt",c:"#2563eb",b:"#eff6ff"},{e:"📧",l:"Email Mgmt",c:"#0284c7",b:"#e0f2fe"},{e:"💼",l:"CRM Setup",c:"#0369a1",b:"#e0f2fe"}];
+  const svcs=[{e:"📱",l:"Social Media",c:"#0369a1",b:"#e0f2fe"},{e:"✍️",l:"Content",c:"#0369a1",b:"#f0f9ff"},{e:"📖",l:"Stories",c:"#d97706",b:"#fff7ed"},{e:"📊",l:"PPT Design",c:"#d97706",b:"#fefce8"},{e:"🗄️",l:"Data Mgmt",c:"#2563eb",b:"#eff6ff"},{e:"📧",l:"Email Mgmt",c:"#0284c7",b:"#e0f2fe"},{e:"💼",l:"CRM Setup",c:"#0369a1",b:"#e0f2fe"},{e:"🌐",l:"Web Dev",c:"#0d9488",b:"#f0fdfa"}];
   const box=document.querySelector('.wheel-box');
   const ring=document.getElementById('wheelRing');
   const size=box.getBoundingClientRect().width||400;
@@ -1057,7 +1058,8 @@ const SD=[
   {icon:"📊",bg:"#fefce8",tag:"PPT Design",title:"Presentations That Impress",desc:"Professional, infographic-style presentations for pitches, training, proposals, and reports.",items:["Investor pitch decks","Corporate training presentations","Infographic slides with charts","Custom branding throughout","Editable source file delivered"],tags:["Pitch Decks","Training","Infographics","Branding"]},
   {icon:"🗄️",bg:"#eff6ff",tag:"Data Management",title:"Organized, Reliable Business Data",desc:"Clean and structure your business data — from customer lists to sales records.",items:["Data entry, cleaning & formatting","Excel/Google Sheets dashboards","Customer & lead database setup","Inventory & sales tracking","Regular updates & backup"],tags:["Excel","Google Sheets","Dashboards","Data Entry"]},
   {icon:"📧",bg:"#e0f2fe",tag:"Email Management",title:"Professional Email Management",desc:"From newsletters to client follow-ups — professional email communication.",items:["Newsletter writing & design","Cold outreach sequences","Daily inbox management","Email templates","Mailchimp setup & automation"],tags:["Newsletters","Inbox Mgmt","Mailchimp","Automation"]},
-  {icon:"💼",bg:"#e0f2fe",tag:"CRM Software & Setup",title:"Custom CRM Built for Your Business",desc:"CRM systems designed for how your business actually works.",items:["Custom order/lead pipeline","Employee & attendance modules","Billing & finance tracking","Reports & dashboards","Team training on the CRM"],tags:["Custom CRM","Pipeline","Reports","Training"]}
+  {icon:"💼",bg:"#e0f2fe",tag:"CRM Software & Setup",title:"Custom CRM Built for Your Business",desc:"CRM systems designed for how your business actually works.",items:["Custom order/lead pipeline","Employee & attendance modules","Billing & finance tracking","Reports & dashboards","Team training on the CRM"],tags:["Custom CRM","Pipeline","Reports","Training"]},
+  {icon:"🌐",bg:"#f0fdfa",tag:"Website Development",title:"Custom Websites Built To Your Requirement",desc:"Responsive, modern websites designed and built around exactly what your business needs — from simple landing pages to full multi-page sites.",items:["Custom design as per your requirement","Mobile & desktop responsive layout","Animations, forms & WhatsApp integration","SEO-ready structure","Source files & basic training to manage it"],tags:["Custom Design","Responsive","Business Sites","Landing Pages"]}
 ];
 function openServiceModal(idx){
   const s=SD[idx];
