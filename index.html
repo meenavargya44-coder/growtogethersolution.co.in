@@ -425,10 +425,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:2000;height:62px;
 .fi:hover{border-color:#7dd3fc;}
 .fq{padding:16px 18px;display:flex;justify-content:space-between;cursor:pointer;font-size:13.5px;font-weight:600;color:#0c2d4a;}
 .fa{display:none;padding:0 18px 14px;font-size:13px;color:var(--mute);line-height:1.8;}
-.visitor-counter-banner{margin-top:36px;background:linear-gradient(135deg,#0c2d4a,#0a4a7a);border-radius:16px;padding:18px 28px;display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;box-shadow:var(--shl);}
-.vc-icon{font-size:20px;}
-.vc-text{font-size:13.5px;color:rgba(255,255,255,.68);font-weight:500;}
-.vc-number{font-size:18px;font-weight:900;color:#7dd3fc;letter-spacing:-.5px;}
 .farr{font-size:16px;color:#0ea5e9;}
 .cf{background:#fff;border:1.5px solid #bae6fd;border-radius:20px;padding:30px;box-shadow:var(--sh);}
 .cf h3{font-size:18px;font-weight:700;color:#0c2d4a;margin-bottom:20px;}
@@ -501,7 +497,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:2000;height:62px;
   .testi-stats{flex-wrap:wrap;}
   .tst{padding:8px 0;border-right:none;}
   .email-card{flex-direction:column;text-align:center;}
-  .visitor-counter-banner{flex-direction:column;text-align:center;padding:16px 20px;}
 }
 @media(max-width:400px){
   .wheel-box{width:280px;height:280px;}
@@ -921,11 +916,6 @@ document.addEventListener('keydown',e=>{
       </div>
     </div>
   </div>
-  <div class="visitor-counter-banner reveal">
-    <span class="vc-icon">👀</span>
-    <span class="vc-text">People who checked out this website:</span>
-    <span class="vc-number" id="visitorCount">—</span>
-  </div>
 </div>
 </div>
 
@@ -1083,23 +1073,6 @@ function openServiceModal(idx){
   document.getElementById('svcModalOverlay').classList.add('open');
 }
 function closeServiceModal(){document.getElementById('svcModalOverlay').classList.remove('open');}
-
-/* Visitor Counter - increments once per browser session, shows real shared count */
-(function(){
-  const KEY='growtogethersolution-co-in';
-  const alreadyCounted=sessionStorage.getItem('vc_counted');
-  const endpoint=alreadyCounted
-    ? 'https://api.countapi.xyz/get/'+KEY+'/visits'
-    : 'https://api.countapi.xyz/hit/'+KEY+'/visits';
-  fetch(endpoint).then(r=>r.json()).then(data=>{
-    if(!alreadyCounted) sessionStorage.setItem('vc_counted','1');
-    const el=document.getElementById('visitorCount');
-    if(el && data && typeof data.value!=='undefined') el.textContent=data.value.toLocaleString();
-  }).catch(()=>{
-    const el=document.getElementById('visitorCount');
-    if(el) el.textContent='N/A';
-  });
-})();
 
 </script>
 </body>
