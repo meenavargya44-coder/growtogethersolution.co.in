@@ -16,7 +16,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
-html,body{height:100%;font-family:'Inter',sans-serif;color:#0f172a;background:#fff;overflow:hidden;}
+html,body{height:100%;font-family:'Inter',sans-serif;color:#0f172a;background:#fff;overflow:hidden;-webkit-user-select:none;-moz-user-select:none;user-select:none;}
+input,textarea,select{user-select:text;-webkit-user-select:text;}
 :root{
   --ink:#0f172a; --ink2:#1e293b; --mute:#475569; --faint:#94a3b8;
   --line:#bae6fd; --bg:#f0f9ff; --bg2:#e0f2fe;
@@ -225,6 +226,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:2000;height:62px;
 .mission-ic{font-size:28px;margin-bottom:12px;}
 .mission-card h4{font-size:15.5px;font-weight:700;color:#0c2d4a;margin-bottom:10px;}
 .mission-card p{font-size:13px;color:var(--mute);line-height:1.8;}
+
+/* Team Banner */
+.team-banner{background:#fff;border:1.5px solid #bae6fd;border-radius:18px;padding:28px;display:flex;gap:20px;align-items:flex-start;margin-bottom:36px;box-shadow:var(--sh);}
+.team-ic{width:56px;height:56px;border-radius:14px;background:linear-gradient(135deg,#e0f2fe,#bae6fd);display:flex;align-items:center;justify-content:center;font-size:26px;flex-shrink:0;}
+.team-content h4{font-size:16px;font-weight:700;color:#0c2d4a;margin-bottom:8px;}
+.team-content p{font-size:13.5px;color:var(--mute);line-height:1.85;}
 
 /* Section divider */
 .divider-line{display:flex;align-items:center;gap:14px;margin:40px 0 32px;}
@@ -476,6 +483,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:2000;height:62px;
   .founder-card{flex-direction:column;align-items:center;text-align:center;}
   .founder-photo-col{width:auto;}
   .founder-role-tag{justify-content:center;}
+  .team-banner{flex-direction:column;align-items:center;text-align:center;}
   .spec-grid{grid-template-columns:1fr;}
   .mission-grid{grid-template-columns:1fr;}
   .booking-layout{grid-template-columns:1fr;}
@@ -504,6 +512,15 @@ nav{position:fixed;top:0;left:0;right:0;z-index:2000;height:62px;
 </style>
 </head>
 <body>
+<script>
+document.addEventListener('contextmenu',e=>e.preventDefault());
+document.addEventListener('keydown',e=>{
+  if(e.key==='F12'){e.preventDefault();return false;}
+  if(e.ctrlKey&&e.shiftKey&&(e.key==='I'||e.key==='J'||e.key==='C')){e.preventDefault();return false;}
+  if(e.ctrlKey&&(e.key==='u'||e.key==='U')){e.preventDefault();return false;}
+  if(e.ctrlKey&&(e.key==='s'||e.key==='S')){e.preventDefault();return false;}
+});
+</script>
 
 <nav>
   <a class="logo" href="#" onclick="showPage('home')">
@@ -655,8 +672,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:2000;height:62px;
     <div class="founder-info">
       <h3>Meena Vargya</h3>
       <div class="founder-role-tag">Business Growth Consultant & Digital Services Expert — Rajkot, Gujarat</div>
-      <p>Over 6+ years of self-built expertise — through real-world projects, online courses, and deep industry immersion across pharma, tech, startups, and services businesses. Every skill has been earned in the field, not just the classroom.</p>
-      <p>Clients include pharma companies, startups, and established businesses across India and globally. The approach is simple: become a part of your team, understand your goals completely, and deliver results that actually move the needle.</p>
+      <p>Over 6+ years of self-built expertise — through real-world projects, online courses, and deep industry immersion across multiple sectors. Every skill has been earned in the field, not just the classroom.</p>
+      <p>Clients include startups, growing businesses, and established companies across India and globally. The approach is simple: become a part of your team, understand your goals completely, and deliver results that actually move the needle.</p>
       <p>What makes GrowTogether Solutions different is commitment to outcomes — not just deliverables. Every project runs with full dedication, clear communication, and zero surprises.</p>
       <div class="tools-row">
         <span class="tool-tag">🎨 Canva Pro</span><span class="tool-tag">📊 MS Excel</span><span class="tool-tag">💼 CRM Systems</span><span class="tool-tag">📧 Mailchimp</span><span class="tool-tag">📝 Notion</span><span class="tool-tag">🖥️ PowerPoint</span><span class="tool-tag">🌐 Google Workspace</span>
@@ -673,7 +690,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:2000;height:62px;
     <div class="mission-card reveal" style="transition-delay:.1s">
       <div class="mission-ic">🎯</div>
       <h4>Our Mission</h4>
-      <p>To help businesses — whether a 5-person startup or a growing pharma company — get the strategy, systems, and skilled team they need to scale, without the cost or complexity of building an in-house department from scratch.</p>
+      <p>To help businesses — whether a 5-person startup or a growing established company — get the strategy, systems, and skilled team they need to scale, without the cost or complexity of building an in-house department from scratch.</p>
     </div>
     <div class="mission-card reveal" style="transition-delay:.2s">
       <div class="mission-ic">🤝</div>
@@ -684,9 +701,17 @@ nav{position:fixed;top:0;left:0;right:0;z-index:2000;height:62px;
   <div class="divider-line"><div class="divider-inner">Why Clients Trust Us</div></div>
   <div class="why-grid">
     <div class="wy reveal"><div class="wy-ic">🤝</div><h4>Personal Commitment</h4><p>Every client gets full attention — not a template, a real partnership.</p></div>
-    <div class="wy reveal" style="transition-delay:.08s"><div class="wy-ic">🌍</div><h4>India & Global Clients</h4><p>Trusted by pharma, startups & service businesses across borders.</p></div>
+    <div class="wy reveal" style="transition-delay:.08s"><div class="wy-ic">🌍</div><h4>India & Global Clients</h4><p>Trusted by businesses across industries, sectors and borders.</p></div>
     <div class="wy reveal" style="transition-delay:.16s"><div class="wy-ic">⚡</div><h4>Fast, Honest Execution</h4><p>Clear timelines, transparent pricing, zero hidden surprises.</p></div>
     <div class="wy reveal" style="transition-delay:.24s"><div class="wy-ic">📈</div><h4>Outcome Focused</h4><p>Success measured by your growth, not just by deliverables.</p></div>
+  </div>
+  <div class="divider-line"><div class="divider-inner">Our Team</div></div>
+  <div class="team-banner reveal">
+    <div class="team-ic">👥</div>
+    <div class="team-content">
+      <h4>A Small, Skilled, Always-Learning Team</h4>
+      <p>Behind every project is a talented team that stays curious — constantly learning new tools and AI-driven workflows to work faster and smarter for clients. From design to content to CRM development, the team collaborates closely so every deliverable gets the right expertise, not a one-person guess.</p>
+    </div>
   </div>
   <div class="global-banner reveal" style="margin-top:32px;background:linear-gradient(135deg,#0c2d4a,#0a4a7a);"><span style="font-size:24px">💬</span><p>Want to know more about how we can help your business? <strong>Let's talk — first consultation is free.</strong></p><a href="#" onclick="showPage('contact')">Get In Touch →</a></div>
 </div>
