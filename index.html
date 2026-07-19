@@ -11,8 +11,10 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GrowTogether Solutions | Business Growth & Training Services</title>
+<title>GrowTogether Solutions | Business Growth &amp; Training Services</title>
 <meta name="description" content="Business growth consulting, staff training, marketing, and digital services. Serving clients across India and worldwide.">
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="apple-touch-icon" href="logo.png">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
@@ -26,7 +28,8 @@ input,textarea,select{user-select:text;-webkit-user-select:text;}
   --teal:#0d9488; --tpale:#f0fdfa;
   --emerald:#0ea5e9;
   --rose:#e11d48;
-  --gold:#f59e0b;
+  --gold:#d9b877; --goldd:#b8894a; --goldl:#f5e6c8;
+  --navy:#1e3a6e; --navyl:#4a7fc1;
   --wa:#25D366;
   --sh:0 2px 8px rgba(14,165,233,.10),0 8px 24px rgba(14,165,233,.07);
   --shl:0 8px 40px rgba(14,165,233,.18),0 2px 8px rgba(14,165,233,.08);
@@ -36,18 +39,28 @@ input,textarea,select{user-select:text;-webkit-user-select:text;}
 ::-webkit-scrollbar-thumb{background:#7dd3fc;border-radius:99px;}
 
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:2000;height:62px;
+nav{position:fixed;top:0;left:0;right:0;z-index:2000;height:68px;
   background:rgba(255,255,255,.97);backdrop-filter:blur(20px);
   border-bottom:1px solid #bae6fd;
   display:flex;align-items:center;justify-content:space-between;padding:0 44px;}
 
-/* LOGO with diamond SVG */
-.logo{font-size:17px;font-weight:900;color:#0369a1;text-decoration:none;display:flex;align-items:center;gap:10px;letter-spacing:-.5px;}
-.logo-svg{width:38px;height:38px;flex-shrink:0;filter:drop-shadow(0 4px 10px rgba(14,165,233,.38));}
-.logo-text-wrap{display:flex;flex-direction:column;line-height:1;}
-.logo-grow{font-size:15px;font-weight:900;color:#1a1a2e;letter-spacing:.5px;}
-.logo-together{font-size:15px;font-weight:900;color:#0ea5e9;letter-spacing:.5px;}
-.logo-solutions{font-size:8.5px;font-weight:600;color:#64748b;letter-spacing:2.5px;text-transform:uppercase;margin-top:1px;}
+/* ===== LOGO ===== */
+.logo{text-decoration:none;display:flex;align-items:center;gap:11px;position:relative;}
+.logo-mark{width:46px;height:46px;flex-shrink:0;object-fit:contain;
+  filter:drop-shadow(0 3px 9px rgba(30,58,110,.32));
+  transition:transform .38s cubic-bezier(.34,1.4,.64,1),filter .38s ease;}
+.logo:hover .logo-mark{transform:rotate(-6deg) scale(1.09);filter:drop-shadow(0 6px 16px rgba(30,58,110,.45));}
+.logo-fallback{display:none;}
+.logo-mark.failed{display:none;}
+.logo-mark.failed ~ .logo-fallback{display:block;}
+.logo-text-wrap{display:flex;flex-direction:column;line-height:1.05;}
+.logo-grow{font-size:15.5px;font-weight:900;color:var(--navy);letter-spacing:.6px;white-space:nowrap;}
+.logo-grow .lg-accent{color:var(--navyl);}
+.logo-solutions{font-size:8px;font-weight:700;color:var(--navyl);letter-spacing:3.2px;margin-top:2px;}
+.logo-tagline{font-size:7.5px;font-weight:600;color:var(--goldd);letter-spacing:.2px;margin-top:2px;font-style:italic;white-space:nowrap;}
+.logo-underline{position:absolute;left:57px;bottom:-3px;height:2px;width:0;border-radius:2px;
+  background:linear-gradient(90deg,var(--goldl),var(--gold),var(--goldd));transition:width .4s cubic-bezier(.22,1,.36,1);}
+.logo:hover .logo-underline{width:calc(100% - 57px);}
 
 .nav-links{display:flex;gap:2px;list-style:none;}
 .nav-links a{padding:6px 14px;border-radius:8px;font-size:13.5px;font-weight:500;color:var(--mute);text-decoration:none;transition:all .2s;cursor:pointer;}
@@ -62,7 +75,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:2000;height:62px;
 .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
 .hamburger.open span:nth-child(2){opacity:0;}
 .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
-.mobile-menu{display:none;position:fixed;top:62px;left:0;right:0;background:#fff;border-bottom:2px solid #bae6fd;z-index:1999;padding:16px 20px;flex-direction:column;gap:4px;box-shadow:0 8px 32px rgba(14,165,233,.12);}
+.mobile-menu{display:none;position:fixed;top:68px;left:0;right:0;background:#fff;border-bottom:2px solid #bae6fd;z-index:1999;padding:16px 20px;flex-direction:column;gap:4px;box-shadow:0 8px 32px rgba(14,165,233,.12);}
 .mobile-menu.open{display:flex;}
 .mobile-menu a{padding:11px 16px;border-radius:10px;font-size:14px;font-weight:600;color:var(--mute);text-decoration:none;cursor:pointer;transition:all .2s;}
 .mobile-menu a:hover,.mobile-menu a.active{background:#e0f2fe;color:#0369a1;}
@@ -70,7 +83,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:2000;height:62px;
 .mob-cta{background:linear-gradient(135deg,#0ea5e9,#0369a1)!important;color:#fff!important;text-align:center;}
 
 /* PAGE SYSTEM */
-.pages{position:fixed;top:62px;left:0;right:0;bottom:0;overflow:hidden;}
+.pages{position:fixed;top:68px;left:0;right:0;bottom:0;overflow:hidden;}
 .page{position:absolute;inset:0;overflow-y:auto;opacity:0;pointer-events:none;transform:translateY(18px);transition:opacity .38s ease,transform .38s ease;}
 .page.active{opacity:1;pointer-events:all;transform:translateY(0);}
 
@@ -79,17 +92,26 @@ nav{position:fixed;top:0;left:0;right:0;z-index:2000;height:62px;
 .reveal.visible{opacity:1;transform:translateY(0);}
 .reveal-l{opacity:0;transform:translateX(-30px);transition:opacity .65s cubic-bezier(.22,1,.36,1),transform .65s cubic-bezier(.22,1,.36,1);}
 .reveal-l.visible{opacity:1;transform:translateX(0);}
-.reveal-r{opacity:0;transform:translateX(30px);transition:opacity .65s cubic-bezier(.22,1,.36,1),transform .38s cubic-bezier(.22,1,.36,1);}
+.reveal-r{opacity:0;transform:translateX(30px);transition:opacity .65s cubic-bezier(.22,1,.36,1),transform .65s cubic-bezier(.22,1,.36,1);}
 .reveal-r.visible{opacity:1;transform:translateX(0);}
 
 /* HOME PAGE */
 #home{background:linear-gradient(160deg,#0c2d4a 0%,#0a4a7a 45%,#0369a1 100%);}
 .home-wrap{max-width:1180px;margin:0 auto;padding:72px 44px 80px;}
 
+/* HERO LOGO WATERMARK */
+.hero-logo-badge{display:flex;align-items:center;gap:14px;margin-bottom:26px;padding:12px 20px 12px 12px;
+  background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.18);border-radius:16px;
+  backdrop-filter:blur(14px);width:fit-content;box-shadow:0 8px 28px rgba(0,0,0,.16);}
+.hero-logo-badge img{width:54px;height:54px;object-fit:contain;background:#fff;border-radius:12px;padding:4px;
+  box-shadow:0 4px 14px rgba(0,0,0,.18);}
+.hlb-txt .hlb-name{font-size:14px;font-weight:900;color:#fff;letter-spacing:.5px;line-height:1.2;}
+.hlb-txt .hlb-tag{font-size:10px;font-weight:600;color:var(--gold);letter-spacing:.4px;margin-top:3px;font-style:italic;}
+
 /* Hero */
 .hero{display:flex;gap:72px;align-items:center;margin-bottom:72px;}
 .hero-l{flex:1;}
-.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#7dd3fc;font-size:11.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:7px 16px;border-radius:99px;margin-bottom:26px;}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#7dd3fc;font-size:11.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:7px 16px;border-radius:99px;margin-bottom:22px;}
 .hero-eyebrow::before{content:'';width:7px;height:7px;border-radius:50%;background:#38bdf8;box-shadow:0 0 0 3px rgba(56,189,248,.3);animation:blink 2s infinite;}
 @keyframes blink{0%,100%{box-shadow:0 0 0 3px rgba(56,189,248,.3);}50%{box-shadow:0 0 0 8px rgba(56,189,248,0);}}
 .hero-h1{font-family:'DM Serif Display',serif;font-size:clamp(38px,4.8vw,64px);line-height:1.06;color:#fff;margin-bottom:18px;letter-spacing:-.5px;}
@@ -114,6 +136,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:2000;height:62px;
 .metrics-card{background:rgba(255,255,255,.09);backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,.18);border-radius:22px;padding:28px;color:#fff;position:relative;overflow:hidden;animation:cardFloat 4s ease-in-out infinite;}
 @keyframes cardFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
 .metrics-card::before{content:'';position:absolute;top:-60px;right:-60px;width:180px;height:180px;border-radius:50%;background:radial-gradient(circle,rgba(14,165,233,.35),transparent);}
+.mc-watermark{position:absolute;bottom:-18px;right:-18px;width:120px;height:120px;object-fit:contain;opacity:.07;pointer-events:none;}
 .mc-label{font-size:10px;font-weight:700;letter-spacing:2px;color:rgba(255,255,255,.38);text-transform:uppercase;margin-bottom:18px;}
 .mc-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:18px;position:relative;z-index:1;}
 .mc-item{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:14px;transition:background .2s;}
@@ -131,9 +154,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:2000;height:62px;
 .mc-cta:hover{filter:brightness(1.08);}
 
 /* Tagline banner */
-.tagline-banner{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.18);border-radius:14px;padding:18px 28px;text-align:center;margin-bottom:40px;}
+.tagline-banner{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.18);border-radius:14px;padding:18px 28px;text-align:center;margin-bottom:40px;position:relative;overflow:hidden;}
+.tagline-banner::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);}
 .tagline-banner .tg-main{font-family:'DM Serif Display',serif;font-size:22px;color:#fff;font-style:italic;margin-bottom:6px;}
-.tagline-banner .tg-sub{font-size:12px;color:rgba(255,255,255,.42);letter-spacing:2px;text-transform:uppercase;}
+.tagline-banner .tg-sub{font-size:12px;color:var(--gold);letter-spacing:2px;text-transform:uppercase;font-weight:600;}
 
 /* Pillars */
 .section-label{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#7dd3fc;margin-bottom:10px;}
@@ -151,9 +175,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:2000;height:62px;
 .pillar p{font-size:13px;color:rgba(255,255,255,.58);line-height:1.75;margin-bottom:14px;}
 .pillar-list{list-style:none;display:flex;flex-direction:column;gap:6px;}
 .pillar-list li{font-size:12.5px;color:rgba(255,255,255,.68);display:flex;align-items:center;gap:8px;}
-.pillar.p1 .pillar-list li::before{content:'→';color:#38bdf8;font-weight:700;}
-.pillar.p2 .pillar-list li::before{content:'→';color:#7dd3fc;font-weight:700;}
-.pillar.p3 .pillar-list li::before{content:'→';color:#bae6fd;font-weight:700;}
+.pillar.p1 .pillar-list li::before{content:'\2192';color:#38bdf8;font-weight:700;}
+.pillar.p2 .pillar-list li::before{content:'\2192';color:#7dd3fc;font-weight:700;}
+.pillar.p3 .pillar-list li::before{content:'\2192';color:#bae6fd;font-weight:700;}
 .global-banner{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.15);border-radius:16px;padding:20px 28px;display:flex;align-items:center;gap:16px;}
 .global-banner p{font-size:14px;color:rgba(255,255,255,.68);flex:1;line-height:1.6;}
 .global-banner strong{color:#fff;}
@@ -176,7 +200,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:2000;height:62px;
 .kpi{background:#fff;border:1.5px solid #bae6fd;border-radius:16px;padding:22px;text-align:center;transition:all .3s;position:relative;overflow:hidden;}
 .kpi::before{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;}
 .kpi:nth-child(1)::before{background:linear-gradient(90deg,#0ea5e9,#38bdf8);}
-.kpi:nth-child(2)::before{background:linear-gradient(90deg,var(--amber),#fbbf24);}
+.kpi:nth-child(2)::before{background:linear-gradient(90deg,var(--gold),var(--goldd));}
 .kpi:nth-child(3)::before{background:linear-gradient(90deg,#0284c7,#0ea5e9);}
 .kpi:nth-child(4)::before{background:linear-gradient(90deg,#0369a1,#38bdf8);}
 .kpi:hover{transform:translateY(-3px);box-shadow:var(--sh);}
@@ -187,8 +211,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:2000;height:62px;
 .founder-card{background:#fff;border-radius:22px;padding:36px;display:flex;gap:36px;align-items:flex-start;margin-bottom:40px;box-shadow:var(--shl);border:1.5px solid #bae6fd;position:relative;overflow:hidden;}
 .founder-card::before{content:'';position:absolute;top:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(14,165,233,.07),transparent);}
 .founder-photo-col{flex-shrink:0;width:180px;display:flex;flex-direction:column;align-items:center;gap:14px;}
-.founder-photo{width:150px;height:150px;border-radius:50%;background:linear-gradient(135deg,#e0f2fe,#bae6fd);display:flex;align-items:center;justify-content:center;overflow:hidden;border:4px solid #fff;box-shadow:0 0 0 4px #bae6fd,0 8px 32px rgba(14,165,233,.28);position:relative;}
-.founder-photo img{width:100%;height:100%;object-fit:cover;}
+.founder-photo{width:150px;height:150px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;overflow:hidden;border:4px solid #fff;box-shadow:0 0 0 4px var(--gold),0 8px 32px rgba(30,58,110,.28);position:relative;}
+.founder-photo img{width:82%;height:82%;object-fit:contain;}
 .founder-photo .mono{font-family:'DM Serif Display',serif;font-size:52px;color:#0369a1;font-weight:700;}
 .online-dot{display:flex;align-items:center;gap:6px;font-size:11.5px;font-weight:600;color:#0284c7;}
 .online-dot::before{content:'';width:8px;height:8px;border-radius:50%;background:#0ea5e9;box-shadow:0 0 0 3px rgba(14,165,233,.22);animation:blink 2s infinite;}
@@ -197,7 +221,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:2000;height:62px;
 .founder-info{flex:1;}
 .founder-info h3{font-family:'DM Serif Display',serif;font-size:30px;color:#0c2d4a;margin-bottom:4px;}
 .founder-role-tag{font-size:12.5px;font-weight:700;color:#0284c7;margin-bottom:20px;display:flex;align-items:center;gap:8px;}
-.founder-role-tag::before{content:'';width:28px;height:2.5px;background:linear-gradient(90deg,#0ea5e9,#0369a1);border-radius:2px;}
+.founder-role-tag::before{content:'';width:28px;height:2.5px;background:linear-gradient(90deg,var(--gold),var(--goldd));border-radius:2px;}
 .founder-info p{font-size:13.5px;color:var(--mute);line-height:1.9;margin-bottom:12px;}
 .tools-row{display:flex;flex-wrap:wrap;gap:7px;margin-top:18px;}
 .tool-tag{background:#f0f9ff;border:1px solid #bae6fd;border-radius:7px;padding:5px 12px;font-size:11.5px;font-weight:600;color:#0369a1;}
@@ -216,7 +240,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:2000;height:62px;
 .ts-item:last-child{border-right:none;}
 .ts-n{font-size:30px;font-weight:900;color:#fff;letter-spacing:-1px;line-height:1;}
 .ts-l{font-size:10.5px;color:rgba(255,255,255,.38);margin-top:4px;font-weight:500;text-transform:uppercase;letter-spacing:.5px;}
-.ts-accent{color:#7dd3fc!important;}
+.ts-accent{color:var(--gold)!important;}
 
 /* Mission & Story */
 .mission-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:36px;}
@@ -244,7 +268,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:2000;height:62px;
 .spec-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;}
 .sc-mot::after{background:linear-gradient(90deg,#e11d48,#fb7185);}
 .sc-str::after{background:linear-gradient(90deg,#0ea5e9,#38bdf8);}
-.sc-lif::after{background:linear-gradient(90deg,var(--amber),#fbbf24);}
+.sc-lif::after{background:linear-gradient(90deg,var(--gold),var(--goldd));}
 .sc-bus::after{background:linear-gradient(90deg,#0369a1,#0ea5e9);}
 .spec-card:hover{border-color:transparent;box-shadow:var(--shl);transform:translateY(-4px);}
 .sc-head{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:12px;}
@@ -252,7 +276,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:2000;height:62px;
 .sc-card-type{font-size:10px;font-weight:700;padding:3px 11px;border-radius:99px;}
 .sc-mot .sc-icon{background:#fff1f2;} .sc-mot .sc-card-type{background:#fff1f2;color:#e11d48;}
 .sc-str .sc-icon{background:#e0f2fe;} .sc-str .sc-card-type{background:#e0f2fe;color:#0284c7;}
-.sc-lif .sc-icon{background:var(--apale);} .sc-lif .sc-card-type{background:var(--apale);color:var(--amber);}
+.sc-lif .sc-icon{background:var(--apale);} .sc-lif .sc-card-type{background:var(--apale);color:var(--goldd);}
 .sc-bus .sc-icon{background:#e0f2fe;} .sc-bus .sc-card-type{background:#e0f2fe;color:#0369a1;}
 .sc-title{font-size:15.5px;font-weight:700;color:#0c2d4a;margin-bottom:8px;}
 .sc-desc{font-size:13px;color:var(--mute);line-height:1.75;margin-bottom:14px;}
@@ -315,9 +339,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:2000;height:62px;
 .wring:hover .wdc,.wring:hover .wdl{animation-play-state:paused;}
 .wdc:hover{transform:scale(1.15)!important;}
 .wdl{font-size:10px;font-weight:700;text-align:center;background:#fff;border-radius:7px;padding:3px 8px;box-shadow:0 2px 8px rgba(14,165,233,.14);white-space:nowrap;line-height:1.3;animation:cspin 22s linear infinite;}
-.wcenter{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:120px;height:120px;border-radius:50%;background:linear-gradient(135deg,#0ea5e9,#0369a1);display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 8px 32px rgba(14,165,233,.42);z-index:10;}
-.wcenter span{font-size:12px;font-weight:800;color:#fff;}
-.wcenter small{font-size:9px;color:rgba(255,255,255,.7);margin-top:2px;}
+.wcenter{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:126px;height:126px;border-radius:50%;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 8px 32px rgba(30,58,110,.28),0 0 0 3px var(--gold);z-index:10;overflow:hidden;padding:10px;}
+.wcenter img{width:60px;height:60px;object-fit:contain;margin-bottom:2px;}
+.wcenter span{font-size:11px;font-weight:900;color:var(--navy);letter-spacing:.5px;}
+.wcenter small{font-size:8.5px;color:var(--goldd);margin-top:1px;font-weight:600;}
 .svc-list-box{flex:1;min-width:280px;}
 .svc-list-box h3{font-family:'DM Serif Display',serif;font-size:28px;color:#0c2d4a;margin-bottom:8px;}
 .svc-list-box p{font-size:14px;color:var(--mute);margin-bottom:22px;}
@@ -334,7 +359,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:2000;height:62px;
 .step-num{width:64px;height:64px;border-radius:50%;background:#fff;border:2px solid #bae6fd;display:flex;align-items:center;justify-content:center;font-size:22px;margin:0 auto 16px;box-shadow:var(--sh);}
 .step-badge{font-size:9.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:6px;}
 .step:nth-child(1) .step-badge{color:#0ea5e9;}
-.step:nth-child(2) .step-badge{color:var(--amber);}
+.step:nth-child(2) .step-badge{color:var(--goldd);}
 .step:nth-child(3) .step-badge{color:#0284c7;}
 .step:nth-child(4) .step-badge{color:#0369a1;}
 .step h4{font-size:13.5px;font-weight:700;color:#0c2d4a;margin-bottom:5px;}
@@ -380,7 +405,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:2000;height:62px;
 .tc::before{content:'';position:absolute;top:0;left:0;right:0;height:2.5px;}
 .tc:first-child::before{background:linear-gradient(90deg,#7dd3fc,#38bdf8);}
 .tc:last-child::before{background:linear-gradient(90deg,#38bdf8,#bae6fd);}
-.tc-stars{color:#f59e0b;font-size:13px;margin-bottom:10px;}
+.tc-stars{color:var(--gold);font-size:13px;margin-bottom:10px;}
 .tc-text{font-size:13px;color:rgba(255,255,255,.75);line-height:1.85;margin-bottom:18px;font-style:italic;}
 .tc-author{display:flex;align-items:center;gap:10px;}
 .tc-av{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;color:#fff;flex-shrink:0;}
@@ -394,7 +419,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:2000;height:62px;
 .pgrid{display:flex;flex-direction:column;gap:14px;margin-bottom:36px;}
 .pc{background:#fff;border:1.5px solid #bae6fd;border-radius:18px;padding:22px;display:flex;gap:22px;align-items:center;flex-wrap:wrap;transition:all .28s;}
 .pc:hover{box-shadow:var(--shl);transform:translateY(-3px);border-color:#7dd3fc;}
-.pc-prev{flex-shrink:0;width:180px;height:120px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:42px;}
+.pc-prev{flex-shrink:0;width:180px;height:120px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:42px;overflow:hidden;}
+.pc-prev img{width:78%;height:78%;object-fit:contain;}
 .pc-info{flex:1;min-width:200px;}
 .pc-badge{display:inline-block;font-size:10px;font-weight:700;letter-spacing:1px;padding:3px 10px;border-radius:99px;margin-bottom:8px;}
 .pc-info h3{font-size:16px;font-weight:700;color:#0c2d4a;margin-bottom:6px;}
@@ -441,15 +467,28 @@ nav{position:fixed;top:0;left:0;right:0;z-index:2000;height:62px;
 .smsg h4{font-size:14px;font-weight:700;color:#0369a1;margin-bottom:3px;}
 .smsg p{font-size:12px;color:#0284c7;}
 
+/* FOOTER */
+.site-footer{margin-top:56px;padding:36px 0 8px;border-top:1px solid rgba(0,0,0,.07);display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center;}
+.site-footer img{width:56px;height:56px;object-fit:contain;opacity:.92;}
+.sf-name{font-size:14px;font-weight:900;color:var(--navy);letter-spacing:.6px;}
+.sf-tag{font-size:11.5px;font-style:italic;color:var(--goldd);font-weight:600;}
+.sf-copy{font-size:11px;color:var(--faint);margin-top:4px;}
+.site-footer.on-dark{border-top-color:rgba(255,255,255,.12);}
+.site-footer.on-dark .sf-name{color:#fff;}
+.site-footer.on-dark .sf-tag{color:var(--gold);}
+.site-footer.on-dark .sf-copy{color:rgba(255,255,255,.4);}
+.site-footer.on-dark img{background:#fff;border-radius:12px;padding:4px;}
+
 /* SERVICE MODAL */
 .svc-modal-overlay{position:fixed;inset:0;background:rgba(12,45,74,.72);backdrop-filter:blur(8px);z-index:3000;display:none;align-items:center;justify-content:center;padding:20px;}
 .svc-modal-overlay.open{display:flex;animation:fadeIn .2s ease both;}
 @keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
 .svc-modal{background:#fff;border-radius:22px;max-width:540px;width:100%;max-height:88vh;overflow-y:auto;padding:36px;position:relative;animation:popIn .32s cubic-bezier(.34,1.4,.64,1) both;}
 @keyframes popIn{from{opacity:0;transform:scale(.88) translateY(24px);}to{opacity:1;transform:scale(1) translateY(0);}}
+.svc-modal-logo{position:absolute;top:20px;left:36px;width:26px;height:26px;object-fit:contain;opacity:.85;}
 .svc-modal-close{position:absolute;top:16px;right:16px;width:34px;height:34px;border-radius:50%;background:#f0f9ff;border:1.5px solid #bae6fd;color:var(--mute);font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;}
 .svc-modal-close:hover{background:#e0f2fe;color:#0284c7;}
-.svc-modal-icon{width:62px;height:62px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:28px;margin-bottom:16px;}
+.svc-modal-icon{width:62px;height:62px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:28px;margin-bottom:16px;margin-top:22px;}
 .svc-modal-tag{font-size:11px;font-weight:700;color:#0284c7;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px;}
 .svc-modal h3{font-family:'DM Serif Display',serif;font-size:24px;color:#0c2d4a;margin-bottom:12px;}
 .svc-modal-desc{font-size:13.5px;color:var(--mute);line-height:1.85;margin-bottom:20px;}
@@ -466,6 +505,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:2000;height:62px;
 .waf:hover{transform:scale(1.1);}
 
 /* RESPONSIVE */
+@media(max-width:1100px){
+  .logo-tagline{display:none;}
+}
 @media(max-width:960px){
   nav{padding:0 20px;}
   .nav-links,.nav-btns{display:none;}
@@ -497,12 +539,20 @@ nav{position:fixed;top:0;left:0;right:0;z-index:2000;height:62px;
   .testi-stats{flex-wrap:wrap;}
   .tst{padding:8px 0;border-right:none;}
   .email-card{flex-direction:column;text-align:center;}
+  .hero-logo-badge{margin-left:auto;margin-right:auto;}
+}
+@media(max-width:520px){
+  .logo-mark{width:40px;height:40px;}
+  .logo-grow{font-size:13.5px;}
+  .logo-solutions{font-size:7.5px;letter-spacing:2.6px;}
 }
 @media(max-width:400px){
   .wheel-box{width:280px;height:280px;}
   .wring{width:280px;height:280px;}
-  .wcenter{width:96px;height:96px;}
-  .wcenter span{font-size:10px;}
+  .wcenter{width:100px;height:100px;}
+  .wcenter img{width:44px;height:44px;}
+  .wcenter span{font-size:9px;}
+  .wcenter small{font-size:7px;}
 }
 </style>
 </head>
@@ -518,23 +568,31 @@ document.addEventListener('keydown',e=>{
 </script>
 
 <nav>
-  <a class="logo" href="#" onclick="showPage('home')">
-    <!-- Diamond "G" Logo SVG — exact match to Concept 4 Bold Wordmark -->
-    <svg class="logo-svg" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="5" y="5" width="28" height="28" rx="6" transform="rotate(45 19 19)" fill="url(#logoGrad)"/>
-      <text x="19" y="24" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-weight="900" font-size="16" fill="white">G</text>
+  <a class="logo" href="#" onclick="showPage('home')" title="GrowTogether Solution — Growing Together, Winning Together.">
+    <!-- PRIMARY: your real logo file -->
+    <img src="logo.png" class="logo-mark" alt="Grow Together Solution" onerror="this.classList.add('failed')">
+    <!-- FALLBACK: vector recreation, shows only if logo.png is missing -->
+    <svg class="logo-fallback logo-mark" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M78 30a34 34 0 1 0 6 20H54" stroke="url(#gGrad)" stroke-width="11" stroke-linecap="round" fill="none"/>
+      <circle cx="50" cy="34" r="7" fill="url(#gGrad)"/>
+      <path d="M35 47c5 5 10 7 15 7s10-2 15-7M50 44v18M43 74l7-12 7 12" stroke="url(#gGrad)" stroke-width="6" stroke-linecap="round" fill="none"/>
+      <path d="M20 82C40 78 66 62 82 26" stroke="url(#aGrad)" stroke-width="9" stroke-linecap="round" fill="none"/>
+      <path d="M62 18h26v26z" fill="url(#aGrad)"/>
       <defs>
-        <linearGradient id="logoGrad" x1="5" y1="5" x2="33" y2="33" gradientUnits="userSpaceOnUse">
-          <stop offset="0%" stop-color="#38bdf8"/>
-          <stop offset="100%" stop-color="#0369a1"/>
+        <linearGradient id="gGrad" x1="15" y1="10" x2="90" y2="92" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#4a7fc1"/><stop offset="1" stop-color="#1e3a6e"/>
+        </linearGradient>
+        <linearGradient id="aGrad" x1="20" y1="82" x2="88" y2="18" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#f5e6c8"/><stop offset=".55" stop-color="#d9b877"/><stop offset="1" stop-color="#b8894a"/>
         </linearGradient>
       </defs>
     </svg>
     <div class="logo-text-wrap">
-      <span class="logo-grow">GROW</span>
-      <span class="logo-together">TOGETHER</span>
-      <span class="logo-solutions">SOLUTIONS</span>
+      <span class="logo-grow">GROW <span class="lg-accent">TOGETHER</span></span>
+      <span class="logo-solutions">S O L U T I O N</span>
+      <span class="logo-tagline">Growing Together, Winning Together.</span>
     </div>
+    <span class="logo-underline"></span>
   </a>
   <ul class="nav-links">
     <li><a onclick="showPage('home')" class="active" id="nav-home">Home</a></li>
@@ -545,7 +603,7 @@ document.addEventListener('keydown',e=>{
   </ul>
   <div class="nav-btns">
     <a href="https://www.instagram.com/grow_together_solution" target="_blank" class="n-insta" style="background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);color:#fff;padding:8px 16px;border-radius:9px;font-size:12.5px;font-weight:700;text-decoration:none;display:flex;align-items:center;gap:6px;transition:filter .2s;" onmouseover="this.style.filter='brightness(1.1)'" onmouseout="this.style.filter='none'"><svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg> Instagram</a>
-    <a href="https://wa.me/919979701232" target="_blank" class="n-wa">💬 WhatsApp</a>
+    <a href="https://wa.me/919979701232" target="_blank" class="n-wa">&#128172; WhatsApp</a>
     <a href="#" onclick="showPage('contact')" class="n-cta">Free Consultation</a>
   </div>
   <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()">
@@ -554,14 +612,14 @@ document.addEventListener('keydown',e=>{
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
-  <a onclick="showPage('home');closeMobileMenu()" id="mnav-home">🏠 Home</a>
-  <a onclick="showPage('about');closeMobileMenu()" id="mnav-about">👤 About Us</a>
-  <a onclick="showPage('services');closeMobileMenu()" id="mnav-services">⚙️ Services</a>
-  <a onclick="showPage('portfolio');closeMobileMenu()" id="mnav-portfolio">📁 Portfolio</a>
-  <a onclick="showPage('contact');closeMobileMenu()" id="mnav-contact">✉️ Contact</a>
-  <a href="https://www.instagram.com/grow_together_solution" target="_blank" style="background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);color:#fff;padding:11px 16px;border-radius:10px;font-size:14px;font-weight:600;text-decoration:none;display:flex;align-items:center;gap:6px;margin-top:4px;">📸 Follow on Instagram</a>
-  <a href="https://wa.me/919979701232" target="_blank" class="mob-wa">💬 WhatsApp Us</a>
-  <a onclick="showPage('contact');closeMobileMenu()" class="mob-cta">🚀 Free Consultation</a>
+  <a onclick="showPage('home');closeMobileMenu()" id="mnav-home">&#127968; Home</a>
+  <a onclick="showPage('about');closeMobileMenu()" id="mnav-about">&#128100; About Us</a>
+  <a onclick="showPage('services');closeMobileMenu()" id="mnav-services">&#9881;&#65039; Services</a>
+  <a onclick="showPage('portfolio');closeMobileMenu()" id="mnav-portfolio">&#128193; Portfolio</a>
+  <a onclick="showPage('contact');closeMobileMenu()" id="mnav-contact">&#9993;&#65039; Contact</a>
+  <a href="https://www.instagram.com/grow_together_solution" target="_blank" style="background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);color:#fff;padding:11px 16px;border-radius:10px;font-size:14px;font-weight:600;text-decoration:none;display:flex;align-items:center;gap:6px;margin-top:4px;">&#128248; Follow on Instagram</a>
+  <a href="https://wa.me/919979701232" target="_blank" class="mob-wa">&#128172; WhatsApp Us</a>
+  <a onclick="showPage('contact');closeMobileMenu()" class="mob-cta">&#128640; Free Consultation</a>
 </div>
 
 <div class="pages">
@@ -571,12 +629,19 @@ document.addEventListener('keydown',e=>{
 <div class="home-wrap">
   <div class="hero">
     <div class="hero-l reveal-l">
-      <div class="hero-eyebrow">🌍 Serving clients across India & worldwide</div>
-      <h1 class="hero-h1">Business Growth &<br><em>Support Services</em></h1>
+      <div class="hero-logo-badge">
+        <img src="logo.png" alt="Grow Together Solution" onerror="this.style.display='none'">
+        <div class="hlb-txt">
+          <div class="hlb-name">GROW TOGETHER SOLUTION</div>
+          <div class="hlb-tag">Growing Together, Winning Together.</div>
+        </div>
+      </div>
+      <div class="hero-eyebrow">&#127758; Serving clients across India &amp; worldwide</div>
+      <h1 class="hero-h1">Business Growth &amp;<br><em>Support Services</em></h1>
       <div class="typing-wrap">We specialize in <span id="typingText"></span></div>
       <p class="hero-sub">Helping businesses grow with strategy, digital execution, staff training, and complete back-office operations — from idea to result.</p>
       <div class="hero-btns">
-        <a href="#" onclick="showPage('contact')" class="btn-primary">🚀 Get Free Consultation</a>
+        <a href="#" onclick="showPage('contact')" class="btn-primary">&#128640; Get Free Consultation</a>
         <a href="https://wa.me/919979701232" target="_blank" class="btn-wa">
           <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
           Chat on WhatsApp
@@ -595,19 +660,20 @@ document.addEventListener('keydown',e=>{
     </div>
     <div class="hero-r reveal-r">
       <div class="metrics-card">
-        <div class="mc-label">📊 Business Performance Dashboard</div>
+        <img src="logo.png" class="mc-watermark" alt="" onerror="this.style.display='none'">
+        <div class="mc-label">&#128202; Business Performance Dashboard</div>
         <div class="mc-grid">
           <div class="mc-item"><div class="mc-n">30+</div><div class="mc-sub">Projects Done</div></div>
           <div class="mc-item"><div class="mc-n">20+</div><div class="mc-sub">Happy Clients</div></div>
           <div class="mc-item"><div class="mc-n">6+</div><div class="mc-sub">Years Exp.</div></div>
-          <div class="mc-item"><div class="mc-n">5★</div><div class="mc-sub">Rating</div></div>
+          <div class="mc-item"><div class="mc-n">5&#9733;</div><div class="mc-sub">Rating</div></div>
         </div>
         <div class="mc-divider"></div>
         <div class="mc-services">
-          <div class="mc-svc"><span class="mc-svc-name">🎯 Business Strategy</span><span class="mc-svc-tag green">Active</span></div>
-          <div class="mc-svc"><span class="mc-svc-name">🎓 Staff Training</span><span class="mc-svc-tag green">Active</span></div>
-          <div class="mc-svc"><span class="mc-svc-name">💼 CRM Development</span><span class="mc-svc-tag green">Active</span></div>
-          <div class="mc-svc"><span class="mc-svc-name">📱 Social Media</span><span class="mc-svc-tag amber">New Slots</span></div>
+          <div class="mc-svc"><span class="mc-svc-name">&#127919; Business Strategy</span><span class="mc-svc-tag green">Active</span></div>
+          <div class="mc-svc"><span class="mc-svc-name">&#127891; Staff Training</span><span class="mc-svc-tag green">Active</span></div>
+          <div class="mc-svc"><span class="mc-svc-name">&#128188; CRM Development</span><span class="mc-svc-tag green">Active</span></div>
+          <div class="mc-svc"><span class="mc-svc-name">&#128241; Social Media</span><span class="mc-svc-tag amber">New Slots</span></div>
         </div>
         <a href="https://wa.me/919979701232" target="_blank" class="mc-cta">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
@@ -621,11 +687,17 @@ document.addEventListener('keydown',e=>{
     <div class="section-title reveal">3 Pillars of Everything We Do</div>
     <div class="section-sub reveal">End-to-end business solutions — from strategy to execution.</div>
     <div class="pillars-grid">
-      <div class="pillar p1 reveal"><div class="pillar-ic">📈</div><h3>Business Strategy & Planning</h3><p>Analyze your business, identify growth opportunities, and create actionable strategies that deliver results.</p><ul class="pillar-list"><li>Market & competitor analysis</li><li>Revenue growth planning</li><li>Actionable roadmaps</li></ul></div>
-      <div class="pillar p2 reveal" style="transition-delay:.1s"><div class="pillar-ic">🎓</div><h3>Staff Training & Motivation</h3><p>Train your team on digital tools, processes, and soft skills — for groups of 5 to 1000+ employees.</p><ul class="pillar-list"><li>CRM & software training</li><li>Leadership workshops</li><li>Team productivity programs</li></ul></div>
-      <div class="pillar p3 reveal" style="transition-delay:.2s"><div class="pillar-ic">🚀</div><h3>Business Growth Consulting</h3><p>End-to-end consulting — from idea to execution. Implement solutions that scale with your business.</p><ul class="pillar-list"><li>Process optimization</li><li>Sales & marketing setup</li><li>Back-office operations</li></ul></div>
+      <div class="pillar p1 reveal"><div class="pillar-ic">&#128200;</div><h3>Business Strategy &amp; Planning</h3><p>Analyze your business, identify growth opportunities, and create actionable strategies that deliver results.</p><ul class="pillar-list"><li>Market &amp; competitor analysis</li><li>Revenue growth planning</li><li>Actionable roadmaps</li></ul></div>
+      <div class="pillar p2 reveal" style="transition-delay:.1s"><div class="pillar-ic">&#127891;</div><h3>Staff Training &amp; Motivation</h3><p>Train your team on digital tools, processes, and soft skills — for groups of 5 to 1000+ employees.</p><ul class="pillar-list"><li>CRM &amp; software training</li><li>Leadership workshops</li><li>Team productivity programs</li></ul></div>
+      <div class="pillar p3 reveal" style="transition-delay:.2s"><div class="pillar-ic">&#128640;</div><h3>Business Growth Consulting</h3><p>End-to-end consulting — from idea to execution. Implement solutions that scale with your business.</p><ul class="pillar-list"><li>Process optimization</li><li>Sales &amp; marketing setup</li><li>Back-office operations</li></ul></div>
     </div>
-    <div class="global-banner reveal"><span style="font-size:24px">🌍</span><p>Serving clients across <strong>India</strong> and <strong>worldwide</strong> — USA, UK, UAE, Australia and more.</p><a href="#" onclick="showPage('contact')">Get Free Consultation →</a></div>
+    <div class="global-banner reveal"><span style="font-size:24px">&#127758;</span><p>Serving clients across <strong>India</strong> and <strong>worldwide</strong> — USA, UK, UAE, Australia and more.</p><a href="#" onclick="showPage('contact')">Get Free Consultation &rarr;</a></div>
+  </div>
+  <div class="site-footer on-dark">
+    <img src="logo.png" alt="Grow Together Solution" onerror="this.style.display='none'">
+    <div class="sf-name">GROW TOGETHER SOLUTION</div>
+    <div class="sf-tag">Growing Together, Winning Together.</div>
+    <div class="sf-copy">&copy; 2026 GrowTogether Solutions · Rajkot, Gujarat, India</div>
   </div>
 </div>
 </div>
@@ -639,12 +711,12 @@ document.addEventListener('keydown',e=>{
     <p class="page-sub">6+ years of hands-on experience helping businesses grow — built on real projects, real clients, and real results.</p>
   </div>
   <div class="email-card reveal">
-    <div class="ec-icon">📧</div>
+    <div class="ec-icon">&#128231;</div>
     <div class="ec-info">
       <div class="ec-label">Official Email</div>
       <div class="ec-email">gtogethersolution@gmail.com</div>
     </div>
-    <a href="mailto:gtogethersolution@gmail.com" style="background:linear-gradient(135deg,#0ea5e9,#0369a1);color:#fff;padding:10px 20px;border-radius:9px;font-size:13px;font-weight:700;text-decoration:none;white-space:nowrap;">✉️ Email Us</a>
+    <a href="mailto:gtogethersolution@gmail.com" style="background:linear-gradient(135deg,#0ea5e9,#0369a1);color:#fff;padding:10px 20px;border-radius:9px;font-size:13px;font-weight:700;text-decoration:none;white-space:nowrap;">&#9993;&#65039; Email Us</a>
   </div>
   <div class="about-kpi-row">
     <div class="kpi reveal"><div class="kpi-n">6+</div><div class="kpi-l">Years Experience</div></div>
@@ -655,116 +727,125 @@ document.addEventListener('keydown',e=>{
   <div class="founder-card reveal">
     <div class="founder-photo-col">
       <div class="founder-photo">
-        <span class="mono">GT</span>
+        <img src="logo.png" alt="Grow Together Solution" onerror="this.outerHTML='<span class=\'mono\'>GT</span>'">
       </div>
       <div class="online-dot">Available Now</div>
       <div class="founder-chips">
-        <div class="f-chip">📍 Rajkot, Gujarat</div>
-        <div class="f-chip">🌐 Hindi & English</div>
-        <div class="f-chip">⭐ 5.0 Rating</div>
-        <div class="f-chip">🎓 6+ Years Exp.</div>
+        <div class="f-chip">&#128205; Rajkot, Gujarat</div>
+        <div class="f-chip">&#127760; Hindi &amp; English</div>
+        <div class="f-chip">&#11088; 5.0 Rating</div>
+        <div class="f-chip">&#127891; 6+ Years Exp.</div>
       </div>
     </div>
     <div class="founder-info">
       <h3>GrowTogether Solutions</h3>
-      <div class="founder-role-tag">Business Growth Consultancy & Digital Services — Rajkot, Gujarat</div>
+      <div class="founder-role-tag">Business Growth Consultancy &amp; Digital Services — Rajkot, Gujarat</div>
       <p>Built on 6+ years of self-driven, hands-on expertise — through real-world projects, continuous learning, and deep immersion across multiple sectors. Every skill on this team has been earned in the field, not just the classroom.</p>
       <p>Clients include startups, growing businesses, and established companies across India and globally. The approach is simple: become a part of your team, understand your goals completely, and deliver results that actually move the needle.</p>
       <p>What makes GrowTogether Solutions different is commitment to outcomes — not just deliverables. Every project runs with full dedication, clear communication, and zero surprises.</p>
       <div class="tools-row">
-        <span class="tool-tag">🎨 Canva Pro</span><span class="tool-tag">📊 MS Excel</span><span class="tool-tag">💼 CRM Systems</span><span class="tool-tag">📧 Mailchimp</span><span class="tool-tag">📝 Notion</span><span class="tool-tag">🖥️ PowerPoint</span><span class="tool-tag">🌐 Google Workspace</span>
+        <span class="tool-tag">&#127912; Canva Pro</span><span class="tool-tag">&#128202; MS Excel</span><span class="tool-tag">&#128188; CRM Systems</span><span class="tool-tag">&#128231; Mailchimp</span><span class="tool-tag">&#128221; Notion</span><span class="tool-tag">&#128421;&#65039; PowerPoint</span><span class="tool-tag">&#127760; Google Workspace</span>
       </div>
     </div>
   </div>
-  <div class="divider-line"><div class="divider-inner">Our Story & Mission</div></div>
+  <div class="divider-line"><div class="divider-inner">Our Story &amp; Mission</div></div>
   <div class="mission-grid">
     <div class="mission-card reveal">
-      <div class="mission-ic">🌱</div>
+      <div class="mission-ic">&#127793;</div>
       <h4>How It Started</h4>
       <p>GrowTogether Solutions began with a simple belief — small and growing businesses deserve the same level of strategic support that big companies take for granted. What started as freelance project work turned into long-term partnerships, as clients kept coming back not for one-off tasks, but for someone who understood their business as their own.</p>
     </div>
     <div class="mission-card reveal" style="transition-delay:.1s">
-      <div class="mission-ic">🎯</div>
+      <div class="mission-ic">&#127919;</div>
       <h4>Our Mission</h4>
       <p>To help businesses — whether a 5-person startup or a growing established company — get the strategy, systems, and skilled team they need to scale, without the cost or complexity of building an in-house department from scratch.</p>
     </div>
     <div class="mission-card reveal" style="transition-delay:.2s">
-      <div class="mission-ic">🤝</div>
+      <div class="mission-ic">&#129309;</div>
       <h4>How We Work</h4>
       <p>No templates, no one-size-fits-all packages. Every engagement starts with understanding your specific goals, then building a plan around it — whether that's a CRM, a training session, or a complete growth strategy.</p>
     </div>
   </div>
   <div class="divider-line"><div class="divider-inner">Why Clients Trust Us</div></div>
   <div class="why-grid">
-    <div class="wy reveal"><div class="wy-ic">🤝</div><h4>Personal Commitment</h4><p>Every client gets full attention — not a template, a real partnership.</p></div>
-    <div class="wy reveal" style="transition-delay:.08s"><div class="wy-ic">🌍</div><h4>India & Global Clients</h4><p>Trusted by businesses across industries, sectors and borders.</p></div>
-    <div class="wy reveal" style="transition-delay:.16s"><div class="wy-ic">⚡</div><h4>Fast, Honest Execution</h4><p>Clear timelines, transparent pricing, zero hidden surprises.</p></div>
-    <div class="wy reveal" style="transition-delay:.24s"><div class="wy-ic">📈</div><h4>Outcome Focused</h4><p>Success measured by your growth, not just by deliverables.</p></div>
+    <div class="wy reveal"><div class="wy-ic">&#129309;</div><h4>Personal Commitment</h4><p>Every client gets full attention — not a template, a real partnership.</p></div>
+    <div class="wy reveal" style="transition-delay:.08s"><div class="wy-ic">&#127758;</div><h4>India &amp; Global Clients</h4><p>Trusted by businesses across industries, sectors and borders.</p></div>
+    <div class="wy reveal" style="transition-delay:.16s"><div class="wy-ic">&#9889;</div><h4>Fast, Honest Execution</h4><p>Clear timelines, transparent pricing, zero hidden surprises.</p></div>
+    <div class="wy reveal" style="transition-delay:.24s"><div class="wy-ic">&#128200;</div><h4>Outcome Focused</h4><p>Success measured by your growth, not just by deliverables.</p></div>
   </div>
   <div class="divider-line"><div class="divider-inner">Our Team</div></div>
   <div class="team-banner reveal">
-    <div class="team-ic">👥</div>
+    <div class="team-ic">&#128101;</div>
     <div class="team-content">
       <h4>A Small, Skilled, Always-Learning Team</h4>
       <p>Behind every project is a talented team that stays curious — constantly learning new tools and AI-driven workflows to work faster and smarter for clients. From design to content to CRM development, the team collaborates closely so every deliverable gets the right expertise, not a one-person guess.</p>
     </div>
   </div>
-  <div class="global-banner reveal" style="margin-top:32px;background:linear-gradient(135deg,#0c2d4a,#0a4a7a);"><span style="font-size:24px">💬</span><p>Want to know more about how we can help your business? <strong>Let's talk — first consultation is free.</strong></p><a href="#" onclick="showPage('contact')">Get In Touch →</a></div>
+  <div class="global-banner reveal" style="margin-top:32px;background:linear-gradient(135deg,#0c2d4a,#0a4a7a);"><span style="font-size:24px">&#128172;</span><p>Want to know more about how we can help your business? <strong>Let's talk — first consultation is free.</strong></p><a href="#" onclick="showPage('contact')">Get In Touch &rarr;</a></div>
+  <div class="site-footer">
+    <img src="logo.png" alt="Grow Together Solution" onerror="this.style.display='none'">
+    <div class="sf-name">GROW TOGETHER SOLUTION</div>
+    <div class="sf-tag">Growing Together, Winning Together.</div>
+    <div class="sf-copy">&copy; 2026 GrowTogether Solutions · Rajkot, Gujarat, India</div>
+  </div>
 </div>
 </div>
 
-<!-- SERVICES (now includes Training & Booking) -->
+<!-- SERVICES -->
 <div class="page" id="services-page">
 <div class="inner-wrap">
   <div class="page-header">
-    <div class="page-eyebrow">Our Services & Training</div>
+    <div class="page-eyebrow">Our Services &amp; Training</div>
     <h1 class="page-h1 page-h1-v">8 Powerful Services</h1>
-    <p class="page-sub">From content creation to custom CRM development, plus staff training & motivation sessions — backed by 6+ years of real project experience.</p>
+    <p class="page-sub">From content creation to custom CRM development, plus staff training &amp; motivation sessions — backed by 6+ years of real project experience.</p>
   </div>
   <div class="svc-page-wrap">
     <div class="wheel-box reveal-l">
       <div class="wring" id="wheelRing"></div>
-      <div class="wcenter"><span>8 SERVICES</span><small>6+ Yrs Exp.</small></div>
+      <div class="wcenter">
+        <img src="logo.png" alt="Grow Together Solution" onerror="this.style.display='none'">
+        <span>8 SERVICES</span><small>6+ YRS EXP.</small>
+      </div>
     </div>
     <div class="svc-list-box reveal-r">
       <h3>Everything Your Business Needs</h3>
       <p>Tap any service to learn more — or contact us for a free consultation.</p>
-      <div class="sli" onclick="openServiceModal(0)"><div class="sli-ic" style="background:#e0f2fe">📱</div><div class="sli-t"><h4>Social Media Marketing</h4><p>10 images + 2 videos/month, strategy & growth for all platforms</p></div></div>
-      <div class="sli" onclick="openServiceModal(1)"><div class="sli-ic" style="background:#f0f9ff">✍️</div><div class="sli-t"><h4>Content Writing</h4><p>SEO articles & web copy in Hindi + English</p></div></div>
-      <div class="sli" onclick="openServiceModal(2)"><div class="sli-ic" style="background:#fff7ed">📖</div><div class="sli-t"><h4>Story Writing</h4><p>Brand stories & creative narratives that connect</p></div></div>
-      <div class="sli" onclick="openServiceModal(3)"><div class="sli-ic" style="background:#fefce8">📊</div><div class="sli-t"><h4>PowerPoint / PPT Design</h4><p>Infographic & professional presentations that impress</p></div></div>
-      <div class="sli" onclick="openServiceModal(4)"><div class="sli-ic" style="background:#eff6ff">🗄️</div><div class="sli-t"><h4>Data Management</h4><p>Organize & manage your business data efficiently</p></div></div>
-      <div class="sli" onclick="openServiceModal(5)"><div class="sli-ic" style="background:#e0f2fe">📧</div><div class="sli-t"><h4>Email Writing & Handling</h4><p>Newsletters, cold outreach & inbox management</p></div></div>
-      <div class="sli" onclick="openServiceModal(6)"><div class="sli-ic" style="background:#e0f2fe">💼</div><div class="sli-t"><h4>CRM Software & Setup</h4><p>Custom CRM systems built for your business growth</p></div></div>
-      <div class="sli" onclick="openServiceModal(7)"><div class="sli-ic" style="background:#f0fdfa">🌐</div><div class="sli-t"><h4>Website Development</h4><p>As per your requirement, we'll build the website you need</p></div></div>
+      <div class="sli" onclick="openServiceModal(0)"><div class="sli-ic" style="background:#e0f2fe">&#128241;</div><div class="sli-t"><h4>Social Media Marketing</h4><p>10 images + 2 videos/month, strategy &amp; growth for all platforms</p></div></div>
+      <div class="sli" onclick="openServiceModal(1)"><div class="sli-ic" style="background:#f0f9ff">&#9997;&#65039;</div><div class="sli-t"><h4>Content Writing</h4><p>SEO articles &amp; web copy in Hindi + English</p></div></div>
+      <div class="sli" onclick="openServiceModal(2)"><div class="sli-ic" style="background:#fff7ed">&#128214;</div><div class="sli-t"><h4>Story Writing</h4><p>Brand stories &amp; creative narratives that connect</p></div></div>
+      <div class="sli" onclick="openServiceModal(3)"><div class="sli-ic" style="background:#fefce8">&#128202;</div><div class="sli-t"><h4>PowerPoint / PPT Design</h4><p>Infographic &amp; professional presentations that impress</p></div></div>
+      <div class="sli" onclick="openServiceModal(4)"><div class="sli-ic" style="background:#eff6ff">&#128452;&#65039;</div><div class="sli-t"><h4>Data Management</h4><p>Organize &amp; manage your business data efficiently</p></div></div>
+      <div class="sli" onclick="openServiceModal(5)"><div class="sli-ic" style="background:#e0f2fe">&#128231;</div><div class="sli-t"><h4>Email Writing &amp; Handling</h4><p>Newsletters, cold outreach &amp; inbox management</p></div></div>
+      <div class="sli" onclick="openServiceModal(6)"><div class="sli-ic" style="background:#e0f2fe">&#128188;</div><div class="sli-t"><h4>CRM Software &amp; Setup</h4><p>Custom CRM systems built for your business growth</p></div></div>
+      <div class="sli" onclick="openServiceModal(7)"><div class="sli-ic" style="background:#f0fdfa">&#127760;</div><div class="sli-t"><h4>Website Development</h4><p>As per your requirement, we'll build the website you need</p></div></div>
     </div>
   </div>
   <div class="divider-line"><div class="divider-inner">Staff Training</div></div>
   <div class="training-stats reveal">
     <div class="ts-item"><div class="ts-n ts-accent">50+</div><div class="ts-l">Sessions Done</div></div>
     <div class="ts-item"><div class="ts-n">500+</div><div class="ts-l">Professionals</div></div>
-    <div class="ts-item"><div class="ts-n ts-accent">5★</div><div class="ts-l">Feedback</div></div>
-    <div class="ts-item"><div class="ts-n">Hindi</div><div class="ts-l">& English</div></div>
+    <div class="ts-item"><div class="ts-n ts-accent">5&#9733;</div><div class="ts-l">Feedback</div></div>
+    <div class="ts-item"><div class="ts-n">Hindi</div><div class="ts-l">&amp; English</div></div>
     <div class="ts-item"><div class="ts-n ts-accent">Any</div><div class="ts-l">Team Size</div></div>
   </div>
   <div class="divider-line"><div class="divider-inner">Training Specialities</div></div>
   <div class="spec-grid">
-    <div class="spec-card sc-mot reveal"><div class="sc-head"><div class="sc-icon">🔥</div><span class="sc-card-type">Motivation</span></div><div class="sc-title">Staff Motivation Sessions</div><div class="sc-desc">Powerful sessions that energize teams, boost morale, and build a winning mindset. Real stories, proven exercises, techniques that create lasting motivation.</div><div class="sc-tags"><span class="sc-tag">Team Morale</span><span class="sc-tag">Winning Mindset</span><span class="sc-tag">Goal Setting</span><span class="sc-tag">Energy Sessions</span></div></div>
-    <div class="spec-card sc-str reveal" style="transition-delay:.1s"><div class="sc-head"><div class="sc-icon">🎓</div><span class="sc-card-type">Staff Training</span></div><div class="sc-title">Staff & Team Training</div><div class="sc-desc">Hands-on training for teams of any size — 5 to 1000+ employees. Complex topics into clear lessons covering digital tools, communication, and operational skills.</div><div class="sc-tags"><span class="sc-tag">Digital Skills</span><span class="sc-tag">Communication</span><span class="sc-tag">Productivity</span><span class="sc-tag">Any Team Size</span></div></div>
-    <div class="spec-card sc-lif reveal" style="transition-delay:.15s"><div class="sc-head"><div class="sc-icon">💡</div><span class="sc-card-type">Personal Growth</span></div><div class="sc-title">Life Lessons & Growth</div><div class="sc-desc">Sessions on discipline, resilience, and habits for success. Real experiences that help individuals grow professionally and personally.</div><div class="sc-tags"><span class="sc-tag">Discipline</span><span class="sc-tag">Resilience</span><span class="sc-tag">Success Habits</span><span class="sc-tag">Personal Growth</span></div></div>
-    <div class="spec-card sc-bus reveal" style="transition-delay:.2s"><div class="sc-head"><div class="sc-icon">🚀</div><span class="sc-card-type">Business Dev</span></div><div class="sc-title">Business Development Training</div><div class="sc-desc">Strategic sessions on sales, client acquisition, marketing, and operations. Training entrepreneurs and teams to think like business leaders.</div><div class="sc-tags"><span class="sc-tag">Sales Strategy</span><span class="sc-tag">Leadership</span><span class="sc-tag">Entrepreneur Mindset</span><span class="sc-tag">Execution</span></div></div>
+    <div class="spec-card sc-mot reveal"><div class="sc-head"><div class="sc-icon">&#128293;</div><span class="sc-card-type">Motivation</span></div><div class="sc-title">Staff Motivation Sessions</div><div class="sc-desc">Powerful sessions that energize teams, boost morale, and build a winning mindset. Real stories, proven exercises, techniques that create lasting motivation.</div><div class="sc-tags"><span class="sc-tag">Team Morale</span><span class="sc-tag">Winning Mindset</span><span class="sc-tag">Goal Setting</span><span class="sc-tag">Energy Sessions</span></div></div>
+    <div class="spec-card sc-str reveal" style="transition-delay:.1s"><div class="sc-head"><div class="sc-icon">&#127891;</div><span class="sc-card-type">Staff Training</span></div><div class="sc-title">Staff &amp; Team Training</div><div class="sc-desc">Hands-on training for teams of any size — 5 to 1000+ employees. Complex topics into clear lessons covering digital tools, communication, and operational skills.</div><div class="sc-tags"><span class="sc-tag">Digital Skills</span><span class="sc-tag">Communication</span><span class="sc-tag">Productivity</span><span class="sc-tag">Any Team Size</span></div></div>
+    <div class="spec-card sc-lif reveal" style="transition-delay:.15s"><div class="sc-head"><div class="sc-icon">&#128161;</div><span class="sc-card-type">Personal Growth</span></div><div class="sc-title">Life Lessons &amp; Growth</div><div class="sc-desc">Sessions on discipline, resilience, and habits for success. Real experiences that help individuals grow professionally and personally.</div><div class="sc-tags"><span class="sc-tag">Discipline</span><span class="sc-tag">Resilience</span><span class="sc-tag">Success Habits</span><span class="sc-tag">Personal Growth</span></div></div>
+    <div class="spec-card sc-bus reveal" style="transition-delay:.2s"><div class="sc-head"><div class="sc-icon">&#128640;</div><span class="sc-card-type">Business Dev</span></div><div class="sc-title">Business Development Training</div><div class="sc-desc">Strategic sessions on sales, client acquisition, marketing, and operations. Training entrepreneurs and teams to think like business leaders.</div><div class="sc-tags"><span class="sc-tag">Sales Strategy</span><span class="sc-tag">Leadership</span><span class="sc-tag">Entrepreneur Mindset</span><span class="sc-tag">Execution</span></div></div>
   </div>
   <div id="booking-section">
     <div class="divider-line"><div class="divider-inner">Book a Session</div></div>
     <div class="booking-box reveal">
-      <h3>📅 Book a Training Session</h3>
+      <h3>&#128197; Book a Training Session</h3>
       <p>Select a date and time slot. Mon–Sat, 11 AM – 5 PM. Final confirmation via email.</p>
       <div class="booking-layout">
         <div class="cal-wrap">
           <div class="cal-header">
-            <button class="cal-nav-btn" onclick="bChangeMonth(-1)">‹</button>
+            <button class="cal-nav-btn" onclick="bChangeMonth(-1)">&lsaquo;</button>
             <span class="cal-title-txt" id="bCalTitle"></span>
-            <button class="cal-nav-btn" onclick="bChangeMonth(1)">›</button>
+            <button class="cal-nav-btn" onclick="bChangeMonth(1)">&rsaquo;</button>
           </div>
           <div class="cal-days-grid" id="bCalGrid"></div>
           <div class="slots-wrap" id="bSlotsWrap" style="display:none">
@@ -779,40 +860,46 @@ document.addEventListener('keydown',e=>{
           <div class="bfg"><label>Email *</label><input type="email" id="bEmail" placeholder="your@email.com"></div>
           <div class="bfg"><label>WhatsApp *</label><input type="tel" id="bPhone" placeholder="+91 99797 01232"></div>
           <div class="bfg"><label>Topic / Message</label><textarea id="bTopic" placeholder="What would you like to learn?"></textarea></div>
-          <div class="binfo-note">📋 Booking summary sent to your email. Final confirmation via email from our team.</div>
-          <button class="bsub-btn" id="bSubmitBtn" onclick="bSubmit()" disabled>📩 Send Booking Request</button>
-          <div class="bsuccess" id="bSuccess"><div class="bsi">✅</div><h4>Booking Request Sent!</h4><p id="bSuccessMsg"></p></div>
+          <div class="binfo-note">&#128203; Booking summary sent to your email. Final confirmation via email from our team.</div>
+          <button class="bsub-btn" id="bSubmitBtn" onclick="bSubmit()" disabled>&#128233; Send Booking Request</button>
+          <div class="bsuccess" id="bSuccess"><div class="bsi">&#9989;</div><h4>Booking Request Sent!</h4><p id="bSuccessMsg"></p></div>
         </div>
       </div>
     </div>
   </div>
-  <div style="margin-bottom:48px;">
+  <div style="margin-bottom:48px;margin-top:48px;">
     <div class="section-label" style="color:#0284c7">How It Works</div>
     <div class="section-title" style="color:#0c2d4a;margin-bottom:8px">4 Simple Steps</div>
     <p style="font-size:14px;color:var(--mute);margin-bottom:36px">From first contact to final delivery — transparent process.</p>
     <div class="steps-row">
-      <div class="step reveal"><div class="step-num">💬</div><div class="step-badge">Step 01</div><h4>You Contact Us</h4><p>WhatsApp, email, or form — we reply within 2 hours.</p></div>
-      <div class="step reveal" style="transition-delay:.1s"><div class="step-num">📋</div><div class="step-badge">Step 02</div><h4>We Understand</h4><p>We listen and send a clear proposal within 24 hours.</p></div>
-      <div class="step reveal" style="transition-delay:.2s"><div class="step-num">⚡</div><div class="step-badge">Step 03</div><h4>We Execute</h4><p>Work starts with regular updates. Revisions included.</p></div>
-      <div class="step reveal" style="transition-delay:.3s"><div class="step-num">🏆</div><div class="step-badge">Step 04</div><h4>You Get Results</h4><p>Final delivery + 7-day support at no extra charge.</p></div>
+      <div class="step reveal"><div class="step-num">&#128172;</div><div class="step-badge">Step 01</div><h4>You Contact Us</h4><p>WhatsApp, email, or form — we reply within 2 hours.</p></div>
+      <div class="step reveal" style="transition-delay:.1s"><div class="step-num">&#128203;</div><div class="step-badge">Step 02</div><h4>We Understand</h4><p>We listen and send a clear proposal within 24 hours.</p></div>
+      <div class="step reveal" style="transition-delay:.2s"><div class="step-num">&#9889;</div><div class="step-badge">Step 03</div><h4>We Execute</h4><p>Work starts with regular updates. Revisions included.</p></div>
+      <div class="step reveal" style="transition-delay:.3s"><div class="step-num">&#127942;</div><div class="step-badge">Step 04</div><h4>You Get Results</h4><p>Final delivery + 7-day support at no extra charge.</p></div>
     </div>
   </div>
   <div style="margin-bottom:48px;">
     <div class="global-banner reveal" style="background:linear-gradient(135deg,#0c2d4a,#0a4a7a);">
-      <span style="font-size:28px">💬</span>
+      <span style="font-size:28px">&#128172;</span>
       <p><strong>Affordable Plans for Every Business Size</strong><br>Custom packages available — Contact us for a free quote. No commitment needed!</p>
-      <a href="https://wa.me/919979701232?text=Hello GrowTogether Team, I want to know about your pricing and packages." target="_blank">Get Free Quote →</a>
+      <a href="https://wa.me/919979701232?text=Hello%20GrowTogether%20Team%2C%20I%20want%20to%20know%20about%20your%20pricing%20and%20packages." target="_blank">Get Free Quote &rarr;</a>
     </div>
   </div>
   <div>
     <div class="section-label" style="color:#0284c7">Why Choose Us</div>
     <div class="section-title" style="color:#0c2d4a;margin-bottom:28px">4 Reasons Clients Stay</div>
     <div class="why-grid">
-      <div class="wy reveal"><div class="wy-ic">🎯</div><h4>Personalized Solutions</h4><p>Custom plan for every client — no templates, no shortcuts.</p></div>
-      <div class="wy reveal" style="transition-delay:.08s"><div class="wy-ic">💰</div><h4>Transparent Pricing</h4><p>Premium quality at budget-friendly rates. Zero hidden costs.</p></div>
-      <div class="wy reveal" style="transition-delay:.16s"><div class="wy-ic">⚡</div><h4>Fast Execution</h4><p>Projects start within 24 hours, always delivered on time.</p></div>
-      <div class="wy reveal" style="transition-delay:.24s"><div class="wy-ic">🤝</div><h4>End-to-End Support</h4><p>Planning to delivery — every step, we're with you.</p></div>
+      <div class="wy reveal"><div class="wy-ic">&#127919;</div><h4>Personalized Solutions</h4><p>Custom plan for every client — no templates, no shortcuts.</p></div>
+      <div class="wy reveal" style="transition-delay:.08s"><div class="wy-ic">&#128176;</div><h4>Transparent Pricing</h4><p>Premium quality at budget-friendly rates. Zero hidden costs.</p></div>
+      <div class="wy reveal" style="transition-delay:.16s"><div class="wy-ic">&#9889;</div><h4>Fast Execution</h4><p>Projects start within 24 hours, always delivered on time.</p></div>
+      <div class="wy reveal" style="transition-delay:.24s"><div class="wy-ic">&#129309;</div><h4>End-to-End Support</h4><p>Planning to delivery — every step, we're with you.</p></div>
     </div>
+  </div>
+  <div class="site-footer">
+    <img src="logo.png" alt="Grow Together Solution" onerror="this.style.display='none'">
+    <div class="sf-name">GROW TOGETHER SOLUTION</div>
+    <div class="sf-tag">Growing Together, Winning Together.</div>
+    <div class="sf-copy">&copy; 2026 GrowTogether Solutions · Rajkot, Gujarat, India</div>
   </div>
 </div>
 </div>
@@ -822,25 +909,30 @@ document.addEventListener('keydown',e=>{
 <div class="inner-wrap">
   <div class="page-header">
     <div class="page-eyebrow">Our Work</div>
-    <h1 class="page-h1 page-h1-dark">Portfolio & Projects</h1>
+    <h1 class="page-h1 page-h1-dark">Portfolio &amp; Projects</h1>
     <p class="page-sub">Real projects. Real results. Here's what we've built for our clients.</p>
   </div>
 
   <div class="pgrid">
-    <div class="pc reveal"><div class="pc-prev" style="background:linear-gradient(135deg,#e0f2fe,#bae6fd)">🌐</div><div class="pc-info"><div class="pc-badge" style="background:#e0f2fe;color:#0369a1">WEB DESIGN</div><h3>GrowTogether Solutions — Our Own Website</h3><p>Responsive business website with animated services, portfolio, FAQ, pricing, testimonials, and WhatsApp integration.</p><div class="pc-tags"><span class="pc-tag">HTML/CSS</span><span class="pc-tag">JavaScript</span><span class="pc-tag">Animations</span><span class="pc-tag">SEO Ready</span></div><a href="https://growtogethersolution.co.in" target="_blank" class="pc-link" style="background:#0284c7;color:#fff">🔗 View Live →</a></div></div>
-    <div class="pc reveal"><div class="pc-prev" style="background:linear-gradient(135deg,#0f172a,#1e293b)">🧠</div><div class="pc-info"><div class="pc-badge" style="background:#eff6ff;color:#1d4ed8">PRESENTATION</div><h3>AI & Future of Business — Live Presentation</h3><p>5-slide animated business presentation — opens in browser, no app needed. Live charts, rotating AI ecosystem, cinematic dark theme.</p><div class="pc-tags"><span class="pc-tag">Animated</span><span class="pc-tag">Browser-based</span><span class="pc-tag">Live Charts</span></div><a href="ai-presentation.html" target="_blank" class="pc-link" style="background:linear-gradient(90deg,#0369a1,#0ea5e9);color:#fff">▶ View Presentation →</a></div></div>
-
-    <div class="pc reveal"><div class="pc-prev" style="background:linear-gradient(135deg,#fefce8,#fde68a)">📊</div><div class="pc-info"><div class="pc-badge" style="background:#fefce8;color:#92400e">PPT DESIGN</div><h3>Corporate PPT Sample — Lumina Corp</h3><p>5-slide premium corporate presentation with dark gold theme, charts, team sections, and strategic recommendations.</p><div class="pc-tags"><span class="pc-tag">5 Slides</span><span class="pc-tag">Dark Gold</span><span class="pc-tag">Charts</span></div><a href="#" onclick="showPage('contact')" class="pc-link" style="background:#f59e0b;color:#fff">💬 Request Similar →</a></div></div>
-    <div class="pc reveal"><div class="pc-prev" style="background:linear-gradient(135deg,#e0f2fe,#bae6fd)">💼</div><div class="pc-info"><div class="pc-badge" style="background:#e0f2fe;color:#0369a1">CRM / ERP DEVELOPMENT</div><h3>We Build Custom CRM & ERP Systems</h3><p>We design and develop fully custom CRM and ERP systems as per your business requirement. Whether you need order management, employee tracking, attendance, billing, finance reports or a complete business dashboard — we build it exactly the way you need it.</p><div class="pc-tags"><span class="pc-tag">Custom CRM</span><span class="pc-tag">ERP System</span><span class="pc-tag">Order Pipeline</span><span class="pc-tag">Employee Mgmt</span><span class="pc-tag">Attendance</span><span class="pc-tag">Billing</span><span class="pc-tag">Reports</span><span class="pc-tag">Any Industry</span></div><a href="https://wa.me/919979701232?text=Hello GrowTogether Team, I need a Custom CRM/ERP for my business. Can we discuss the requirements?" target="_blank" class="pc-link" style="background:#0369a1;color:#fff">💬 Discuss Your Requirements →</a></div></div>
+    <div class="pc reveal"><div class="pc-prev" style="background:linear-gradient(135deg,#f8fafc,#e0f2fe)"><img src="logo.png" alt="Grow Together Solution" onerror="this.outerHTML='&#127760;'"></div><div class="pc-info"><div class="pc-badge" style="background:#e0f2fe;color:#0369a1">WEB DESIGN</div><h3>GrowTogether Solutions — Our Own Website</h3><p>Responsive business website with animated services, portfolio, FAQ, pricing, testimonials, and WhatsApp integration.</p><div class="pc-tags"><span class="pc-tag">HTML/CSS</span><span class="pc-tag">JavaScript</span><span class="pc-tag">Animations</span><span class="pc-tag">SEO Ready</span></div><a href="https://growtogethersolution.co.in" target="_blank" class="pc-link" style="background:#0284c7;color:#fff">&#128279; View Live &rarr;</a></div></div>
+    <div class="pc reveal"><div class="pc-prev" style="background:linear-gradient(135deg,#0f172a,#1e293b)">&#129504;</div><div class="pc-info"><div class="pc-badge" style="background:#eff6ff;color:#1d4ed8">PRESENTATION</div><h3>AI &amp; Future of Business — Live Presentation</h3><p>5-slide animated business presentation — opens in browser, no app needed. Live charts, rotating AI ecosystem, cinematic dark theme.</p><div class="pc-tags"><span class="pc-tag">Animated</span><span class="pc-tag">Browser-based</span><span class="pc-tag">Live Charts</span></div><a href="ai-presentation.html" target="_blank" class="pc-link" style="background:linear-gradient(90deg,#0369a1,#0ea5e9);color:#fff">&#9654; View Presentation &rarr;</a></div></div>
+    <div class="pc reveal"><div class="pc-prev" style="background:linear-gradient(135deg,#fefce8,#fde68a)">&#128202;</div><div class="pc-info"><div class="pc-badge" style="background:#fefce8;color:#92400e">PPT DESIGN</div><h3>Corporate PPT Sample — Lumina Corp</h3><p>5-slide premium corporate presentation with dark gold theme, charts, team sections, and strategic recommendations.</p><div class="pc-tags"><span class="pc-tag">5 Slides</span><span class="pc-tag">Dark Gold</span><span class="pc-tag">Charts</span></div><a href="#" onclick="showPage('contact')" class="pc-link" style="background:#b8894a;color:#fff">&#128172; Request Similar &rarr;</a></div></div>
+    <div class="pc reveal"><div class="pc-prev" style="background:linear-gradient(135deg,#e0f2fe,#bae6fd)">&#128188;</div><div class="pc-info"><div class="pc-badge" style="background:#e0f2fe;color:#0369a1">CRM / ERP DEVELOPMENT</div><h3>We Build Custom CRM &amp; ERP Systems</h3><p>We design and develop fully custom CRM and ERP systems as per your business requirement. Whether you need order management, employee tracking, attendance, billing, finance reports or a complete business dashboard — we build it exactly the way you need it.</p><div class="pc-tags"><span class="pc-tag">Custom CRM</span><span class="pc-tag">ERP System</span><span class="pc-tag">Order Pipeline</span><span class="pc-tag">Employee Mgmt</span><span class="pc-tag">Attendance</span><span class="pc-tag">Billing</span><span class="pc-tag">Reports</span><span class="pc-tag">Any Industry</span></div><a href="https://wa.me/919979701232?text=Hello%20GrowTogether%20Team%2C%20I%20need%20a%20Custom%20CRM%2FERP%20for%20my%20business.%20Can%20we%20discuss%20the%20requirements%3F" target="_blank" class="pc-link" style="background:#0369a1;color:#fff">&#128172; Discuss Your Requirements &rarr;</a></div></div>
   </div>
   <div class="platforms-row reveal">
     <p>Available for hire on your preferred platform</p>
     <div class="plat-btns">
-      <a href="https://www.instagram.com/grow_together_solution" target="_blank" style="display:inline-flex;align-items:center;gap:7px;background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);color:#fff;padding:11px 22px;border-radius:9px;font-size:13px;font-weight:700;text-decoration:none">📸 Follow on Instagram</a>
-      <a href="https://www.fiverr.com/meenavargya" target="_blank" style="display:inline-flex;align-items:center;gap:7px;background:#1dbf73;color:#fff;padding:11px 22px;border-radius:9px;font-size:13px;font-weight:700;text-decoration:none">🟢 Hire on Fiverr</a>
-      <a href="https://www.upwork.com/freelancers/~019c0976c7589b668f?mp_source=share" target="_blank" style="display:inline-flex;align-items:center;gap:7px;background:#14a800;color:#fff;padding:11px 22px;border-radius:9px;font-size:13px;font-weight:700;text-decoration:none">✅ Hire on Upwork</a>
-      <a href="https://www.freelancer.com/u/meenavargya" target="_blank" style="display:inline-flex;align-items:center;gap:7px;background:#29b2fe;color:#fff;padding:11px 22px;border-radius:9px;font-size:13px;font-weight:700;text-decoration:none">💼 Hire on Freelancer</a>
+      <a href="https://www.instagram.com/grow_together_solution" target="_blank" style="display:inline-flex;align-items:center;gap:7px;background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);color:#fff;padding:11px 22px;border-radius:9px;font-size:13px;font-weight:700;text-decoration:none">&#128248; Follow on Instagram</a>
+      <a href="https://www.fiverr.com/meenavargya" target="_blank" style="display:inline-flex;align-items:center;gap:7px;background:#1dbf73;color:#fff;padding:11px 22px;border-radius:9px;font-size:13px;font-weight:700;text-decoration:none">&#128994; Hire on Fiverr</a>
+      <a href="https://www.upwork.com/freelancers/~019c0976c7589b668f?mp_source=share" target="_blank" style="display:inline-flex;align-items:center;gap:7px;background:#14a800;color:#fff;padding:11px 22px;border-radius:9px;font-size:13px;font-weight:700;text-decoration:none">&#9989; Hire on Upwork</a>
+      <a href="https://www.freelancer.com/u/meenavargya" target="_blank" style="display:inline-flex;align-items:center;gap:7px;background:#29b2fe;color:#fff;padding:11px 22px;border-radius:9px;font-size:13px;font-weight:700;text-decoration:none">&#128188; Hire on Freelancer</a>
     </div>
+  </div>
+  <div class="site-footer">
+    <img src="logo.png" alt="Grow Together Solution" onerror="this.style.display='none'">
+    <div class="sf-name">GROW TOGETHER SOLUTION</div>
+    <div class="sf-tag">Growing Together, Winning Together.</div>
+    <div class="sf-copy">&copy; 2026 GrowTogether Solutions · Rajkot, Gujarat, India</div>
   </div>
 </div>
 </div>
@@ -858,18 +950,18 @@ document.addEventListener('keydown',e=>{
       <h2>Contact Details</h2>
       <p>We reply within 2 hours on WhatsApp and 24 hours on email. First consultation is always 100% free.</p>
       <div class="contact-chips">
-        <a href="tel:+919979701232" class="cc ph">📞 +91 99797 01232</a>
-        <a href="mailto:gtogethersolution@gmail.com" class="cc em">✉️ gtogethersolution@gmail.com</a>
-        <a href="https://wa.me/919979701232" target="_blank" class="cc wa">💬 WhatsApp — Reply in 2 hrs</a>
-        <a href="https://www.instagram.com/grow_together_solution" target="_blank" class="cc" style="background:linear-gradient(135deg,#fce4ec,#f8bbd0);color:#ad1457;border:1px solid #f48fb1;">📸 @grow_together_solution</a>
+        <a href="tel:+919979701232" class="cc ph">&#128222; +91 99797 01232</a>
+        <a href="mailto:gtogethersolution@gmail.com" class="cc em">&#9993;&#65039; gtogethersolution@gmail.com</a>
+        <a href="https://wa.me/919979701232" target="_blank" class="cc wa">&#128172; WhatsApp — Reply in 2 hrs</a>
+        <a href="https://www.instagram.com/grow_together_solution" target="_blank" class="cc" style="background:linear-gradient(135deg,#fce4ec,#f8bbd0);color:#ad1457;border:1px solid #f48fb1;">&#128248; @grow_together_solution</a>
       </div>
       <div class="loc-box">
-        <div class="lt">📍 Location</div>
-        <p>Rajkot, Gujarat, India<br>Serving clients worldwide 🌍</p>
+        <div class="lt">&#128205; Location</div>
+        <p>Rajkot, Gujarat, India<br>Serving clients worldwide &#127758;</p>
       </div>
       <div class="faq-title">Quick FAQs</div>
       <div class="faq-box">
-        <div class="fi"><div class="fq" onclick="toggleFaq(this)"><span>How quickly do you start?</span><span class="farr">+</span></div><div class="fa">I start within 24 hours of confirmation. Urgent projects — same day.</div></div>
+        <div class="fi"><div class="fq" onclick="toggleFaq(this)"><span>How quickly do you start?</span><span class="farr">+</span></div><div class="fa">We start within 24 hours of confirmation. Urgent projects — same day.</div></div>
         <div class="fi"><div class="fq" onclick="toggleFaq(this)"><span>Do you work with international clients?</span><span class="farr">+</span></div><div class="fa">Yes! USA, UK, UAE, Australia and more. PayPal, Payoneer, Wise accepted.</div></div>
         <div class="fi"><div class="fq" onclick="toggleFaq(this)"><span>Is the first consultation really free?</span><span class="farr">+</span></div><div class="fa">Yes, 100% free. We discuss your needs, no commitment required.</div></div>
         <div class="fi"><div class="fq" onclick="toggleFaq(this)"><span>What payment methods do you accept?</span><span class="farr">+</span></div><div class="fa">UPI, bank transfer (India), PayPal, Payoneer, Wise. 50% advance for new clients.</div></div>
@@ -884,26 +976,32 @@ document.addEventListener('keydown',e=>{
       <div class="fg"><label>Requirement *</label>
         <select required>
           <option value="">What do you need help with?</option>
-          <option>Business Strategy & Planning</option>
-          <option>Staff Training & Motivation</option>
+          <option>Business Strategy &amp; Planning</option>
+          <option>Staff Training &amp; Motivation</option>
           <option>Business Growth Consulting</option>
           <option>Social Media Marketing</option>
           <option>Content Writing</option>
           <option>PowerPoint / PPT Design</option>
-          <option>CRM Software & Setup</option>
+          <option>CRM Software &amp; Setup</option>
           <option>Data Management</option>
-          <option>Email Writing & Handling</option>
+          <option>Email Writing &amp; Handling</option>
           <option>Multiple Services</option>
         </select>
       </div>
       <div class="fg"><label>Tell us more</label><textarea placeholder="Describe your business, goals and timeline..."></textarea></div>
-      <button class="fsub" onclick="submitForm(event)">🚀 Send Message & Get Free Consultation</button>
+      <button class="fsub" onclick="submitForm(event)">&#128640; Send Message &amp; Get Free Consultation</button>
       <div class="smsg" id="formSuccess">
-        <h4>✅ Message Sent!</h4>
+        <h4>&#9989; Message Sent!</h4>
         <p>Thank you! We will reply within 24 hours.</p>
-        <a href="https://wa.me/919979701232" target="_blank" style="display:inline-flex;align-items:center;gap:7px;margin-top:10px;background:#25D366;color:#fff;padding:9px 18px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none">💬 WhatsApp Me Now</a>
+        <a href="https://wa.me/919979701232" target="_blank" style="display:inline-flex;align-items:center;gap:7px;margin-top:10px;background:#25D366;color:#fff;padding:9px 18px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none">&#128172; WhatsApp Us Now</a>
       </div>
     </div>
+  </div>
+  <div class="site-footer">
+    <img src="logo.png" alt="Grow Together Solution" onerror="this.style.display='none'">
+    <div class="sf-name">GROW TOGETHER SOLUTION</div>
+    <div class="sf-tag">Growing Together, Winning Together.</div>
+    <div class="sf-copy">&copy; 2026 GrowTogether Solutions · Rajkot, Gujarat, India</div>
   </div>
 </div>
 </div>
@@ -913,7 +1011,8 @@ document.addEventListener('keydown',e=>{
 <!-- SERVICE MODAL -->
 <div class="svc-modal-overlay" id="svcModalOverlay" onclick="if(event.target===this)closeServiceModal()">
   <div class="svc-modal">
-    <button class="svc-modal-close" onclick="closeServiceModal()">✕</button>
+    <img src="logo.png" class="svc-modal-logo" alt="" onerror="this.style.display='none'">
+    <button class="svc-modal-close" onclick="closeServiceModal()">&#10005;</button>
     <div class="svc-modal-icon" id="svcModalIcon"></div>
     <div class="svc-modal-tag" id="svcModalTag"></div>
     <h3 id="svcModalTitle"></h3>
@@ -959,10 +1058,11 @@ function onScroll(){
   });
 }
 setTimeout(triggerReveal,300);
+
 let wheelInited=false;
 function initWheel(){
   if(wheelInited)return;wheelInited=true;
-  const svcs=[{e:"📱",l:"Social Media",c:"#0369a1",b:"#e0f2fe"},{e:"✍️",l:"Content",c:"#0369a1",b:"#f0f9ff"},{e:"📖",l:"Stories",c:"#d97706",b:"#fff7ed"},{e:"📊",l:"PPT Design",c:"#d97706",b:"#fefce8"},{e:"🗄️",l:"Data Mgmt",c:"#2563eb",b:"#eff6ff"},{e:"📧",l:"Email Mgmt",c:"#0284c7",b:"#e0f2fe"},{e:"💼",l:"CRM Setup",c:"#0369a1",b:"#e0f2fe"},{e:"🌐",l:"Web Dev",c:"#0d9488",b:"#f0fdfa"}];
+  const svcs=[{e:"\uD83D\uDCF1",l:"Social Media",c:"#0369a1",b:"#e0f2fe"},{e:"\u270D\uFE0F",l:"Content",c:"#0369a1",b:"#f0f9ff"},{e:"\uD83D\uDCD6",l:"Stories",c:"#b8894a",b:"#fff7ed"},{e:"\uD83D\uDCCA",l:"PPT Design",c:"#b8894a",b:"#fefce8"},{e:"\uD83D\uDDC4\uFE0F",l:"Data Mgmt",c:"#2563eb",b:"#eff6ff"},{e:"\uD83D\uDCE7",l:"Email Mgmt",c:"#0284c7",b:"#e0f2fe"},{e:"\uD83D\uDCBC",l:"CRM Setup",c:"#0369a1",b:"#e0f2fe"},{e:"\uD83C\uDF10",l:"Web Dev",c:"#0d9488",b:"#f0fdfa"}];
   const box=document.querySelector('.wheel-box');
   const ring=document.getElementById('wheelRing');
   const size=box.getBoundingClientRect().width||400;
@@ -979,6 +1079,7 @@ function initWheel(){
   });
 }
 window.addEventListener('resize',()=>{wheelInited=false;initWheel();});
+
 const WA='919979701232';
 let bYear,bMonth,bSelDate=null,bSelSlot=null,bInited=false;
 const B_SLOTS=['11:00 AM','11:30 AM','12:00 PM','12:30 PM','1:00 PM','1:30 PM','2:00 PM','2:30 PM','3:00 PM','3:30 PM','4:00 PM','4:30 PM','5:00 PM'];
@@ -1012,7 +1113,7 @@ function bRenderSlots(day){
 function bPickSlot(sl,btn){
   document.querySelectorAll('.slot-b.slot-sel').forEach(b=>b.classList.remove('slot-sel'));btn.classList.add('slot-sel');bSelSlot=sl;
   const MN=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-  const info=document.getElementById('bSelectedInfo');info.style.display='block';info.textContent='📅 '+bSelDate+' '+MN[bMonth]+' '+bYear+' · ⏰ '+sl;
+  const info=document.getElementById('bSelectedInfo');info.style.display='block';info.textContent='\uD83D\uDCC5 '+bSelDate+' '+MN[bMonth]+' '+bYear+' \u00B7 \u23F0 '+sl;
   document.getElementById('bSubmitBtn').disabled=false;
 }
 function bSubmit(){
@@ -1023,31 +1124,35 @@ function bSubmit(){
   if(!name||!email||!phone){alert('Please fill in Name, Email and WhatsApp number.');return;}
   const MN=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
   const dateStr=bSelDate+' '+MN[bMonth]+' '+bYear;
-  const msg='Hello GrowTogether Team,\n\nTraining Session Booking:\n📅 Date: '+dateStr+'\n⏰ Time: '+bSelSlot+'\n👤 Name: '+name+'\n📧 Email: '+email+'\n📱 WhatsApp: '+phone+'\n📝 Topic: '+(topic||'Training session');
+  const msg='Hello GrowTogether Team,\n\nTraining Session Booking:\n\uD83D\uDCC5 Date: '+dateStr+'\n\u23F0 Time: '+bSelSlot+'\n\uD83D\uDC64 Name: '+name+'\n\uD83D\uDCE7 Email: '+email+'\n\uD83D\uDCF1 WhatsApp: '+phone+'\n\uD83D\uDCDD Topic: '+(topic||'Training session');
   window.open('https://wa.me/'+WA+'?text='+encodeURIComponent(msg),'_blank');
   document.getElementById('bSuccess').style.display='block';document.getElementById('bSubmitBtn').style.display='none';
   document.getElementById('bSuccessMsg').innerHTML='Session booked for <strong>'+dateStr+' at '+bSelSlot+'</strong>.<br>Our team will confirm via <strong>email</strong>. Please check your inbox!';
 }
+
 (function(){
-  const words=["Business Strategy 📈","Staff Training 🎓","Business Growth 🚀","Social Media Marketing 📱","CRM Development 💼","PPT Design 📊","Content Writing ✍️"];
+  const words=["Business Strategy \uD83D\uDCC8","Staff Training \uD83C\uDF93","Business Growth \uD83D\uDE80","Social Media Marketing \uD83D\uDCF1","CRM Development \uD83D\uDCBC","PPT Design \uD83D\uDCCA","Content Writing \u270D\uFE0F"];
   let wi=0,ci=0,del=false;
   const el=document.getElementById('typingText');if(!el)return;
   function type(){const w=words[wi];if(!del){el.textContent=w.substring(0,ci+1);ci++;if(ci===w.length){del=true;setTimeout(type,1800);return;}}else{el.textContent=w.substring(0,ci-1);ci--;if(ci===0){del=false;wi=(wi+1)%words.length;}}setTimeout(type,del?60:100);}
   setTimeout(type,600);
 })();
+
 function animateCounter(el){if(el.dataset.done)return;el.dataset.done='1';const target=parseInt(el.getAttribute('data-target'));let cur=0;const step=target/80;const t=setInterval(()=>{cur+=step;if(cur>=target){el.textContent=target+'+';clearInterval(t);}else{el.textContent=Math.floor(cur)+'+';} },20);}
 setTimeout(()=>{document.querySelectorAll('.counter').forEach(animateCounter);},500);
-function toggleFaq(el){const a=el.nextElementSibling,arr=el.querySelector('.farr');const open=a.style.display==='block';document.querySelectorAll('.fa').forEach(x=>x.style.display='none');document.querySelectorAll('.farr').forEach(x=>{x.textContent='+';});if(!open){a.style.display='block';arr.textContent='×';}}
+
+function toggleFaq(el){const a=el.nextElementSibling,arr=el.querySelector('.farr');const open=a.style.display==='block';document.querySelectorAll('.fa').forEach(x=>x.style.display='none');document.querySelectorAll('.farr').forEach(x=>{x.textContent='+';});if(!open){a.style.display='block';arr.textContent='\u00D7';}}
 function submitForm(e){e.preventDefault();const b=e.target;b.textContent='Sending...';b.style.opacity='.7';setTimeout(()=>{b.style.display='none';const s=document.getElementById('formSuccess');s.style.display='block';s.scrollIntoView({behavior:'smooth',block:'center'});},1200);}
+
 const SD=[
-  {icon:"📱",bg:"#e0f2fe",tag:"Social Media Marketing",title:"Grow Your Brand on Social Media",desc:"End-to-end social media management — content planning, posting and growth tracking.",items:["10 custom images + 2 videos/month","Monthly content calendar","Hashtag research & captions (Hindi + English)","Profile optimization & branding","Monthly performance report"],tags:["Instagram","Facebook","LinkedIn","Reels"]},
-  {icon:"✍️",bg:"#f0f9ff",tag:"Content Writing",title:"SEO Articles & Web Copy",desc:"Clear, engaging, search-optimized writing for your website, blog, or marketing.",items:["SEO-optimized blog articles & pages","Product descriptions & landing copy","Hindi and English content","Keyword-friendly writing","Proofreading & editing"],tags:["SEO","Web Copy","Bilingual","Editing"]},
-  {icon:"📖",bg:"#fff7ed",tag:"Story Writing",title:"Brand Stories That Connect",desc:"Compelling brand narratives, founder stories, and creative content that builds emotional connection.",items:["Founder & brand origin stories","Customer success write-ups","Creative marketing narratives","About Us page storytelling","Scripts for videos & reels"],tags:["Brand Story","Storytelling","Scripts","Creative"]},
-  {icon:"📊",bg:"#fefce8",tag:"PPT Design",title:"Presentations That Impress",desc:"Professional, infographic-style presentations for pitches, training, proposals, and reports.",items:["Investor pitch decks","Corporate training presentations","Infographic slides with charts","Custom branding throughout","Editable source file delivered"],tags:["Pitch Decks","Training","Infographics","Branding"]},
-  {icon:"🗄️",bg:"#eff6ff",tag:"Data Management",title:"Organized, Reliable Business Data",desc:"Clean and structure your business data — from customer lists to sales records.",items:["Data entry, cleaning & formatting","Excel/Google Sheets dashboards","Customer & lead database setup","Inventory & sales tracking","Regular updates & backup"],tags:["Excel","Google Sheets","Dashboards","Data Entry"]},
-  {icon:"📧",bg:"#e0f2fe",tag:"Email Management",title:"Professional Email Management",desc:"From newsletters to client follow-ups — professional email communication.",items:["Newsletter writing & design","Cold outreach sequences","Daily inbox management","Email templates","Mailchimp setup & automation"],tags:["Newsletters","Inbox Mgmt","Mailchimp","Automation"]},
-  {icon:"💼",bg:"#e0f2fe",tag:"CRM Software & Setup",title:"Custom CRM Built for Your Business",desc:"CRM systems designed for how your business actually works.",items:["Custom order/lead pipeline","Employee & attendance modules","Billing & finance tracking","Reports & dashboards","Team training on the CRM"],tags:["Custom CRM","Pipeline","Reports","Training"]},
-  {icon:"🌐",bg:"#f0fdfa",tag:"Website Development",title:"Custom Websites Built To Your Requirement",desc:"Responsive, modern websites designed and built around exactly what your business needs — from simple landing pages to full multi-page sites.",items:["Custom design as per your requirement","Mobile & desktop responsive layout","Animations, forms & WhatsApp integration","SEO-ready structure","Source files & basic training to manage it"],tags:["Custom Design","Responsive","Business Sites","Landing Pages"]}
+  {icon:"\uD83D\uDCF1",bg:"#e0f2fe",tag:"Social Media Marketing",title:"Grow Your Brand on Social Media",desc:"End-to-end social media management \u2014 content planning, posting and growth tracking.",items:["10 custom images + 2 videos/month","Monthly content calendar","Hashtag research & captions (Hindi + English)","Profile optimization & branding","Monthly performance report"],tags:["Instagram","Facebook","LinkedIn","Reels"]},
+  {icon:"\u270D\uFE0F",bg:"#f0f9ff",tag:"Content Writing",title:"SEO Articles & Web Copy",desc:"Clear, engaging, search-optimized writing for your website, blog, or marketing.",items:["SEO-optimized blog articles & pages","Product descriptions & landing copy","Hindi and English content","Keyword-friendly writing","Proofreading & editing"],tags:["SEO","Web Copy","Bilingual","Editing"]},
+  {icon:"\uD83D\uDCD6",bg:"#fff7ed",tag:"Story Writing",title:"Brand Stories That Connect",desc:"Compelling brand narratives, founder stories, and creative content that builds emotional connection.",items:["Founder & brand origin stories","Customer success write-ups","Creative marketing narratives","About Us page storytelling","Scripts for videos & reels"],tags:["Brand Story","Storytelling","Scripts","Creative"]},
+  {icon:"\uD83D\uDCCA",bg:"#fefce8",tag:"PPT Design",title:"Presentations That Impress",desc:"Professional, infographic-style presentations for pitches, training, proposals, and reports.",items:["Investor pitch decks","Corporate training presentations","Infographic slides with charts","Custom branding throughout","Editable source file delivered"],tags:["Pitch Decks","Training","Infographics","Branding"]},
+  {icon:"\uD83D\uDDC4\uFE0F",bg:"#eff6ff",tag:"Data Management",title:"Organized, Reliable Business Data",desc:"Clean and structure your business data \u2014 from customer lists to sales records.",items:["Data entry, cleaning & formatting","Excel/Google Sheets dashboards","Customer & lead database setup","Inventory & sales tracking","Regular updates & backup"],tags:["Excel","Google Sheets","Dashboards","Data Entry"]},
+  {icon:"\uD83D\uDCE7",bg:"#e0f2fe",tag:"Email Management",title:"Professional Email Management",desc:"From newsletters to client follow-ups \u2014 professional email communication.",items:["Newsletter writing & design","Cold outreach sequences","Daily inbox management","Email templates","Mailchimp setup & automation"],tags:["Newsletters","Inbox Mgmt","Mailchimp","Automation"]},
+  {icon:"\uD83D\uDCBC",bg:"#e0f2fe",tag:"CRM Software & Setup",title:"Custom CRM Built for Your Business",desc:"CRM systems designed for how your business actually works.",items:["Custom order/lead pipeline","Employee & attendance modules","Billing & finance tracking","Reports & dashboards","Team training on the CRM"],tags:["Custom CRM","Pipeline","Reports","Training"]},
+  {icon:"\uD83C\uDF10",bg:"#f0fdfa",tag:"Website Development",title:"Custom Websites Built To Your Requirement",desc:"Responsive, modern websites designed and built around exactly what your business needs \u2014 from simple landing pages to full multi-page sites.",items:["Custom design as per your requirement","Mobile & desktop responsive layout","Animations, forms & WhatsApp integration","SEO-ready structure","Source files & basic training to manage it"],tags:["Custom Design","Responsive","Business Sites","Landing Pages"]}
 ];
 function openServiceModal(idx){
   const s=SD[idx];
@@ -1056,14 +1161,14 @@ function openServiceModal(idx){
   document.getElementById('svcModalTitle').textContent=s.title;
   document.getElementById('svcModalDesc').textContent=s.desc;
   const list=document.getElementById('svcModalList');list.innerHTML='';
-  s.items.forEach(it=>{const r=document.createElement('div');r.className='svc-modal-item';r.innerHTML='<span class="svc-ck">✓</span><span>'+it+'</span>';list.appendChild(r);});
+  s.items.forEach(it=>{const r=document.createElement('div');r.className='svc-modal-item';r.innerHTML='<span class="svc-ck">\u2713</span><span>'+it+'</span>';list.appendChild(r);});
   const tw=document.getElementById('svcModalTags');tw.innerHTML='';
   s.tags.forEach(t=>{const tg=document.createElement('span');tg.className='pc-tag';tg.textContent=t;tw.appendChild(tg);});
   document.getElementById('svcModalCta').href='https://wa.me/'+WA+'?text='+encodeURIComponent('Hello GrowTogether Team, I am interested in '+s.tag+'. Can you share more details?');
   document.getElementById('svcModalOverlay').classList.add('open');
 }
 function closeServiceModal(){document.getElementById('svcModalOverlay').classList.remove('open');}
-
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeServiceModal();});
 </script>
 </body>
 </html>
