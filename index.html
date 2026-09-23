@@ -1054,11 +1054,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:2000;height:68px;
     <div class="cf reveal-r">
       <h3>Send Us a Message</h3>
       <div class="fr">
-        <div class="fg"><label>Your name *</label><input type="text" placeholder="Your full name" required></div>
-        <div class="fg"><label>Phone *</label><input type="tel" placeholder="+91 or international" required></div>
+        <div class="fg"><label>Your name *</label><input type="text" id="cName" placeholder="Your full name" required></div>
+        <div class="fg"><label>Phone *</label><input type="tel" id="cPhone" placeholder="+91 or international" required></div>
       </div>
       <div class="fg"><label>Requirement *</label>
-        <select required>
+        <select id="cReq" required>
           <option value="">What do you need help with?</option>
           <option>Business Strategy &amp; Planning</option>
           <option>Staff Training &amp; Motivation</option>
@@ -1072,11 +1072,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:2000;height:68px;
           <option>Multiple Services</option>
         </select>
       </div>
-      <div class="fg"><label>Tell us more</label><textarea placeholder="Describe your business, goals and timeline..."></textarea></div>
+      <div class="fg"><label>Tell us more</label><textarea id="cMsg" placeholder="Describe your business, goals and timeline..."></textarea></div>
       <button class="fsub" onclick="submitForm(event)">&#128640; Send Message &amp; Get Free Consultation</button>
       <div class="smsg" id="formSuccess">
         <h4>&#9989; Message Sent!</h4>
-        <p>Thank you! We will Quick Response.</p>
+        <p id="formSuccessMsg">Thank you! We will Quick Response.</p>
         <a href="https://wa.me/919979701232" target="_blank" style="display:inline-flex;align-items:center;gap:7px;margin-top:10px;background:#25D366;color:#fff;padding:9px 18px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none">&#128172; WhatsApp Us Now</a>
       </div>
     </div>
@@ -1226,7 +1226,42 @@ function animateCounter(el){if(el.dataset.done)return;el.dataset.done='1';const 
 setTimeout(()=>{document.querySelectorAll('.counter').forEach(animateCounter);},500);
 
 function toggleFaq(el){const a=el.nextElementSibling,arr=el.querySelector('.farr');const open=a.style.display==='block';document.querySelectorAll('.fa').forEach(x=>x.style.display='none');document.querySelectorAll('.farr').forEach(x=>{x.textContent='+';});if(!open){a.style.display='block';arr.textContent='\u00D7';}}
-function submitForm(e){e.preventDefault();const b=e.target;b.textContent='Sending...';b.style.opacity='.7';setTimeout(()=>{b.style.display='none';const s=document.getElementById('formSuccess');s.style.display='block';s.scrollIntoView({behavior:'smooth',block:'center'});},1200);}
+
+/* ===== FIXED CONTACT FORM ===== */
+/* Old version just faked "Message Sent!" after 1.2s with no validation
+   and never actually sent the enquiry anywhere. This version validates
+   the required fields and opens WhatsApp with the enquiry pre-filled,
+   same pattern as the working booking form above. */
+const WA_CONTACT='919979701232';
+function submitForm(e){
+  e.preventDefault();
+  const name=document.getElementById('cName').value.trim();
+  const phone=document.getElementById('cPhone').value.trim();
+  const req=document.getElementById('cReq').value;
+  const msg=document.getElementById('cMsg').value.trim();
+
+  if(!name||!phone||!req){
+    alert('Please fill in your Name, Phone and Requirement before sending.');
+    return;
+  }
+
+  const waText='Hello GrowTogether Team,\n\nNew enquiry from website:\n\uD83D\uDC64 Name: '+name+
+    '\n\uD83D\uDCF1 Phone: '+phone+
+    '\n\uD83D\uDCCB Requirement: '+req+
+    (msg?('\n\uD83D\uDCDD Message: '+msg):'');
+
+  const b=e.target;
+  b.textContent='Sending...';b.style.opacity='.7';b.disabled=true;
+  window.open('https://wa.me/'+WA_CONTACT+'?text='+encodeURIComponent(waText),'_blank');
+
+  setTimeout(()=>{
+    b.style.display='none';
+    const s=document.getElementById('formSuccess');
+    document.getElementById('formSuccessMsg').innerHTML='Thank you, '+name+'! Your enquiry opened in WhatsApp — please hit Send there so we receive it instantly.<br>If WhatsApp did not open, message us directly on <strong>+91 99797 01232</strong>.';
+    s.style.display='block';
+    s.scrollIntoView({behavior:'smooth',block:'center'});
+  },500);
+}
 
 const SD=[
   {icon:"\uD83D\uDCF1",bg:"#e0f2fe",tag:"Social Media Marketing",title:"Grow Your Brand on Social Media",desc:"End-to-end social media management \u2014 content planning, posting and growth tracking.",items:["10 custom images + 2 videos/month","Monthly content calendar","Hashtag research & captions (Hindi + English)","Profile optimization & branding","Monthly performance report"],tags:["Instagram","Facebook","LinkedIn","Reels"]},
