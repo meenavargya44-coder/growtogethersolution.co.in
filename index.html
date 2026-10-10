@@ -277,6 +277,15 @@ nav{position:fixed;top:0;left:0;right:0;z-index:2000;height:68px;
 .global-banner a{background:linear-gradient(135deg,#0ea5e9,#0369a1);color:#fff;padding:10px 20px;border-radius:9px;font-size:13px;font-weight:700;text-decoration:none;white-space:nowrap;box-shadow:0 4px 14px rgba(14,165,233,.38);transition:opacity .2s;}
 .global-banner a:hover{opacity:.9;}
 
+/* MARQUEE STRIP */
+.marquee-strip{background:#041810;overflow:hidden;border-top:1px solid rgba(255,255,255,.1);border-bottom:1px solid rgba(255,255,255,.1);padding:16px 0;margin-bottom:40px;border-radius:14px;}
+.marquee-track{display:flex;width:max-content;animation:marqueeScroll 26s linear infinite;}
+.marquee-strip:hover .marquee-track{animation-play-state:paused;}
+.marquee-set{display:flex;align-items:center;gap:28px;padding-right:28px;white-space:nowrap;flex-shrink:0;}
+.marquee-set span{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#fff;}
+.marquee-set .mdiv{color:#38bdf8;opacity:.85;font-weight:700;}
+@keyframes marqueeScroll{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+
 /* INNER PAGE BASE */
 .inner-wrap{max-width:1100px;margin:0 auto;padding:56px 44px 80px;}
 .page-eyebrow{display:inline-flex;align-items:center;gap:7px;background:#e0f2fe;color:#0369a1;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:5px 14px;border-radius:99px;margin-bottom:14px;}
@@ -487,6 +496,21 @@ nav{position:fixed;top:0;left:0;right:0;z-index:2000;height:68px;
 .wy h4{font-size:14px;font-weight:700;color:#0c2d4a;margin-bottom:6px;}
 .wy p{font-size:12px;color:var(--mute);line-height:1.65;}
 
+/* COMPARISON TABLE (Why GrowTogether) */
+.cmp-wrap{background:#0c2d4a;border-radius:22px;padding:36px;box-shadow:var(--shl);overflow:hidden;position:relative;margin-bottom:48px;}
+.cmp-head{text-align:center;margin-bottom:26px;}
+.cmp-eyebrow{font-size:10.5px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#7dd3fc;margin-bottom:8px;}
+.cmp-title{font-family:'DM Serif Display',serif;font-size:26px;color:#fff;}
+.cmp-table{width:100%;border-collapse:collapse;}
+.cmp-table th{font-size:12.5px;font-weight:700;color:#fff;padding:12px 10px;text-align:center;}
+.cmp-table th:first-child{text-align:left;}
+.cmp-table th.cmp-us{color:#0c2d4a;background:linear-gradient(135deg,#7dd3fc,#38bdf8);border-radius:10px 10px 0 0;}
+.cmp-table td{font-size:12.5px;color:rgba(255,255,255,.65);padding:13px 10px;border-top:1px solid rgba(255,255,255,.08);text-align:center;}
+.cmp-table td:first-child{text-align:left;color:rgba(255,255,255,.85);font-weight:500;}
+.cmp-table td.cmp-us-col{background:rgba(125,211,252,.08);}
+.cmp-ck{color:#38bdf8;font-weight:900;font-size:15px;}
+.cmp-x{color:rgba(255,255,255,.25);font-weight:900;font-size:15px;}
+
 /* PORTFOLIO PAGE */
 #portfolio-page{background:linear-gradient(180deg,#fff 0%,#f0f9ff 100%);}
 .testi-section{background:linear-gradient(135deg,#0c2d4a,#0a4a7a);border-radius:22px;padding:36px;margin-bottom:36px;}
@@ -540,11 +564,15 @@ nav{position:fixed;top:0;left:0;right:0;z-index:2000;height:68px;
 .loc-box .lt{font-size:11px;font-weight:700;color:#0284c7;letter-spacing:1px;text-transform:uppercase;margin-bottom:5px;}
 .loc-box p{font-size:13px;color:#1e293b;line-height:1.6;}
 .faq-title{font-family:'DM Serif Display',serif;font-size:22px;color:#0c2d4a;margin-bottom:14px;}
-.fi{background:#fff;border:1.5px solid #bae6fd;border-radius:12px;margin-bottom:8px;overflow:hidden;transition:border-color .2s;}
+.fi{background:#fff;border:1.5px solid #bae6fd;border-radius:12px;margin-bottom:8px;overflow:hidden;transition:all .25s;}
 .fi:hover{border-color:#7dd3fc;}
-.fq{padding:16px 18px;display:flex;justify-content:space-between;cursor:pointer;font-size:13.5px;font-weight:600;color:#0c2d4a;}
+.fi.fi-open{background:#0c2d4a;border-color:#0c2d4a;}
+.fq{padding:16px 18px;display:flex;justify-content:space-between;cursor:pointer;font-size:13.5px;font-weight:600;color:#0c2d4a;align-items:center;}
+.fi.fi-open .fq{color:#fff;}
 .fa{display:none;padding:0 18px 14px;font-size:13px;color:var(--mute);line-height:1.8;}
-.farr{font-size:16px;color:#0ea5e9;}
+.fi.fi-open .fa{color:#bae6fd;}
+.farr{font-size:16px;color:#0ea5e9;flex-shrink:0;width:24px;height:24px;border-radius:50%;background:#e0f2fe;display:flex;align-items:center;justify-content:center;}
+.fi.fi-open .farr{background:rgba(255,255,255,.15);color:#7dd3fc;}
 .cf{background:#fff;border:1.5px solid #bae6fd;border-radius:20px;padding:30px;box-shadow:var(--sh);}
 .cf h3{font-size:18px;font-weight:700;color:#0c2d4a;margin-bottom:20px;}
 .fg{margin-bottom:14px;}
@@ -593,9 +621,25 @@ nav{position:fixed;top:0;left:0;right:0;z-index:2000;height:68px;
 .svc-modal-cta{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--wa);color:#fff;padding:13px;border-radius:12px;font-size:14px;font-weight:700;text-decoration:none;transition:filter .2s;}
 .svc-modal-cta:hover{filter:brightness(1.06);}
 
-/* WhatsApp FAB */
-.waf{position:fixed;bottom:24px;right:24px;z-index:999;width:54px;height:54px;border-radius:50%;background:var(--wa);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.45);text-decoration:none;transition:transform .2s;}
-.waf:hover{transform:scale(1.1);}
+/* WhatsApp FAB (with attention pulse) */
+.waf{position:fixed;bottom:24px;right:24px;z-index:999;width:54px;height:54px;border-radius:50%;background:var(--wa);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.45);text-decoration:none;transition:transform .2s,background-color .2s;animation:wafBounce 3.2s infinite;}
+.waf::before{content:'';position:absolute;inset:0;border-radius:50%;background:var(--wa);z-index:-1;opacity:.7;animation:wafPulse 2.1s infinite ease-out;}
+.waf:hover{transform:scale(1.14) rotate(4deg);background:#20BA5A;animation:none;}
+.waf:hover::before{animation:none;}
+@keyframes wafPulse{0%{transform:scale(1);opacity:.65;}100%{transform:scale(1.6);opacity:0;}}
+@keyframes wafBounce{0%,100%{transform:translateY(0);}10%,30%,50%{transform:translateY(-6px);}20%,40%{transform:translateY(0);}60%{transform:translateY(0);}}
+
+/* PROMO POPUP */
+.promo-overlay{position:fixed;inset:0;background:rgba(10,20,15,.78);backdrop-filter:blur(6px);z-index:4000;display:none;align-items:center;justify-content:center;padding:20px;}
+.promo-overlay.open{display:flex;animation:fadeIn .25s ease both;}
+.promo-box{background:linear-gradient(135deg,#0c2d4a,#0a4a7a);border-radius:20px;max-width:440px;width:100%;position:relative;padding:40px 32px 32px;text-align:center;box-shadow:0 30px 70px rgba(0,0,0,.5);animation:popIn .35s cubic-bezier(.34,1.4,.64,1) both;border:1px solid rgba(255,255,255,.14);}
+.promo-close{position:absolute;top:14px;right:14px;width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#fff;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;}
+.promo-close:hover{background:var(--gold);color:#0c2d4a;}
+.promo-badge{display:inline-block;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:var(--gold);font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:6px 16px;border-radius:99px;margin-bottom:18px;}
+.promo-title{font-family:'DM Serif Display',serif;font-size:26px;color:#fff;margin-bottom:10px;line-height:1.25;}
+.promo-text{font-size:13.5px;color:rgba(255,255,255,.68);line-height:1.8;margin-bottom:24px;}
+.promo-cta{display:inline-flex;align-items:center;gap:8px;background:var(--wa);color:#fff;padding:13px 26px;border-radius:11px;font-size:14px;font-weight:700;text-decoration:none;box-shadow:0 8px 24px rgba(37,211,102,.4);transition:transform .2s;}
+.promo-cta:hover{transform:translateY(-2px);}
 
 /* RESPONSIVE */
 @media(max-width:1100px){
@@ -634,11 +678,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:2000;height:68px;
   .tst{padding:8px 0;border-right:none;}
   .email-card{flex-direction:column;text-align:center;}
   .hero-logo-badge{margin-left:auto;margin-right:auto;}
+  .cmp-table{font-size:11px;}
+  .cmp-wrap{padding:22px 14px;}
 }
 @media(max-width:520px){
   .logo-mark{width:40px;height:40px;}
   .logo-grow{font-size:13.5px;}
   .logo-solutions{font-size:7.5px;letter-spacing:2.6px;}
+  .marquee-set span{font-size:11px;}
 }
 @media(max-width:400px){
   .wheel-box{width:280px;height:280px;}
@@ -777,6 +824,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:2000;height:68px;
     </div>
     <div class="global-banner reveal"><span style="font-size:24px">&#127758;</span><p>Serving clients across <strong>India</strong> and <strong>worldwide</strong> — USA, UK, UAE, Australia and more.</p><a href="#" onclick="showPage('contact')">Get Free Consultation &rarr;</a></div>
   </div>
+
+  <div class="marquee-strip reveal" style="margin-top:36px;">
+    <div class="marquee-track" id="homeMarquee"></div>
+  </div>
+
   <div class="site-footer on-dark">
     <img src="logo.png" alt="Grow Together Solution" onerror="this.style.display='none'">
     <div class="sf-name">GROW TOGETHER SOLUTION</div>
@@ -857,6 +909,33 @@ nav{position:fixed;top:0;left:0;right:0;z-index:2000;height:68px;
     <div class="wy reveal" style="transition-delay:.16s"><div class="wy-ic">&#9889;</div><h4>Fast, Honest Execution</h4><p>Clear timelines, transparent pricing, zero hidden surprises.</p></div>
     <div class="wy reveal" style="transition-delay:.24s"><div class="wy-ic">&#128200;</div><h4>Outcome Focused</h4><p>Success measured by your growth, not just by deliverables.</p></div>
   </div>
+
+  <div class="divider-line"><div class="divider-inner">Why GrowTogether</div></div>
+  <div class="cmp-wrap reveal">
+    <div class="cmp-head">
+      <div class="cmp-eyebrow">Side-by-Side</div>
+      <div class="cmp-title">GrowTogether vs. Doing It Alone</div>
+    </div>
+    <table class="cmp-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th class="cmp-us">GrowTogether</th>
+          <th>Freelancer / In-house Hire</th>
+          <th>DIY / No Support</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Dedicated growth strategy</td><td class="cmp-us-col"><span class="cmp-ck">&#10003;</span></td><td><span class="cmp-x">&#10005;</span></td><td><span class="cmp-x">&#10005;</span></td></tr>
+        <tr><td>Full team (design + content + CRM)</td><td class="cmp-us-col"><span class="cmp-ck">&#10003;</span></td><td><span class="cmp-x">&#10005;</span></td><td><span class="cmp-x">&#10005;</span></td></tr>
+        <tr><td>Starts within 24 hours</td><td class="cmp-us-col"><span class="cmp-ck">&#10003;</span></td><td><span class="cmp-x">&#10005;</span></td><td><span class="cmp-x">&#10005;</span></td></tr>
+        <tr><td>Transparent, budget-friendly pricing</td><td class="cmp-us-col"><span class="cmp-ck">&#10003;</span></td><td><span class="cmp-ck">&#10003;</span></td><td><span class="cmp-x">&#10005;</span></td></tr>
+        <tr><td>7-day post-delivery support</td><td class="cmp-us-col"><span class="cmp-ck">&#10003;</span></td><td><span class="cmp-x">&#10005;</span></td><td><span class="cmp-x">&#10005;</span></td></tr>
+        <tr><td>No in-house hiring/training cost</td><td class="cmp-us-col"><span class="cmp-ck">&#10003;</span></td><td><span class="cmp-ck">&#10003;</span></td><td><span class="cmp-x">&#10005;</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
   <div class="divider-line"><div class="divider-inner">Our Team</div></div>
   <div class="team-banner reveal">
     <div class="team-ic">&#128101;</div>
@@ -904,6 +983,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:2000;height:68px;
       <div class="sli" onclick="openServiceModal(7)"><div class="sli-ic" style="background:#f0fdfa">&#127760;</div><div class="sli-t"><h4>Website Development</h4><p>As per your requirement, we'll build the website you need</p></div></div>
     </div>
   </div>
+
+  <div class="marquee-strip reveal">
+    <div class="marquee-track" id="svcMarquee"></div>
+  </div>
+
   <div class="divider-line"><div class="divider-inner">Staff Training</div></div>
   <div class="training-stats reveal">
     <div class="ts-item"><div class="ts-n ts-accent">50+</div><div class="ts-l">Sessions Done</div></div>
@@ -1045,7 +1129,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:2000;height:68px;
       </div>
       <div class="faq-title">Quick FAQs</div>
       <div class="faq-box">
-        <div class="fi"><div class="fq" onclick="toggleFaq(this)"><span>How quickly do you start?</span><span class="farr">+</span></div><div class="fa">We start within 24 hours of confirmation. Urgent projects — same day.</div></div>
+        <div class="fi fi-open"><div class="fq" onclick="toggleFaq(this)"><span>How quickly do you start?</span><span class="farr">&minus;</span></div><div class="fa" style="display:block">We start within 24 hours of confirmation. Urgent projects — same day.</div></div>
         <div class="fi"><div class="fq" onclick="toggleFaq(this)"><span>Do you work with international clients?</span><span class="farr">+</span></div><div class="fa">Yes! USA, UK, UAE, Australia and more. PayPal, Payoneer, Wise accepted.</div></div>
         <div class="fi"><div class="fq" onclick="toggleFaq(this)"><span>Is the first consultation really free?</span><span class="farr">+</span></div><div class="fa">Yes, 100% free. We discuss your needs, no commitment required.</div></div>
         <div class="fi"><div class="fq" onclick="toggleFaq(this)"><span>What payment methods do you accept?</span><span class="farr">+</span></div><div class="fa">UPI, bank transfer (India), PayPal, Payoneer, Wise. 50% advance for new clients.</div></div>
@@ -1111,6 +1195,20 @@ nav{position:fixed;top:0;left:0;right:0;z-index:2000;height:68px;
   </div>
 </div>
 
+<!-- PROMO POPUP -->
+<div class="promo-overlay" id="promoOverlay">
+  <div class="promo-box">
+    <button class="promo-close" onclick="closePromoPopup()">&#10005;</button>
+    <div class="promo-badge">&#9889; Limited Slots This Month</div>
+    <div class="promo-title">Get a Free Growth Consultation</div>
+    <p class="promo-text">30+ projects delivered, 20+ happy clients, 6+ years of hands-on experience. Tell us your business goals and we'll send a custom plan — no cost, no commitment.</p>
+    <a href="https://wa.me/919979701232?text=Hello%20GrowTogether%20Team%2C%20I%20saw%20your%20website%20and%20want%20a%20free%20growth%20consultation." target="_blank" class="promo-cta" onclick="closePromoPopup()">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Chat With Us Free
+    </a>
+  </div>
+</div>
+
 <!-- WhatsApp FAB -->
 <a href="https://wa.me/919979701232" target="_blank" class="waf">
   <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
@@ -1142,6 +1240,23 @@ function onScroll(){
   });
 }
 setTimeout(triggerReveal,300);
+
+/* MARQUEE STRIPS */
+(function(){
+  const items=["Business Growth Partner \u2192","6+ Years Formulation Experience \u2192","Zero Hidden Costs \u2192","24-Hour Project Start \u2192","Trusted Across India &amp; Worldwide \u2192"];
+  function buildMarquee(el){
+    if(!el)return;
+    let html='';
+    for(let r=0;r<3;r++){
+      html+='<div class="marquee-set">';
+      items.forEach(t=>{html+='<span>'+t+'</span><span class="mdiv">/</span>';});
+      html+='</div>';
+    }
+    el.innerHTML=html;
+  }
+  buildMarquee(document.getElementById('homeMarquee'));
+  buildMarquee(document.getElementById('svcMarquee'));
+})();
 
 let wheelInited=false;
 function initWheel(){
@@ -1225,43 +1340,24 @@ function bSubmit(){
 function animateCounter(el){if(el.dataset.done)return;el.dataset.done='1';const target=parseInt(el.getAttribute('data-target'));let cur=0;const step=target/80;const t=setInterval(()=>{cur+=step;if(cur>=target){el.textContent=target+'+';clearInterval(t);}else{el.textContent=Math.floor(cur)+'+';} },20);}
 setTimeout(()=>{document.querySelectorAll('.counter').forEach(animateCounter);},500);
 
-function toggleFaq(el){const a=el.nextElementSibling,arr=el.querySelector('.farr');const open=a.style.display==='block';document.querySelectorAll('.fa').forEach(x=>x.style.display='none');document.querySelectorAll('.farr').forEach(x=>{x.textContent='+';});if(!open){a.style.display='block';arr.textContent='\u00D7';}}
-
-/* ===== FIXED CONTACT FORM ===== */
-/* Old version just faked "Message Sent!" after 1.2s with no validation
-   and never actually sent the enquiry anywhere. This version validates
-   the required fields and opens WhatsApp with the enquiry pre-filled,
-   same pattern as the working booking form above. */
-const WA_CONTACT='919979701232';
-function submitForm(e){
-  e.preventDefault();
-  const name=document.getElementById('cName').value.trim();
-  const phone=document.getElementById('cPhone').value.trim();
-  const req=document.getElementById('cReq').value;
-  const msg=document.getElementById('cMsg').value.trim();
-
-  if(!name||!phone||!req){
-    alert('Please fill in your Name, Phone and Requirement before sending.');
-    return;
-  }
-
-  const waText='Hello GrowTogether Team,\n\nNew enquiry from website:\n\uD83D\uDC64 Name: '+name+
-    '\n\uD83D\uDCF1 Phone: '+phone+
-    '\n\uD83D\uDCCB Requirement: '+req+
-    (msg?('\n\uD83D\uDCDD Message: '+msg):'');
-
-  const b=e.target;
-  b.textContent='Sending...';b.style.opacity='.7';b.disabled=true;
-  window.open('https://wa.me/'+WA_CONTACT+'?text='+encodeURIComponent(waText),'_blank');
-
-  setTimeout(()=>{
-    b.style.display='none';
-    const s=document.getElementById('formSuccess');
-    document.getElementById('formSuccessMsg').innerHTML='Thank you, '+name+'! Your enquiry opened in WhatsApp — please hit Send there so we receive it instantly.<br>If WhatsApp did not open, message us directly on <strong>+91 99797 01232</strong>.';
-    s.style.display='block';
-    s.scrollIntoView({behavior:'smooth',block:'center'});
-  },500);
+function toggleFaq(el){
+  const item=el.closest('.fi');
+  const a=el.nextElementSibling,arr=el.querySelector('.farr');
+  const open=item.classList.contains('fi-open');
+  document.querySelectorAll('.fi').forEach(x=>{x.classList.remove('fi-open');x.querySelector('.fa').style.display='none';x.querySelector('.farr').textContent='+';});
+  if(!open){item.classList.add('fi-open');a.style.display='block';arr.textContent='\u2212';}
 }
+function submitForm(e){e.preventDefault();const b=e.target;b.textContent='Sending...';b.style.opacity='.7';setTimeout(()=>{b.style.display='none';const s=document.getElementById('formSuccess');s.style.display='block';s.scrollIntoView({behavior:'smooth',block:'center'});},1200);}
+
+/* PROMO POPUP */
+function closePromoPopup(){document.getElementById('promoOverlay').classList.remove('open');}
+window.addEventListener('load',function(){
+  setTimeout(function(){document.getElementById('promoOverlay').classList.add('open');},1200);
+});
+document.getElementById('promoOverlay') && document.getElementById('promoOverlay').addEventListener('click',function(e){
+  if(e.target===this)closePromoPopup();
+});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeServiceModal();closePromoPopup();}});
 
 const SD=[
   {icon:"\uD83D\uDCF1",bg:"#e0f2fe",tag:"Social Media Marketing",title:"Grow Your Brand on Social Media",desc:"End-to-end social media management \u2014 content planning, posting and growth tracking.",items:["10 custom images + 2 videos/month","Monthly content calendar","Hashtag research & captions (Hindi + English)","Profile optimization & branding","Monthly performance report"],tags:["Instagram","Facebook","LinkedIn","Reels"]},
@@ -1287,7 +1383,6 @@ function openServiceModal(idx){
   document.getElementById('svcModalOverlay').classList.add('open');
 }
 function closeServiceModal(){document.getElementById('svcModalOverlay').classList.remove('open');}
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closeServiceModal();});
 </script>
 </body>
 </html>
