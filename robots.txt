@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://growtogethersolution.co.in/sitemap.xml
